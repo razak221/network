@@ -53,7 +53,13 @@
   - **Scope:** Add a "Print / Save Quote PDF" button in `EventBuilder.jsx` that formats the active configured event breakdown into a clean, printable B2B proposal sheet with Pristine Decore header and founder signatures.
   - **Files:** `src/components/EventBuilder.jsx`, `src/index.css` (print styles).
   - **Verification:** `npm run build` passes; print styles hide UI clutter and display formal quotation layout.
-  - **Commit:** `feat(quote): printable B2B proposal and PDF export sheet [TASK-007]`
+  - **Commit:** `9072502`
+
+- [x] **THEME-001: Soft Luxury Light Aesthetic Redesign**
+  - **Scope:** Complete template transformation to an elegant, soft, light aesthetic with ivory/pearl backgrounds (`#FBFBFA`), warm champagne and gold accents, frosted glass panels, soft shadows, and refined typography.
+  - **Files:** `index.html`, `tailwind.config.js`, `src/index.css`, all component views.
+  - **Verification:** `npm run build` passed (0 errors, 3.04s).
+  - **Commit:** `0a6abb3`
 
 - [ ] **TASK-008: Interactive Event Showcase & Mall Activations Gallery**
   - **Scope:** Build an interactive image gallery component `src/components/GallerySection.jsx` featuring categorized event previews (Mall Activations, Stage Backdrops, 3D Neon Displays, Brand Kiosks) with category filter pills and lightbox preview.
