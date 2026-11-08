@@ -6,9 +6,9 @@
 ---
 
 ## Current Status Overview
-- **Completed Tasks:** 6
-- **Pending Tasks:** 4
-- **Current Active Task:** `TASK-007`
+- **Completed Tasks:** 7
+- **Pending Tasks:** 3
+- **Current Active Task:** `TASK-008`
 
 ---
 
@@ -47,13 +47,13 @@
   - **Scope:** Create a centralized config file `src/config/contact.js` defining official phone numbers, WhatsApp numbers, email, and social links for Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali so they can be managed from a single place across `Navbar`, `EventBuilder`, `FoundersSection`, `ContactSection`, and `FloatingWidget`.
   - **Files:** `src/config/contact.js`, `src/components/EventBuilder.jsx`, `src/components/Navbar.jsx`, `src/components/FoundersSection.jsx`, `src/components/FloatingWidget.jsx`, `src/components/ContactSection.jsx`.
   - **Verification:** `npm run build` passes; all WhatsApp triggers import from centralized config.
-  - **Commit:** `feat(contact): centralized contact configuration and dynamic WhatsApp binding [TASK-006]`
+  - **Commit:** `928491a`
 
-- [ ] **TASK-007: Event Quote Printable Summary & Download PDF Trigger**
+- [x] **TASK-007: Event Quote Printable Summary & Download PDF Trigger**
   - **Scope:** Add a "Print / Save Quote PDF" button in `EventBuilder.jsx` that formats the active configured event breakdown into a clean, printable B2B proposal sheet with Pristine Decore header and founder signatures.
   - **Files:** `src/components/EventBuilder.jsx`, `src/index.css` (print styles).
   - **Verification:** `npm run build` passes; print styles hide UI clutter and display formal quotation layout.
-  - **Status:** PENDING
+  - **Commit:** `feat(quote): printable B2B proposal and PDF export sheet [TASK-007]`
 
 - [ ] **TASK-008: Interactive Event Showcase & Mall Activations Gallery**
   - **Scope:** Build an interactive image gallery component `src/components/GallerySection.jsx` featuring categorized event previews (Mall Activations, Stage Backdrops, 3D Neon Displays, Brand Kiosks) with category filter pills and lightbox preview.

@@ -12,7 +12,8 @@ import {
   ArrowRight,
   ShieldCheck,
   HelpCircle,
-  FileText
+  FileText,
+  Printer
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 
@@ -415,15 +416,24 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
                 </div>
               </div>
 
-              {/* WhatsApp Call to Action */}
-              <div className="space-y-2 pt-2">
+              {/* Call to Actions */}
+              <div className="space-y-2.5 pt-2">
                 <button
                   type="button"
                   onClick={handleWhatsAppBooking}
-                  className="w-full py-4 rounded-xl text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-[1.02] transition-all"
+                  className="w-full py-4 rounded-xl text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-[1.01] transition-all"
                 >
                   <Send className="w-4 h-4 fill-slate-950" />
                   <span>Send Quote to Founders via WhatsApp</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => window.print()}
+                  className="w-full py-3 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/15 text-slate-200 border border-white/15 flex items-center justify-center gap-2 transition-all"
+                >
+                  <Printer className="w-4 h-4 text-amber-400" />
+                  <span>Print / Save Quote Proposal (PDF)</span>
                 </button>
 
                 <p className="text-[11px] text-center text-slate-400">
@@ -439,6 +449,181 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* PRINT-ONLY FORMAL B2B PROPOSAL SHEET */}
+      <div className="hidden print:block printable-quote-sheet font-sans p-8 text-slate-900 bg-white">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b-2 border-slate-900 pb-4 mb-6">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900">PRISTINE DECORE</h1>
+            <p className="text-xs uppercase tracking-wider text-slate-600 font-semibold">Event Manpower & Custom Production</p>
+            <p className="text-xs text-slate-500">pristinedecore.com • info@pristinedecore.com</p>
+          </div>
+          <div className="text-right">
+            <span className="inline-block px-3 py-1 bg-slate-900 text-white text-xs font-bold uppercase rounded">
+              Official Quotation Proposal
+            </span>
+            <p className="text-xs text-slate-500 mt-1">Date: {new Date().toLocaleDateString()}</p>
+            <p className="text-xs text-slate-500 font-mono">Ref: PD-{Math.floor(100000 + Math.random() * 900000)}</p>
+          </div>
+        </div>
+
+        {/* Client & Event Meta */}
+        <div className="grid grid-cols-2 gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200 mb-6 text-xs">
+          <div>
+            <p className="text-slate-500 font-semibold uppercase">Client Information</p>
+            <p className="text-sm font-bold text-slate-900 mt-1">{clientInfo.name || 'Event Director / Brand Client'}</p>
+            <p className="text-slate-700">Company: {clientInfo.company || 'Direct Organization'}</p>
+            <p className="text-slate-700">Phone: {clientInfo.phone || 'Direct Line'}</p>
+          </div>
+          <div>
+            <p className="text-slate-500 font-semibold uppercase">Event Details</p>
+            <p className="text-sm font-bold text-slate-900 mt-1">{EVENT_TYPES.find(t => t.id === eventType)?.label}</p>
+            <p className="text-slate-700">Venue: {mallVenue || 'Designated Mall / Venue'}</p>
+            <p className="text-slate-700">Duration: {durationDays} Day(s) {eventDate ? `• Date: ${eventDate}` : ''}</p>
+          </div>
+        </div>
+
+        {/* Section 1: Manpower Table */}
+        <div className="mb-6">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1 mb-2">
+            1. Event Manpower Allocation ({totalCrewCount} Total Staff)
+          </h2>
+          <table className="w-full text-xs text-left border border-slate-200">
+            <thead className="bg-slate-100 text-slate-700 font-semibold">
+              <tr>
+                <th className="p-2 border-b">Role / Profile</th>
+                <th className="p-2 border-b text-center">Quantity</th>
+                <th className="p-2 border-b">Operational Scope</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200">
+              {crew.promoters > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Brand Promoters / Models</td>
+                  <td className="p-2 text-center font-bold">{crew.promoters}</td>
+                  <td className="p-2 text-slate-600">Shopper engagement, product sampling & lead logging</td>
+                </tr>
+              )}
+              {crew.bouncers > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Bouncers & Crowd Marshals</td>
+                  <td className="p-2 text-center font-bold">{crew.bouncers}</td>
+                  <td className="p-2 text-slate-600">Crowd flow safety, queue control & VIP protection</td>
+                </tr>
+              )}
+              {crew.ushers > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Hospitality Ushers & Hosts</td>
+                  <td className="p-2 text-center font-bold">{crew.ushers}</td>
+                  <td className="p-2 text-slate-600">Registration desk, VIP welcoming & badges</td>
+                </tr>
+              )}
+              {crew.stagehands > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Logistics & Setup Hands</td>
+                  <td className="p-2 text-center font-bold">{crew.stagehands}</td>
+                  <td className="p-2 text-slate-600">Night-shift mall booth assembly & strike-down</td>
+                </tr>
+              )}
+              {crew.supervisors > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">On-Site Floor Supervisors</td>
+                  <td className="p-2 text-center font-bold">{crew.supervisors}</td>
+                  <td className="p-2 text-slate-600">Mall security liaison, attendance & live reporting</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Section 2: Production & Decor Table */}
+        <div className="mb-6">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1 mb-2">
+            2. Custom Production & Decor Deliverables
+          </h2>
+          <table className="w-full text-xs text-left border border-slate-200">
+            <thead className="bg-slate-100 text-slate-700 font-semibold">
+              <tr>
+                <th className="p-2 border-b">Production Asset</th>
+                <th className="p-2 border-b text-center">Quantity</th>
+                <th className="p-2 border-b">Specification Standard</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200">
+              {materials.standees > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Roll-Up Standees</td>
+                  <td className="p-2 text-center font-bold">{materials.standees} pcs</td>
+                  <td className="p-2 text-slate-600">Heavy aluminum / teardrop base with matte non-tear fabric</td>
+                </tr>
+              )}
+              {materials.flexBackdrop > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Custom Flex / Stage Backdrop</td>
+                  <td className="p-2 text-center font-bold">{materials.flexBackdrop} unit</td>
+                  <td className="p-2 text-slate-600">High-resolution star-flex with rigid iron trussing</td>
+                </tr>
+              )}
+              {materials.acrylicBoard > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">3D Acrylic / LED Glow Board</td>
+                  <td className="p-2 text-center font-bold">{materials.acrylicBoard} unit</td>
+                  <td className="p-2 text-slate-600">Laser-cut illuminated letters with certified low-voltage wiring</td>
+                </tr>
+              )}
+              {materials.neonSign > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Custom Neon Flex Board</td>
+                  <td className="p-2 text-center font-bold">{materials.neonSign} unit</td>
+                  <td className="p-2 text-slate-600">Vibrant acrylic backing for selfie/photo activation</td>
+                </tr>
+              )}
+              {materials.balloonArch > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Thematic Balloon / Floral Arch</td>
+                  <td className="p-2 text-center font-bold">{materials.balloonArch} set</td>
+                  <td className="p-2 text-slate-600">Custom brand colors, organic styling & entrance framing</td>
+                </tr>
+              )}
+              {materials.soundAndMics > 0 && (
+                <tr>
+                  <td className="p-2 font-medium">Sound System + Wireless Mics</td>
+                  <td className="p-2 text-center font-bold">{materials.soundAndMics} set</td>
+                  <td className="p-2 text-slate-600">High-fidelity speakers, UHF wireless mics & audio mixer</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Section 3: Custom Wishlist */}
+        {customRequest.trim() && (
+          <div className="mb-6 p-3 bg-amber-50 rounded border border-amber-200 text-xs">
+            <p className="font-bold text-amber-900 uppercase">Special Sourcing & Bespoke Requests:</p>
+            <p className="text-slate-800 mt-1 italic font-medium">"{customRequest.trim()}"</p>
+          </div>
+        )}
+
+        {/* Signatures & SLA */}
+        <div className="pt-6 border-t-2 border-slate-300 grid grid-cols-3 gap-4 text-center text-xs">
+          <div>
+            <p className="text-slate-400 uppercase text-[10px] font-bold">Ground Operations Lead</p>
+            <p className="font-bold text-slate-900 mt-4">Syed Inam</p>
+            <p className="text-slate-500 text-[10px]">Operations & Mall Clearances</p>
+          </div>
+          <div>
+            <p className="text-slate-400 uppercase text-[10px] font-bold">Client Relations Lead</p>
+            <p className="font-bold text-slate-900 mt-4">Razak Ahmed Khan</p>
+            <p className="text-slate-500 text-[10px]">Business Strategy & Quotes</p>
+          </div>
+          <div>
+            <p className="text-slate-400 uppercase text-[10px] font-bold">Production & Decor Lead</p>
+            <p className="font-bold text-slate-900 mt-4">Syed Haamed Ali</p>
+            <p className="text-slate-500 text-[10px]">Creative Decor & Print Fabrication</p>
+          </div>
         </div>
       </div>
     </section>

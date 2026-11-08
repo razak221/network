@@ -55,3 +55,4 @@ export const CONTACT_CONFIG = {
     return `https://wa.me/?text=${encoded}`;
   }
 };
+
