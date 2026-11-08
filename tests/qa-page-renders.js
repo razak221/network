@@ -45,3 +45,4 @@ galleryItems.forEach((g, idx) => {
 console.log("✅ galleryItems contract verified (6/6 have valid tags and images)");
 
 console.log("🎉 ALL PAGE DATA CONTRACT CHECKS PASSED WITH ZERO RUNTIME TYPE ERRORS!");
+
