@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Logo from './Logo';
 import { 
   Users, 
   Sparkles, 
@@ -43,23 +44,8 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700 flex items-center justify-center text-white font-black shadow-soft-gold group-hover:scale-105 transition-transform duration-200">
-              <span className="font-heading text-xl tracking-tighter">PD</span>
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-amber-600 transition-colors">
-                  PRISTINE<span className="text-amber-600">DECORE</span>
-                </span>
-                <span className="hidden md:inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
-                  pristinedecore.com
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-500 tracking-wider uppercase font-medium">
-                Event Manpower & Custom Production
-              </p>
-            </div>
+          <a href="#" className="flex items-center">
+            <Logo size="md" variant="dark" showTagline={true} />
           </a>
 
           {/* Desktop Navigation Links */}

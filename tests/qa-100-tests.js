@@ -44,13 +44,14 @@ const requiredFiles = [
   'src/components/Navbar.jsx',
   'src/components/Hero.jsx',
   'src/components/EventBuilder.jsx',
-  'src/components/StageVisualizer.jsx',
-  'src/components/NightShiftTimeline.jsx'
+  'src/components/Logo.jsx'
 ];
 
 requiredFiles.forEach((file, idx) => {
   assert(existsSync(resolve(root, file)), idx + 1, `Verify existence of critical file: ${file}`);
 });
+
+assert(existsSync(resolve(root, 'src/components/StageVisualizer.jsx')) && existsSync(resolve(root, 'public/logo.svg')) && existsSync(resolve(root, 'src/components/NightShiftTimeline.jsx')), 15, 'Verify StageVisualizer, NightShiftTimeline, and public/logo.svg assets');
 
 // --- SUITE 2: Contact Configuration & Domain Binding (Tests 16-25) ---
 import { CONTACT_CONFIG } from '../src/config/contact.js';

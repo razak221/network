@@ -16,6 +16,7 @@ import {
   Printer
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import Logo from './Logo';
 import Toast from './Toast';
 import StageVisualizer from './StageVisualizer';
 
@@ -474,10 +475,8 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
       {/* PRINT-ONLY FORMAL B2B PROPOSAL SHEET */}
       <div className="hidden print:block printable-quote-sheet font-sans p-8 text-slate-900 bg-white">
         <div className="flex items-center justify-between border-b-2 border-slate-900 pb-4 mb-6">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">PRISTINE DECORE</h1>
-            <p className="text-xs uppercase tracking-wider text-slate-600 font-semibold">Event Manpower & Custom Production</p>
-            <p className="text-xs text-slate-500">pristinedecore.com • info@pristinedecore.com</p>
+          <div className="flex items-center gap-3">
+            <Logo size="md" variant="dark" showTagline={true} />
           </div>
           <div className="text-right">
             <span className="inline-block px-3 py-1 bg-slate-900 text-white text-xs font-bold uppercase rounded">

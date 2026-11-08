@@ -254,3 +254,4 @@ export default function StageVisualizer({ crew, materials, eventType, venueName 
     </div>
   );
 }
+

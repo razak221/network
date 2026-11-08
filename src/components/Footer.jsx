@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from './Logo';
 import { 
   Sparkles, 
   Send, 
@@ -23,17 +24,7 @@ export default function Footer() {
           
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-black shadow-soft-gold">
-                <span className="font-heading text-lg">PD</span>
-              </div>
-              <div>
-                <span className="font-heading text-xl font-bold tracking-tight text-white">
-                  PRISTINE<span className="text-amber-400">DECORE</span>
-                </span>
-                <span className="block text-[10px] text-amber-300 font-mono">{CONTACT_CONFIG.domain}</span>
-              </div>
-            </div>
+            <Logo size="md" variant="light" showTagline={true} />
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
               Your single-window partner for high-caliber event manpower (promoters, bouncers, ushers, setup crew) and custom on-demand production (banners, signboards, theme decor, sound & lighting).
