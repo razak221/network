@@ -9,6 +9,7 @@ import {
   Building2,
   Heart
 } from 'lucide-react';
+import { CONTACT_CONFIG } from '../config/contact';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -16,21 +17,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#070A11] border-t border-white/10 text-slate-400 text-xs pt-16 pb-12">
+    <footer className="bg-slate-900 border-t border-slate-800 text-slate-400 text-xs pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-black">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-black shadow-soft-gold">
                 <span className="font-heading text-lg">PD</span>
               </div>
               <div>
                 <span className="font-heading text-xl font-bold tracking-tight text-white">
                   PRISTINE<span className="text-amber-400">DECORE</span>
                 </span>
-                <span className="block text-[10px] text-amber-300 font-mono">pristinedecore.com</span>
+                <span className="block text-[10px] text-amber-300 font-mono">{CONTACT_CONFIG.domain}</span>
               </div>
             </div>
 
@@ -90,7 +91,7 @@ export default function Footer() {
             <div className="pt-2">
               <button
                 onClick={scrollToTop}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 text-[11px] transition-all"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-[11px] transition-all"
               >
                 <ArrowUp className="w-3.5 h-3.5" />
                 <span>Back to Top</span>
@@ -101,11 +102,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-300">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div>
-            © {new Date().getFullYear()} <strong className="text-white">Pristine Decore</strong> (pristinedecore.com). All rights reserved.
+            © {new Date().getFullYear()} <strong className="text-white">Pristine Decore</strong> ({CONTACT_CONFIG.domain}). All rights reserved.
           </div>
-          <div className="flex items-center gap-4 text-slate-300">
+          <div className="flex items-center gap-4 text-slate-400">
             <span>Specialists in Mall Events & Workforce Solutions</span>
             <span>•</span>
             <span>Designed for Flawless Execution</span>
@@ -115,4 +116,3 @@ export default function Footer() {
     </footer>
   );
 }
-

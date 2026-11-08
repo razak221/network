@@ -5,59 +5,68 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    background-color: #0B0F19;
-    color: #F8FAFC;
+    background-color: #FBFBFA;
+    color: #1E293B;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, .font-heading {
     font-family: 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
-/* Glassmorphism & Custom Glows */
-.glass-panel {
-  background: rgba(17, 24, 39, 0.7);
+/* Light Soft Glassmorphism */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04);
 }
 
 .glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card-hover:hover {
-  transform: translateY(-4px);
-  border-color: rgba(245, 158, 11, 0.4);
-  box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, #0F172A 0%, #D97706 70%, #B45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #D97706 100%);
+  background: linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-cyan {
-  background: linear-gradient(135deg, #A5F3FC 0%, #06B6D4 50%, #0891B2 100%);
+.text-gradient-teal {
+  background: linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #14B8A6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Custom Scrollbar */
+/* Smooth Light Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0F19;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1F2937;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
+  background: #94A3B8;
 }
 
 /* Print Optimization for B2B Proposals */
@@ -67,12 +76,10 @@
     color: #0f172a !important;
   }
 
-  /* Hide navigation, floating widget, marketing sections */
   header, footer, nav, #hero, #manpower, #production, #bespoke, #mall-ops, #founders, #contact, .no-print, [role="tooltip"] {
     display: none !important;
   }
 
-  /* Show only the printable quotation sheet */
   .printable-quote-sheet {
     display: block !important;
     position: absolute !important;

@@ -11,22 +11,22 @@ export default function FloatingWidget({ onOpenConfigurator }) {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 no-print">
       {/* Tooltip bubble */}
       {showTooltip && (
-        <div className="bg-[#111827] border border-amber-400/40 text-white p-3 rounded-2xl shadow-2xl max-w-xs text-xs space-y-1 relative animate-bounce animate-duration-1000">
+        <div className="bg-white border border-amber-200 text-slate-800 p-3.5 rounded-2xl shadow-soft-lg max-w-xs text-xs space-y-1 relative animate-bounce animate-duration-1000">
           <button
             onClick={() => setShowTooltip(false)}
-            className="absolute top-1.5 right-1.5 p-1 text-slate-400 hover:text-white"
+            className="absolute top-1.5 right-1.5 p-1 text-slate-400 hover:text-slate-700"
             aria-label="Close message"
           >
             <X className="w-3.5 h-3.5" />
           </button>
-          <div className="font-bold text-amber-400 flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <div className="font-bold text-amber-700 flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>Founders On-Duty</span>
           </div>
-          <p className="text-slate-300 text-[11px] leading-tight pr-3">
+          <p className="text-slate-600 text-[11px] leading-tight pr-3">
             Syed Inam, Razak Ahmed Khan & Syed Haamed Ali are ready to assist with your event setup.
           </p>
         </div>
@@ -36,22 +36,21 @@ export default function FloatingWidget({ onOpenConfigurator }) {
       <div className="flex items-center gap-2">
         <button
           onClick={onOpenConfigurator}
-          className="px-4 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl shadow-amber-500/25 hover:scale-105 transition-all"
+          className="px-4 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-soft-gold hover:scale-105 transition-all"
           title="Instant Quote Generator"
         >
-          <Sparkles className="w-4 h-4 fill-slate-950" />
+          <Sparkles className="w-4 h-4 fill-white" />
           <span className="hidden sm:inline">Instant Quote</span>
         </button>
 
         <button
           onClick={handleWhatsApp}
-          className="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center shadow-xl shadow-emerald-500/30 hover:scale-110 transition-all group"
+          className="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center shadow-soft-lg hover:scale-105 transition-all group"
           title="Chat with Founders on WhatsApp"
         >
-          <Send className="w-6 h-6 fill-slate-950 group-hover:scale-110 transition-transform" />
+          <Send className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
         </button>
       </div>
     </div>
   );
 }
-

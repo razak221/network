@@ -29,7 +29,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-slate-100 flex flex-col font-sans selection:bg-amber-400 selection:text-slate-950">
+    <div className="min-h-screen bg-[#FBFBFA] text-slate-800 flex flex-col font-sans selection:bg-amber-200 selection:text-amber-950">
       {/* Sticky Header */}
       <Navbar 
         onOpenConfigurator={scrollToBuilder} 
@@ -76,4 +76,3 @@ export default function App() {
     </div>
   );
 }
-

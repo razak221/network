@@ -20,9 +20,9 @@ import { CONTACT_CONFIG } from '../config/contact';
 const EVENT_TYPES = [
   { id: 'mall', label: 'Mall Activation / Roadshow', desc: 'Promoters, bouncers & kiosk decor' },
   { id: 'store', label: 'Store Grand Opening', desc: 'Arches, ushers & ribbon cutting' },
-  { id: 'corporate', label: 'Corporate Expo / Conference', desc: 'Registration hosts & backdrop' },
+  { id: 'corporate', label: 'Corporate Expo / Summit', desc: 'Registration hosts & backdrop' },
   { id: 'product', label: 'Product Launch & Sampling', desc: 'Trained brand ambassadors & AV' },
-  { id: 'fest', label: 'College / Public Festival', desc: 'Heavy crowd security & staging' },
+  { id: 'fest', label: 'Public / College Festival', desc: 'Heavy crowd security & staging' },
   { id: 'other', label: 'Custom / Other Event', desc: 'Tell us whatever you need' },
 ];
 
@@ -116,25 +116,20 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
   };
 
-  const handleOnlineSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
-    <section id="builder" className="py-16 md:py-24 bg-[#0D1322] border-y border-white/10 relative">
+    <section id="builder" className="py-20 md:py-28 bg-[#F4F4F1] border-y border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-semibold">
-            <Sparkles className="w-3.5 h-3.5" />
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Interactive Quote Calculator</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900">
             Build Your <span className="text-gradient-gold">Event Order</span> in 2 Minutes
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             Configure manpower headcount, physical banners, boards, and decor items. We’ll generate an instant formatted quote directly to our founders.
           </p>
         </div>
@@ -142,13 +137,16 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Configurator Steps */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-6">
             
             {/* Step 1: Event Type & Details */}
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-5">
               <div className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center">1</span>
-                <h3 className="font-heading font-bold text-lg text-white">Select Event Type & Location</h3>
+                <span className="w-8 h-8 rounded-xl bg-amber-100 text-amber-900 font-bold text-xs flex items-center justify-center">1</span>
+                <div>
+                  <h3 className="font-heading font-bold text-lg text-slate-900">Event Type & Venue Details</h3>
+                  <p className="text-xs text-slate-500">Select your format and location</p>
+                </div>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -157,71 +155,74 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
                     key={type.id}
                     type="button"
                     onClick={() => setEventType(type.id)}
-                    className={`p-3 rounded-xl text-left border transition-all ${
+                    className={`p-3.5 rounded-2xl text-left border transition-all ${
                       eventType === type.id
-                        ? 'bg-amber-400/15 border-amber-400 text-white shadow-sm'
-                        : 'bg-white/[0.02] border-white/5 text-slate-300 hover:border-white/20'
+                        ? 'bg-amber-50/90 border-amber-500 text-slate-900 shadow-soft-sm ring-1 ring-amber-500'
+                        : 'bg-slate-50/70 border-slate-200 text-slate-700 hover:bg-slate-100/80'
                     }`}
                   >
                     <div className="font-semibold text-xs sm:text-sm">{type.label}</div>
-                    <div className="text-[11px] text-slate-400 mt-1 line-clamp-1">{type.desc}</div>
+                    <div className="text-[11px] text-slate-500 mt-1 line-clamp-1">{type.desc}</div>
                   </button>
                 ))}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 <div>
-                  <label className="block text-xs font-medium text-slate-400 mb-1">Duration (Days)</label>
-                  <div className="flex items-center gap-2">
+                  <label className="block text-xs font-semibold text-slate-600 mb-1">Duration (Days)</label>
+                  <div className="flex items-center gap-2 bg-slate-50 p-1 rounded-xl border border-slate-200">
                     <button
                       type="button"
                       onClick={() => setDurationDays(Math.max(1, durationDays - 1))}
-                      className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white"
+                      className="p-1.5 rounded-lg bg-white hover:bg-slate-200 text-slate-700 shadow-soft-sm"
                     >
-                      <Minus className="w-4 h-4" />
+                      <Minus className="w-3.5 h-3.5" />
                     </button>
-                    <span className="w-12 text-center font-bold text-white text-sm">{durationDays} Day(s)</span>
+                    <span className="flex-1 text-center font-bold text-slate-900 text-xs sm:text-sm">{durationDays} Day(s)</span>
                     <button
                       type="button"
                       onClick={() => setDurationDays(durationDays + 1)}
-                      className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white"
+                      className="p-1.5 rounded-lg bg-white hover:bg-slate-200 text-slate-700 shadow-soft-sm"
                     >
-                      <Plus className="w-4 h-4" />
+                      <Plus className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-slate-400 mb-1">Mall / Venue Name</label>
+                  <label className="block text-xs font-semibold text-slate-600 mb-1">Mall / Venue Name</label>
                   <input
                     type="text"
                     placeholder="e.g. Inorbit Mall, Phoenix Mall"
                     value={mallVenue}
                     onChange={(e) => setMallVenue(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-slate-400 mb-1">Approx. Event Date</label>
+                  <label className="block text-xs font-semibold text-slate-600 mb-1">Approx. Event Date</label>
                   <input
                     type="date"
                     value={eventDate}
                     onChange={(e) => setEventDate(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                   />
                 </div>
               </div>
             </div>
 
             {/* Step 2: Manpower Headcount */}
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-lg bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center">2</span>
-                  <h3 className="font-heading font-bold text-lg text-white">Event Manpower Selection</h3>
+                  <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-900 font-bold text-xs flex items-center justify-center">2</span>
+                  <div>
+                    <h3 className="font-heading font-bold text-lg text-slate-900">Event Manpower Selection</h3>
+                    <p className="text-xs text-slate-500">Pick required professional staff</p>
+                  </div>
                 </div>
-                <span className="text-xs text-amber-400 font-semibold bg-amber-400/10 px-2.5 py-1 rounded-full border border-amber-400/20">
+                <span className="text-xs text-teal-800 font-bold bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
                   {totalCrewCount} Crew Selected
                 </span>
               </div>
@@ -234,24 +235,24 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
                   { key: 'stagehands', name: 'Setup & Logistics Crew', note: 'Night installation & heavy lifting' },
                   { key: 'supervisors', name: 'On-Site Floor Supervisors', note: 'Mall liaison & team coordinator' }
                 ].map(item => (
-                  <div key={item.key} className="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+                  <div key={item.key} className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex items-center justify-between hover:bg-slate-100/60 transition-colors">
                     <div>
-                      <div className="text-xs sm:text-sm font-semibold text-white">{item.name}</div>
-                      <div className="text-[11px] text-slate-400">{item.note}</div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900">{item.name}</div>
+                      <div className="text-[11px] text-slate-500">{item.note}</div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 bg-white p-1 rounded-xl border border-slate-200 shadow-soft-sm">
                       <button
                         type="button"
                         onClick={() => updateCrew(item.key, -1)}
-                        className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-white flex items-center justify-center text-xs"
+                        className="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-xs"
                       >
                         <Minus className="w-3.5 h-3.5" />
                       </button>
-                      <span className="w-6 text-center font-bold text-white text-sm">{crew[item.key]}</span>
+                      <span className="w-6 text-center font-bold text-slate-900 text-sm">{crew[item.key]}</span>
                       <button
                         type="button"
                         onClick={() => updateCrew(item.key, 1)}
-                        className="w-7 h-7 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 flex items-center justify-center text-xs font-bold"
+                        className="w-7 h-7 rounded-lg bg-amber-500 hover:bg-amber-600 text-white flex items-center justify-center text-xs font-bold shadow-soft-sm"
                       >
                         <Plus className="w-3.5 h-3.5" />
                       </button>
@@ -262,10 +263,13 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
             </div>
 
             {/* Step 3: Production & Decor Materials */}
-            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-5">
               <div className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center">3</span>
-                <h3 className="font-heading font-bold text-lg text-white">Custom Production, Banners & Decor</h3>
+                <span className="w-8 h-8 rounded-xl bg-amber-100 text-amber-900 font-bold text-xs flex items-center justify-center">3</span>
+                <div>
+                  <h3 className="font-heading font-bold text-lg text-slate-900">Custom Production, Banners & Decor</h3>
+                  <p className="text-xs text-slate-500">In-house fabrication checklist</p>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -277,24 +281,24 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
                   { key: 'balloonArch', name: 'Theme Balloon / Entrance Arch', note: 'Grand entrance styling' },
                   { key: 'soundAndMics', name: 'Sound System + Wireless Mics', note: 'Emcee & music setup' }
                 ].map(item => (
-                  <div key={item.key} className="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+                  <div key={item.key} className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex items-center justify-between hover:bg-slate-100/60 transition-colors">
                     <div>
-                      <div className="text-xs sm:text-sm font-semibold text-white">{item.name}</div>
-                      <div className="text-[11px] text-slate-400">{item.note}</div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900">{item.name}</div>
+                      <div className="text-[11px] text-slate-500">{item.note}</div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 bg-white p-1 rounded-xl border border-slate-200 shadow-soft-sm">
                       <button
                         type="button"
                         onClick={() => updateMaterials(item.key, -1)}
-                        className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-white flex items-center justify-center text-xs"
+                        className="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-xs"
                       >
                         <Minus className="w-3.5 h-3.5" />
                       </button>
-                      <span className="w-6 text-center font-bold text-white text-sm">{materials[item.key]}</span>
+                      <span className="w-6 text-center font-bold text-slate-900 text-sm">{materials[item.key]}</span>
                       <button
                         type="button"
                         onClick={() => updateMaterials(item.key, 1)}
-                        className="w-7 h-7 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center text-xs font-bold"
+                        className="w-7 h-7 rounded-lg bg-teal-600 hover:bg-teal-700 text-white flex items-center justify-center text-xs font-bold shadow-soft-sm"
                       >
                         <Plus className="w-3.5 h-3.5" />
                       </button>
@@ -305,12 +309,12 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
             </div>
 
             {/* Step 4: The "Request Anything" Bespoke Box */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-500/10 via-white/[0.02] to-cyan-500/10 border border-amber-400/30 space-y-3">
+            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-50 via-white to-amber-50/40 border border-amber-200 shadow-soft space-y-3">
               <div className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-gradient-to-r from-amber-400 to-cyan-400 text-slate-950 font-bold text-xs flex items-center justify-center">4</span>
+                <span className="w-8 h-8 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-xs flex items-center justify-center shadow-soft-gold">4</span>
                 <div>
-                  <h3 className="font-heading font-bold text-lg text-white">"Ask For Anything" Custom Request Box</h3>
-                  <p className="text-xs text-amber-300">Props, branded uniforms, dry-ice fog machines, mascot suits, VIP carpets...</p>
+                  <h3 className="font-heading font-bold text-lg text-slate-900">"Ask For Anything" Custom Request Box</h3>
+                  <p className="text-xs text-amber-800 font-medium">Props, branded uniforms, dry-ice fog machines, mascot suits, VIP carpets...</p>
                 </div>
               </div>
 
@@ -319,21 +323,21 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
                 placeholder="Describe anything else you want for this event (e.g. 'We need 30 printed black polo shirts, 2 confetti blowers, and an 8ft metallic trophy for the awards'). Whatever you ask, we deliver."
                 value={customRequest}
                 onChange={(e) => setCustomRequest(e.target.value)}
-                className="w-full p-3 rounded-xl bg-[#0B0F19] border border-white/15 text-white text-xs sm:text-sm placeholder:text-slate-500 focus:outline-none focus:border-amber-400 resize-none"
+                className="w-full p-4 rounded-2xl bg-white border border-slate-200 text-slate-900 text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:border-amber-500 shadow-inner resize-none"
               ></textarea>
             </div>
           </div>
 
           {/* Right Column: Order Summary & WhatsApp Dispatch */}
           <div className="lg:col-span-5 sticky top-28 space-y-4">
-            <div className="p-6 rounded-2xl bg-[#111827] border border-white/10 shadow-2xl space-y-5">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-soft-lg space-y-5">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
-                  <h3 className="font-heading font-bold text-lg text-white">Event Summary</h3>
-                  <p className="text-xs text-slate-400">Pristine Decore Direct Quote</p>
+                  <h3 className="font-heading font-bold text-xl text-slate-900">Event Summary</h3>
+                  <p className="text-xs text-slate-500">Pristine Decore Direct Quote</p>
                 </div>
                 <div className="text-right">
-                  <span className="text-[11px] font-bold tracking-wider uppercase text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                  <span className="text-[11px] font-bold tracking-wider uppercase text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
                     Direct Founder SLA
                   </span>
                 </div>
@@ -341,37 +345,37 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
 
               {/* Breakdown List */}
               <div className="space-y-3 text-xs sm:text-sm">
-                <div className="flex justify-between text-slate-300">
-                  <span className="text-slate-400">Event:</span>
-                  <span className="font-semibold text-white">{EVENT_TYPES.find(t => t.id === eventType)?.label}</span>
+                <div className="flex justify-between text-slate-600">
+                  <span>Event:</span>
+                  <span className="font-bold text-slate-900">{EVENT_TYPES.find(t => t.id === eventType)?.label}</span>
                 </div>
-                <div className="flex justify-between text-slate-300">
-                  <span className="text-slate-400">Duration:</span>
-                  <span className="font-semibold text-white">{durationDays} Day(s)</span>
+                <div className="flex justify-between text-slate-600">
+                  <span>Duration:</span>
+                  <span className="font-bold text-slate-900">{durationDays} Day(s)</span>
                 </div>
-                <div className="flex justify-between text-slate-300">
-                  <span className="text-slate-400">Venue:</span>
-                  <span className="font-semibold text-white">{mallVenue || 'Pending Venue'}</span>
+                <div className="flex justify-between text-slate-600">
+                  <span>Venue:</span>
+                  <span className="font-bold text-slate-900">{mallVenue || 'Pending Venue'}</span>
                 </div>
 
-                <div className="border-t border-white/5 pt-3">
-                  <div className="font-bold text-white text-xs mb-1.5 flex items-center justify-between">
+                <div className="border-t border-slate-100 pt-3">
+                  <div className="font-bold text-slate-900 text-xs mb-1.5 flex items-center justify-between">
                     <span>Manpower Assigned:</span>
-                    <span className="text-amber-400">{totalCrewCount} Staff</span>
+                    <span className="text-amber-600 font-bold">{totalCrewCount} Staff</span>
                   </div>
-                  <div className="text-[11px] text-slate-400 space-y-0.5 pl-2">
+                  <div className="text-[11px] text-slate-600 space-y-0.5 pl-2">
                     {crew.promoters > 0 && <div>• {crew.promoters}x Promoters / Ambassadors</div>}
                     {crew.bouncers > 0 && <div>• {crew.bouncers}x Bouncers / Security</div>}
                     {crew.ushers > 0 && <div>• {crew.ushers}x Ushers / Greeters</div>}
                     {crew.stagehands > 0 && <div>• {crew.stagehands}x Setup / Stagehands</div>}
                     {crew.supervisors > 0 && <div>• {crew.supervisors}x Floor Supervisors</div>}
-                    {totalCrewCount === 0 && <div className="italic text-slate-500">No manpower selected yet</div>}
+                    {totalCrewCount === 0 && <div className="italic text-slate-400">No manpower selected yet</div>}
                   </div>
                 </div>
 
-                <div className="border-t border-white/5 pt-3">
-                  <div className="font-bold text-white text-xs mb-1.5">Production Items:</div>
-                  <div className="text-[11px] text-slate-400 space-y-0.5 pl-2">
+                <div className="border-t border-slate-100 pt-3">
+                  <div className="font-bold text-slate-900 text-xs mb-1.5">Production Items:</div>
+                  <div className="text-[11px] text-slate-600 space-y-0.5 pl-2">
                     {materials.standees > 0 && <div>• {materials.standees}x Roll-Up Standees</div>}
                     {materials.flexBackdrop > 0 && <div>• {materials.flexBackdrop}x Custom Backdrop</div>}
                     {materials.acrylicBoard > 0 && <div>• {materials.acrylicBoard}x 3D Glow Board</div>}
@@ -382,21 +386,21 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
                 </div>
 
                 {customRequest.trim() && (
-                  <div className="border-t border-white/5 pt-3 bg-white/[0.02] p-2 rounded-lg">
-                    <div className="font-bold text-amber-300 text-xs">Custom Wishlist:</div>
-                    <p className="text-[11px] text-slate-300 mt-0.5 line-clamp-2 italic">"{customRequest}"</p>
+                  <div className="border-t border-slate-100 pt-3 bg-amber-50/50 p-2.5 rounded-xl border border-amber-200/50">
+                    <div className="font-bold text-amber-900 text-xs">Custom Wishlist:</div>
+                    <p className="text-[11px] text-slate-700 mt-0.5 line-clamp-2 italic">"{customRequest}"</p>
                   </div>
                 )}
               </div>
 
               {/* Quick Contact Inputs */}
-              <div className="border-t border-white/10 pt-4 space-y-2">
+              <div className="border-t border-slate-100 pt-4 space-y-2.5">
                 <input
                   type="text"
                   placeholder="Your Name / Organising Team *"
                   value={clientInfo.name}
                   onChange={(e) => setClientInfo(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                 />
                 <div className="grid grid-cols-2 gap-2">
                   <input
@@ -404,14 +408,14 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
                     placeholder="Company / Brand"
                     value={clientInfo.company}
                     onChange={(e) => setClientInfo(prev => ({ ...prev, company: e.target.value }))}
-                    className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                   />
                   <input
                     type="tel"
                     placeholder="Phone / WhatsApp"
                     value={clientInfo.phone}
                     onChange={(e) => setClientInfo(prev => ({ ...prev, phone: e.target.value }))}
-                    className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                   />
                 </div>
               </div>
@@ -421,29 +425,29 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
                 <button
                   type="button"
                   onClick={handleWhatsAppBooking}
-                  className="w-full py-4 rounded-xl text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-[1.01] transition-all"
+                  className="w-full py-4 rounded-2xl text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 shadow-soft hover:scale-[1.01] transition-all"
                 >
-                  <Send className="w-4 h-4 fill-slate-950" />
+                  <Send className="w-4 h-4 fill-white" />
                   <span>Send Quote to Founders via WhatsApp</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => window.print()}
-                  className="w-full py-3 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/15 text-slate-200 border border-white/15 flex items-center justify-center gap-2 transition-all"
+                  className="w-full py-3 rounded-2xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 flex items-center justify-center gap-2 transition-all shadow-soft-sm"
                 >
-                  <Printer className="w-4 h-4 text-amber-400" />
+                  <Printer className="w-4 h-4 text-amber-600" />
                   <span>Print / Save Quote Proposal (PDF)</span>
                 </button>
 
-                <p className="text-[11px] text-center text-slate-400">
+                <p className="text-[11px] text-center text-slate-500">
                   Instant response from Syed Inam, Razak Ahmed Khan, or Syed Haamed Ali.
                 </p>
               </div>
 
               {/* Guarantee Pill */}
-              <div className="p-3 rounded-xl bg-amber-400/5 border border-amber-400/20 flex items-center gap-2.5 text-xs text-amber-200">
-                <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
+              <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 flex items-center gap-2.5 text-xs text-amber-900 font-medium">
+                <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
                 <span>100% Mall Pass Clearance + 15% Backup Crew Guarantee Included</span>
               </div>
             </div>
@@ -454,7 +458,6 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
 
       {/* PRINT-ONLY FORMAL B2B PROPOSAL SHEET */}
       <div className="hidden print:block printable-quote-sheet font-sans p-8 text-slate-900 bg-white">
-        {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-slate-900 pb-4 mb-6">
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-slate-900">PRISTINE DECORE</h1>
@@ -470,7 +473,6 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
           </div>
         </div>
 
-        {/* Client & Event Meta */}
         <div className="grid grid-cols-2 gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200 mb-6 text-xs">
           <div>
             <p className="text-slate-500 font-semibold uppercase">Client Information</p>
@@ -486,7 +488,6 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
           </div>
         </div>
 
-        {/* Section 1: Manpower Table */}
         <div className="mb-6">
           <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1 mb-2">
             1. Event Manpower Allocation ({totalCrewCount} Total Staff)
@@ -539,7 +540,6 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
           </table>
         </div>
 
-        {/* Section 2: Production & Decor Table */}
         <div className="mb-6">
           <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1 mb-2">
             2. Custom Production & Decor Deliverables
@@ -599,7 +599,6 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
           </table>
         </div>
 
-        {/* Section 3: Custom Wishlist */}
         {customRequest.trim() && (
           <div className="mb-6 p-3 bg-amber-50 rounded border border-amber-200 text-xs">
             <p className="font-bold text-amber-900 uppercase">Special Sourcing & Bespoke Requests:</p>
@@ -607,20 +606,19 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
           </div>
         )}
 
-        {/* Signatures & SLA */}
         <div className="pt-6 border-t-2 border-slate-300 grid grid-cols-3 gap-4 text-center text-xs">
           <div>
-            <p className="text-slate-400 uppercase text-[10px] font-bold">Ground Operations Lead</p>
+            <p className="text-slate-500 uppercase text-[10px] font-bold">Ground Operations Lead</p>
             <p className="font-bold text-slate-900 mt-4">Syed Inam</p>
             <p className="text-slate-500 text-[10px]">Operations & Mall Clearances</p>
           </div>
           <div>
-            <p className="text-slate-400 uppercase text-[10px] font-bold">Client Relations Lead</p>
+            <p className="text-slate-500 uppercase text-[10px] font-bold">Client Relations Lead</p>
             <p className="font-bold text-slate-900 mt-4">Razak Ahmed Khan</p>
             <p className="text-slate-500 text-[10px]">Business Strategy & Quotes</p>
           </div>
           <div>
-            <p className="text-slate-400 uppercase text-[10px] font-bold">Production & Decor Lead</p>
+            <p className="text-slate-500 uppercase text-[10px] font-bold">Production & Decor Lead</p>
             <p className="font-bold text-slate-900 mt-4">Syed Haamed Ali</p>
             <p className="text-slate-500 text-[10px]">Creative Decor & Print Fabrication</p>
           </div>
@@ -629,4 +627,3 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
     </section>
   );
 }
-

@@ -8,25 +8,30 @@ export default {
     extend: {
       colors: {
         brand: {
-          dark: '#0B0F19',
-          card: '#111827',
-          surface: '#1F2937',
-          accent: '#F59E0B',
-          accentHover: '#D97706',
-          cyan: '#06B6D4',
-          cyanGlow: '#22D3EE',
-          purple: '#8B5CF6'
+          bg: '#FBFBFA',
+          cream: '#FFFDF9',
+          card: '#FFFFFF',
+          border: '#E2E8F0',
+          dark: '#0F172A',
+          gold: '#D97706',
+          goldLight: '#FDE68A',
+          amber: '#F59E0B',
+          teal: '#0D9488',
+          tealLight: '#CCFBF1'
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Space Grotesk', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
       },
       boxShadow: {
-        'glow-gold': '0 0 25px -5px rgba(245, 158, 11, 0.3)',
-        'glow-cyan': '0 0 25px -5px rgba(6, 182, 212, 0.3)',
+        'soft-sm': '0 2px 8px -2px rgba(15, 23, 42, 0.05)',
+        'soft': '0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 4px 12px -2px rgba(15, 23, 42, 0.03)',
+        'soft-lg': '0 20px 40px -10px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.03)',
+        'soft-gold': '0 10px 30px -5px rgba(217, 119, 6, 0.12)',
       }
     },
   },
   plugins: [],
 }
-
