@@ -9,11 +9,14 @@ import {
   Award,
   Crown
 } from 'lucide-react';
+import { CONTACT_CONFIG } from '../config/contact';
 
 export default function FoundersSection() {
-  const handleFounderChat = (founderName) => {
-    const msg = encodeURIComponent(`Hi ${founderName}! I am reaching out through pristinedecore.com regarding an event inquiry.`);
-    window.open(`https://wa.me/?text=${msg}`, '_blank');
+  const handleFounderChat = (founderKey, founderName) => {
+    const founderData = CONTACT_CONFIG.founders[founderKey];
+    const targetNumber = founderData?.whatsAppNumber || null;
+    const msg = `Hi ${founderName}! I am reaching out through pristinedecore.com regarding an event inquiry.`;
+    window.open(CONTACT_CONFIG.getWhatsAppUrl(msg, targetNumber), '_blank');
   };
 
   return (
@@ -93,7 +96,7 @@ export default function FoundersSection() {
               <div className="pt-6 mt-6 border-t border-white/5">
                 <button
                   type="button"
-                  onClick={() => handleFounderChat(founder.name)}
+                  onClick={() => handleFounderChat(idx === 0 ? 'inam' : idx === 1 ? 'razak' : 'haamed', founder.name)}
                   className="w-full py-2.5 rounded-xl text-xs font-bold bg-white/5 hover:bg-emerald-500/20 text-slate-200 hover:text-emerald-300 border border-white/10 hover:border-emerald-500/30 flex items-center justify-center gap-2 transition-all"
                 >
                   <Send className="w-3.5 h-3.5 text-emerald-400" />
@@ -134,3 +137,4 @@ export default function FoundersSection() {
     </section>
   );
 }
+

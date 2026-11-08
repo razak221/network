@@ -51,6 +51,9 @@ Visit `http://localhost:3000` in your browser.
 
 ---
 
+
+
+
 ## 🌐 Production Build & Deployment to `pristinedecore.com`
 
 ```bash
@@ -67,3 +70,4 @@ The compiled static files will be located in the `dist/` directory, ready to dep
 To bind your specific phone numbers for WhatsApp bookings:
 - Search for `https://wa.me/?text=` across `src/components/` (specifically in `EventBuilder.jsx`, `Navbar.jsx`, `Hero.jsx`, `ContactSection.jsx`, and `FloatingWidget.jsx`).
 - Change to: `https://wa.me/<YOUR_PHONE_NUMBER_WITH_COUNTRY_CODE>?text=...` (e.g. `https://wa.me/919876543210?text=...`).
+

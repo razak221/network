@@ -10,6 +10,7 @@ import {
   Calendar,
   Layers
 } from 'lucide-react';
+import { CONTACT_CONFIG } from '../config/contact';
 
 export default function Navbar({ onOpenConfigurator, onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,8 +26,8 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
   ];
 
   const handleWhatsAppDirect = () => {
-    const text = encodeURIComponent("Hello Pristine Decore! I would like to inquire about event manpower and custom production supplies for an upcoming event.");
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    const text = "Hello Pristine Decore! I would like to inquire about event manpower and custom production supplies for an upcoming event.";
+    window.open(CONTACT_CONFIG.getWhatsAppUrl(text), '_blank');
   };
 
   return (
@@ -156,3 +157,4 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
     </header>
   );
 }
+

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Send, Sparkles, X, Phone, ShieldCheck } from 'lucide-react';
+import { CONTACT_CONFIG } from '../config/contact';
 
 export default function FloatingWidget({ onOpenConfigurator }) {
   const [showTooltip, setShowTooltip] = useState(true);
 
   const handleWhatsApp = () => {
-    const msg = encodeURIComponent("Hi Pristine Decore! I would like to book event manpower / custom decor supplies.");
-    window.open(`https://wa.me/?text=${msg}`, '_blank');
+    const msg = "Hi Pristine Decore! I would like to book event manpower / custom decor supplies.";
+    window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
   };
 
   return (
@@ -53,3 +54,4 @@ export default function FloatingWidget({ onOpenConfigurator }) {
     </div>
   );
 }
+

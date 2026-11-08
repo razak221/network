@@ -181,3 +181,4 @@ export const mallFaqs = [
     a: "Whatever you need for your event—whether it's an 8ft illuminated mascot, helium balloons, custom trophies, or velvet VIP ropes—simply submit it via our builder or WhatsApp, and we will source and produce it end-to-end."
   }
 ];
+

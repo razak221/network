@@ -45,3 +45,4 @@ Read TASK.md → Pick Next [ ] → Implement → Verify (`npm run build`) → Ch
 6. **Exit Cleanly:**
    - Summarize the work done, the verification command output, and the commit hash.
    - End turn so the next iteration can start with a fresh, unpolluted context window.
+

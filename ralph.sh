@@ -65,24 +65,22 @@ while [[ $ITERATION -le $MAX_ITERATIONS ]]; do
   echo -e "${YELLOW}Next Task:${RESET} ${NEXT_TASK}"
   echo -e "----------------------------------------------------------"
 
-  # If an agent CLI is available (e.g. claude, agy, gemini, cursor), invoke it:
-  if command -v agy &> /dev/null; then
-    echo -e "${GREEN}Invoking Antigravity (agy)...${RESET}"
-    agy --prompt "$(cat "$PROMPT_FILE")" || true
-  elif command -v claude &> /dev/null; then
+  # If an external agent CLI is configured and available (claude or gemini):
+  if command -v claude &> /dev/null; then
     echo -e "${GREEN}Invoking Claude Code...${RESET}"
     claude -p --dangerously-skip-permissions < "$PROMPT_FILE" || true
   elif command -v gemini &> /dev/null; then
     echo -e "${GREEN}Invoking Gemini CLI...${RESET}"
     gemini -p "$PROMPT_FILE" || true
   else
-    echo -e "${YELLOW}Notice:${RESET} No external agent CLI (agy/claude/gemini) detected on PATH."
-    echo -e "Displaying next task prompt for manual or IDE agent execution:"
-    echo ""
-    echo -e "${BOLD}${NEXT_TASK}${RESET}"
-    echo ""
-    echo -e "To execute this task in your IDE agent, simply paste:"
-    echo -e "  ${CYAN}\"Execute the next pending task in TASK.md following PROMPT.md\"${RESET}"
+    echo -e "${CYAN}==========================================================${RESET}"
+    echo -e "${BOLD}Current Active Task for Antigravity Agent:${RESET}"
+    echo -e "${YELLOW}${NEXT_TASK}${RESET}"
+    echo -e "----------------------------------------------------------"
+    echo -e "You are running inside the Antigravity IDE!"
+    echo -e "To execute this task with zero gRPC issues, simply ask in the chat:"
+    echo -e "  ${GREEN}\"Execute next task in TASK.md\"${RESET}"
+    echo -e "${CYAN}==========================================================${RESET}"
     break
   fi
 
@@ -94,3 +92,4 @@ done
 echo -e "${CYAN}==========================================================${RESET}"
 echo -e "${BOLD}Ralph Loop Session Ended.${RESET}"
 echo -e "Current Pending Tasks: $(count_pending_tasks)"
+

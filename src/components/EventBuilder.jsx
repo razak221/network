@@ -14,6 +14,7 @@ import {
   HelpCircle,
   FileText
 } from 'lucide-react';
+import { CONTACT_CONFIG } from '../config/contact';
 
 const EVENT_TYPES = [
   { id: 'mall', label: 'Mall Activation / Roadshow', desc: 'Promoters, bouncers & kiosk decor' },
@@ -111,8 +112,7 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
 
     msg += `\n\n_Sent via pristinedecore.com Event Configurator_`;
 
-    const encoded = encodeURIComponent(msg);
-    window.open(`https://wa.me/?text=${encoded}`, '_blank');
+    window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
   };
 
   const handleOnlineSubmit = (e) => {
@@ -444,3 +444,4 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
     </section>
   );
 }
+

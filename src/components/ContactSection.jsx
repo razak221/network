@@ -9,6 +9,7 @@ import {
   Sparkles,
   CheckCircle2
 } from 'lucide-react';
+import { CONTACT_CONFIG } from '../config/contact';
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -23,15 +24,14 @@ export default function ContactSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const msg = encodeURIComponent(
+    const msg = 
       `*DIRECT INQUIRY - PRISTINE DECORE (pristinedecore.com)*\n\n` +
       `Name: ${form.name}\n` +
       `Phone: ${form.phone}\n` +
       `Email: ${form.email || 'N/A'}\n` +
       `Event Type: ${form.eventType}\n` +
-      `Details: ${form.message}\n`
-    );
-    window.open(`https://wa.me/?text=${msg}`, '_blank');
+      `Details: ${form.message}\n`;
+    window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
     setSubmitted(true);
   };
 
@@ -244,3 +244,4 @@ export default function ContactSection() {
     </section>
   );
 }
+
