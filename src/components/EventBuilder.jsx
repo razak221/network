@@ -16,6 +16,7 @@ import {
   Printer
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import Toast from './Toast';
 
 const EVENT_TYPES = [
   { id: 'mall', label: 'Mall Activation / Roadshow', desc: 'Promoters, bouncers & kiosk decor' },
@@ -63,6 +64,7 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [toastMsg, setToastMsg] = useState('');
 
   const updateCrew = (key, delta) => {
     setCrew(prev => ({
@@ -113,6 +115,7 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
 
     msg += `\n\n_Sent via pristinedecore.com Event Configurator_`;
 
+    setToastMsg("WhatsApp quote formatted and dispatched to founders!");
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
   };
 
@@ -433,7 +436,10 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
 
                 <button
                   type="button"
-                  onClick={() => window.print()}
+                  onClick={() => {
+                    setToastMsg("Generating formal B2B proposal for print/PDF export...");
+                    setTimeout(() => window.print(), 300);
+                  }}
                   className="w-full py-3 rounded-2xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 flex items-center justify-center gap-2 transition-all shadow-soft-sm"
                 >
                   <Printer className="w-4 h-4 text-amber-600" />
@@ -624,6 +630,14 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
           </div>
         </div>
       </div>
+
+      {/* Interactive Toast Notification */}
+      {toastMsg && (
+        <Toast 
+          message={toastMsg} 
+          onClose={() => setToastMsg('')} 
+        />
+      )}
     </section>
   );
 }

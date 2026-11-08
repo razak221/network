@@ -5,65 +5,86 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    background-color: #FBFBFA;
+    background-color: #FAF9F5;
     color: #1E293B;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, .font-heading {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    letter-spacing: -0.02em;
+  h1, h2, h3, h4 {
+    letter-spacing: -0.025em;
   }
 }
 
-/* Light Soft Glassmorphism */
-.glass-panel-light {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04);
+/* Luxury Editorial Typography */
+.font-luxury {
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Glassmorphism Luxury Light */
+.glass-panel-luxury {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.05);
 }
 
-.glass-card-hover:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
-  border-color: rgba(217, 119, 6, 0.3);
+.card-luxury {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.text-gradient-warm {
-  background: linear-gradient(135deg, #0F172A 0%, #D97706 70%, #B45309 100%);
+.card-luxury:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.09);
+  border-color: rgba(197, 131, 43, 0.4);
+}
+
+/* Luxury Gradients */
+.text-gradient-luxury {
+  background: linear-gradient(135deg, #0F172A 0%, #78350F 50%, #C5832B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%);
+  background: linear-gradient(135deg, #92400E 0%, #C5832B 50%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-teal {
-  background: linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #14B8A6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.gold-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(254, 243, 199, 0.6) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
 }
 
-/* Smooth Light Scrollbar */
+/* Subtle Smooth Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Soft Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #FAF9F5;
 }
 ::-webkit-scrollbar-thumb {
   background: #CBD5E1;
-  border-radius: 4px;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
@@ -76,7 +97,7 @@
     color: #0f172a !important;
   }
 
-  header, footer, nav, #hero, #manpower, #production, #bespoke, #mall-ops, #founders, #contact, .no-print, [role="tooltip"] {
+  header, footer, nav, #hero, #manpower, #production, #bespoke, #mall-ops, #founders, #contact, .no-print, [role="tooltip"], .marquee-container {
     display: none !important;
   }
 
@@ -87,7 +108,7 @@
     left: 0 !important;
     width: 100% !important;
     margin: 0 !important;
-    padding: 24px !important;
+    padding: 32px !important;
     background: #ffffff !important;
     color: #0f172a !important;
   }

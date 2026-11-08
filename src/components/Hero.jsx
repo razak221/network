@@ -9,9 +9,11 @@ import {
   ArrowRight,
   Send,
   Building2,
-  Palette
+  Palette,
+  Award
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import { mallPartners } from '../data/galleryData';
 
 export default function Hero({ onOpenConfigurator }) {
   const scrollTo = (id) => {
@@ -25,98 +27,124 @@ export default function Hero({ onOpenConfigurator }) {
   };
 
   return (
-    <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden bg-gradient-to-b from-amber-50/40 via-[#FBFBFA] to-[#FBFBFA]">
-      {/* Background Soft Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-tr from-amber-200/30 via-rose-100/20 to-teal-100/20 blur-[130px] rounded-full pointer-events-none"></div>
+    <section className="relative pt-12 pb-20 md:pt-24 md:pb-36 overflow-hidden bg-gradient-to-b from-[#FFFDF9] via-[#FAF9F5] to-[#FAF9F5]">
+      {/* Background Soft Glow Orbs */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-amber-100/40 via-rose-50/30 to-teal-50/30 blur-[140px] rounded-full pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto space-y-6">
+        <div className="text-center max-w-4xl mx-auto space-y-7">
           
-          {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-amber-200/80 text-amber-900 text-xs sm:text-sm font-semibold tracking-wide shadow-soft backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-amber-600" />
-            <span>Mall Events • Corporate Shows • Custom Sourcing • 24/7 Execution</span>
+          {/* Subtle Luxury Pre-Heading */}
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white border border-amber-300/80 text-amber-900 text-xs sm:text-sm font-semibold tracking-wide shadow-luxury-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="uppercase tracking-widest text-[11px] font-bold text-amber-800">
+              The Premier Event Production & Workforce Atelier
+            </span>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
-            Skilled Event <span className="text-gradient-gold">Manpower</span> &<br className="hidden sm:inline" />
-            Custom <span className="text-gradient-teal">Production</span>
+          {/* Main Headline with Editorial Luxury Typography */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+            Architecting Flawless <br className="hidden sm:inline" />
+            <span className="font-luxury italic font-normal text-amber-700 text-5xl sm:text-7xl lg:text-8xl">Event Manpower</span> &<br className="hidden sm:inline" />
+            <span className="text-gradient-gold">Bespoke Production</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-base sm:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-            Need energetic promoters, bouncers, and setup crew for mall activations? Or roll-up banners, glow signboards, and thematic decor? 
-            <strong className="text-slate-900 font-semibold"> Whatever you request, we provide it on time.</strong>
+            From charismatic brand promoters and disciplined security for high-density mall atriums to laser-cut 3D acrylic signs, roll-up standees, and grand thematic decor — 
+            <strong className="text-slate-900 font-semibold"> you request it, we engineer and deliver it on schedule.</strong>
           </p>
 
-          {/* Founders Direct Endorsement */}
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-600 bg-white px-4 py-2.5 rounded-2xl border border-slate-200/80 shadow-soft-sm">
-            <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
-            <span>
-              Direct Leadership Accountability: <strong className="text-slate-900">Syed Inam</strong>, <strong className="text-slate-900">Razak Ahmed Khan</strong> & <strong className="text-slate-900">Syed Haamed Ali</strong>
-            </span>
+          {/* Founders Direct Leadership Banner */}
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-700 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/90 shadow-luxury-sm">
+            <Award className="w-4 h-4 text-amber-600 shrink-0" />
+            <span>Direct Co-Founder Governance:</span>
+            <span className="font-bold text-slate-900">Syed Inam</span>
+            <span className="text-amber-400">•</span>
+            <span className="font-bold text-slate-900">Razak Ahmed Khan</span>
+            <span className="text-amber-400">•</span>
+            <span className="font-bold text-slate-900">Syed Haamed Ali</span>
           </div>
 
-          {/* CTAs */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          {/* Call to Actions */}
+          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <button
               onClick={onOpenConfigurator}
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl text-sm sm:text-base font-bold bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white shadow-soft-gold hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl text-sm sm:text-base font-bold bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white shadow-gold-glow hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2.5 group"
             >
+              <Sparkles className="w-4 h-4 fill-white" />
               <span>Build Event & Instant Quote</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
 
             <button
-              onClick={() => scrollTo('manpower')}
-              className="w-full sm:w-auto px-6 py-4 rounded-2xl text-sm sm:text-base font-semibold bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-soft-sm transition-all flex items-center justify-center gap-2"
+              onClick={() => scrollTo('gallery')}
+              className="w-full sm:w-auto px-6 py-4 rounded-2xl text-sm sm:text-base font-semibold bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-luxury-sm hover:border-amber-300 transition-all flex items-center justify-center gap-2"
             >
-              <Users className="w-4 h-4 text-teal-600" />
-              <span>Hire Mall Manpower</span>
+              <Layers className="w-4 h-4 text-amber-600" />
+              <span>Explore Visual Showcase</span>
             </button>
 
             <button
               onClick={handleWhatsApp}
-              className="w-full sm:w-auto px-6 py-4 rounded-2xl text-sm sm:text-base font-semibold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-all flex items-center justify-center gap-2 shadow-soft-sm"
+              className="w-full sm:w-auto px-6 py-4 rounded-2xl text-sm sm:text-base font-semibold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-all flex items-center justify-center gap-2 shadow-luxury-sm"
             >
               <Send className="w-4 h-4 text-emerald-600" />
-              <span>Emergency 24/7 Desk</span>
+              <span>24/7 Rapid Response Desk</span>
             </button>
           </div>
 
-          {/* Trust Guarantees Bar (Soft Light Cards) */}
+          {/* 4 Trust Metric Cards */}
           <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-            <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
               <div className="flex items-center gap-2 text-amber-600 mb-1">
                 <Building2 className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">500+</span>
               </div>
-              <p className="text-xs text-slate-500 font-medium">Mall & Brand Events Successfully Delivered</p>
+              <p className="text-xs text-slate-500 font-semibold">Mall Activations & Flagship Launches</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
               <div className="flex items-center gap-2 text-teal-600 mb-1">
                 <ShieldCheck className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">100%</span>
               </div>
-              <p className="text-xs text-slate-500 font-medium">Mall Security Clearance & Pass Compliance</p>
+              <p className="text-xs text-slate-500 font-semibold">Mall Security Clearances & Passes</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
               <div className="flex items-center gap-2 text-amber-600 mb-1">
                 <Users className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">15% Bench</span>
               </div>
-              <p className="text-xs text-slate-500 font-medium">Standby Backup Crew on Immediate Call</p>
+              <p className="text-xs text-slate-500 font-semibold">Standby Reserve Crew on Venue Call</p>
             </div>
 
-            <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all">
+            <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
               <div className="flex items-center gap-2 text-teal-600 mb-1">
                 <Clock className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">4 Hours</span>
               </div>
-              <p className="text-xs text-slate-500 font-medium">Emergency Print & Setup Turnaround</p>
+              <p className="text-xs text-slate-500 font-semibold">Rush Fabrication & Print Dispatch</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Elegant Live Venue Marquee */}
+      <div className="mt-16 border-y border-slate-200/80 bg-white/70 backdrop-blur-md py-4 overflow-hidden marquee-container">
+        <div className="max-w-7xl mx-auto px-4 flex items-center gap-4">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400 whitespace-nowrap pl-2">
+            Trusted At Leading Mall Atriums:
+          </span>
+          <div className="overflow-hidden flex-1 relative">
+            <div className="animate-marquee flex items-center gap-8 text-xs font-bold text-slate-700">
+              {mallPartners.concat(mallPartners).map((mall, idx) => (
+                <div key={idx} className="flex items-center gap-3 shrink-0">
+                  <span className="hover:text-amber-700 transition-colors">{mall}</span>
+                  <span className="text-amber-300">✦</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

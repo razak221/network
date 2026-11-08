@@ -17,6 +17,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
 
   const navLinks = [
     { label: "Build Event", href: "#builder", highlight: true },
+    { label: "Showcase", href: "#gallery" },
     { label: "Manpower", href: "#manpower" },
     { label: "Decor & Production", href: "#production" },
     { label: "Mall Operations", href: "#mall-ops" },

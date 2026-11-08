@@ -10,6 +10,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import Toast from './Toast';
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -21,6 +22,7 @@ export default function ContactSection() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [toastMsg, setToastMsg] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +33,7 @@ export default function ContactSection() {
       `Email: ${form.email || 'N/A'}\n` +
       `Event Type: ${form.eventType}\n` +
       `Details: ${form.message}\n`;
+    setToastMsg("Inquiry dispatched to founders' direct desk!");
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
     setSubmitted(true);
   };
@@ -241,6 +244,13 @@ export default function ContactSection() {
         </div>
 
       </div>
+
+      {toastMsg && (
+        <Toast 
+          message={toastMsg} 
+          onClose={() => setToastMsg('')} 
+        />
+      )}
     </section>
   );
 }

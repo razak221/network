@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import EventBuilder from './components/EventBuilder';
+import GallerySection from './components/GallerySection';
 import ManpowerSection from './components/ManpowerSection';
 import ProductionDecorSection from './components/ProductionDecorSection';
 import BespokeConcierge from './components/BespokeConcierge';
@@ -29,7 +30,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBFBFA] text-slate-800 flex flex-col font-sans selection:bg-amber-200 selection:text-amber-950">
+    <div className="min-h-screen bg-[#FAF9F5] text-slate-800 flex flex-col font-sans selection:bg-amber-200 selection:text-amber-950">
       {/* Sticky Header */}
       <Navbar 
         onOpenConfigurator={scrollToBuilder} 
@@ -37,11 +38,14 @@ export default function App() {
       />
 
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* Hero Section with Live Marquee */}
         <Hero onOpenConfigurator={scrollToBuilder} />
 
         {/* Interactive Event Builder & Instant Quote */}
         <EventBuilder />
+
+        {/* Visual Showcase Gallery (TASK-008) */}
+        <GallerySection onSelectLook={scrollToBuilder} />
 
         {/* Event Manpower Specialization */}
         <ManpowerSection onSelectForQuote={scrollToBuilder} />
