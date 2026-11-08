@@ -3,7 +3,11 @@
  * Handles communication with Render backend (/api/*) with seamless local fallback
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+const API_BASE_URL = import.meta.env.VITE_API_URL || (
+  typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:5001'
+    : 'https://network-m7pn.onrender.com'
+);
 const TOKEN_KEY = 'pristine_admin_token';
 const USER_KEY = 'pristine_admin_user';
 

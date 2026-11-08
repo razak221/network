@@ -82,6 +82,195 @@ function authMiddleware(req, res, next) {
 // PUBLIC ENDPOINTS
 // -----------------------------------------------------------------------------
 
+// Root API Landing Dashboard
+app.get('/', (req, res) => {
+  res.send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pristine Decore API | Render Backend Service</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0B0F19;
+      color: #F8FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      max-width: 640px;
+      width: 100%;
+      background: #111827;
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(217, 119, 6, 0.1);
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10B981;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    h1 span {
+      background: linear-gradient(135deg, #FDE68A 0%, #D97706 50%, #92400E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      color: #94A3B8;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      text-align: left;
+      background: #1E293B;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .stat-label {
+      font-size: 11px;
+      color: #64748B;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .stat-val {
+      font-size: 13px;
+      color: #E2E8F0;
+      font-weight: 600;
+      font-family: monospace;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+    }
+    .btn-gold:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+    }
+    .btn-dark {
+      background: #1E293B;
+      color: #E2E8F0;
+      border: 1px solid #334155;
+    }
+    .btn-dark:hover {
+      background: #334155;
+      color: #FFFFFF;
+    }
+    footer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: #64748B;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">
+      <div class="badge-dot"></div>
+      Backend API Operational
+    </div>
+    
+    <h1>PRISTINE <span>DECORE</span> API</h1>
+    <p>
+      High-performance REST backend powering <strong>pristinedecore.com</strong> for event workforce management, custom fabrication scheduling, and executive inquiry tracking.
+    </p>
+
+    <div class="grid">
+      <div>
+        <div class="stat-label">Hosting Environment</div>
+        <div class="stat-val">Render Web Service</div>
+      </div>
+      <div>
+        <div class="stat-label">Official Domain</div>
+        <div class="stat-val">pristinedecore.com</div>
+      </div>
+      <div>
+        <div class="stat-label">Founders Command</div>
+        <div class="stat-val">Inam • Razak • Haamed</div>
+      </div>
+      <div>
+        <div class="stat-label">Admin Route</div>
+        <div class="stat-val">/adminboss</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="https://pristinedecore.com" class="btn btn-gold" target="_blank" rel="noopener">
+        <span>Visit Official Website (pristinedecore.com)</span>
+      </a>
+      <a href="https://pristinedecore.com/adminboss" class="btn btn-dark" target="_blank" rel="noopener">
+        <span>Admin Command Portal</span>
+      </a>
+      <a href="/api/health" class="btn btn-dark">
+        <span>View JSON Health</span>
+      </a>
+    </div>
+
+    <footer>
+      &copy; ${new Date().getFullYear()} Pristine Decore. Direct Co-Founder Governance: Syed Inam, Razak Ahmed Khan, Syed Haamed Ali.
+    </footer>
+  </div>
+</body>
+</html>
+  `);
+});
+
 // Health Check
 app.get('/api/health', (req, res) => {
   res.json({
