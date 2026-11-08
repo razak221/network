@@ -50,9 +50,9 @@ export default function AboutPage() {
       {/* 3 Co-Founders In-Depth Profiles */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {founders.map((founder) => (
+          {founders.map((founder, idx) => (
             <div 
-              key={founder.id}
+              key={founder.name || idx}
               className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury flex flex-col justify-between"
             >
               <div className="space-y-5">
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 <div className="relative">
                   <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-700 p-0.5 shadow-soft-gold">
                     <img 
-                      src={founder.image} 
+                      src={founder.avatar || founder.image} 
                       alt={founder.name}
                       className="w-full h-full object-cover rounded-[14px]"
                     />
@@ -82,8 +82,8 @@ export default function AboutPage() {
                 <div className="border-t border-slate-100 pt-4 space-y-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Direct Mandate:</span>
                   <ul className="space-y-1.5">
-                    {founder.focus.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-xs text-slate-700">
+                    {(founder.focus || []).map((item, idx2) => (
+                      <li key={idx2} className="flex items-center gap-2 text-xs text-slate-700">
                         <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                         <span>{item}</span>
                       </li>
@@ -95,7 +95,7 @@ export default function AboutPage() {
               {/* Direct Founder Chat Trigger */}
               <div className="pt-6 border-t border-slate-100 mt-6">
                 <button
-                  onClick={() => handleFounderChat(founder.id, founder.name)}
+                  onClick={() => handleFounderChat(idx === 0 ? 'inam' : idx === 1 ? 'razak' : 'haamed', founder.name)}
                   className="w-full py-3 rounded-2xl text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 flex items-center justify-center gap-2 transition-all group"
                 >
                   <Send className="w-3.5 h-3.5 text-amber-700 group-hover:scale-110 transition-transform" />

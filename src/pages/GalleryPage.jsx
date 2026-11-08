@@ -105,9 +105,15 @@ export default function GalleryPage() {
                   <h3 className="font-heading text-xl font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
+                  
+                  {/* Item Tags */}
+                  <div className="flex flex-wrap gap-1.5 pt-0.5">
+                    {(item.tags || []).map((tag, tIdx) => (
+                      <span key={tIdx} className="text-[11px] font-semibold text-slate-600 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded-lg">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
                   <div className="pt-2 flex items-center gap-2">
                     <span className="text-[11px] font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-lg border border-amber-200/60">

@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingWidget from './components/FloatingWidget';
 import ScrollToTop from './components/ScrollToTop';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Dedicated Separate Pages
 import HomePage from './pages/HomePage';
@@ -54,9 +55,11 @@ function AppContent() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <AppContent />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <ScrollToTop />
+        <AppContent />
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }

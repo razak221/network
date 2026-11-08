@@ -84,16 +84,16 @@ export default function ProductionPage() {
                   </div>
                   <div>
                     <h3 className="font-heading text-xl font-bold text-slate-900">{service.title}</h3>
-                    <p className="text-slate-500 text-xs mt-1 font-medium">{service.tagline}</p>
+                    <p className="text-slate-500 text-xs mt-1 font-medium">{service.category || service.tagline}</p>
                   </div>
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                    {service.desc}
+                    {service.description || service.desc}
                   </p>
 
                   <div className="border-t border-slate-100 pt-4 space-y-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Technical Specs:</span>
                     <ul className="space-y-1.5">
-                      {service.specs.map((spec, idx) => (
+                      {(service.specs || []).map((spec, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-xs text-slate-700">
                           <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                           <span>{spec}</span>
