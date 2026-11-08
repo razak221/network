@@ -51,7 +51,19 @@ requiredFiles.forEach((file, idx) => {
   assert(existsSync(resolve(root, file)), idx + 1, `Verify existence of critical file: ${file}`);
 });
 
-assert(existsSync(resolve(root, 'src/components/StageVisualizer.jsx')) && existsSync(resolve(root, 'public/logo.svg')) && existsSync(resolve(root, 'src/components/NightShiftTimeline.jsx')), 15, 'Verify StageVisualizer, NightShiftTimeline, and public/logo.svg assets');
+const separatePages = [
+  'src/pages/HomePage.jsx',
+  'src/pages/QuoteBuilderPage.jsx',
+  'src/pages/ManpowerPage.jsx',
+  'src/pages/ProductionPage.jsx',
+  'src/pages/MallOperationsPage.jsx',
+  'src/pages/GalleryPage.jsx',
+  'src/pages/BespokePage.jsx',
+  'src/pages/AboutPage.jsx',
+  'src/pages/ContactPage.jsx'
+];
+const allPagesExist = separatePages.every(p => existsSync(resolve(root, p)));
+assert(allPagesExist && existsSync(resolve(root, 'src/components/StageVisualizer.jsx')) && existsSync(resolve(root, 'public/logo.svg')), 15, 'Verify all 9 separate pages, StageVisualizer, and brand vector assets');
 
 // --- SUITE 2: Contact Configuration & Domain Binding (Tests 16-25) ---
 import { CONTACT_CONFIG } from '../src/config/contact.js';

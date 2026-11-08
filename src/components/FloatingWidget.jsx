@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Send, Sparkles, X, Phone, ShieldCheck } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 
@@ -34,14 +35,14 @@ export default function FloatingWidget({ onOpenConfigurator }) {
 
       {/* Buttons Row */}
       <div className="flex items-center gap-2">
-        <button
-          onClick={onOpenConfigurator}
+        <Link
+          to="/quote"
           className="px-4 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-soft-gold hover:scale-105 transition-all"
           title="Instant Quote Generator"
         >
           <Sparkles className="w-4 h-4 fill-white" />
           <span className="hidden sm:inline">Instant Quote</span>
-        </button>
+        </Link>
 
         <button
           onClick={handleWhatsApp}

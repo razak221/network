@@ -1,82 +1,54 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import EventBuilder from './components/EventBuilder';
-import GallerySection from './components/GallerySection';
-import ManpowerSection from './components/ManpowerSection';
-import ProductionDecorSection from './components/ProductionDecorSection';
-import BespokeConcierge from './components/BespokeConcierge';
-import MallExcellence from './components/MallExcellence';
-import EstimatorTool from './components/EstimatorTool';
-import FoundersSection from './components/FoundersSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import FloatingWidget from './components/FloatingWidget';
+import ScrollToTop from './components/ScrollToTop';
+
+// Dedicated Separate Pages
+import HomePage from './pages/HomePage';
+import QuoteBuilderPage from './pages/QuoteBuilderPage';
+import ManpowerPage from './pages/ManpowerPage';
+import ProductionPage from './pages/ProductionPage';
+import MallOperationsPage from './pages/MallOperationsPage';
+import GalleryPage from './pages/GalleryPage';
+import BespokePage from './pages/BespokePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
-  const scrollToBuilder = () => {
-    const el = document.getElementById('builder');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-slate-800 flex flex-col font-sans selection:bg-amber-200 selection:text-amber-950">
-      {/* Sticky Header */}
-      <Navbar 
-        onOpenConfigurator={scrollToBuilder} 
-        onOpenContact={scrollToContact} 
-      />
+    <BrowserRouter>
+      {/* Scroll restoration on page transition */}
+      <ScrollToTop />
 
-      <main className="flex-grow">
-        {/* Hero Section with Live Marquee */}
-        <Hero onOpenConfigurator={scrollToBuilder} />
+      <div className="min-h-screen bg-[#FAF9F5] text-slate-800 flex flex-col font-sans selection:bg-amber-200 selection:text-amber-950">
+        {/* Sticky Header with Multi-Page Navigation */}
+        <Navbar />
 
-        {/* Interactive Event Builder & Instant Quote */}
-        <EventBuilder />
+        {/* Dynamic Route Container */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/quote" element={<QuoteBuilderPage />} />
+            <Route path="/builder" element={<QuoteBuilderPage />} />
+            <Route path="/manpower" element={<ManpowerPage />} />
+            <Route path="/production" element={<ProductionPage />} />
+            <Route path="/mall-operations" element={<MallOperationsPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/bespoke" element={<BespokePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </main>
 
-        {/* Visual Showcase Gallery (TASK-008) */}
-        <GallerySection onSelectLook={scrollToBuilder} />
+        {/* Global Luxury Footer */}
+        <Footer />
 
-        {/* Event Manpower Specialization */}
-        <ManpowerSection onSelectForQuote={scrollToBuilder} />
-
-        {/* Custom Production, Banners & Signboards */}
-        <ProductionDecorSection />
-
-        {/* "Whatever You Need, We Deliver" Bespoke Concierge */}
-        <BespokeConcierge />
-
-        {/* Mall Operations Mastery & SOP */}
-        <MallExcellence />
-
-        {/* Interactive Estimator Tool */}
-        <EstimatorTool />
-
-        {/* Founders Spotlight: Syed Inam, Razak Ahmed Khan, Syed Haamed Ali */}
-        <FoundersSection />
-
-        {/* Testimonials & Mall FAQs */}
-        <TestimonialsSection />
-
-        {/* Contact & Direct Booking Desk */}
-        <ContactSection />
-      </main>
-
-      {/* Global Footer */}
-      <Footer />
-
-      {/* Floating Quick Action Widget */}
-      <FloatingWidget onOpenConfigurator={scrollToBuilder} />
-    </div>
+        {/* Floating Quick Action Widget */}
+        <FloatingWidget />
+      </div>
+    </BrowserRouter>
   );
 }

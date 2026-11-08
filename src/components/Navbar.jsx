@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 import { 
   Users, 
@@ -15,21 +16,27 @@ import { CONTACT_CONFIG } from '../config/contact';
 
 export default function Navbar({ onOpenConfigurator, onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navLinks = [
-    { label: "Build Event", href: "#builder", highlight: true },
-    { label: "Showcase", href: "#gallery" },
-    { label: "Manpower", href: "#manpower" },
-    { label: "Decor & Production", href: "#production" },
-    { label: "Mall Operations", href: "#mall-ops" },
-    { label: "Founders", href: "#founders" },
-    { label: "Custom Requests", href: "#bespoke" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", to: "/" },
+    { label: "Instant Quote", to: "/quote", highlight: true },
+    { label: "Showcase", to: "/gallery" },
+    { label: "Manpower", to: "/manpower" },
+    { label: "Production & Decor", to: "/production" },
+    { label: "Mall Operations", to: "/mall-operations" },
+    { label: "About Founders", to: "/about" },
+    { label: "Bespoke Wishlist", to: "/bespoke" },
+    { label: "Contact", to: "/contact" },
   ];
 
   const handleWhatsAppDirect = () => {
     const text = "Hello Pristine Decore! I would like to inquire about event manpower and custom production supplies for an upcoming event.";
     window.open(CONTACT_CONFIG.getWhatsAppUrl(text), '_blank');
+  };
+
+  const handleLaunchQuote = () => {
+    navigate('/quote');
   };
 
   return (
@@ -44,24 +51,26 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <Logo size="md" variant="dark" showTagline={true} />
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                  link.highlight
-                    ? "bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200"
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) => `px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                  isActive
+                    ? "bg-amber-100 text-amber-900 border border-amber-300 shadow-soft-sm font-bold"
+                    : link.highlight
+                    ? "bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200/80"
                     : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70"
                 }`}
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
           </nav>
 
@@ -76,23 +85,23 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
               <span>WhatsApp Direct</span>
             </button>
 
-            <button
-              onClick={onOpenConfigurator}
+            <Link
+              to="/quote"
               className="px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white flex items-center gap-2 shadow-soft-gold hover:scale-[1.02] transition-all"
             >
               <Sparkles className="w-4 h-4 fill-white" />
               <span>Instant Quote</span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <button
-              onClick={onOpenConfigurator}
+          <div className="flex items-center gap-2 xl:hidden">
+            <Link
+              to="/quote"
               className="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-white sm:hidden"
             >
               Quote
-            </button>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-xl bg-slate-100 text-slate-700 hover:text-slate-900 hover:bg-slate-200 transition-colors"
@@ -106,16 +115,20 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 animate-fadeIn">
+        <div className="xl:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 animate-fadeIn max-h-[85vh] overflow-y-auto">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
+            <NavLink
+              key={link.to}
+              to={link.to}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-700 transition-colors"
+              className={({ isActive }) => `block px-3 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
+                isActive
+                  ? "bg-amber-100 text-amber-900 border border-amber-300 font-bold"
+                  : "text-slate-700 hover:bg-amber-50 hover:text-amber-700"
+              }`}
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
           <div className="pt-4 flex flex-col gap-2">
             <button
@@ -128,16 +141,14 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
               <Send className="w-4 h-4" />
               <span>WhatsApp Direct to Founders</span>
             </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenConfigurator();
-              }}
+            <Link
+              to="/quote"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full py-2.5 rounded-xl text-sm font-bold bg-amber-500 text-white flex items-center justify-center gap-2 shadow-soft-gold"
             >
               <Sparkles className="w-4 h-4" />
               <span>Build Event & Get Instant Quote</span>
-            </button>
+            </Link>
           </div>
         </div>
       )}

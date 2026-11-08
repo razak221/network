@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Users, 
   Sparkles, 
@@ -68,22 +69,22 @@ export default function Hero({ onOpenConfigurator }) {
 
           {/* Call to Actions */}
           <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <button
-              onClick={onOpenConfigurator}
+            <Link
+              to="/quote"
               className="w-full sm:w-auto px-8 py-4 rounded-2xl text-sm sm:text-base font-bold bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white shadow-gold-glow hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2.5 group"
             >
               <Sparkles className="w-4 h-4 fill-white" />
               <span>Build Event & Instant Quote</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
 
-            <button
-              onClick={() => scrollTo('gallery')}
+            <Link
+              to="/gallery"
               className="w-full sm:w-auto px-6 py-4 rounded-2xl text-sm sm:text-base font-semibold bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-luxury-sm hover:border-amber-300 transition-all flex items-center justify-center gap-2"
             >
               <Layers className="w-4 h-4 text-amber-600" />
               <span>Explore Visual Showcase</span>
-            </button>
+            </Link>
 
             <button
               onClick={handleWhatsApp}
