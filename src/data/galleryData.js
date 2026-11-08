@@ -73,3 +73,4 @@ export const mallPartners = [
   "DLF Promenade",
   "Palladium Atrium"
 ];
+

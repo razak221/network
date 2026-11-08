@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ArrowRight
 } from 'lucide-react';
+import NightShiftTimeline from './NightShiftTimeline';
 
 export default function MallExcellence() {
   const pillars = [
@@ -88,6 +89,9 @@ export default function MallExcellence() {
             );
           })}
         </div>
+
+        {/* Interactive Nocturnal 11 PM to 8 AM Scrubber */}
+        <NightShiftTimeline />
 
         {/* Bottom Mall Callout */}
         <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-teal-50 border border-slate-200 shadow-soft-lg flex flex-col sm:flex-row items-center justify-between gap-6">

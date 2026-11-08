@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 import Toast from './Toast';
+import StageVisualizer from './StageVisualizer';
 
 const EVENT_TYPES = [
   { id: 'mall', label: 'Mall Activation / Roadshow', desc: 'Promoters, bouncers & kiosk decor' },
@@ -142,6 +143,14 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
           {/* Left Column: Configurator Steps */}
           <div className="lg:col-span-7 space-y-6">
             
+            {/* Live Interactive 2D Space Blueprint */}
+            <StageVisualizer 
+              crew={crew} 
+              materials={materials} 
+              eventType={eventType} 
+              venueName={mallVenue} 
+            />
+
             {/* Step 1: Event Type & Details */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-5">
               <div className="flex items-center gap-3">
