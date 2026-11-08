@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: pristine-decore-api
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ADMIN_EMAIL
+        value: admin@me
+      - key: ADMIN_PASSWORD
+        value: admin@123
+      - key: JWT_SECRET
+        generateValue: true

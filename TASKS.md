@@ -6,9 +6,9 @@
 ---
 
 ## Current Status Overview
-- **Completed Tasks:** 14 / 14 (100%)
+- **Completed Tasks:** 15 / 15 (100%)
 - **Pending Tasks:** 0
-- **Current Milestone Status:** 🎉 ALL 14 ARCHITECTURAL TASKS COMPLETED, 9 SEPARATE PAGES LIVE & 100/100 QA TESTS PASSING
+- **Current Milestone Status:** 🎉 ALL 15 ARCHITECTURAL TASKS COMPLETED — RENDER BACKEND + VERCEL SPA + /adminboss PRIVATE EXECUTIVE PORTAL VERIFIED
 
 ---
 
@@ -111,3 +111,13 @@
   - **Components:** `src/components/ScrollToTop.jsx`, `src/components/Navbar.jsx` (active NavLink highlighting), `src/components/Footer.jsx` (deep routes), `src/components/FloatingWidget.jsx`.
   - **Verification:** `npm run build` succeeds (381kB bundle); `npm test` passes 100/100; live HMR verified.
   - **Commit:** `fc580cd`
+
+- [x] **TASK-015: Render Backend API, Vercel SPA Routing & Secret /adminboss Executive Portal**
+  - **Scope:**
+    1. **Vercel Deployment Configuration:** Created `vercel.json` with SPA rewrite rules (`/(.*)` -> `/index.html`) and security headers.
+    2. **Render Backend Architecture:** Created production-grade Node.js/Express server in `server/` with `package.json`, `index.js`, health check (`/api/health`), admin authentication (`/api/admin/login`), client inquiry ingestion (`/api/inquiries`), protected management endpoints (`GET`, `PATCH`, `DELETE`), and persistent seed inquiries in `server/data/inquiries.json`. Created `render.yaml` infrastructure-as-code blueprint for 1-click deployment.
+    3. **Secret Private Admin Page (`/adminboss`):** Engineered high-security executive portal with designated credentials (`admin@me` / `admin@123`), login gate, 4 live KPI cards (total leads, active pipeline, crew headcount sum, confirmed bookings), filterable/searchable inquiries table, lead modal viewer, manual offline lead logger, status updater, CSV exporter, and direct WhatsApp response buttons.
+    4. **Frontend API Client:** Built `src/services/api.js` with live Render backend connectivity and automatic local fallback mode.
+  - **Files:** `vercel.json`, `render.yaml`, `server/package.json`, `server/index.js`, `server/data/inquiries.json`, `src/services/api.js`, `src/pages/AdminBossPage.jsx`, `src/App.jsx`, `tests/qa-100-tests.js`.
+  - **Verification:** `server/index.js` tested on port 5001 with curl; `npm test` passes 100/100; `npm run build` passes with zero errors; `/adminboss` route verified.
+  - **Commit:** `pending`

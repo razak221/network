@@ -40,28 +40,52 @@ Founded by:
 ## 🛠️ Local Development
 
 ```bash
-# 1. Install dependencies
+# 1. Install frontend dependencies
 npm install
 
-# 2. Start local development server
+# 2. Start local frontend server (runs on port 3000)
 npm run dev
-```
 
-Visit `http://localhost:3000` in your browser.
+# 3. In another terminal, start backend server (runs on port 5001)
+cd server
+npm install
+npm start
+```
 
 ---
 
+## 🚀 Deployment Guide (Vercel Frontend + Render Backend)
 
+### 1. Frontend on Vercel
+1. Import this repository into [Vercel](https://vercel.com).
+2. Framework Preset: **Vite** (auto-detected).
+3. Root Directory: `./` (leave default).
+4. Build Command: `npm run build`
+5. Output Directory: `dist`
+6. `vercel.json` is already configured for full SPA routing (handles deep routes `/quote`, `/manpower`, `/adminboss`, etc.).
+7. Set Environment Variable in Vercel:
+   - `VITE_API_URL`: Your deployed Render backend URL (e.g., `https://pristine-decore-api.onrender.com`).
 
+### 2. Backend on Render
+1. Go to [Render Dashboard](https://dashboard.render.com) and click **New + > Web Service** (or use Blueprint with `render.yaml`).
+2. Connect your GitHub repository `razak221/network`.
+3. Root Directory: `server` (or leave default if using Blueprint).
+4. Build Command: `npm install`
+5. Start Command: `npm start`
+6. Environment Variables:
+   - `ADMIN_EMAIL`: `admin@me`
+   - `ADMIN_PASSWORD`: `admin@123`
+   - `PORT`: `10000`
+   - `NODE_ENV`: `production`
 
-## 🌐 Production Build & Deployment to `pristinedecore.com`
+---
 
-```bash
-# Generate optimized production bundle
-npm run build
-```
+## 🔐 Secret Executive Portal (`/adminboss`)
 
-The compiled static files will be located in the `dist/` directory, ready to deploy to any hosting provider (Vercel, Netlify, Cloudflare Pages, Firebase Hosting, Hostinger, or Apache/Nginx server).
+* **URL Path:** `/adminboss`
+* **Administrative ID:** `admin@me`
+* **Administrative Password:** `admin@123`
+* **Capabilities:** Real-time KPI analytics, client inquiry review, status changes (New, Quoted, Confirmed), CSV roster export, and 1-click WhatsApp reply directly to client phone numbers.
 
 ---
 

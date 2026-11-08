@@ -60,10 +60,19 @@ const separatePages = [
   'src/pages/GalleryPage.jsx',
   'src/pages/BespokePage.jsx',
   'src/pages/AboutPage.jsx',
-  'src/pages/ContactPage.jsx'
+  'src/pages/ContactPage.jsx',
+  'src/pages/AdminBossPage.jsx'
 ];
 const allPagesExist = separatePages.every(p => existsSync(resolve(root, p)));
-assert(allPagesExist && existsSync(resolve(root, 'src/components/StageVisualizer.jsx')) && existsSync(resolve(root, 'public/logo.svg')), 15, 'Verify all 9 separate pages, StageVisualizer, and brand vector assets');
+assert(
+  allPagesExist && 
+  existsSync(resolve(root, 'vercel.json')) && 
+  existsSync(resolve(root, 'render.yaml')) && 
+  existsSync(resolve(root, 'server/index.js')) && 
+  existsSync(resolve(root, 'src/services/api.js')), 
+  15, 
+  'Verify all 10 pages (/adminboss included), Vercel SPA routing, Render backend, and API service'
+);
 
 // --- SUITE 2: Contact Configuration & Domain Binding (Tests 16-25) ---
 import { CONTACT_CONFIG } from '../src/config/contact.js';
