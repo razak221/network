@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import FloatingWidget from './components/FloatingWidget';
 import ScrollToTop from './components/ScrollToTop';
 import ErrorBoundary from './components/ErrorBoundary';
+import { Analytics } from '@vercel/analytics/react';
 
 // Dedicated Separate Pages
 import HomePage from './pages/HomePage';
@@ -59,6 +60,7 @@ export default function App() {
       <BrowserRouter>
         <ScrollToTop />
         <AppContent />
+        <Analytics />
       </BrowserRouter>
     </ErrorBoundary>
   );
