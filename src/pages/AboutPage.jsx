@@ -57,15 +57,16 @@ export default function AboutPage() {
             >
               <div className="space-y-5">
                 {/* Avatar with Luxury Gold Ring */}
-                <div className="relative">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-700 p-0.5 shadow-soft-gold">
+                <div className="relative inline-block">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-700 p-0.5 shadow-soft-gold">
                     <img 
                       src={founder.avatar || founder.image} 
                       alt={founder.name}
-                      className="w-full h-full object-cover rounded-[14px]"
+                      className="w-full h-full object-cover object-top rounded-[14px]"
+                      loading="lazy"
                     />
                   </div>
-                  <span className="absolute -bottom-2 left-6 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-900 text-amber-400 border border-amber-400/40 shadow-sm">
+                  <span className="absolute -bottom-2 left-2 sm:left-4 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-900 text-amber-400 border border-amber-400/40 shadow-sm whitespace-nowrap">
                     {founder.role}
                   </span>
                 </div>

@@ -89,60 +89,75 @@ export default function ContactPage() {
               </h3>
 
               <div className="space-y-4">
-                <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-amber-900">Syed Inam</span>
-                    <span className="text-[10px] font-mono font-bold text-amber-800 bg-white px-2 py-0.5 rounded border border-amber-200">Mall Clearances</span>
+                <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-start gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-amber-200 p-0.5 shrink-0 shadow-sm overflow-hidden">
+                    <img src="/founders/syed-inam.jpg" alt="Syed Inam" className="w-full h-full object-cover object-top rounded-[10px]" />
                   </div>
-                  <p className="text-xs text-slate-600">On-Ground Logistics & Nocturnal Mall Passes</p>
-                  <div className="pt-2 flex items-center gap-2">
-                    <a 
-                      href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Inam! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.inam.whatsAppNumber)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1"
-                    >
-                      <Send className="w-3 h-3 text-emerald-600" />
-                      <span>WhatsApp Direct</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-teal-50/70 border border-teal-200/80 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-teal-900">Razak Ahmed Khan</span>
-                    <span className="text-[10px] font-mono font-bold text-teal-800 bg-white px-2 py-0.5 rounded border border-teal-200">Client Strategy</span>
-                  </div>
-                  <p className="text-xs text-slate-600">Brand Partnerships, Commercial Inquiries & Quotes</p>
-                  <div className="pt-2 flex items-center gap-2">
-                    <a 
-                      href={CONTACT_CONFIG.getWhatsAppUrl("Hi Razak! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.razak.whatsAppNumber)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs font-bold text-teal-800 hover:underline flex items-center gap-1"
-                    >
-                      <Send className="w-3 h-3 text-emerald-600" />
-                      <span>WhatsApp Direct</span>
-                    </a>
+                  <div className="flex-1 min-w-0 space-y-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-bold text-amber-900">Syed Inam</span>
+                      <span className="text-[10px] font-mono font-bold text-amber-800 bg-white px-2 py-0.5 rounded border border-amber-200 shrink-0">Mall Clearances</span>
+                    </div>
+                    <p className="text-xs text-slate-600">On-Ground Logistics & Nocturnal Mall Passes</p>
+                    <div className="pt-1 flex items-center gap-2">
+                      <a 
+                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Inam! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.inam.whatsAppNumber)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1"
+                      >
+                        <Send className="w-3 h-3 text-emerald-600" />
+                        <span>WhatsApp Direct</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-200/80 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-rose-900">Syed Haamed Ali</span>
-                    <span className="text-[10px] font-mono font-bold text-rose-800 bg-white px-2 py-0.5 rounded border border-rose-200">Production</span>
+                <div className="p-4 rounded-2xl bg-teal-50/70 border border-teal-200/80 flex items-start gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-teal-200 p-0.5 shrink-0 shadow-sm overflow-hidden">
+                    <img src="/founders/razak-ahmed-khan.jpg" alt="Razak Ahmed Khan" className="w-full h-full object-cover object-top rounded-[10px]" />
                   </div>
-                  <p className="text-xs text-slate-600">Custom Fabrication, Signage Specs & Decor</p>
-                  <div className="pt-2 flex items-center gap-2">
-                    <a 
-                      href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Haamed! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.haamed.whatsAppNumber)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs font-bold text-rose-800 hover:underline flex items-center gap-1"
-                    >
-                      <Send className="w-3 h-3 text-emerald-600" />
-                      <span>WhatsApp Direct</span>
-                    </a>
+                  <div className="flex-1 min-w-0 space-y-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-bold text-teal-900">Razak Ahmed Khan</span>
+                      <span className="text-[10px] font-mono font-bold text-teal-800 bg-white px-2 py-0.5 rounded border border-teal-200 shrink-0">Client Strategy</span>
+                    </div>
+                    <p className="text-xs text-slate-600">Brand Partnerships, Commercial Inquiries & Quotes</p>
+                    <div className="pt-1 flex items-center gap-2">
+                      <a 
+                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Razak! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.razak.whatsAppNumber)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-bold text-teal-800 hover:underline flex items-center gap-1"
+                      >
+                        <Send className="w-3 h-3 text-emerald-600" />
+                        <span>WhatsApp Direct</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-200/80 flex items-start gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-rose-200 p-0.5 shrink-0 shadow-sm overflow-hidden">
+                    <img src="/founders/syed-haamed-ali.jpg" alt="Syed Haamed Ali" className="w-full h-full object-cover object-top rounded-[10px]" />
+                  </div>
+                  <div className="flex-1 min-w-0 space-y-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-bold text-rose-900">Syed Haamed Ali</span>
+                      <span className="text-[10px] font-mono font-bold text-rose-800 bg-white px-2 py-0.5 rounded border border-rose-200 shrink-0">Production</span>
+                    </div>
+                    <p className="text-xs text-slate-600">Custom Fabrication, Signage Specs & Decor</p>
+                    <div className="pt-1 flex items-center gap-2">
+                      <a 
+                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Haamed! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.haamed.whatsAppNumber)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-bold text-rose-800 hover:underline flex items-center gap-1"
+                      >
+                        <Send className="w-3 h-3 text-emerald-600" />
+                        <span>WhatsApp Direct</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

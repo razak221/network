@@ -6,7 +6,7 @@ export const founders = [
     bio: "Specializes in large-scale event workforce coordination, venue clearances, and zero-delay ground execution. Oversees crew grooming, mall security pass compliance, and emergency staffing logistics.",
     stats: "500+ Events Supervised",
     focus: ["Mall Security Approvals", "Crew Discipline & Punctuality", "Rapid Standby Dispatch"],
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
+    avatar: "/founders/syed-inam.jpg",
     badge: "Operations Command"
   },
   {
@@ -16,7 +16,7 @@ export const founders = [
     bio: "Drives corporate brand partnerships, agency collaborations, and custom event project structuring. Ensures tailored commercial quotes, SLA fulfillment, and 24/7 dedicated client communication.",
     stats: "200+ Corporate & Retail Clients",
     focus: ["Client SLA Assurance", "Bespoke Project Quotations", "End-to-End Account Management"],
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80",
+    avatar: "/founders/razak-ahmed-khan.jpg",
     badge: "Client Experience"
   },
   {
@@ -26,7 +26,7 @@ export const founders = [
     bio: "Leads in-house workshop fabrication, high-resolution signage manufacturing, thematic event decor, and audio-visual stage setups. Master of nocturnal mall installations and pristine finishing.",
     stats: "1,200+ Custom Assets Fabricated",
     focus: ["Custom Signage & Neon Displays", "Stage & Mall Atrium Decor", "Overnight Fabrication & AV"],
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80",
+    avatar: "/founders/syed-haamed-ali.jpg",
     badge: "Production & Decor"
   }
 ];

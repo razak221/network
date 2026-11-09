@@ -56,11 +56,12 @@ export default function FoundersSection() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-2xl bg-amber-100 p-0.5 shadow-soft-sm shrink-0">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-amber-400 to-amber-600 p-0.5 shadow-soft-gold shrink-0">
                     <img
                       src={founder.avatar}
                       alt={founder.name}
-                      className="w-full h-full object-cover rounded-[14px]"
+                      className="w-full h-full object-cover object-top rounded-[14px]"
+                      loading="lazy"
                     />
                   </div>
                   <div>
