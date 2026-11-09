@@ -4,7 +4,7 @@
 Founded by:
 - **Syed Inam** — Head of Ground Operations & Mall Compliance
 - **Razak Ahmed Khan** — Head of Business Strategy & Client Experience
-- **Syed Haamed Ali** — Head of Creative Decor, Print & Fabrication
+- **Syed Haamid Ali** — Head of Creative Decor, Print & Fabrication
 
 ---
 
@@ -33,7 +33,7 @@ Founded by:
    - On-demand sourcing for custom branded polo shirts, caps, badges, confetti guns, dry-ice fog machines, mascot suits, and unique props.
 
 5. **Direct Founder Accountability:**
-   - Dedicated profiles and direct WhatsApp touchpoints for Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali.
+   - Dedicated profiles and direct WhatsApp touchpoints for Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali.
 
 ---
 

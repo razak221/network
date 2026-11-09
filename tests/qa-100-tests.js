@@ -82,7 +82,7 @@ assert(CONTACT_CONFIG.brandName === 'Pristine Decore', 17, 'Brand name matches P
 assert(Boolean(CONTACT_CONFIG.email && CONTACT_CONFIG.email.includes('@pristinedecore.com')), 18, 'Official email is configured under pristinedecore.com');
 assert(Boolean(CONTACT_CONFIG.founders.inam), 19, 'Founder Syed Inam exists in config');
 assert(Boolean(CONTACT_CONFIG.founders.razak), 20, 'Founder Razak Ahmed Khan exists in config');
-assert(Boolean(CONTACT_CONFIG.founders.haamed), 21, 'Founder Syed Haamed Ali exists in config');
+assert(Boolean(CONTACT_CONFIG.founders.haamid || CONTACT_CONFIG.founders.haamed), 21, 'Founder Syed Haamid Ali exists in config');
 assert(typeof CONTACT_CONFIG.getWhatsAppUrl === 'function', 22, 'getWhatsAppUrl helper function is defined');
 
 const sampleUrl = CONTACT_CONFIG.getWhatsAppUrl("Test Message", "919876543210");

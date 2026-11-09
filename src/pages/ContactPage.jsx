@@ -149,7 +149,7 @@ export default function ContactPage() {
                     <p className="text-xs text-slate-600">Custom Fabrication, Signage Specs & Decor</p>
                     <div className="pt-1 flex items-center gap-2">
                       <a 
-                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Haamid! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.haamed.whatsAppNumber)}
+                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Haamid! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.haamid.whatsAppNumber)}
                         target="_blank"
                         rel="noreferrer"
                         className="text-xs font-bold text-rose-800 hover:underline flex items-center gap-1"

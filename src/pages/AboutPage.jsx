@@ -96,7 +96,7 @@ export default function AboutPage() {
               {/* Direct Founder Chat Trigger */}
               <div className="pt-6 border-t border-slate-100 mt-6">
                 <button
-                  onClick={() => handleFounderChat(idx === 0 ? 'inam' : idx === 1 ? 'razak' : 'haamed', founder.name)}
+                  onClick={() => handleFounderChat(idx === 0 ? 'inam' : idx === 1 ? 'razak' : 'haamid', founder.name)}
                   className="w-full py-3 rounded-2xl text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 flex items-center justify-center gap-2 transition-all group"
                 >
                   <Send className="w-3.5 h-3.5 text-amber-700 group-hover:scale-110 transition-transform" />

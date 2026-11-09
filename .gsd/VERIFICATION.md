@@ -46,7 +46,7 @@ Connection: keep-alive
 | **Mall Operations SOP** | `src/components/MallExcellence.jsx` | Nocturnal setup (11 PM - 8 AM), gate clearance, 15% reserve bench |
 | **Custom Production Catalog** | `src/components/ProductionDecorSection.jsx` | Roll-up standees, 3D acrylic signs, LED glow boxes, neon flex, theme decor, sound/mics |
 | **Bespoke Concierge** | `src/components/BespokeConcierge.jsx` | "Ask For Anything" input for props, uniforms, special FX |
-| **Founders Spotlight** | `src/components/FoundersSection.jsx` | Profiles for Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali with direct WhatsApp actions |
+| **Founders Spotlight** | `src/components/FoundersSection.jsx` | Profiles for Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali with direct WhatsApp actions |
 | **Interactive Estimator** | `src/components/EstimatorTool.jsx` | Real-time calculation of crew & materials based on venue size & objective |
 | **Branding & Domain** | `index.html`, `Navbar.jsx`, `Footer.jsx` | `pristinedecore.com` domain branding throughout |
 

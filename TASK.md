@@ -35,7 +35,7 @@
   - **Commit:** `9d153f5`
 
 - [x] **TASK-005: Founders Leadership Spotlight**
-  - **Scope:** Create `FoundersSection.jsx` showcasing Syed Inam (Ops), Razak Ahmed Khan (Client Relations), and Syed Haamed Ali (Production) with direct contact triggers.
+  - **Scope:** Create `FoundersSection.jsx` showcasing Syed Inam (Ops), Razak Ahmed Khan (Client Relations), and Syed Haamid Ali (Production) with direct contact triggers.
   - **Verification:** Bio cards and individual founder chat triggers verified.
   - **Commit:** `9d153f5`
 
@@ -44,7 +44,7 @@
 ## Milestone 2: Feature Enhancements, Architectural Polish & SEO
 
 - [x] **TASK-006: Dedicated Contact Configuration & Dynamic Phone Binding**
-  - **Scope:** Create a centralized config file `src/config/contact.js` defining official phone numbers, WhatsApp numbers, email, and social links for Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali so they can be managed from a single place across `Navbar`, `EventBuilder`, `FoundersSection`, `ContactSection`, and `FloatingWidget`.
+  - **Scope:** Create a centralized config file `src/config/contact.js` defining official phone numbers, WhatsApp numbers, email, and social links for Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali so they can be managed from a single place across `Navbar`, `EventBuilder`, `FoundersSection`, `ContactSection`, and `FloatingWidget`.
   - **Files:** `src/config/contact.js`, `src/components/EventBuilder.jsx`, `src/components/Navbar.jsx`, `src/components/FoundersSection.jsx`, `src/components/FloatingWidget.jsx`, `src/components/ContactSection.jsx`.
   - **Verification:** `npm run build` passes; all WhatsApp triggers import from centralized config.
   - **Commit:** `928491a`
@@ -68,7 +68,7 @@
   - **Commit:** `feat(gallery): visual showcase gallery with interactive category filters [TASK-008]`
 
 - [x] **TASK-009: SEO, Meta Tags & Open Graph Social Cards for pristinedecore.com**
-  - **Scope:** Enhanced `index.html` with complete Open Graph (`og:title`, `og:description`, `og:image`, `og:url`), Twitter card meta tags, and structured JSON-LD Schema (`LocalBusiness` / `EventPlanningService` / `EventVenue`) specifying Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali.
+  - **Scope:** Enhanced `index.html` with complete Open Graph (`og:title`, `og:description`, `og:image`, `og:url`), Twitter card meta tags, and structured JSON-LD Schema (`LocalBusiness` / `EventPlanningService` / `EventVenue`) specifying Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali.
   - **Files:** `index.html`.
   - **Verification:** Validated schema and clean build.
   - **Commit:** `feat(seo): complete Open Graph, Twitter cards, and JSON-LD schema [TASK-009]`
@@ -106,7 +106,7 @@
     5. `/mall-operations` — Nocturnal SOPs, 11 PM to 8 AM Interactive Timeline, and Top Mall Relations
     6. `/gallery` — Visual Portfolio with category filtering and "Replicate Look" actions
     7. `/bespoke` — White-Glove Custom Procurement & Eccentric Event Request Wishlist Desk
-    8. `/about` — Executive Co-Founder Bios (Syed Inam, Razak Ahmed Khan, Syed Haamed Ali) & 4 Guarantees
+    8. `/about` — Executive Co-Founder Bios (Syed Inam, Razak Ahmed Khan, Syed Haamid Ali) & 4 Guarantees
     9. `/contact` — 24/7 Operations Desk, Direct Founder Phone/WhatsApp Hotlines & Booking Form
   - **Components:** `src/components/ScrollToTop.jsx`, `src/components/Navbar.jsx` (active NavLink highlighting), `src/components/Footer.jsx` (deep routes), `src/components/FloatingWidget.jsx`.
   - **Verification:** `npm run build` succeeds (381kB bundle); `npm test` passes 100/100; live HMR verified.

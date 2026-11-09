@@ -17,7 +17,7 @@ updated: 2026-11-08T23:08:00+05:30
 - [x] Mall Event Operations Blueprint (Nocturnal setup, 15% reserve bench)
 - [x] In-House Production & Custom Decor catalog (Banners, 3D signs, arches, AV)
 - [x] "Ask For Anything" Bespoke Concierge with quick input
-- [x] Leadership section for Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali
+- [x] Leadership section for Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali
 - [x] Interactive Mall Area & Footfall Estimator tool
 - [x] Floating Quick-Action WhatsApp hotline & Quote button
 - [x] Production build pass with zero errors
@@ -63,7 +63,7 @@ updated: 2026-11-08T23:08:00+05:30
 
 **Plans:**
 - [x] Plan 4.1: "Request Anything" bespoke inquiry engine
-- [x] Plan 4.2: Founder profiles for Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali with direct chat
+- [x] Plan 4.2: Founder profiles for Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali with direct chat
 - [x] Plan 4.3: Interactive Mall Footfall & Setup Estimator tool
 - [x] Plan 4.4: Client reviews, mall FAQs, and direct inquiry booking form
 

@@ -94,7 +94,7 @@ export default function FoundersSection() {
               <div className="pt-6 mt-6 border-t border-slate-100">
                 <button
                   type="button"
-                  onClick={() => handleFounderChat(idx === 0 ? 'inam' : idx === 1 ? 'razak' : 'haamed', founder.name)}
+                  onClick={() => handleFounderChat(idx === 0 ? 'inam' : idx === 1 ? 'razak' : 'haamid', founder.name)}
                   className="w-full py-3 rounded-2xl text-xs font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center justify-center gap-2 transition-all shadow-soft-sm"
                 >
                   <Send className="w-3.5 h-3.5 text-emerald-600" />
