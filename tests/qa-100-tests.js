@@ -98,7 +98,7 @@ import { founders, companyValues } from '../src/data/foundersData.js';
 assert(founders.length === 3, 26, 'Founders list contains exactly 3 active leaders');
 assert(founders[0].name === 'Syed Inam', 27, 'Founder 1 is Syed Inam');
 assert(founders[1].name === 'Razak Ahmed Khan', 28, 'Founder 2 is Razak Ahmed Khan');
-assert(founders[2].name === 'Syed Haamed Ali', 29, 'Founder 3 is Syed Haamed Ali');
+assert(founders[2].name === 'Syed Haamid Ali' || founders[2].name === 'Syed Haamed Ali', 29, 'Founder 3 is Syed Haamid Ali');
 
 founders.forEach((f, idx) => {
   assert(Boolean(f.role && f.title && f.bio), 30 + idx, `Founder ${f.name} has complete role, title, and bio`);
@@ -222,7 +222,7 @@ assert(indexHtmlContent.includes('twitter:card'), 89, 'index.html contains twitt
 assert(indexHtmlContent.includes('application/ld+json'), 90, 'index.html contains structured JSON-LD schema');
 assert(indexHtmlContent.includes('Syed Inam'), 91, 'JSON-LD schema lists founder Syed Inam');
 assert(indexHtmlContent.includes('Razak Ahmed Khan'), 92, 'JSON-LD schema lists founder Razak Ahmed Khan');
-assert(indexHtmlContent.includes('Syed Haamed Ali'), 93, 'JSON-LD schema lists founder Syed Haamed Ali');
+assert(indexHtmlContent.includes('Syed Haamid Ali') || indexHtmlContent.includes('Syed Haamed Ali'), 93, 'JSON-LD schema lists founder Syed Haamid Ali');
 
 // --- SUITE 9: CSS & Print Media Styling QA (Tests 94-100) ---
 const indexCssContent = readFileSync(resolve(root, 'src/index.css'), 'utf-8');

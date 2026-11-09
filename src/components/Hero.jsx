@@ -95,7 +95,7 @@ export default function Hero({ onOpenConfigurator }) {
               <span className="text-amber-400">•</span>
               <span className="font-bold text-slate-900">Razak Ahmed Khan</span>
               <span className="text-amber-400">•</span>
-              <span className="font-bold text-slate-900">Syed Haamed Ali</span>
+              <span className="font-bold text-slate-900">Syed Haamid Ali</span>
             </div>
           </div>
 

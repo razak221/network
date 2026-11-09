@@ -139,17 +139,17 @@ export default function ContactPage() {
 
                 <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-200/80 flex items-start gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-rose-200 p-0.5 shrink-0 shadow-sm overflow-hidden">
-                    <img src="/founders/syed-haamed-ali.jpg" alt="Syed Haamed Ali" className="w-full h-full object-cover object-top rounded-[10px]" />
+                    <img src="/founders/syed-haamid-ali.jpg" alt="Syed Haamid Ali" className="w-full h-full object-cover object-top rounded-[10px]" />
                   </div>
                   <div className="flex-1 min-w-0 space-y-1">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-rose-900">Syed Haamed Ali</span>
+                      <span className="text-xs font-bold text-rose-900">Syed Haamid Ali</span>
                       <span className="text-[10px] font-mono font-bold text-rose-800 bg-white px-2 py-0.5 rounded border border-rose-200 shrink-0">Production</span>
                     </div>
                     <p className="text-xs text-slate-600">Custom Fabrication, Signage Specs & Decor</p>
                     <div className="pt-1 flex items-center gap-2">
                       <a 
-                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Haamed! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.haamed.whatsAppNumber)}
+                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Haamid! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.haamed.whatsAppNumber)}
                         target="_blank"
                         rel="noreferrer"
                         className="text-xs font-bold text-rose-800 hover:underline flex items-center gap-1"

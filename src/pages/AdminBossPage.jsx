@@ -253,7 +253,7 @@ export default function AdminBossPage() {
               Executive Command Portal
             </h1>
             <p className="text-slate-400 text-xs">
-              Direct access for Syed Inam, Razak Ahmed Khan & Syed Haamed Ali.
+              Direct access for Syed Inam, Razak Ahmed Khan & Syed Haamid Ali.
             </p>
           </div>
 

@@ -24,7 +24,7 @@ const TIMELINE_STEPS = [
   {
     time: "01:00 AM",
     title: "Heavy Trussing, Staging & Carpeting",
-    lead: "Syed Haamed Ali (Production Head)",
+    lead: "Syed Haamid Ali (Production Head)",
     desc: "Silent, modular assembly of raised stage decks and aluminum box trussing. Non-slip commercial carpet runners laid with fire-retardant edge taping.",
     checkpoints: ["Stage level & weight-load verified", "Rubber cable protectors installed", "Zero-noise impact tools used"],
     status: "Infrastructure Erected",

@@ -174,7 +174,7 @@ export const mallFaqs = [
   },
   {
     q: "Can we request custom fabricated signboards or banners with our exact Pantone colors?",
-    a: "Yes! Co-founder Syed Haamed Ali oversees our in-house printing and fabrication shop. We print on calibrated Roland/HP high-gamut machines ensuring 100% brand color fidelity."
+    a: "Yes! Co-founder Syed Haamid Ali oversees our in-house printing and fabrication shop. We print on calibrated Roland/HP high-gamut machines ensuring 100% brand color fidelity."
   },
   {
     q: "How does the custom request feature work?",

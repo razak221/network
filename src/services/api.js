@@ -104,7 +104,7 @@ function getStoredInquiries() {
       status: "in_review",
       source: "contact_form",
       quotedAmount: "₹38,000",
-      notes: "Syed Haamed Ali reviewing floral and chrome arch fabrication."
+      notes: "Syed Haamid Ali reviewing floral and chrome arch fabrication."
     }
   ];
 }

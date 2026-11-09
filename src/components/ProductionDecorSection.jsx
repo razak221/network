@@ -98,7 +98,7 @@ export default function ProductionDecorSection() {
         {/* Visual Callout for Fast Turnaround */}
         <div className="mt-12 p-6 rounded-3xl bg-white border border-amber-200/80 text-center max-w-3xl mx-auto shadow-soft">
           <p className="text-xs sm:text-sm text-slate-700">
-            <strong className="text-amber-700 font-semibold">Rush Print Emergency?</strong> If your sponsor changes artwork at 6:00 PM the night before a mall launch, co-founder Syed Haamed Ali's production desk provides priority night-run printing for morning delivery.
+            <strong className="text-amber-700 font-semibold">Rush Print Emergency?</strong> If your sponsor changes artwork at 6:00 PM the night before a mall launch, co-founder Syed Haamid Ali's production desk provides priority night-run printing for morning delivery.
           </p>
         </div>
 

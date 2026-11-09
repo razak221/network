@@ -37,11 +37,18 @@ export const CONTACT_CONFIG = {
       email: "razak@pristinedecore.com"
     },
     haamed: {
-      name: "Syed Haamed Ali",
+      name: "Syed Haamid Ali",
       role: "Creative Decor & Print Fabrication",
       phoneDisplay: "Direct Production Desk",
       whatsAppNumber: "", // Set personal WhatsApp if desired
-      email: "haamed@pristinedecore.com"
+      email: "haamid@pristinedecore.com"
+    },
+    haamid: {
+      name: "Syed Haamid Ali",
+      role: "Creative Decor & Print Fabrication",
+      phoneDisplay: "Direct Production Desk",
+      whatsAppNumber: "",
+      email: "haamid@pristinedecore.com"
     }
   },
 

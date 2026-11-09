@@ -20,13 +20,13 @@ export const founders = [
     badge: "Client Experience"
   },
   {
-    name: "Syed Haamed Ali",
+    name: "Syed Haamid Ali",
     role: "Co-Founder & Production Head",
     title: "Head of Creative Decor, Print & Fabrication",
     bio: "Leads in-house workshop fabrication, high-resolution signage manufacturing, thematic event decor, and audio-visual stage setups. Master of nocturnal mall installations and pristine finishing.",
     stats: "1,200+ Custom Assets Fabricated",
     focus: ["Custom Signage & Neon Displays", "Stage & Mall Atrium Decor", "Overnight Fabrication & AV"],
-    avatar: "/founders/syed-haamed-ali.jpg",
+    avatar: "/founders/syed-haamid-ali.jpg",
     badge: "Production & Decor"
   }
 ];
@@ -46,7 +46,7 @@ export const companyValues = [
   },
   {
     title: "Direct Founder Accountability",
-    desc: "You aren't dealing with a junior call-center rep. Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali remain directly reachable for your event."
+    desc: "You aren't dealing with a junior call-center rep. Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali remain directly reachable for your event."
   }
 ];
 

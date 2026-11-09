@@ -35,7 +35,7 @@ export default function Footer() {
 
             <div className="pt-2 text-xs text-slate-300 space-y-1">
               <div className="text-amber-400 font-semibold">Founding Team:</div>
-              <div className="text-white font-medium">Syed Inam • Razak Ahmed Khan • Syed Haamed Ali</div>
+              <div className="text-white font-medium">Syed Inam • Razak Ahmed Khan • Syed Haamid Ali</div>
             </div>
           </div>
 

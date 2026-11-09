@@ -56,7 +56,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
       <div className="bg-amber-50 text-amber-900 border-b border-amber-200/50 px-4 py-1.5 text-xs font-semibold text-center tracking-wide flex items-center justify-center gap-2">
         <span className="inline-block w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
         <span>MALL ACTIVATIONS & CORPORATE EVENTS SPECIALISTS — 24/7 RAPID DEPLOYMENT DESK</span>
-        <span className="hidden sm:inline opacity-70">| Founders Direct: Syed Inam, Razak Ahmed Khan, Syed Haamed Ali</span>
+        <span className="hidden sm:inline opacity-70">| Founders Direct: Syed Inam, Razak Ahmed Khan, Syed Haamid Ali</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

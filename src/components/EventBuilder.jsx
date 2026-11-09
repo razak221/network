@@ -459,7 +459,7 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
                 </button>
 
                 <p className="text-[11px] text-center text-slate-500">
-                  Instant response from Syed Inam, Razak Ahmed Khan, or Syed Haamed Ali.
+                  Instant response from Syed Inam, Razak Ahmed Khan, or Syed Haamid Ali.
                 </p>
               </div>
 
@@ -635,7 +635,7 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
           </div>
           <div>
             <p className="text-slate-500 uppercase text-[10px] font-bold">Production & Decor Lead</p>
-            <p className="font-bold text-slate-900 mt-4">Syed Haamed Ali</p>
+            <p className="font-bold text-slate-900 mt-4">Syed Haamid Ali</p>
             <p className="text-slate-500 text-[10px]">Creative Decor & Print Fabrication</p>
           </div>
         </div>

@@ -52,7 +52,7 @@ export default function ContactSection() {
             Let's Make Your Event <span className="text-gradient-gold">Spectacular</span>
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
-            Reach out directly to Syed Inam, Razak Ahmed Khan, or Syed Haamed Ali. We guarantee response within 15 minutes.
+            Reach out directly to Syed Inam, Razak Ahmed Khan, or Syed Haamid Ali. We guarantee response within 15 minutes.
           </p>
         </div>
 
@@ -114,7 +114,7 @@ export default function ContactSection() {
                     <span className="text-teal-700 font-semibold text-[11px]">Client Relations & Quotes</span>
                   </div>
                   <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <span className="font-bold text-slate-900">Syed Haamed Ali</span>
+                    <span className="font-bold text-slate-900">Syed Haamid Ali</span>
                     <span className="text-emerald-700 font-semibold text-[11px]">Decor & Workshop Fabrication</span>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export default function ContactSection() {
                   <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
                   <h4 className="font-heading font-bold text-xl text-slate-900">Inquiry Forwarded Successfully!</h4>
                   <p className="text-xs sm:text-sm text-slate-600">
-                    Your request has been dispatched to Syed Inam, Razak Ahmed Khan, and Syed Haamed Ali. We will connect with you right away.
+                    Your request has been dispatched to Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali. We will connect with you right away.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
