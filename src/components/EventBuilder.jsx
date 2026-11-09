@@ -29,7 +29,7 @@ const EVENT_TYPES = [
   { id: 'other', label: 'Custom / Other Event', desc: 'Tell us whatever you need' },
 ];
 
-export default function EventBuilder({ isOpenModal = false, onClose }) {
+export default function EventBuilder({ isOpenModal = false, onClose, hideHeader = false }) {
   const [eventType, setEventType] = useState('mall');
   const [durationDays, setDurationDays] = useState(2);
   const [mallVenue, setMallVenue] = useState('');
@@ -122,22 +122,24 @@ export default function EventBuilder({ isOpenModal = false, onClose }) {
   };
 
   return (
-    <section id="builder" className="py-20 md:py-28 bg-[#F4F4F1] border-y border-slate-200/80 relative">
+    <section id="builder" className={hideHeader ? "py-4 md:py-6 bg-transparent relative" : "py-20 md:py-28 bg-[#F4F4F1] border-y border-slate-200/80 relative"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            <span>Interactive Quote Calculator</span>
+        {!hideHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Interactive Quote Calculator</span>
+            </div>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900">
+              Build Your <span className="text-gradient-gold">Event Order</span> in 2 Minutes
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base">
+              Configure manpower headcount, physical banners, boards, and decor items. We’ll generate an instant formatted quote directly to our founders.
+            </p>
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900">
-            Build Your <span className="text-gradient-gold">Event Order</span> in 2 Minutes
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Configure manpower headcount, physical banners, boards, and decor items. We’ll generate an instant formatted quote directly to our founders.
-          </p>
-        </div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           

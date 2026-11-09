@@ -40,7 +40,7 @@ export default function QuoteBuilderPage() {
       </div>
 
       {/* Embedded EventBuilder Studio */}
-      <EventBuilder />
+      <EventBuilder hideHeader={true} />
 
       {/* Commercial & Operational Guarantees */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
