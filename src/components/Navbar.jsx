@@ -20,14 +20,24 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
   const location = useLocation();
   const isQuotePage = location.pathname.startsWith('/quote') || location.pathname.startsWith('/builder');
 
-  const navLinks = [
-    { label: "Home", to: "/" },
+  const desktopNavLinks = [
     { label: "Showcase", to: "/gallery" },
     { label: "Manpower", to: "/manpower" },
     { label: "Production", to: "/production" },
-    { label: "Mall Operations", to: "/mall-operations" },
+    { label: "Mall Ops", to: "/mall-operations" },
     { label: "Founders", to: "/about" },
     { label: "Bespoke", to: "/bespoke" },
+    { label: "Contact", to: "/contact" },
+  ];
+
+  const mobileNavLinks = [
+    { label: "Home", to: "/" },
+    { label: "Showcase", to: "/gallery" },
+    { label: "Manpower", to: "/manpower" },
+    { label: "Production & Decor", to: "/production" },
+    { label: "Mall Operations", to: "/mall-operations" },
+    { label: "About Founders", to: "/about" },
+    { label: "Bespoke Wishlist", to: "/bespoke" },
     { label: "Contact", to: "/contact" },
   ];
 
@@ -57,8 +67,8 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1 shrink-0">
-            {navLinks.map((link) => (
+          <nav className="hidden xl:flex items-center gap-1 2xl:gap-1.5 shrink-0">
+            {desktopNavLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
@@ -80,8 +90,9 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
               className="px-3 py-2 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 flex items-center gap-1.5 transition-all shadow-soft-sm whitespace-nowrap"
               title="Chat with Founders on WhatsApp"
             >
-              <Send className="w-3.5 h-3.5" />
-              <span>WhatsApp Direct</span>
+              <Send className="w-3.5 h-3.5 text-emerald-600" />
+              <span className="hidden 2xl:inline">WhatsApp Direct</span>
+              <span className="2xl:hidden">WhatsApp</span>
             </button>
 
             {!isQuotePage && (
@@ -117,7 +128,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 animate-fadeIn max-h-[85vh] overflow-y-auto">
-          {navLinks.map((link) => (
+          {mobileNavLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}

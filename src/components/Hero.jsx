@@ -58,31 +58,20 @@ export default function Hero({ onOpenConfigurator }) {
             <strong className="text-slate-900 font-semibold"> you request it, we engineer and deliver it on schedule.</strong>
           </p>
 
-          {/* Founders Direct Leadership Banner */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-700 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/90 shadow-luxury-sm">
-            <Award className="w-4 h-4 text-amber-600 shrink-0" />
-            <span>Direct Co-Founder Governance:</span>
-            <span className="font-bold text-slate-900">Syed Inam</span>
-            <span className="text-amber-400">•</span>
-            <span className="font-bold text-slate-900">Razak Ahmed Khan</span>
-            <span className="text-amber-400">•</span>
-            <span className="font-bold text-slate-900">Syed Haamed Ali</span>
-          </div>
-
-          {/* Call to Actions */}
-          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          {/* Call to Actions (Above the fold) */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               to="/quote"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl text-sm sm:text-base font-bold bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white shadow-gold-glow hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2.5 group"
+              className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-2xl text-sm sm:text-base font-bold bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white shadow-gold-glow hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2.5 group"
             >
               <Sparkles className="w-4 h-4 fill-white" />
-              <span>Build Event & Instant Quote</span>
+              <span>Build Event &amp; Instant Quote</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             <Link
               to="/gallery"
-              className="w-full sm:w-auto px-6 py-4 rounded-2xl text-sm sm:text-base font-semibold bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-luxury-sm hover:border-amber-300 transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-2xl text-sm sm:text-base font-semibold bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-luxury-sm hover:border-amber-300 transition-all flex items-center justify-center gap-2"
             >
               <Layers className="w-4 h-4 text-amber-600" />
               <span>Explore Visual Showcase</span>
@@ -90,11 +79,24 @@ export default function Hero({ onOpenConfigurator }) {
 
             <button
               onClick={handleWhatsApp}
-              className="w-full sm:w-auto px-6 py-4 rounded-2xl text-sm sm:text-base font-semibold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-all flex items-center justify-center gap-2 shadow-luxury-sm"
+              className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-2xl text-sm sm:text-base font-semibold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-all flex items-center justify-center gap-2 shadow-luxury-sm"
             >
               <Send className="w-4 h-4 text-emerald-600" />
               <span>24/7 Rapid Response Desk</span>
             </button>
+          </div>
+
+          {/* Founders Direct Leadership Banner */}
+          <div className="pt-2 flex justify-center">
+            <div className="inline-flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm text-slate-700 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/90 shadow-luxury-sm">
+              <Award className="w-4 h-4 text-amber-600 shrink-0" />
+              <span className="text-slate-500 font-medium">Direct Co-Founder Governance:</span>
+              <span className="font-bold text-slate-900">Syed Inam</span>
+              <span className="text-amber-400">•</span>
+              <span className="font-bold text-slate-900">Razak Ahmed Khan</span>
+              <span className="text-amber-400">•</span>
+              <span className="font-bold text-slate-900">Syed Haamed Ali</span>
+            </div>
           </div>
 
           {/* 4 Trust Metric Cards */}
