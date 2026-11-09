@@ -44,10 +44,12 @@ export default function Hero({ onOpenConfigurator }) {
           </div>
 
           {/* Main Headline with Editorial Luxury Typography */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
-            Architecting Flawless <br className="hidden sm:inline" />
-            <span className="font-luxury italic font-normal text-amber-700 text-5xl sm:text-7xl lg:text-8xl">Event Manpower</span> &<br className="hidden sm:inline" />
-            <span className="text-gradient-gold">Bespoke Production</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-tight sm:leading-[1.18] flex flex-col items-center">
+            <span className="block">Architecting Flawless</span>
+            <span className="block my-1 sm:my-2 font-luxury italic font-normal text-amber-700 text-5xl sm:text-6xl lg:text-7xl leading-snug">
+              Event Manpower <span className="font-sans font-light not-italic text-amber-500 text-3xl sm:text-5xl align-baseline">&amp;</span>
+            </span>
+            <span className="block text-gradient-gold">Bespoke Production</span>
           </h1>
 
           {/* Subheading */}

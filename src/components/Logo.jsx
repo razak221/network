@@ -17,7 +17,7 @@ export default function Logo({
   const isDark = variant === 'dark'; // dark text for light background
 
   return (
-    <div className={`flex items-center gap-3 group select-none ${className}`}>
+    <div className={`flex items-center gap-2.5 sm:gap-3 group select-none shrink-0 ${className}`}>
       {/* Handcrafted Vector Monogram SVG Icon */}
       <div className={`${currentSize.icon} shrink-0 transition-transform duration-300 group-hover:scale-105 drop-shadow-sm`}>
         <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
@@ -76,8 +76,8 @@ export default function Logo({
       </div>
 
       {/* Wordmark & Brand Architecture */}
-      <div>
-        <div className="flex items-center gap-2">
+      <div className="shrink-0 flex flex-col justify-center">
+        <div className="flex items-center gap-2 whitespace-nowrap">
           <span className={`font-heading ${currentSize.text} font-bold tracking-tight ${
             isDark ? 'text-slate-900 group-hover:text-amber-700' : 'text-white group-hover:text-amber-400'
           } transition-colors leading-none`}>
@@ -86,15 +86,11 @@ export default function Logo({
         </div>
 
         {showTagline && (
-          <div className="flex items-center gap-1.5 mt-1">
-            <span className={`text-[10px] tracking-[0.2em] uppercase font-bold ${
+          <div className="flex items-center mt-1 whitespace-nowrap">
+            <span className={`text-[9px] sm:text-[10px] tracking-[0.18em] uppercase font-bold whitespace-nowrap ${
               isDark ? 'text-slate-500' : 'text-slate-400'
             }`}>
-              Event Workforce & Production
-            </span>
-            <span className="w-1 h-1 rounded-full bg-amber-500"></span>
-            <span className="text-[10px] font-mono text-amber-600 font-semibold">
-              pristinedecore.com
+              Event Workforce &amp; Production
             </span>
           </div>
         )}

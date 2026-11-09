@@ -20,13 +20,12 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
 
   const navLinks = [
     { label: "Home", to: "/" },
-    { label: "Instant Quote", to: "/quote", highlight: true },
     { label: "Showcase", to: "/gallery" },
     { label: "Manpower", to: "/manpower" },
-    { label: "Production & Decor", to: "/production" },
+    { label: "Production", to: "/production" },
     { label: "Mall Operations", to: "/mall-operations" },
-    { label: "About Founders", to: "/about" },
-    { label: "Bespoke Wishlist", to: "/bespoke" },
+    { label: "Founders", to: "/about" },
+    { label: "Bespoke", to: "/bespoke" },
     { label: "Contact", to: "/contact" },
   ];
 
@@ -49,23 +48,21 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 gap-4">
           {/* Brand Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center shrink-0">
             <Logo size="md" variant="dark" showTagline={true} />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1">
+          <nav className="hidden xl:flex items-center gap-1 shrink-0">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
-                className={({ isActive }) => `px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                className={({ isActive }) => `px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
                   isActive
                     ? "bg-amber-100 text-amber-900 border border-amber-300 shadow-soft-sm font-bold"
-                    : link.highlight
-                    ? "bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200/80"
                     : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70"
                 }`}
               >
@@ -75,10 +72,10 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2.5 shrink-0">
             <button
               onClick={handleWhatsAppDirect}
-              className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 flex items-center gap-1.5 transition-all shadow-soft-sm"
+              className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 flex items-center gap-1.5 transition-all shadow-soft-sm whitespace-nowrap"
               title="Chat with Founders on WhatsApp"
             >
               <Send className="w-3.5 h-3.5" />
@@ -87,7 +84,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
 
             <Link
               to="/quote"
-              className="px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white flex items-center gap-2 shadow-soft-gold hover:scale-[1.02] transition-all"
+              className="px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white flex items-center gap-2 shadow-soft-gold hover:scale-[1.02] transition-all whitespace-nowrap"
             >
               <Sparkles className="w-4 h-4 fill-white" />
               <span>Instant Quote</span>
