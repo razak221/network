@@ -15,22 +15,15 @@ import {
   Sparkles, 
   ArrowRight, 
   ShieldCheck, 
-  Users, 
   Hammer, 
-  Moon, 
-  Clock, 
   Compass,
   CheckCircle2,
   Building2,
-  Crown
+  HardHat,
+  Palette
 } from 'lucide-react';
-import { CONTACT_CONFIG } from '../config/contact';
 
 export default function HomePage() {
-  // Sample state for the interactive visualizer teaser on home
-  const [demoCrew] = React.useState({ promoters: 4, bouncers: 2, ushers: 2, stagehands: 2, supervisors: 1 });
-  const [demoMaterials] = React.useState({ standees: 4, flexBackdrop: 1, acrylicBoard: 1, neonSign: 1, balloonArch: 1, soundAndMics: 1 });
-
   return (
     <div className="space-y-0">
       {/* 1. Flagship Luxury Hero */}
@@ -44,52 +37,52 @@ export default function HomePage() {
               The Pristine Standard
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Why Premier Event Directors Choose <span className="text-gradient-gold">Pristine Decore</span>
+              Why Discerning Clients Choose <span className="text-gradient-gold">Pristine Decore</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base">
-              The only single-window atelier uniting disciplined event manpower with on-demand custom fabrication and 100% nocturnal mall clearance.
+              The premier single-window atelier uniting certified civil engineering, bespoke Italian interior architecture, and transparent fixed-price BOQs.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
-                <Users className="w-6 h-6" />
+                <HardHat className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Groomed & Verified Manpower</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Certified Civil Construction</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Brand promoters, bilingual ushers, and licensed bouncers screened 48 hours prior. Supported by our exclusive <strong>15% standby reserve bench</strong> ready at nearby transit hubs.
+                Foundation-to-handover villa construction with seismic-compliant RCC framing, primary-grade Fe-550D TMT steel, and a comprehensive <strong>10-year structural engineering warranty</strong>.
               </p>
               <Link to="/manpower" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
-                <span>Explore Manpower Rosters</span>
+                <span>Explore Civil Architecture</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
             <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
-                <Hammer className="w-6 h-6" />
+                <Palette className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">In-House Turnkey Fabrication</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Luxury Interior Architecture</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Laser-cut 3D acrylic signs, neon flex boards, custom flex stage backdrops, and roll-up standees manufactured in our own workshop with zero middleman markups.
+                Bookmatched Italian marble, precision modular European kitchens with Blum hardware, custom fluted veneer panelling, and integrated smart-home architectural illumination.
               </p>
               <Link to="/production" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
-                <span>View Production Specs</span>
+                <span>View Interior Specs</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
             <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
-                <Moon className="w-6 h-6" />
+                <Building2 className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Nocturnal Mall SOP Specialists</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Turnkey Commercial Fitouts</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Complete mastery of mall rules (11:00 PM to 8:00 AM). Fire-rated fabrics, zero daytime noise, clean rubber cable ramps, and guaranteed morning handover before 10 AM.
+                High-end corporate offices, luxury retail flagship stores, acoustic drywall partitioning, VRV central climate control, and full National Building Code compliance.
               </p>
               <Link to="/mall-operations" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
-                <span>Review Mall SOPs</span>
+                <span>Review Fitout Standards</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -107,24 +100,24 @@ export default function HomePage() {
                 <span>Proprietary 2D Space Blueprint</span>
               </div>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
-                Visualize Your Event Layout <span className="text-gradient-gold">Before Build Night</span>
+                Visualize Your Architectural Space <span className="text-gradient-gold">Before Groundbreaking</span>
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Test booth layouts, promoter stations, security cordons, and backdrop positioning in real-time. Switch between daylight and nocturnal mall glow modes to verify visibility.
+                Audit salon proportions, kitchen flow, master suite orientations, and ambient lighting in real-time. Switch between daylight and nocturnal glow modes to preview atmosphere.
               </p>
 
               <div className="space-y-2.5 pt-2 text-xs sm:text-sm text-slate-700">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Real-time crowd flow & perimeter safety visualization</span>
+                  <span>Real-time spatial clearance & CAD dimension verification</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Interactive day / night glow toggle for lighting audits</span>
+                  <span>Interactive day / night ambient glow toggle for lighting audits</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Export instant formal B2B proposals with one click</span>
+                  <span>Export instant formal B2B / residential BOQ proposals with one click</span>
                 </div>
               </div>
 
@@ -134,7 +127,7 @@ export default function HomePage() {
                   className="px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white shadow-soft-gold flex items-center gap-2 transition-all hover:scale-105"
                 >
                   <Sparkles className="w-4 h-4 fill-white" />
-                  <span>Launch Full Event Builder Studio</span>
+                  <span>Launch Full Cost Estimator Studio</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -142,25 +135,20 @@ export default function HomePage() {
 
             <div className="lg:col-span-7">
               <div className="p-3 bg-white rounded-3xl border border-slate-200/80 shadow-luxury">
-                <StageVisualizer 
-                  crew={demoCrew} 
-                  materials={demoMaterials} 
-                  eventType="mall" 
-                  venueName="Phoenix Marketcity Atrium" 
-                />
+                <StageVisualizer />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Event Manpower Overview */}
+      {/* 4. Civil Construction Overview */}
       <ManpowerSection />
 
-      {/* 5. Production & Decor Atelier */}
+      {/* 5. Interior Architecture Atelier */}
       <ProductionDecorSection />
 
-      {/* 6. Nocturnal Mall Operations SOP & Interactive Timeline */}
+      {/* 6. Commercial Fitouts & Engineering Standards */}
       <MallExcellence />
 
       {/* 7. Visual Showcase Gallery */}
@@ -172,10 +160,10 @@ export default function HomePage() {
       {/* 9. Interactive Estimator Tool */}
       <EstimatorTool />
 
-      {/* 10. Founders Direct Leadership Spotlight */}
+      {/* 10. Architectural Mastery & Turnkey Governance */}
       <FoundersSection />
 
-      {/* 11. Testimonials & Mall FAQs */}
+      {/* 11. Testimonials & Construction FAQs */}
       <TestimonialsSection />
 
       {/* 12. Direct Contact Booking Desk */}
@@ -183,4 +171,3 @@ export default function HomePage() {
     </div>
   );
 }
-

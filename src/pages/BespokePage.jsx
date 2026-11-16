@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { bespokeExamples } from '../data/servicesData';
 import { 
-  PackageSearch, 
+  Gem, 
   Sparkles, 
   Send, 
   Zap, 
   Clock, 
   ShieldCheck, 
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle
+  ArrowRight, 
+  CheckCircle2, 
+  Compass,
+  Layers
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 import Toast from '../components/Toast';
@@ -22,8 +23,8 @@ export default function BespokePage() {
   const handleSendWish = (e) => {
     e.preventDefault();
     if (!customWish.trim()) return;
-    const msg = `*CUSTOM BESPOKE REQUEST - PRISTINE DECORE (pristinedecore.com)*\n\nRequest details:\n"${customWish}"\n\nPlease let me know feasibility, lead time, and pricing!`;
-    setToastMsg("Custom brief dispatched to founders' direct desk!");
+    const msg = `*CUSTOM BESPOKE REQUEST - PRISTINE DECORE (pristinedecore.com)*\n\nRequest details:\n"${customWish}"\n\nPlease let me know feasibility, lead time, and sample availability!`;
+    setToastMsg("Custom brief dispatched to architectural sourcing atelier!");
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
   };
 
@@ -41,15 +42,15 @@ export default function BespokePage() {
 
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
-            <PackageSearch className="w-3.5 h-3.5 text-amber-600" />
-            <span>White-Glove Custom Procurement & Fabrication</span>
+            <Gem className="w-3.5 h-3.5 text-amber-600" />
+            <span>Rare Materials & Custom Millwork Concierge</span>
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
-            Whatever You Request, <br className="hidden sm:inline" />
-            <span className="text-gradient-gold">We Engineer & Deliver</span>
+            Whatever You Envision, <br className="hidden sm:inline" />
+            <span className="text-gradient-gold">We Engineer & Source</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Need 50 bespoke velvet stanchion ropes in 6 hours? A 12-foot inflatable mascot? Or a 3D hologram display for your VIP booth? If it exists, we source it. If it doesn’t, we fabricate it overnight.
+            Need bookmatched Italian Calacatta marble slabs? Solid Burma teak double doors? Switchable smart privacy glass? Or customized brass-inlay wall fluting? If it exists globally, we source it. If it doesn't, our atelier fabricates it.
           </p>
         </div>
       </div>
@@ -59,10 +60,10 @@ export default function BespokePage() {
         <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-luxury card-luxury space-y-6">
           <div className="space-y-2">
             <h3 className="font-heading text-2xl font-bold text-slate-900">
-              Submit Your Bespoke Event Wishlist
+              Submit Your Bespoke Material or Joinery Brief
             </h3>
             <p className="text-slate-600 text-xs sm:text-sm">
-              Describe your wildest or most urgent requirement. Our co-founders will immediately review feasibility and reply on WhatsApp within 15 minutes.
+              Describe your specific architectural requirement. Our principal material atelier will review technical feasibility and reply on WhatsApp with physical sample timelines.
             </p>
           </div>
 
@@ -71,7 +72,7 @@ export default function BespokePage() {
               rows={4}
               value={customWish}
               onChange={(e) => setCustomWish(e.target.value)}
-              placeholder="e.g. We need 3 life-size acrylic product replicas with internal RGB lighting delivered to Phoenix Marketcity by tomorrow night..."
+              placeholder="e.g. We require 2,500 sq.ft of bookmatched Italian Statuario marble, 10ft cantilevered teakwood entrance door, and custom fluted brass partition screens..."
               className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition-all resize-none"
               required
             ></textarea>
@@ -79,7 +80,7 @@ export default function BespokePage() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
               <div className="flex items-center gap-2 text-xs text-slate-500">
                 <Clock className="w-4 h-4 text-amber-600 shrink-0" />
-                <span>Average Founder Response Time: <strong>12 Minutes</strong></span>
+                <span>Atelier Sourcing Evaluation: <strong>Under 2 Hours</strong></span>
               </div>
 
               <button
@@ -87,21 +88,21 @@ export default function BespokePage() {
                 className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white shadow-soft-gold hover:scale-105 transition-all flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
-                <span>Send Wishlist to Founders Directly</span>
+                <span>Send Brief to Architectural Atelier</span>
               </button>
             </div>
           </form>
         </div>
       </div>
 
-      {/* Past Eccentric / Complex Requests Fulfilled */}
+      {/* Rare Materials & Specialized Joinery */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <span className="text-xs uppercase tracking-widest font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-            Proven Track Record
+            Material Masteries
           </span>
           <h2 className="font-heading text-3xl font-extrabold text-slate-900">
-            Real Examples of Custom Requests We Sourced
+            Bespoke Architectural Disciplines Sourced & Installed
           </h2>
         </div>
 
@@ -116,11 +117,11 @@ export default function BespokePage() {
                   0{idx + 1}
                 </span>
                 <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md">
-                  {item.leadTime}
+                  {item.leadTime || 'Procured to Order'}
                 </span>
               </div>
               <h4 className="font-heading font-bold text-base text-slate-900">{item.title}</h4>
-              <p className="text-slate-600 text-xs leading-relaxed">{item.desc}</p>
+              <p className="text-slate-600 text-xs leading-relaxed">{item.desc || item.detail}</p>
             </div>
           ))}
         </div>
@@ -128,4 +129,3 @@ export default function BespokePage() {
     </div>
   );
 }
-

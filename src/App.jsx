@@ -21,48 +21,48 @@ import AdminBossPage from './pages/AdminBossPage';
 
 const ROUTE_SEO = {
   '/': {
-    title: 'Pristine Decore | Luxury Event Manpower & Bespoke Production Architecture',
-    description: 'Pristine Decore (pristinedecore.com) - The premier single-window event partner. Elite manpower for mall activations, turnkey custom fabrication, LED/neon signage, luxury decor & AV production. Co-founded by Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali.'
+    title: 'Pristine Decore | Turnkey Civil Construction & Luxury Interior Architecture',
+    description: 'Pristine Decore (pristinedecore.com) - Premier atelier for turnkey civil construction, bespoke residential villas, luxury interior architecture, Italian modular kitchens, and corporate commercial fitouts with 10-year structural warranty.'
   },
   '/quote': {
-    title: 'Instant Quote Studio | Pristine Decore',
-    description: 'Configure manpower headcount, physical banners, stage trusses, and 3D glow signs with real-time pricing and formal B2B proposal generation.'
+    title: 'Cost Estimator & BOQ Studio | Pristine Decore',
+    description: 'Calculate civil construction and interior design budgets by sq.ft, finish tier, and architectural scope with transparent itemized BOQ breakdowns.'
   },
   '/builder': {
-    title: 'Instant Quote Studio | Pristine Decore',
-    description: 'Configure manpower headcount, physical banners, stage trusses, and 3D glow signs with real-time pricing and formal B2B proposal generation.'
+    title: 'Cost Estimator & BOQ Studio | Pristine Decore',
+    description: 'Calculate civil construction and interior design budgets by sq.ft, finish tier, and architectural scope with transparent itemized BOQ breakdowns.'
   },
   '/manpower': {
-    title: 'Event Manpower & Workforce Services | Pristine Decore',
-    description: 'High-caliber event personnel: mall promoters, security marshals, hospitality ushers, setup crew, and on-site supervisors with 15% standby guarantee.'
+    title: 'Turnkey Civil Construction & Architecture | Pristine Decore',
+    description: 'Certified civil construction, seismic-compliant RCC framing, structural engineering, foundation piling, and complete MEP coordination with 10-year warranty.'
   },
   '/production': {
-    title: 'Event Production, Signage & Decor Fabrication | Pristine Decore',
-    description: 'In-house workshop fabrication: 3D acrylic letters, neon glow signs, roll-up standees, stage backdrops, and nocturnal mall installation.'
+    title: 'Luxury Interior Architecture & Custom Joinery | Pristine Decore',
+    description: 'Bespoke residential and commercial interior architecture: Italian marble flooring, Blum-hardware modular kitchens, fluted wood wall panelling, and false ceilings.'
   },
   '/mall-operations': {
-    title: 'Mall Clearances & Nocturnal Operations | Pristine Decore',
-    description: 'Zero-delay ground execution: security gate passes, work-at-height compliance, 11 PM to 8 AM quiet setups, and venue restoration.'
+    title: 'Commercial Fitouts & Engineering Standards | Pristine Decore',
+    description: 'Turnkey corporate office fitouts, luxury retail boutiques, acoustic drywall partitioning, central HVAC, and building authority compliance.'
   },
   '/gallery': {
-    title: 'Visual Showcase & Portfolio | Pristine Decore',
-    description: 'Explore executed activations, atrium installations, brand roadshows, and bespoke event setups by Pristine Decore.'
+    title: 'Architecture & Interior Design Portfolio | Pristine Decore',
+    description: 'Explore completed luxury villas, penthouse interiors, designer modular kitchens, and prestige corporate office fitouts by Pristine Decore.'
   },
   '/bespoke': {
-    title: 'Bespoke Event Wishlist & Custom Requests | Pristine Decore',
-    description: 'Have a rare, unique, or last-minute requirement? Submit a custom event brief directly to co-founders for rapid feasibility review.'
+    title: 'Bespoke Joinery & Rare Materials Concierge | Pristine Decore',
+    description: 'Source exotic bookmatched Italian marble, custom brass hardware, solid teakwood architectural millwork, and automated smart-home glass.'
   },
   '/about': {
-    title: 'Leadership & Founders | Pristine Decore',
-    description: 'Direct founder accountability. Meet co-founders Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali steering operations, strategy, and fabrication.'
+    title: 'About The Studio & Architectural Governance | Pristine Decore',
+    description: 'Learn about Pristine Decore studio disciplines, 10-year structural engineering warranties, transparent fixed-price BOQs, and master craftsmanship.'
   },
   '/contact': {
-    title: 'Contact Us & Direct Founders Hotline | Pristine Decore',
-    description: 'Get in touch with Pristine Decore. 24/7 rapid response desk, direct WhatsApp founder hotline, and corporate inquiries.'
+    title: 'Studio Consultation & Site Booking Desk | Pristine Decore',
+    description: 'Book an architectural consultation or schedule a site measurement inspection with Pristine Decore civil engineering and interior design desks.'
   },
   '/adminboss': {
     title: 'Admin Command Portal | Pristine Decore',
-    description: 'Secure management portal for Pristine Decore operations.'
+    description: 'Secure management portal for Pristine Decore architectural inquiries and client project estimations.'
   }
 };
 

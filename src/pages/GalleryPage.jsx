@@ -8,7 +8,8 @@ import {
   ArrowRight, 
   Check, 
   ExternalLink,
-  Layers
+  Layers,
+  Compass
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 
@@ -20,7 +21,7 @@ export default function GalleryPage() {
     : galleryItems.filter(item => item.category === activeCategory);
 
   const handleInquireProject = (projectTitle) => {
-    const text = `Hi Pristine Decore! I saw the showcase project "${projectTitle}" on your website and would like to build a similar setup for our upcoming event.`;
+    const text = `Hi Pristine Decore! I saw the showcase project "${projectTitle}" on your website and would like to consult on a similar architectural / interior project.`;
     window.open(CONTACT_CONFIG.getWhatsAppUrl(text), '_blank');
   };
 
@@ -36,14 +37,14 @@ export default function GalleryPage() {
 
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
-            <Camera className="w-3.5 h-3.5 text-amber-600" />
-            <span>Field Activations & Executions</span>
+            <Compass className="w-3.5 h-3.5 text-amber-600" />
+            <span>Turnkey Project Architecture & Interiors</span>
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
             Our Architectural <span className="text-gradient-gold">Showcase Portfolio</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Real setups delivered across premier mall atriums, retail store fronts, and corporate exhibitions. Every photo reflects our single-window standard of elite manpower and custom fabrication.
+            Real spaces constructed and delivered across private luxury villas, penthouses, modular kitchens, and corporate commercial complexes with fixed-price BOQs.
           </p>
 
           {/* Category Filter Pills */}
@@ -129,13 +130,13 @@ export default function GalleryPage() {
                   to="/quote"
                   className="text-xs font-bold text-slate-700 hover:text-amber-700 transition-colors"
                 >
-                  Configure In Quote
+                  Estimate BOQ
                 </Link>
                 <button
                   onClick={() => handleInquireProject(item.title)}
                   className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 hover:text-amber-800 group"
                 >
-                  <span>Replicate Look</span>
+                  <span>Inquire Specifications</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -146,4 +147,3 @@ export default function GalleryPage() {
     </div>
   );
 }
-

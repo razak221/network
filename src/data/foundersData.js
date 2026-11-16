@@ -1,52 +1,59 @@
-export const founders = [
+/**
+ * Pristine Decore Studio Leadership & Architectural Commitments
+ * Construction & Luxury Interior Design
+ */
+
+export const studioLeadership = [
   {
-    name: "Syed Inam",
-    role: "Co-Founder & Operations Lead",
-    title: "Head of Ground Operations & Mall Compliance",
-    bio: "Specializes in large-scale event workforce coordination, venue clearances, and zero-delay ground execution. Oversees crew grooming, mall security pass compliance, and emergency staffing logistics.",
-    stats: "500+ Events Supervised",
-    focus: ["Mall Security Approvals", "Crew Discipline & Punctuality", "Rapid Standby Dispatch"],
-    avatar: "/founders/syed-inam.jpg",
-    badge: "Operations Command"
+    name: "Architectural & Civil Division",
+    role: "Structural & Civil Engineering",
+    title: "Head of Civil Engineering & Structural Design",
+    bio: "Spearheads ground-up villa construction, structural load analysis, seismic compliance, and foundation engineering. Ensures rigorous concrete quality testing and zero-defect civil execution.",
+    stats: "250+ Turnkey Structures Delivered",
+    focus: ["Structural RCC Blueprinting", "Seismic & Municipal Clearances", "Laboratory Material Testing"],
+    avatar: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?w=600&auto=format&fit=crop&q=80",
+    badge: "Structural Engineering"
   },
   {
-    name: "Razak Ahmed Khan",
-    role: "Co-Founder & Client Relations",
-    title: "Head of Business Strategy & Client Experience",
-    bio: "Drives corporate brand partnerships, agency collaborations, and custom event project structuring. Ensures tailored commercial quotes, SLA fulfillment, and 24/7 dedicated client communication.",
-    stats: "200+ Corporate & Retail Clients",
-    focus: ["Client SLA Assurance", "Bespoke Project Quotations", "End-to-End Account Management"],
-    avatar: "/founders/razak-ahmed-khan.jpg",
-    badge: "Client Experience"
+    name: "Interior Architecture Division",
+    role: "Luxury Interior Design & Styling",
+    title: "Head of Interior Architecture & Spatial Curation",
+    bio: "Directs luxury residential living, penthouse layouts, and corporate workspaces. Expert in curating rare Italian stone, bespoke modular joinery, acoustic balance, and customized lighting scenes.",
+    stats: "400+ Luxury Spaces Curated",
+    focus: ["Italian Marble & Stone Selection", "Bespoke Millwork & Modular Systems", "Architectural Lighting Schemes"],
+    avatar: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop&q=80",
+    badge: "Interior Architecture"
   },
   {
-    name: "Syed Haamid Ali",
-    role: "Co-Founder & Production Head",
-    title: "Head of Creative Decor, Print & Fabrication",
-    bio: "Leads in-house workshop fabrication, high-resolution signage manufacturing, thematic event decor, and audio-visual stage setups. Master of nocturnal mall installations and pristine finishing.",
-    stats: "1,200+ Custom Assets Fabricated",
-    focus: ["Custom Signage & Neon Displays", "Stage & Mall Atrium Decor", "Overnight Fabrication & AV"],
-    avatar: "/founders/syed-haamid-ali.jpg",
-    badge: "Production & Decor"
+    name: "Turnkey Project Management Division",
+    role: "On-Site Execution & Quality Audits",
+    title: "Head of Turnkey Execution & Site QA",
+    bio: "Supervises multi-disciplinary trade coordination on site, daily progress logs, vendor SLAs, and milestone scheduling. Guarantees on-time handover with meticulous 120-point pre-delivery snag audits.",
+    stats: "100% On-Time Handover Rate",
+    focus: ["Daily Digital Progress Reports", "Fixed-Price BOQ Compliance", "120-Point Snag-List Auditing"],
+    avatar: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&auto=format&fit=crop&q=80",
+    badge: "Turnkey Execution"
   }
 ];
 
 export const companyValues = [
   {
-    title: "100% Attendance & Standby Guarantee",
-    desc: "We maintain a dedicated 15% reserve bench on standby for every mall activation. If an emergency occurs, replacement staff is deployed within 30 minutes."
+    title: "10-Year Structural Integrity Warranty",
+    desc: "Every civil structure engineered by Pristine Decore carries a formal 10-year warranty covering foundations, RCC framing, slabs, and waterproofing."
   },
   {
-    title: "Mall & Corporate Venue Compliance",
-    desc: "Every crew member arrives with government-verified ID, polished grooming, and branded attire, fully adhering to strict mall gate-pass rules."
+    title: "Transparent Fixed-Price BOQ Guarantee",
+    desc: "No hidden surprise costs or arbitrary contractor markups. What you approve in your itemized Bill of Quantities is exactly what you pay."
   },
   {
-    title: "In-House Print & Decor Fabrication",
-    desc: "No middleman markups or delayed courier excuses. Our workshop produces standees, glow signs, and stage backdrops on rush schedules."
+    title: "Photorealistic 3D Pre-Visualization",
+    desc: "Experience your complete villa elevation or interior layout in photorealistic 3D before a single foundation is dug or wood panel cut."
   },
   {
-    title: "Direct Founder Accountability",
-    desc: "You aren't dealing with a junior call-center rep. Syed Inam, Razak Ahmed Khan, and Syed Haamid Ali remain directly reachable for your event."
+    title: "Dedicated On-Site Engineering Oversight",
+    desc: "A licensed resident civil engineer monitors your project daily, ensuring millimeter precision, material testing, and zero timeline delays."
   }
 ];
 
+// Alias for existing imports
+export const founders = studioLeadership;

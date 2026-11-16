@@ -41,7 +41,7 @@ function getStoredInquiries() {
       status: "new",
       source: "event_builder",
       quotedAmount: "₹85,000",
-      notes: "Operations lead Syed Inam verified atrium pass requirements."
+      notes: "Civil engineering desk verified site blueprint requirements."
     },
     {
       id: "PD-736192",
@@ -104,7 +104,7 @@ function getStoredInquiries() {
       status: "in_review",
       source: "contact_form",
       quotedAmount: "₹38,000",
-      notes: "Syed Haamid Ali reviewing floral and chrome arch fabrication."
+      notes: "Interior architecture atelier reviewing modular joinery and finish specifications."
     }
   ];
 }

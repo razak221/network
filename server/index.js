@@ -241,8 +241,8 @@ app.get('/', (req, res) => {
         <div class="stat-val">pristinedecore.com</div>
       </div>
       <div>
-        <div class="stat-label">Founders Command</div>
-        <div class="stat-val">Inam • Razak • Haamid</div>
+        <div class="stat-label">Studio Disciplines</div>
+        <div class="stat-val">Civil • Architecture • Interiors</div>
       </div>
       <div>
         <div class="stat-label">Admin Route</div>
@@ -263,7 +263,7 @@ app.get('/', (req, res) => {
     </div>
 
     <footer>
-      &copy; ${new Date().getFullYear()} Pristine Decore. Direct Co-Founder Governance: Syed Inam, Razak Ahmed Khan, Syed Haamid Ali.
+      &copy; ${new Date().getFullYear()} Pristine Decore. Turnkey Civil Construction & Luxury Interior Architecture.
     </footer>
   </div>
 </body>
@@ -277,7 +277,7 @@ app.get('/api/health', (req, res) => {
     status: 'ok',
     service: 'Pristine Decore Backend (Render)',
     domain: 'pristinedecore.com',
-    founders: ['Syed Inam', 'Razak Ahmed Khan', 'Syed Haamid Ali'],
+    disciplines: ['Turnkey Civil Construction', 'Luxury Interior Architecture', 'Commercial Fitouts'],
     timestamp: new Date().toISOString()
   });
 });

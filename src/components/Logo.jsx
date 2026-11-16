@@ -90,7 +90,7 @@ export default function Logo({
             <span className={`text-[9px] sm:text-[10px] tracking-[0.18em] uppercase font-bold whitespace-nowrap ${
               isDark ? 'text-slate-500' : 'text-slate-400'
             }`}>
-              Event Workforce &amp; Production
+              Construction &amp; Interior Design
             </span>
           </div>
         )}

@@ -1,26 +1,32 @@
 import React, { useState } from 'react';
 import { 
-  Users, 
-  Sparkles, 
-  ShieldCheck, 
-  Layers, 
-  Volume2, 
+  Compass, 
   Sun, 
   Moon, 
-  Maximize2,
-  CheckCircle2,
-  Compass
+  Maximize2, 
+  CheckCircle2, 
+  Home, 
+  Grid,
+  Layers,
+  Sparkles,
+  ShieldCheck
 } from 'lucide-react';
 
-export default function StageVisualizer({ crew, materials, eventType, venueName }) {
+export default function StageVisualizer({ 
+  projectType = 'villa', 
+  areaSqFt = 2500, 
+  finishTier = 'luxury',
+  scope = {} 
+}) {
   const [nightMode, setNightMode] = useState(false);
 
-  const totalCrew = Object.values(crew).reduce((a, b) => a + b, 0);
+  // Pricing multiplier indicator
+  const tierLabel = finishTier === 'ultra' ? 'Royal Bespoke' : finishTier === 'luxury' ? 'Luxury Signature' : 'Premium Standard';
 
   return (
     <div className={`rounded-3xl border transition-all duration-500 overflow-hidden shadow-luxury ${
       nightMode 
-        ? 'bg-[#0B0F19] border-amber-500/30 text-white' 
+        ? 'bg-[#0B1120] border-amber-500/30 text-white' 
         : 'bg-white border-slate-200/90 text-slate-900'
     }`}>
       {/* Top Controls Bar */}
@@ -33,15 +39,15 @@ export default function StageVisualizer({ crew, materials, eventType, venueName 
           </div>
           <div>
             <h4 className="font-heading font-bold text-xs sm:text-sm tracking-tight">
-              Interactive 2D Space Blueprint
+              2D Architectural Space Blueprint
             </h4>
             <p className={`text-[10px] sm:text-[11px] ${nightMode ? 'text-slate-400' : 'text-slate-500'}`}>
-              Live floorplan updates as you adjust crew and production assets
+              Live spatial zoning for {areaSqFt?.toLocaleString() || '2,500'} Sq. Ft ({tierLabel})
             </p>
           </div>
         </div>
 
-        {/* Ambient Mode Toggle */}
+        {/* Lighting Mode Toggle */}
         <div className="flex items-center gap-2">
           <button
             type="button"
@@ -53,13 +59,13 @@ export default function StageVisualizer({ crew, materials, eventType, venueName 
             }`}
           >
             {nightMode ? <Moon className="w-3.5 h-3.5 fill-slate-950" /> : <Sun className="w-3.5 h-3.5 text-amber-500" />}
-            <span className="hidden sm:inline">{nightMode ? 'Nocturnal Setup Glow' : 'Daylight Mall View'}</span>
+            <span className="hidden sm:inline">{nightMode ? 'Evening Ambient Glow' : 'Daylight Plan Mode'}</span>
           </button>
         </div>
       </div>
 
       {/* Blueprint Visual Canvas */}
-      <div className="p-6 relative min-h-[340px] flex flex-col justify-between select-none">
+      <div className="p-6 relative min-h-[360px] flex flex-col justify-between select-none">
         {/* Subtle Architectural Grid Lines */}
         <div className={`absolute inset-0 pointer-events-none opacity-20 ${
           nightMode 
@@ -67,191 +73,118 @@ export default function StageVisualizer({ crew, materials, eventType, venueName 
             : 'bg-[radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:16px_16px]'
         }`}></div>
 
-        {/* Backdrop Wall / Stage Line */}
-        <div className="relative z-10 w-full mb-6">
-          <div className={`w-full py-2 px-4 rounded-xl border-2 text-center text-xs font-bold transition-all ${
-            materials.flexBackdrop > 0
-              ? nightMode
-                ? 'bg-amber-500/20 border-amber-400 text-amber-300 shadow-gold-glow'
-                : 'bg-amber-50 border-amber-500 text-amber-900 shadow-soft-sm'
-              : nightMode
-                ? 'bg-white/5 border-dashed border-white/20 text-slate-500'
-                : 'bg-slate-100 border-dashed border-slate-300 text-slate-400'
-          }`}>
-            <div className="flex items-center justify-center gap-2">
-              <Layers className="w-3.5 h-3.5" />
-              <span>
-                {materials.flexBackdrop > 0 
-                  ? `Stage Backdrop Wall (${materials.flexBackdrop} Unit Installed)` 
-                  : 'Backdrop Area (Add Stage Flex Backdrop to activate)'}
-              </span>
-            </div>
-            {materials.acrylicBoard > 0 && (
-              <span className="inline-block mt-1 px-2 py-0.5 rounded text-[10px] bg-cyan-500/20 text-cyan-400 border border-cyan-400/40">
-                ✦ 3D Illuminated Acrylic Logo Attached
-              </span>
-            )}
-            {materials.neonSign > 0 && (
-              <span className="inline-block mt-1 ml-1.5 px-2 py-0.5 rounded text-[10px] bg-pink-500/20 text-pink-400 border border-pink-400/40 animate-pulse">
-                ✦ Custom Neon Flex Signboard (Glowing)
-              </span>
-            )}
-          </div>
+        {/* Structural Envelope Outer Dimensions */}
+        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono text-slate-400 pb-2 border-b border-dashed border-slate-300/40">
+          <span>STRUCTURAL AXIS A-1</span>
+          <span className="px-2 py-0.5 rounded bg-amber-500/10 text-amber-700 font-bold">
+            TOTAL ENVELOPE: {areaSqFt?.toLocaleString() || '2,500'} SQ. FT
+          </span>
+          <span>STRUCTURAL AXIS B-4</span>
         </div>
 
-        {/* Center Zone: Staging & Promoters */}
-        <div className="relative z-10 my-4 flex-1 flex flex-col items-center justify-center">
+        {/* 2D Space Blueprint Floorplan Grid */}
+        <div className="relative z-10 my-4 grid grid-cols-12 gap-3">
           
-          {/* Audio Visual Speakers on Left & Right */}
-          {materials.soundAndMics > 0 && (
-            <div className="w-full flex justify-between px-2 mb-4">
-              <span className={`px-2 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 ${
-                nightMode ? 'bg-white/10 text-slate-300' : 'bg-slate-100 text-slate-700'
-              }`}>
-                <Volume2 className="w-3 h-3 text-teal-500" />
-                <span>PA Tower L</span>
+          {/* Living & Dining Grand Salon (Span 7) */}
+          <div className={`col-span-12 sm:col-span-7 p-4 rounded-2xl border-2 transition-all ${
+            nightMode 
+              ? 'bg-amber-500/10 border-amber-400/40 text-amber-200 shadow-gold-glow' 
+              : 'bg-amber-50/70 border-amber-300 text-slate-900 shadow-soft-sm'
+          }`}>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold font-heading flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                Grand Living &amp; Dining Salon
               </span>
-              <span className={`px-2 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 ${
-                nightMode ? 'bg-white/10 text-slate-300' : 'bg-slate-100 text-slate-700'
-              }`}>
-                <Volume2 className="w-3 h-3 text-teal-500" />
-                <span>PA Tower R</span>
-              </span>
+              <span className="text-[10px] font-mono opacity-70">~{(areaSqFt * 0.45).toFixed(0)} Sq.Ft</span>
             </div>
-          )}
-
-          {/* Interactive Promoters Floor Representation */}
-          <div className="w-full max-w-lg grid grid-cols-4 sm:grid-cols-6 gap-3 justify-items-center py-4">
-            {/* Promoters Pins */}
-            {[...Array(crew.promoters || 0)].map((_, i) => (
-              <div 
-                key={`p-${i}`}
-                className="group relative flex flex-col items-center animate-fadeIn"
-                title={`Brand Promoter #${i + 1}`}
-              >
-                <div className="w-8 h-8 rounded-full bg-amber-500 text-white font-bold text-xs flex items-center justify-center shadow-gold-glow ring-2 ring-amber-300">
-                  P
-                </div>
-                <span className={`text-[9px] mt-1 font-semibold ${nightMode ? 'text-amber-300' : 'text-slate-700'}`}>
-                  Promoter
-                </span>
-              </div>
-            ))}
-
-            {/* Ushers Pins */}
-            {[...Array(crew.ushers || 0)].map((_, i) => (
-              <div 
-                key={`u-${i}`}
-                className="group relative flex flex-col items-center animate-fadeIn"
-                title={`Hospitality Usher #${i + 1}`}
-              >
-                <div className="w-8 h-8 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center shadow-sm ring-2 ring-teal-300">
-                  U
-                </div>
-                <span className={`text-[9px] mt-1 font-semibold ${nightMode ? 'text-teal-300' : 'text-slate-700'}`}>
-                  Usher
-                </span>
-              </div>
-            ))}
-
-            {/* Supervisor Pin */}
-            {[...Array(crew.supervisors || 0)].map((_, i) => (
-              <div 
-                key={`s-${i}`}
-                className="group relative flex flex-col items-center animate-fadeIn"
-                title="Floor Supervisor"
-              >
-                <div className="w-8 h-8 rounded-full bg-slate-900 text-amber-400 font-bold text-xs flex items-center justify-center border border-amber-400 shadow-md">
-                  ★
-                </div>
-                <span className={`text-[9px] mt-1 font-bold ${nightMode ? 'text-amber-400' : 'text-slate-900'}`}>
-                  Lead
-                </span>
-              </div>
-            ))}
-
-            {totalCrew === 0 && (
-              <div className="col-span-full text-center py-4 text-xs text-slate-400 italic">
-                Add promoters or ushers in Step 2 to position them on the floorplan.
-              </div>
-            )}
+            <p className="text-[11px] opacity-80 leading-relaxed">
+              Italian Statuario marble flooring, double-height ceiling cove, acoustic wood fluting &amp; magnetic track lighting.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              <span className="text-[9px] px-2 py-0.5 rounded bg-white/70 dark:bg-white/10 font-medium">✦ 4500K Ambient Cove</span>
+              <span className="text-[9px] px-2 py-0.5 rounded bg-white/70 dark:bg-white/10 font-medium">✦ Bookmatched Marble</span>
+            </div>
           </div>
+
+          {/* Modular Chef's Kitchen (Span 5) */}
+          <div className={`col-span-12 sm:col-span-5 p-4 rounded-2xl border-2 transition-all ${
+            nightMode 
+              ? 'bg-teal-500/10 border-teal-400/40 text-teal-200' 
+              : 'bg-teal-50/70 border-teal-200 text-slate-900 shadow-soft-sm'
+          }`}>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold font-heading flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-teal-600" />
+                Modular Chef's Kitchen
+              </span>
+              <span className="text-[10px] font-mono opacity-70">~{(areaSqFt * 0.22).toFixed(0)} Sq.Ft</span>
+            </div>
+            <p className="text-[11px] opacity-80 leading-relaxed">
+              Anti-scratch acrylic joinery, Blum soft-close hardware, 12mm sintered quartz island with waterfall edges.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              <span className="text-[9px] px-2 py-0.5 rounded bg-white/70 dark:bg-white/10 font-medium">✦ German Hardware</span>
+              <span className="text-[9px] px-2 py-0.5 rounded bg-white/70 dark:bg-white/10 font-medium">✦ Quartz Island</span>
+            </div>
+          </div>
+
+          {/* Master Bedroom & Walk-in Closet Wing (Span 8) */}
+          <div className={`col-span-12 sm:col-span-8 p-4 rounded-2xl border-2 transition-all ${
+            nightMode 
+              ? 'bg-indigo-500/10 border-indigo-400/40 text-indigo-200' 
+              : 'bg-indigo-50/70 border-indigo-200 text-slate-900 shadow-soft-sm'
+          }`}>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold font-heading flex items-center gap-1.5">
+                <Home className="w-3.5 h-3.5 text-indigo-600" />
+                Master Suite &amp; Walk-In Wardrobe Wing
+              </span>
+              <span className="text-[10px] font-mono opacity-70">~{(areaSqFt * 0.33).toFixed(0)} Sq.Ft</span>
+            </div>
+            <p className="text-[11px] opacity-80 leading-relaxed">
+              Herringbone oak timber flooring, tinted bronze glass walk-in wardrobe with sensor LED lighting and private ensuite bath.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              <span className="text-[9px] px-2 py-0.5 rounded bg-white/70 dark:bg-white/10 font-medium">✦ Sensor Glass Closets</span>
+              <span className="text-[9px] px-2 py-0.5 rounded bg-white/70 dark:bg-white/10 font-medium">✦ Hardwood Flooring</span>
+            </div>
+          </div>
+
+          {/* Architectural Terrace / Balcony Hardscape (Span 4) */}
+          <div className={`col-span-12 sm:col-span-4 p-4 rounded-2xl border-2 transition-all ${
+            nightMode 
+              ? 'bg-rose-500/10 border-rose-400/40 text-rose-200' 
+              : 'bg-rose-50/70 border-rose-200 text-slate-900 shadow-soft-sm'
+          }`}>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold font-heading">
+                Balcony &amp; Deck
+              </span>
+              <span className="text-[10px] font-mono opacity-70">Hardscaping</span>
+            </div>
+            <p className="text-[11px] opacity-80 leading-relaxed">
+              Travertine non-slip stone, frameless glass balustrade, drainage conduits.
+            </p>
+          </div>
+
         </div>
 
-        {/* Front Perimeter / Entrance Line with Bouncers & Standees */}
-        <div className="relative z-10 w-full pt-4 border-t-2 border-dashed border-slate-300/40">
-          <div className="flex items-center justify-between">
-            {/* Left Standee */}
-            <div className="flex items-center gap-1.5">
-              {materials.standees > 0 && (
-                <div className={`px-2 py-1 rounded text-[10px] font-bold ${
-                  nightMode ? 'bg-amber-400/20 text-amber-300' : 'bg-amber-100 text-amber-900'
-                }`}>
-                  Standee #{1}
-                </div>
-              )}
-            </div>
-
-            {/* Center Entrance Gate & Bouncers */}
-            <div className="flex items-center gap-3">
-              {materials.balloonArch > 0 && (
-                <span className={`px-3 py-1 rounded-full text-[10px] font-bold border ${
-                  nightMode ? 'bg-pink-500/20 text-pink-300 border-pink-400/40' : 'bg-pink-50 text-pink-800 border-pink-200'
-                }`}>
-                  ✨ Grand Thematic Entrance Archway
-                </span>
-              )}
-
-              {/* Bouncers at Entrance */}
-              {[...Array(crew.bouncers || 0)].map((_, i) => (
-                <div key={`b-${i}`} className="flex items-center gap-1">
-                  <div className="w-7 h-7 rounded-lg bg-red-600 text-white font-bold text-xs flex items-center justify-center shadow-md">
-                    B
-                  </div>
-                  <span className={`text-[10px] font-bold ${nightMode ? 'text-red-400' : 'text-red-700'}`}>
-                    Security
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Right Standee */}
-            <div className="flex items-center gap-1.5">
-              {materials.standees > 1 && (
-                <div className={`px-2 py-1 rounded text-[10px] font-bold ${
-                  nightMode ? 'bg-amber-400/20 text-amber-300' : 'bg-amber-100 text-amber-900'
-                }`}>
-                  Standee #{materials.standees}
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="text-center mt-3">
-            <span className={`text-[10px] uppercase font-bold tracking-widest ${
-              nightMode ? 'text-slate-500' : 'text-slate-400'
-            }`}>
-              ▲ MALL VISITOR FOOTFALL FLOW DIRECTION ▲
+        {/* Blueprint Footer Specs */}
+        <div className="relative z-10 pt-3 border-t border-slate-200/50 flex flex-wrap items-center justify-between text-[11px] text-slate-500">
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1 font-semibold text-emerald-700">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              10-Year RCC Structural Warranty
             </span>
+            <span className="text-slate-300">•</span>
+            <span>Zero-Crack Gyproc Ceilings</span>
           </div>
-        </div>
-
-      </div>
-
-      {/* Blueprint Footer Stats */}
-      <div className={`p-4 text-xs font-semibold flex flex-wrap items-center justify-between gap-2 border-t transition-colors ${
-        nightMode ? 'border-white/10 bg-white/[0.01] text-slate-400' : 'border-slate-100 bg-slate-50/50 text-slate-600'
-      }`}>
-        <div className="flex items-center gap-4">
-          <span>Active Venue: <strong className={nightMode ? 'text-white' : 'text-slate-900'}>{venueName || 'Mall Main Atrium'}</strong></span>
-          <span>Total Ground Deployment: <strong className="text-amber-600 font-bold">{totalCrew} Staff</strong></span>
-        </div>
-        <div className="flex items-center gap-1.5 text-emerald-600 font-bold text-[11px]">
-          <CheckCircle2 className="w-3.5 h-3.5" />
-          <span>SOP Layout Verified</span>
+          <span className="font-mono font-bold text-amber-700">
+            CAD SPEC: REV-2026-AR-01
+          </span>
         </div>
       </div>
     </div>
   );
 }
-

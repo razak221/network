@@ -1,184 +1,250 @@
-export const manpowerServices = [
+/**
+ * Pristine Decore Services Directory
+ * Turnkey Construction & Luxury Interior Architecture
+ */
+
+export const constructionServices = [
   {
-    id: "promoters",
-    title: "Mall Promoters & Brand Ambassadors",
-    category: "Engagement & Sales",
-    description: "Energetic, articulate, well-groomed male and female promoters trained to engage mall shoppers, distribute samples, explain product benefits, and drive sales footfall.",
+    id: "residential-villas",
+    title: "Luxury Residential Villa Construction",
+    category: "Turnkey Civil Architecture",
+    description: "Complete foundation-to-handover construction for bespoke private villas, luxury estates, and contemporary urban homes with certified RCC engineering and 10-year structural guarantee.",
     features: [
-      "Multilingual & conversational excellence",
-      "Briefed thoroughly on your brand tone",
-      "Lead generation & coupon distribution",
-      "Daily footfall & conversion logging"
+      "Custom architectural blueprinting & 3D elevations",
+      "Seismic-compliant RCC framing & certified concrete pours",
+      "Thermal insulation, waterproofing & anti-termite barriers",
+      "Integrated MEP (Mechanical, Electrical & Plumbing) design",
+      "Daily engineer-verified digital photo & milestone logs"
     ],
-    idealFor: "Mall atriums, flagship retail launches, product sampling, experiential kiosks",
-    badge: "Most Requested for Malls"
+    idealFor: "Independent luxury villas, private farmhouses, duplex residences, gated community homes",
+    badge: "10-Year Structural Warranty"
   },
   {
-    id: "security",
-    title: "Bouncers & Event Security",
-    category: "Crowd Safety",
-    description: "Licensed, disciplined bouncers and crowd marshals experienced in managing high-density mall weekend rushes, VIP celebrity arrivals, and perimeter defense.",
+    id: "commercial-structures",
+    title: "Commercial Buildings & Corporate Complexes",
+    category: "Commercial Civil Engineering",
+    description: "Heavy-duty structural construction for multi-story office buildings, commercial complexes, boutique retail hubs, and hospitality properties executed with stringent safety compliance.",
     features: [
-      "Stature & professional authority",
-      "De-escalation & queue management",
-      "Mall security liaison & emergency protocol",
-      "VIP personal escort & backstage security"
+      "Structural steel framing & high-load concrete engineering",
+      "Acoustic curtain glass facades & modern architectural envelopes",
+      "High-capacity elevator shaft & fire-suppression integration",
+      "Pre-cast structural components for accelerated build timelines",
+      "Municipal planning clearances & environmental compliance"
     ],
-    idealFor: "Celebrity visits, weekend flash sales, high-traffic concerts, festival events",
-    badge: "Safety Guaranteed"
+    idealFor: "Corporate head offices, commercial showrooms, retail plazas, boutique hotel structures",
+    badge: "Commercial Grade"
   },
   {
-    id: "ushers",
-    title: "Hospitality Ushers & Registration Hosts",
-    category: "Guest Experience",
-    description: "Impeccably dressed front-of-house hosts and hostesses to greet VIPs, manage badge issuance, assist with seating, and maintain a luxury brand reception.",
+    id: "renovation-remodeling",
+    title: "Structural Renovation & Space Re-engineering",
+    category: "Remodeling & Expansion",
+    description: "Transforming aging or outdated properties through structural retrofitting, internal wall reconfigurations, load-bearing beam modifications, and modern exterior face-lifts.",
     features: [
-      "Polished corporate grooming & etiquette",
-      "Guestlist app & tablet registration",
-      "Gift hamper & brochure handover",
-      "VIP lounge facilitation"
+      "Structural integrity audits & non-destructive load testing",
+      "Internal layout open-plan re-engineering",
+      "Reinforced steel jacketing & slab strengthening",
+      "Complete MEP overhaul with concealed conduit networks",
+      "Facade transformation with stone cladding and glass balustrades"
     ],
-    idealFor: "Store openings, corporate summits, press conferences, luxury product launches",
-    badge: "Premium Polish"
+    idealFor: "Older luxury homes, heritage property restorations, penthouse revamps, commercial adaptive reuse",
+    badge: "Zero-Downtime Planning"
   },
   {
-    id: "logistics",
-    title: "Setup, Strike-Down & Logistics Crew",
-    category: "Backstage & Heavy Lifting",
-    description: "Rugged, safety-certified stagehands and porters capable of executing nocturnal mall setups, stage assembly, heavy loading, and rapid post-event clearance.",
+    id: "foundation-civil",
+    title: "Foundation, Piling & Substructure Engineering",
+    category: "Civil Foundation Work",
+    description: "Geotechnical precision earthwork, deep piling, raft foundations, and basement waterproofing engineered to withstand soil shifts and subterranean hydrostatic pressures.",
     features: [
-      "Late-night / overnight mall shift availability",
-      "Safe handling of delicate AV & glass decor",
-      "Trussing, carpeting & booth assembly",
-      "Punctual zero-damage strike-down"
+      "Certified geotechnical soil bearing capacity analysis",
+      "Bored cast-in-situ piling & reinforced raft foundation slabs",
+      "Crystalline basement tanking & multi-layer waterproofing membranes",
+      "Precision retaining walls & perimeter drainage channels",
+      "Laser-guided excavation & computerized grade leveling"
     ],
-    idealFor: "Overnight mall stall setups, expo booth builds, concert stage assembly",
-    badge: "Night Shift Ready"
+    idealFor: "High-load commercial structures, basements, sloping terrain builds, waterfront properties",
+    badge: "Structural Foundation"
   },
   {
-    id: "supervisors",
-    title: "Dedicated On-Site Floor Supervisors",
-    category: "Quality Control",
-    description: "Senior field commanders who manage roll-calls, coordinate breaks, liaise with mall security/facilities managers, and handle instant replacements.",
+    id: "exterior-hardscaping",
+    title: "Exterior Architecture, Decks & Landscaping",
+    category: "Site & Exterior Works",
+    description: "Creating unified outdoor living spaces with natural stone hardscaping, cantilevered pergolas, infinity swimming pool construction, boundary security walls, and ambient architectural illumination.",
     features: [
-      "Single point of contact for your marketing head",
-      "Real-time attendance & live photo updates via WhatsApp",
-      "Instant problem resolution on-ground",
-      "Comprehensive end-of-day summary reports"
+      "Natural granite, travertine & basalt outdoor paving",
+      "Custom gunite swimming pools & water feature engineering",
+      "Weather-treated hardwood decks & aluminum pergolas",
+      "Automated subterranean drip irrigation & storm drainage",
+      "Architectural low-voltage pathway & facade spotlighting"
     ],
-    idealFor: "Multi-day mall roadshows, high-stakes brand activations",
-    badge: "Zero Management Hassle"
+    idealFor: "Private villa gardens, rooftop terrace lounges, resort clubhouses, corporate campus courtyards",
+    badge: "Outdoor Living"
   },
   {
-    id: "tech-crew",
-    title: "Audio-Visual & Lighting Technicians",
-    category: "Technical Production",
-    description: "Skilled sound engineers and lighting operators ensuring glitch-free microphone signals, background score modulation, and dynamic spotlight effects.",
+    id: "project-management",
+    title: "Turnkey EPC & Quality Assurance Auditing",
+    category: "Engineering Supervision",
+    description: "End-to-end Engineering, Procurement & Construction (EPC) management providing transparent BOQ cost oversight, laboratory material testing, and milestone delivery.",
     features: [
-      "Live audio mixing & wireless mic monitoring",
-      "LED screen calibration & video playback",
-      "Stage lighting & spotlight tracking",
-      "Emergency backup generator / cabling checks"
+      "Transparent itemized Bill of Quantities (BOQ) with zero hidden escalations",
+      "Third-party laboratory testing of steel, cement, and concrete cubes",
+      "Dedicated senior site engineer stationed full-time on-site",
+      "Weekly milestone Gantt chart audits & client dashboard updates",
+      "Formal pre-handover 120-point snag list resolution"
     ],
-    idealFor: "Stage reveals, mall performances, emcee speaking events",
-    badge: "Technical Precision"
+    idealFor: "HNI homeowners, corporate real estate executives, overseas investors requiring trusted local execution",
+    badge: "Fixed-Price BOQ Guarantee"
   }
 ];
 
-export const productionServices = [
+export const interiorServices = [
   {
-    id: "banners",
-    title: "Custom Banners & Roll-Up Standees",
-    category: "Print & Branding",
-    description: "High-definition, tear-resistant roll-up pull standees, luxury teardrop bases, heavy star-flex banners, and seamless photo-wall backdrops.",
+    id: "luxury-residential",
+    title: "Ultra-Luxury Residential Interiors",
+    category: "Living & Private Spaces",
+    description: "Bespoke spatial design for sprawling living suites, formal lounges, dining salons, and master bedrooms curated with rare Italian marble, fluted veneers, and custom furnishings.",
     specs: [
-      "Roll-up standees: 2x5 ft, 2.5x6 ft, 3x6 ft",
-      "Matte / Gloss non-tear vinyl fabric",
-      "Seamless media backdrops up to 40x12 ft",
-      "Same-day emergency re-prints available"
+      "Italian Statuario, Bottochino & Michaelangelo marble book-matched laying",
+      "Fluted natural teak & smoked oak acoustic wall paneling",
+      "Architectural magnetic track lighting & smart dimming automation",
+      "Handcrafted bespoke modular sofas, dining tables & console joinery",
+      "Custom silk-blend drapery & acoustic motorized sheer blinds"
     ],
-    icon: "Layers"
+    idealFor: "Luxury penthouses, independent villa interiors, high-end apartments, duplex suites",
+    badge: "Bespoke Signature"
   },
   {
-    id: "signboards",
-    title: "3D Acrylic, LED Glow Signs & Neon Boards",
-    category: "Signage & Display",
-    description: "Precision laser-cut acrylic logo lettering, backlit LED display boxes, and vibrant custom neon flex signs designed for high mall footfall attention.",
+    id: "modular-kitchens",
+    title: "Modular Kitchens & Chef Pantries",
+    category: "Kitchen & Dining Architecture",
+    description: "Ergonomic German-engineered modular kitchens combining anti-scratch PU/acrylic finishes, seamless quartz/neolith countertops, and Blum soft-close internal hardware.",
     specs: [
-      "Ultra-bright waterproof LED module backlighting",
-      "Custom Neon aesthetic lettering for photo-ops",
-      "Glow signboards with aluminum composite panels (ACP)",
-      "Mall-approved low voltage fire-safe wiring"
+      "100% boiling water-proof (BWP) marine-grade structural carcass",
+      "German Blum Legrabox drawer systems & Aventos bi-fold lift hardware",
+      "Seamless sintered stone & Caesarstone antibacterial worktops",
+      "Concealed appliance integration (Bosch, Miele, Gaggenau)",
+      "Dedicated walk-in pantry joinery with pull-out larder units"
     ],
-    icon: "Sparkles"
+    idealFor: "Gourmet residential kitchens, luxury open-concept islands, butler pantries",
+    badge: "Lifetime Hardware Warranty"
   },
   {
-    id: "decor",
-    title: "Thematic Event Decor & Grand Arches",
-    category: "Atmosphere & Styling",
-    description: "Stunning entrance balloon arches, luxury floral frames, draped fabric tunnels, VIP red-carpet runways, and custom-themed photobooth zones.",
+    id: "walkin-wardrobes",
+    title: "Master Suites & Custom Walk-In Closets",
+    category: "Storage Architecture",
+    description: "Boutique-style walk-in dressing rooms featuring smoked fluted glass shutters, custom suede jewelry organizer drawers, sensor LED profiles, and climate-controlled luxury storage.",
     specs: [
-      "Organic balloon garlands & chrome metallic accents",
-      "Fresh or premium artificial floral archways",
-      "Red, blue, or branded custom turf carpeting",
-      "Theme props, decorative podiums & stanchion ropes"
+      "Smoked glass, tinted bronze & aluminum profile wardrobe doors",
+      "Concealed 3000K warm LED vertical strip lighting with infrared proximity sensors",
+      "Velvet and Italian leather lined drawers for watches, jewelry & accessories",
+      "Built-in vanity dressing counters with shadowless backlit mirrors",
+      "Dehumidified compartments for leatherwear and fine garments"
     ],
-    icon: "Palette"
+    idealFor: "Master bedroom dressing wings, private penthouse closets, bespoke villa suites",
+    badge: "Boutique Finish"
   },
   {
-    id: "staging-av",
-    title: "Staging, Trussing, Sound & Lighting",
-    category: "Infrastructure",
-    description: "Modular raised platforms, heavy-duty aluminum box trussing, concert-grade PA systems, wireless lapels/handheld mics, and ambient LED PAR lighting.",
+    id: "commercial-fitouts",
+    title: "Commercial Offices & Corporate Fitouts",
+    category: "Workplace & Retail Spaces",
+    description: "High-productivity, brand-defining corporate workplace interiors featuring acoustic glass conference suites, ergonomic agile workstations, and executive boardrooms.",
     specs: [
-      "Custom height modular stage decks with carpet finish",
-      "JBL / Yamaha high-clarity sound systems",
-      "Sennheiser wireless UHF microphone setups",
-      "RGBW DMX LED stage wash & gobo lighting"
+      "Acoustic double-glazed demountable partition systems (STC 45+ rating)",
+      "Modular workstation desking with concealed power & data trunks",
+      "Acoustic PET felt ceiling baffles & customized corporate reception desks",
+      "Dedicated executive restrooms & pantry breakout zones",
+      "Integrated HVAC ducting, access control & server room MEP"
     ],
-    icon: "Volume2"
+    idealFor: "Corporate head offices, financial firms, tech innovation hubs, law chambers",
+    badge: "Turnkey Commercial"
+  },
+  {
+    id: "retail-showrooms",
+    title: "Luxury Retail Showrooms & Boutiques",
+    category: "Experiential Commercial",
+    description: "High-impact retail environments designed to elevate product merchandising through theatrical spotlighting, custom brass display vitrines, and frictionless customer flow.",
+    specs: [
+      "High-CRI 95+ architectural retail track spotlighting for true color rendition",
+      "Custom laser-cut brushed brass, matte black & fluted timber displays",
+      "Seamless terrazzo, microcement, or polished porcelain floor finishes",
+      "High-security display counters with concealed biometric locking",
+      "Bespoke cashier points & VIP private consultation suites"
+    ],
+    idealFor: "Jewelry salons, designer fashion boutiques, automobile flagship galleries, luxury home goods",
+    badge: "High-Footfall Finish"
+  },
+  {
+    id: "ceilings-lighting",
+    title: "Architectural Ceilings & Lighting Curation",
+    category: "Lighting & Ceilings",
+    description: "Transformative ceiling architectures combining seamless gypsum work, acoustic wooden baffles, concealed indirect cove lighting, and state-of-the-art DALI smart controls.",
+    specs: [
+      "Saint-Gobain Gyproc false ceiling systems with anti-crack reinforcement",
+      "Recessed architectural magnetic track rails with magnetic spotlights & linear diffusers",
+      "Concealed perimeter LED cove troughs with zero hotspot diffusion",
+      "Acoustic suspended wood slats with micro-perforated acoustic backing",
+      "Scene-based Lutron/DALI smart home automation integration"
+    ],
+    idealFor: "Grand double-height living atriums, home cinemas, corporate boardrooms, formal dining halls",
+    badge: "Architectural Illumination"
   }
 ];
+
+// Ensure both specs and features are available on all interior services
+interiorServices.forEach(item => {
+  if (!item.features) item.features = item.specs;
+});
 
 export const bespokeExamples = [
   {
-    title: "Branded Staff Uniforms & Merchandise",
-    detail: "High-speed customized polo shirts, caps, aprons, and printed badge lanyards for your event crew within 24 hours.",
-    tag: "Branding"
+    title: "Bookmatched Italian Statuario Marble Wall",
+    description: "Full-slab seamless feature wall with CNC precision waterjet cuts and concealed LED rim illumination."
   },
   {
-    title: "Special Effects: Confetti & Low-Fog Jets",
-    detail: "CO2 smoke cannons, continuous confetti blowers, and dry-ice ground-hugging fog for theatrical ribbon-cutting and product reveals.",
-    tag: "FX Production"
+    title: "Fluted Smoked Oak Veneer Wall Paneling",
+    description: "Floor-to-ceiling custom acoustic wood fluting concealing secret flush doors into private dressing suites."
   },
   {
-    title: "Custom Interactive Booth Games & Spin Wheels",
-    detail: "Custom wooden or acrylic prize-wheel spinners, buzz-wire games, and branded ballot boxes to supercharge booth engagement.",
-    tag: "Engagement"
+    title: "Sintered Stone Island with Cantilevered Breakfast Bar",
+    description: "Monolithic 12mm sintered stone kitchen island featuring seamless mitred 45-degree waterfall edges."
   },
   {
-    title: "Emergency Rapid Sourcing (Under 6 Hours)",
-    detail: "Need extra spotlights, replacement banners, 10 folding chairs, or 5 emergency promoters right now? Our founders deploy immediately.",
-    tag: "Rush Order"
+    title: "Brushed Champagne Brass & Glass Partitioning",
+    description: "Custom geometric room dividers framing formal dining spaces without sacrificing ambient natural light."
+  },
+  {
+    title: "Acoustic Home Cinema with Starry Fiber-Optic Ceiling",
+    description: "Full Dolby Atmos sound-insulated theater room with tiered motorized recliner seating and velvet acoustic panels."
+  },
+  {
+    title: "Double-Height Cantilevered Architectural Staircase",
+    description: "Structural floating steel spine with solid American walnut treads and frameless structural glass balustrades."
   }
 ];
 
-export const mallFaqs = [
+export const constructionFaqs = [
   {
-    q: "How do you handle mall security passes and night setup rules?",
-    a: "Our Operations Lead Syed Inam coordinates directly with mall facility management. All our crew members submit government-verified IDs 48 hours prior to the event, and our setup teams work seamlessly in the overnight window (11 PM - 8 AM) with zero noise violations."
+    q: "How does Pristine Decore calculate construction and interior costs?",
+    a: "We operate on a transparent, itemized Bill of Quantities (BOQ) model. For civil construction, costs are calculated per square foot based on structural engineering specs (e.g. RCC grade, steel brand, foundation depth). For interiors, we provide transparent line-item pricing for joinery, stone, electrical, and plumbing with zero hidden contractor markups."
   },
   {
-    q: "What happens if an assigned promoter falls sick on the day of the event?",
-    a: "Pristine Decore maintains a 15% reserve bench on standby. In the rare case of absenteeism, an equally groomed and pre-briefed backup promoter arrives at the venue within 30 minutes, guaranteed."
+    q: "Do you provide 3D photorealistic architectural renders before work begins?",
+    a: "Yes. Every turnkey project includes comprehensive 3D photorealistic visual walkthroughs, material moodboards, and millimeter-precise 2D working drawings. You see and approve the exact marble veins, lighting warmth, and cabinetry finishes before physical procurement starts."
   },
   {
-    q: "Can we request custom fabricated signboards or banners with our exact Pantone colors?",
-    a: "Yes! Co-founder Syed Haamid Ali oversees our in-house printing and fabrication shop. We print on calibrated Roland/HP high-gamut machines ensuring 100% brand color fidelity."
+    q: "What warranties do you provide on civil structure and interior fitouts?",
+    a: "We back our turnkey construction with a 10-Year Structural Integrity Warranty covering the foundation, columns, beams, and slabs. For interior joinery and modular systems, we provide a 5-Year Comprehensive Craftsmanship Guarantee alongside manufacturer lifetime warranties on German hardware (Blum/Hettich)."
   },
   {
-    q: "How does the custom request feature work?",
-    a: "Whatever you need for your event—whether it's an 8ft illuminated mascot, helium balloons, custom trophies, or velvet VIP ropes—simply submit it via our builder or WhatsApp, and we will source and produce it end-to-end."
+    q: "How do you guarantee on-time handover without cost escalations?",
+    a: "We sign a legally binding Project SLA with milestone deadlines and a locked-in BOQ price. A dedicated Senior Project Manager supervises daily operations on-site, logging daily photographic progress and material tests to guarantee zero schedule creep."
+  },
+  {
+    q: "Do you handle municipal building permits, structural approvals, and MEP clearances?",
+    a: "Yes. Our in-house architectural and civil team handles complete liaison for structural sanction drawings, municipal building clearances, fire NOCs, and electricity/water connection approvals, delivering a stress-free turnkey experience."
   }
 ];
 
+// Backward-compatible aliases for existing components
+export const manpowerServices = constructionServices;
+export const productionServices = interiorServices;
+export const mallFaqs = constructionFaqs;

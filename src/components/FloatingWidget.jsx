@@ -4,7 +4,7 @@ import { CONTACT_CONFIG } from '../config/contact';
 
 export default function FloatingWidget() {
   const handleWhatsApp = () => {
-    const msg = "Hi Pristine Decore! I would like to inquire about event manpower and custom decor production.";
+    const msg = "Hi Pristine Decore! I would like to inquire about turnkey civil construction, architectural design, and luxury interiors.";
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
   };
 
@@ -13,8 +13,8 @@ export default function FloatingWidget() {
       <button
         onClick={handleWhatsApp}
         className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center shadow-soft-lg hover:scale-110 active:scale-95 transition-all group relative"
-        title="Chat with Founders on WhatsApp"
-        aria-label="Chat with Founders on WhatsApp"
+        title="Consult Architectural Desk on WhatsApp"
+        aria-label="Consult Architectural Desk on WhatsApp"
       >
         {/* Subtle Online Pulse Ring */}
         <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-400 border-2 border-white rounded-full animate-ping"></span>

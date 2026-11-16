@@ -9,7 +9,9 @@ import {
   ShieldCheck, 
   ArrowUp,
   Building2,
-  Heart
+  HardHat,
+  Palette,
+  Compass
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 
@@ -30,57 +32,63 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Your single-window partner for high-caliber event manpower (promoters, bouncers, ushers, setup crew) and custom on-demand production (banners, signboards, theme decor, sound & lighting).
+              Premier architectural and civil engineering studio delivering turnkey residential villas, bespoke luxury interiors, Italian modular kitchens, and premium commercial fitouts backed by transparent fixed-price BOQs and 10-year structural warranties.
             </p>
 
             <div className="pt-2 text-xs text-slate-300 space-y-1">
-              <div className="text-amber-400 font-semibold">Founding Team:</div>
-              <div className="text-white font-medium">Syed Inam • Razak Ahmed Khan • Syed Haamid Ali</div>
+              <div className="text-amber-400 font-semibold flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                <span>Quality & Engineering Certifications:</span>
+              </div>
+              <div className="text-slate-300 font-medium">10-Year Structural Warranty • ISO Certified Processes • Transparent BOQ</div>
             </div>
           </div>
 
-          {/* Manpower Services */}
+          {/* Civil Construction */}
           <div className="space-y-3">
-            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider">
-              Event Manpower
+            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider flex items-center gap-1.5">
+              <HardHat className="w-3.5 h-3.5 text-amber-500" />
+              <span>Civil Construction</span>
             </h4>
             <ul className="space-y-2">
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Mall Promoters & Models</Link></li>
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Bouncers & Security Marshals</Link></li>
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Hospitality Ushers & Hosts</Link></li>
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Nocturnal Mall Setup Crew</Link></li>
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">On-Site Floor Supervisors</Link></li>
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Audio-Visual Technicians</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Luxury Villa Construction</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Commercial Complexes</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Structural Renovation</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Foundation & Piling Works</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Exterior Hardscaping & Pools</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Turnkey EPC Supervision</Link></li>
             </ul>
           </div>
 
-          {/* Production & Decor */}
+          {/* Interior Architecture */}
           <div className="space-y-3">
-            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider">
-              Production & Decor
+            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Palette className="w-3.5 h-3.5 text-amber-500" />
+              <span>Luxury Interiors</span>
             </h4>
             <ul className="space-y-2">
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Roll-Up Pull Standees</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Custom Flex Backdrops</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">3D Acrylic & Glow Signs</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Custom Neon Flex Boards</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Thematic Entrance Arches</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Staging, Sound & Lighting</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Modular European Kitchens</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Italian Marble Flooring</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Bespoke Millwork & Closets</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Architectural False Ceilings</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Smart Home Automation</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Custom Metal & Glass Partitioning</Link></li>
             </ul>
           </div>
 
-          {/* Quick Actions & Domains */}
+          {/* Studio Direct Access */}
           <div className="space-y-3">
-            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider">
-              Direct Access
+            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Compass className="w-3.5 h-3.5 text-amber-500" />
+              <span>Studio Desks</span>
             </h4>
             <ul className="space-y-2">
-              <li><Link to="/quote" className="text-amber-400 font-semibold hover:underline">Instant Event Quote</Link></li>
-              <li><Link to="/gallery" className="hover:text-amber-400 transition-colors">Showcase Portfolio</Link></li>
-              <li><Link to="/mall-operations" className="hover:text-amber-400 transition-colors">Mall Operations SOP</Link></li>
-              <li><Link to="/about" className="hover:text-amber-400 transition-colors">Meet the Leadership</Link></li>
-              <li><Link to="/bespoke" className="hover:text-amber-400 transition-colors">Custom Bespoke Requests</Link></li>
-              <li><Link to="/contact" className="hover:text-amber-400 transition-colors">Direct WhatsApp Hotline</Link></li>
+              <li><Link to="/quote" className="text-amber-400 font-semibold hover:underline">Cost Estimator & BOQ</Link></li>
+              <li><Link to="/gallery" className="hover:text-amber-400 transition-colors">Portfolio Showcase</Link></li>
+              <li><Link to="/mall-operations" className="hover:text-amber-400 transition-colors">Commercial Fitout Standards</Link></li>
+              <li><Link to="/about" className="hover:text-amber-400 transition-colors">Studio Story & Quality</Link></li>
+              <li><Link to="/bespoke" className="hover:text-amber-400 transition-colors">Bespoke Materials Concierge</Link></li>
+              <li><Link to="/contact" className="hover:text-amber-400 transition-colors">Consult Architectural Desk</Link></li>
             </ul>
 
             <div className="pt-2">
@@ -102,9 +110,9 @@ export default function Footer() {
             © {new Date().getFullYear()} <strong className="text-white">Pristine Decore</strong> ({CONTACT_CONFIG.domain}). All rights reserved.
           </div>
           <div className="flex items-center gap-4 text-slate-400">
-            <span>Specialists in Mall Events & Workforce Solutions</span>
+            <span>Turnkey Civil Construction & Luxury Interior Architecture</span>
             <span>•</span>
-            <span>Designed for Flawless Execution</span>
+            <span>Fixed-Price BOQ Guarantee</span>
           </div>
         </div>
       </div>

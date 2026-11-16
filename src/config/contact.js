@@ -1,58 +1,68 @@
 /**
- * Centralized Contact Configuration for Pristine Decore (pristinedecore.com)
- * Update phone numbers, WhatsApp numbers, and emails here to reflect across the entire site.
+ * Centralized Contact & Brand Configuration for Pristine Decore
+ * Luxury Construction & Bespoke Interior Design Atelier
  */
 
 export const CONTACT_CONFIG = {
   domain: "pristinedecore.com",
   siteUrl: "https://pristinedecore.com",
   brandName: "Pristine Decore",
-  brandTagline: "Event Manpower & Custom Production",
+  brandTagline: "Luxury Construction & Bespoke Interior Design",
   
-  // Primary Business Channels
+  // Official Studio Communications
   email: "info@pristinedecore.com",
-  supportEmail: "support@pristinedecore.com",
+  supportEmail: "projects@pristinedecore.com",
   
-  // Default WhatsApp Dispatch Number (Country code + phone without '+' or spaces)
-  // Example: "919876543210" or empty string "" for client selector
-  defaultWhatsAppNumber: "", 
+  // Central Studio WhatsApp Hotline (Leave blank or add official business number)
+  defaultWhatsAppNumber: "",
   
-  // Emergency Desk Phone
-  emergencyPhoneDisplay: "+91 24/7 Rapid Desk",
-  
-  // Founders Individual Contacts
-  founders: {
-    inam: {
-      name: "Syed Inam",
-      role: "Operations & Ground Execution",
-      phoneDisplay: "Direct Operations Desk",
-      whatsAppNumber: "", // Set personal WhatsApp if desired
-      email: "inam@pristinedecore.com"
-    },
-    razak: {
-      name: "Razak Ahmed Khan",
-      role: "Client Relations & Business Strategy",
-      phoneDisplay: "Direct Strategy Desk",
-      whatsAppNumber: "", // Set personal WhatsApp if desired
-      email: "razak@pristinedecore.com"
-    },
-    haamed: {
-      name: "Syed Haamid Ali",
-      role: "Creative Decor & Print Fabrication",
-      phoneDisplay: "Direct Production Desk",
-      whatsAppNumber: "", // Set personal WhatsApp if desired
-      email: "haamid@pristinedecore.com"
-    },
-    haamid: {
-      name: "Syed Haamid Ali",
-      role: "Creative Decor & Print Fabrication",
-      phoneDisplay: "Direct Production Desk",
+  // Direct Studio Desks
+  desks: {
+    civil: {
+      name: "Turnkey Civil & Structural Desk",
+      role: "RCC Construction, Villa Engineering & Site Supervision",
+      phoneDisplay: "+91 Civil Engineering Desk",
       whatsAppNumber: "",
-      email: "haamid@pristinedecore.com"
+      email: "construction@pristinedecore.com"
+    },
+    interior: {
+      name: "Architectural & Interior Design Desk",
+      role: "Concept 3D Visualization, Space Planning & Material Curation",
+      phoneDisplay: "+91 Studio Architecture Desk",
+      whatsAppNumber: "",
+      email: "design@pristinedecore.com"
+    },
+    commercial: {
+      name: "Commercial Fitouts & BOQ Desk",
+      role: "Corporate Offices, Retail Showrooms & Fixed-Price Quotes",
+      phoneDisplay: "+91 Commercial Projects Desk",
+      whatsAppNumber: "",
+      email: "commercial@pristinedecore.com"
+    },
+    architecture: {
+      name: "Architectural & Interior Design Desk",
+      role: "Concept 3D Visualization, Space Planning & Material Curation",
+      phoneDisplay: "+91 Studio Architecture Desk",
+      whatsAppNumber: "",
+      email: "design@pristinedecore.com"
+    },
+    construction: {
+      name: "Turnkey Civil & Structural Desk",
+      role: "RCC Construction, Villa Engineering & Site Supervision",
+      phoneDisplay: "+91 Civil Engineering Desk",
+      whatsAppNumber: "",
+      email: "construction@pristinedecore.com"
     }
   },
 
-  // Helper function to build a pre-filled WhatsApp URL
+  // Emergency & Priority Project Hotline
+  emergencyPhoneDisplay: "+91 24/7 Site Inspection Desk",
+
+  // Studio Address
+  studioAddress: "Atelier Suite 402, Signature Towers, Prime Business District",
+  operatingHours: "Monday – Saturday: 9:00 AM – 7:30 PM (Site Operations 24/7)",
+
+  // Helper function to build pre-filled WhatsApp URLs
   getWhatsAppUrl: (message, targetNumber = null) => {
     const phone = targetNumber || CONTACT_CONFIG.defaultWhatsAppNumber;
     const encoded = encodeURIComponent(message);
@@ -62,4 +72,3 @@ export const CONTACT_CONFIG = {
     return `https://wa.me/?text=${encoded}`;
   }
 };
-

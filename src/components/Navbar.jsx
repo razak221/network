@@ -21,28 +21,28 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
   const isQuotePage = location.pathname.startsWith('/quote') || location.pathname.startsWith('/builder');
 
   const desktopNavLinks = [
-    { label: "Showcase", to: "/gallery" },
-    { label: "Manpower", to: "/manpower" },
-    { label: "Production", to: "/production" },
-    { label: "Mall Ops", to: "/mall-operations" },
-    { label: "Founders", to: "/about" },
-    { label: "Bespoke", to: "/bespoke" },
+    { label: "Portfolio", to: "/gallery" },
+    { label: "Construction", to: "/manpower" },
+    { label: "Interiors", to: "/production" },
+    { label: "Commercial", to: "/mall-operations" },
+    { label: "Bespoke Joinery", to: "/bespoke" },
+    { label: "About Studio", to: "/about" },
     { label: "Contact", to: "/contact" },
   ];
 
   const mobileNavLinks = [
     { label: "Home", to: "/" },
-    { label: "Showcase", to: "/gallery" },
-    { label: "Manpower", to: "/manpower" },
-    { label: "Production & Decor", to: "/production" },
-    { label: "Mall Operations", to: "/mall-operations" },
-    { label: "About Founders", to: "/about" },
-    { label: "Bespoke Wishlist", to: "/bespoke" },
-    { label: "Contact", to: "/contact" },
+    { label: "Portfolio & Projects", to: "/gallery" },
+    { label: "Turnkey Civil Construction", to: "/manpower" },
+    { label: "Luxury Interior Architecture", to: "/production" },
+    { label: "Commercial & Retail Fitouts", to: "/mall-operations" },
+    { label: "Bespoke Millwork & Joinery", to: "/bespoke" },
+    { label: "About Pristine Decore", to: "/about" },
+    { label: "Studio Consultation & Contact", to: "/contact" },
   ];
 
   const handleWhatsAppDirect = () => {
-    const text = "Hello Pristine Decore! I would like to inquire about event manpower and custom production supplies for an upcoming event.";
+    const text = "Hello Pristine Decore! I would like to schedule an architectural consultation regarding an upcoming construction and interior project.";
     window.open(CONTACT_CONFIG.getWhatsAppUrl(text), '_blank');
   };
 
@@ -55,8 +55,8 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
       {/* Top Banner Alert (Soft Light Champagne) */}
       <div className="bg-amber-50 text-amber-900 border-b border-amber-200/50 px-4 py-1.5 text-xs font-semibold text-center tracking-wide flex items-center justify-center gap-2">
         <span className="inline-block w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
-        <span>MALL ACTIVATIONS & CORPORATE EVENTS SPECIALISTS — 24/7 RAPID DEPLOYMENT DESK</span>
-        <span className="hidden sm:inline opacity-70">| Founders Direct: Syed Inam, Razak Ahmed Khan, Syed Haamid Ali</span>
+        <span>TURNKEY CIVIL CONSTRUCTION &amp; LUXURY INTERIOR ATELIER</span>
+        <span className="hidden sm:inline opacity-70">| 10-Year Structural Warranty • Fixed BOQ Milestone Handover</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,11 +88,11 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
             <button
               onClick={handleWhatsAppDirect}
               className="px-3 py-2 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 flex items-center gap-1.5 transition-all shadow-soft-sm whitespace-nowrap"
-              title="Chat with Founders on WhatsApp"
+              title="Chat with Architects on WhatsApp"
             >
               <Send className="w-3.5 h-3.5 text-emerald-600" />
-              <span className="hidden 2xl:inline">WhatsApp Direct</span>
-              <span className="2xl:hidden">WhatsApp</span>
+              <span className="hidden 2xl:inline">Consult Architect</span>
+              <span className="2xl:hidden">Consult</span>
             </button>
 
             {!isQuotePage && (
@@ -101,7 +101,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
                 className="px-3.5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white flex items-center gap-1.5 shadow-soft-gold hover:scale-[1.02] transition-all whitespace-nowrap"
               >
                 <Sparkles className="w-3.5 h-3.5 fill-white" />
-                <span>Instant Quote</span>
+                <span>Cost Estimator</span>
               </Link>
             )}
           </div>
@@ -112,7 +112,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
               to="/quote"
               className="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-white sm:hidden"
             >
-              Quote
+              Estimate
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -151,7 +151,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
               className="w-full py-2.5 rounded-xl text-sm font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center gap-2"
             >
               <Send className="w-4 h-4" />
-              <span>WhatsApp Direct to Founders</span>
+              <span>Consult Studio Architects (WhatsApp)</span>
             </button>
             <Link
               to="/quote"
@@ -159,7 +159,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
               className="w-full py-2.5 rounded-xl text-sm font-bold bg-amber-500 text-white flex items-center justify-center gap-2 shadow-soft-gold"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Build Event & Get Instant Quote</span>
+              <span>Calculate Project Cost (Instant Estimator)</span>
             </Link>
           </div>
         </div>

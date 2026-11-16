@@ -10,7 +10,9 @@ import {
   Sparkles,
   CheckCircle2,
   Building2,
-  Users
+  HardHat,
+  Palette,
+  Compass
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 import Toast from '../components/Toast';
@@ -20,9 +22,9 @@ export default function ContactPage() {
     name: '',
     phone: '',
     email: '',
-    eventType: 'Mall Activation',
-    venue: '',
-    durationDays: 1,
+    projectType: 'Turnkey Luxury Villa',
+    location: '',
+    areaSqFt: '',
     message: ''
   });
 
@@ -32,24 +34,17 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const msg = 
-      `*DIRECT INQUIRY - PRISTINE DECORE (pristinedecore.com)*\n\n` +
-      `👤 *Name:* ${form.name}\n` +
+      `*ARCHITECTURAL CONSULTATION - PRISTINE DECORE (pristinedecore.com)*\n\n` +
+      `👤 *Client Name:* ${form.name}\n` +
       `📞 *Phone:* ${form.phone}\n` +
       `📧 *Email:* ${form.email || 'N/A'}\n` +
-      `🎪 *Event Type:* ${form.eventType}\n` +
-      `📍 *Venue:* ${form.venue || 'TBD'}\n` +
-      `⏱ *Duration:* ${form.durationDays} Day(s)\n` +
-      `📝 *Details:* ${form.message}\n`;
-    setToastMsg("Inquiry dispatched directly to founders' WhatsApp desk!");
+      `🏛 *Project Typology:* ${form.projectType}\n` +
+      `📍 *Location:* ${form.location || 'TBD'}\n` +
+      `📐 *Approx Area:* ${form.areaSqFt ? form.areaSqFt + ' sq.ft' : 'Not specified'}\n` +
+      `📝 *Scope & Brief:* ${form.message}\n`;
+    setToastMsg("Inquiry dispatched directly to the architectural studio desk!");
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
     setSubmitted(true);
-  };
-
-  const handleCallFounder = (founderKey) => {
-    const founder = CONTACT_CONFIG.founders[founderKey];
-    if (founder?.phone) {
-      window.open(`tel:${founder.phone}`, '_self');
-    }
   };
 
   return (
@@ -61,19 +56,19 @@ export default function ContactPage() {
         <div className="flex items-center gap-2 text-xs text-slate-500 mb-4">
           <Link to="/" className="hover:text-amber-700 transition-colors">Home</Link>
           <span>/</span>
-          <span className="text-amber-800 font-semibold">Contact & Rapid Response Desk</span>
+          <span className="text-amber-800 font-semibold">Studio Consultation & Project Desk</span>
         </div>
 
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
-            <Mail className="w-3.5 h-3.5 text-amber-600" />
-            <span>24/7 Operations Desk</span>
+            <Compass className="w-3.5 h-3.5 text-amber-600" />
+            <span>Turnkey Project Desk</span>
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
-            Direct Co-Founder <span className="text-gradient-gold">Contact Desk</span>
+            Consult Our Principal <span className="text-gradient-gold">Architectural Desks</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Skip bureaucratic agency layers. When you contact Pristine Decore, you are connected directly with our leadership team for immediate quotes and deployment schedules.
+            Connect directly with our civil engineering and interior architecture studio desks for site inspections, 3D pre-visualizations, and transparent fixed-price BOQs.
           </p>
         </div>
       </div>
@@ -81,27 +76,27 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Left Column: Direct Founder Hotlines & Details */}
+          {/* Left Column: Studio Desks & Details */}
           <div className="lg:col-span-5 space-y-6">
             <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-luxury space-y-6">
               <h3 className="font-heading text-xl font-bold text-slate-900">
-                Direct Founder Hotlines
+                Direct Studio Desks
               </h3>
 
               <div className="space-y-4">
                 <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-start gap-3.5">
-                  <div className="w-12 h-12 rounded-xl bg-amber-200 p-0.5 shrink-0 shadow-sm overflow-hidden">
-                    <img src="/founders/syed-inam.jpg" alt="Syed Inam" className="w-full h-full object-cover object-top rounded-[10px]" />
+                  <div className="w-12 h-12 rounded-xl bg-amber-200 text-amber-900 p-2 shrink-0 shadow-sm flex items-center justify-center font-bold">
+                    <HardHat className="w-6 h-6" />
                   </div>
                   <div className="flex-1 min-w-0 space-y-1">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-amber-900">Syed Inam</span>
-                      <span className="text-[10px] font-mono font-bold text-amber-800 bg-white px-2 py-0.5 rounded border border-amber-200 shrink-0">Mall Clearances</span>
+                      <span className="text-xs font-bold text-amber-900">Civil Engineering Desk</span>
+                      <span className="text-[10px] font-mono font-bold text-amber-800 bg-white px-2 py-0.5 rounded border border-amber-200 shrink-0">Turnkey Civil</span>
                     </div>
-                    <p className="text-xs text-slate-600">On-Ground Logistics & Nocturnal Mall Passes</p>
+                    <p className="text-xs text-slate-600">Foundation Piling, RCC Framing & 10-Yr Structural Warranty</p>
                     <div className="pt-1 flex items-center gap-2">
                       <a 
-                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Inam! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.inam.whatsAppNumber)}
+                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Pristine Decore! I would like to consult with the Civil Engineering Desk regarding an upcoming construction project.")}
                         target="_blank"
                         rel="noreferrer"
                         className="text-xs font-bold text-amber-800 hover:underline flex items-center gap-1"
@@ -114,18 +109,18 @@ export default function ContactPage() {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-teal-50/70 border border-teal-200/80 flex items-start gap-3.5">
-                  <div className="w-12 h-12 rounded-xl bg-teal-200 p-0.5 shrink-0 shadow-sm overflow-hidden">
-                    <img src="/founders/razak-ahmed-khan.jpg" alt="Razak Ahmed Khan" className="w-full h-full object-cover object-top rounded-[10px]" />
+                  <div className="w-12 h-12 rounded-xl bg-teal-200 text-teal-900 p-2 shrink-0 shadow-sm flex items-center justify-center font-bold">
+                    <Palette className="w-6 h-6" />
                   </div>
                   <div className="flex-1 min-w-0 space-y-1">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-teal-900">Razak Ahmed Khan</span>
-                      <span className="text-[10px] font-mono font-bold text-teal-800 bg-white px-2 py-0.5 rounded border border-teal-200 shrink-0">Client Strategy</span>
+                      <span className="text-xs font-bold text-teal-900">Interior Architecture Atelier</span>
+                      <span className="text-[10px] font-mono font-bold text-teal-800 bg-white px-2 py-0.5 rounded border border-teal-200 shrink-0">Interiors</span>
                     </div>
-                    <p className="text-xs text-slate-600">Brand Partnerships, Commercial Inquiries & Quotes</p>
+                    <p className="text-xs text-slate-600">Italian Marble, Modular Kitchens & Custom Millwork</p>
                     <div className="pt-1 flex items-center gap-2">
                       <a 
-                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Razak! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.razak.whatsAppNumber)}
+                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Pristine Decore! I would like to consult with the Interior Architecture Atelier regarding a luxury interior project.")}
                         target="_blank"
                         rel="noreferrer"
                         className="text-xs font-bold text-teal-800 hover:underline flex items-center gap-1"
@@ -138,18 +133,18 @@ export default function ContactPage() {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-200/80 flex items-start gap-3.5">
-                  <div className="w-12 h-12 rounded-xl bg-rose-200 p-0.5 shrink-0 shadow-sm overflow-hidden">
-                    <img src="/founders/syed-haamid-ali.jpg" alt="Syed Haamid Ali" className="w-full h-full object-cover object-top rounded-[10px]" />
+                  <div className="w-12 h-12 rounded-xl bg-rose-200 text-rose-900 p-2 shrink-0 shadow-sm flex items-center justify-center font-bold">
+                    <Building2 className="w-6 h-6" />
                   </div>
                   <div className="flex-1 min-w-0 space-y-1">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-rose-900">Syed Haamid Ali</span>
-                      <span className="text-[10px] font-mono font-bold text-rose-800 bg-white px-2 py-0.5 rounded border border-rose-200 shrink-0">Production</span>
+                      <span className="text-xs font-bold text-rose-900">Commercial Fitouts Desk</span>
+                      <span className="text-[10px] font-mono font-bold text-rose-800 bg-white px-2 py-0.5 rounded border border-rose-200 shrink-0">Commercial</span>
                     </div>
-                    <p className="text-xs text-slate-600">Custom Fabrication, Signage Specs & Decor</p>
+                    <p className="text-xs text-slate-600">Corporate Offices, Retail Fitouts & NBC Clearances</p>
                     <div className="pt-1 flex items-center gap-2">
                       <a 
-                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Syed Haamid! Reaching out via pristinedecore.com", CONTACT_CONFIG.founders.haamid.whatsAppNumber)}
+                        href={CONTACT_CONFIG.getWhatsAppUrl("Hi Pristine Decore! I would like to consult regarding a commercial office / retail fitout.")}
                         target="_blank"
                         rel="noreferrer"
                         className="text-xs font-bold text-rose-800 hover:underline flex items-center gap-1"
@@ -173,8 +168,8 @@ export default function ContactPage() {
                   <span>Official Domain: <strong className="text-slate-900">{CONTACT_CONFIG.domain}</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Nocturnal Shift Desk: <strong>11:00 PM – 8:00 AM Active</strong></span>
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Structural Warranty: <strong>10-Year Certified Guarantee</strong></span>
                 </div>
               </div>
             </div>
@@ -185,21 +180,21 @@ export default function ContactPage() {
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-luxury card-luxury space-y-6">
               <div>
                 <h3 className="font-heading text-2xl font-bold text-slate-900">
-                  Send Event Specification
+                  Request Project Consultation
                 </h3>
                 <p className="text-slate-600 text-xs sm:text-sm mt-1">
-                  Fill in your brief to receive an instant WhatsApp callback and formal rate sheet.
+                  Share your property details to receive a preliminary architectural consultation and itemized BOQ rate sheet.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Your Name / Brand Contact *</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Your Full Name *</label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Sarah Jenkins"
+                      placeholder="e.g. Vikram Mehta"
                       value={form.name}
                       onChange={(e) => setForm(prev => ({ ...prev, name: e.target.value }))}
                       className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all"
@@ -224,7 +219,7 @@ export default function ContactPage() {
                     <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
                     <input
                       type="email"
-                      placeholder="e.g. name@brand.com"
+                      placeholder="e.g. name@domain.com"
                       value={form.email}
                       onChange={(e) => setForm(prev => ({ ...prev, email: e.target.value }))}
                       className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all"
@@ -232,52 +227,52 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Event Type</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Project Typology</label>
                     <select
-                      value={form.eventType}
-                      onChange={(e) => setForm(prev => ({ ...prev, eventType: e.target.value }))}
+                      value={form.projectType}
+                      onChange={(e) => setForm(prev => ({ ...prev, projectType: e.target.value }))}
                       className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all"
                     >
-                      <option value="Mall Activation">Mall Activation / Roadshow</option>
-                      <option value="Store Grand Opening">Store Grand Opening</option>
-                      <option value="Corporate Expo">Corporate Expo / Summit</option>
-                      <option value="Product Launch">Product Launch & Sampling</option>
-                      <option value="Custom Decor & Manpower">Custom Decor & Manpower Only</option>
+                      <option value="Turnkey Luxury Villa">Turnkey Luxury Villa (Civil + Interior)</option>
+                      <option value="Penthouse Interior">Penthouse / Luxury Apartment Interior</option>
+                      <option value="Commercial Corporate Fitout">Commercial Corporate Office Fitout</option>
+                      <option value="Modular Kitchen & Wardrobes">Modular Kitchen & Custom Wardrobes</option>
+                      <option value="Structural Renovation">Structural Renovation & Elevation Redesign</option>
+                      <option value="Architectural Blueprinting Only">Architectural Blueprinting & 3D Renders</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Target Mall / Venue</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Project City / Location</label>
                     <input
                       type="text"
-                      placeholder="e.g. Phoenix Marketcity Atrium"
-                      value={form.venue}
-                      onChange={(e) => setForm(prev => ({ ...prev, venue: e.target.value }))}
+                      placeholder="e.g. Jubilee Hills, Hyderabad"
+                      value={form.location}
+                      onChange={(e) => setForm(prev => ({ ...prev, location: e.target.value }))}
                       className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Event Duration (Days)</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Built-Up Area (Sq. Ft)</label>
                     <input
-                      type="number"
-                      min={1}
-                      max={30}
-                      value={form.durationDays}
-                      onChange={(e) => setForm(prev => ({ ...prev, durationDays: Number(e.target.value) }))}
+                      type="text"
+                      placeholder="e.g. 4,500 sq.ft"
+                      value={form.areaSqFt}
+                      onChange={(e) => setForm(prev => ({ ...prev, areaSqFt: e.target.value }))}
                       className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Event Brief / Special Requirements *</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Project Brief / Architectural Requirements *</label>
                   <textarea
                     rows={4}
                     required
-                    placeholder="Tell us about required promoters, bouncers, backdrop sizes, 3D signs, or custom delivery deadlines..."
+                    placeholder="Tell us about your target finish level (Premium / Luxury / Royal), preferred materials, or timeline requirements..."
                     value={form.message}
                     onChange={(e) => setForm(prev => ({ ...prev, message: e.target.value }))}
                     className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition-all resize-none"
@@ -289,7 +284,7 @@ export default function ContactPage() {
                   className="w-full py-4 rounded-2xl text-sm font-bold bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white shadow-gold-glow hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4 fill-white" />
-                  <span>Dispatch Brief to Co-Founders via WhatsApp</span>
+                  <span>Dispatch Brief to Architectural Desk via WhatsApp</span>
                 </button>
               </form>
             </div>
@@ -300,4 +295,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

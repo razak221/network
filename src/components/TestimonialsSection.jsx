@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { mallFaqs } from '../data/servicesData';
+import { constructionFaqs } from '../data/servicesData';
 import { 
   Star, 
   Quote, 
@@ -9,24 +9,24 @@ import {
 
 const testimonials = [
   {
-    quote: "Pristine Decore managed our 4-day electronics roadshow across 2 major malls. Their promoters were punctual, well-trained, and their setup crew assembled the entire 30ft booth overnight with zero complaints from mall authorities.",
-    client: "Marketing Director",
-    company: "Consumer Tech Brand",
-    event: "Mall Roadshow & Product Launch",
+    quote: "Pristine Decore delivered our 6,500 sq.ft luxury villa from groundbreaking foundation to final white-glove interior handover within the promised 11-month timeline. The fixed-price BOQ had zero hidden escalations.",
+    client: "Rajesh & Ananya Verma",
+    company: "Private Villa Owners",
+    event: "Turnkey Architecture & Interior Fitout",
     stars: 5
   },
   {
-    quote: "Finding high-caliber promoters and last-minute custom acrylic glow signs from the same vendor was a lifesaver. Razak Ahmed Khan and Syed Inam handled our corporate conference seamlessly.",
-    client: "Head of Experiential Events",
-    company: "National Retail Chain",
-    event: "Flagship Store Opening",
+    quote: "The modular Italian kitchen, bookmatched Statuario marble flooring, and concealed architectural lighting transformed our penthouse completely. Their civil engineers and master carpenters are true perfectionists.",
+    client: "Sameer Kulkarni",
+    company: "Penthouse Resident",
+    event: "Full Penthouse Interior Architecture",
     stars: 5
   },
   {
-    quote: "We had a VIP celebrity walkthrough on a Saturday evening. The bouncers provided by Pristine Decore were exceptionally disciplined and handled intense crowd swarms with complete composure.",
-    client: "Operations Manager",
-    company: "Premium Fashion Label",
-    event: "Celebrity Meet & Greet",
+    quote: "We commissioned Pristine Decore for our 12,000 sq.ft regional corporate headquarters. From acoustic glass partitions to specialized MEP integration, they met every enterprise specification with flawless execution.",
+    client: "Chief Operating Officer",
+    company: "Financial Technology Group",
+    event: "Turnkey Commercial Office Fitout",
     stars: 5
   }
 ];
@@ -45,10 +45,10 @@ export default function TestimonialsSection() {
             <span>Proven Track Record</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-slate-900">
-            Trusted by Event Agencies & <span className="text-gradient-gold">Mall Organizers</span>
+            Trusted by Homeowners & <span className="text-gradient-gold">Commercial Leaders</span>
           </h2>
           <p className="text-slate-600 text-base">
-            Real feedback from brand directors and event planners who trust Pristine Decore for their most crucial activations.
+            Real feedback from villa clients and corporate executives who entrusted Pristine Decore with their most ambitious architectural spaces.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function TestimonialsSection() {
           </div>
 
           <div className="space-y-3">
-            {mallFaqs.map((faq, idx) => (
+            {constructionFaqs.map((faq, idx) => (
               <div
                 key={idx}
                 className="rounded-2xl bg-white border border-slate-200/80 shadow-soft-sm overflow-hidden transition-all"

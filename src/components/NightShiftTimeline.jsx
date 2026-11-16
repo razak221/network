@@ -1,69 +1,69 @@
 import React, { useState } from 'react';
 import { 
   Clock, 
-  Moon, 
   CheckCircle2, 
   ShieldCheck, 
   Sparkles, 
   Hammer, 
-  Volume2, 
-  Shirt,
+  HardHat,
+  Compass,
+  Building2,
   CalendarCheck
 } from 'lucide-react';
 
 const TIMELINE_STEPS = [
   {
-    time: "11:00 PM",
-    title: "Mall Dock Sign-In & Security Clearance",
-    lead: "Syed Inam (Ground Operations)",
-    desc: "As the last retail shoppers exit, our logistics convoy unloads at the mall service basement dock. Every crew member signs in with verified government IDs and receives designated nocturnal badges.",
-    checkpoints: ["Service freight elevator booked", "Mall security indemnity submitted", "Loading dock clearance"],
-    status: "Dock Entry Secured",
+    time: "Month 1-2",
+    title: "Geotechnical Soil Testing & Foundation Piling",
+    lead: "Geotechnical & Foundation Engineering Team",
+    desc: "Certified soil core drilling, bearing capacity analysis, laser-guided excavation, and reinforced bored piling/raft slab construction with subterranean crystalline waterproofing.",
+    checkpoints: ["Geotechnical core lab certified", "Piling load capacity verified", "Waterproofing membrane tested"],
+    status: "Foundation Certified",
     badgeColor: "bg-blue-50 text-blue-800 border-blue-200"
   },
   {
-    time: "01:00 AM",
-    title: "Heavy Trussing, Staging & Carpeting",
-    lead: "Syed Haamid Ali (Production Head)",
-    desc: "Silent, modular assembly of raised stage decks and aluminum box trussing. Non-slip commercial carpet runners laid with fire-retardant edge taping.",
-    checkpoints: ["Stage level & weight-load verified", "Rubber cable protectors installed", "Zero-noise impact tools used"],
-    status: "Infrastructure Erected",
+    time: "Month 3-5",
+    title: "Seismic RCC Structural Framing & Slab Pours",
+    lead: "Senior Structural Engineering Lead",
+    desc: "Precision shuttering, primary-grade Fe-550D TMT reinforcement, and monolithic concrete slab pours with automated curing sensors and 7/28-day cube compression strength testing.",
+    checkpoints: ["Tata/JSW primary steel mill test reports", "Ultratech 53-grade concrete certified", "Seismic zone compliance verified"],
+    status: "Superstructure Erected",
     badgeColor: "bg-indigo-50 text-indigo-800 border-indigo-200"
   },
   {
-    time: "03:30 AM",
-    title: "High-Tension Flex & 3D Signage Mounting",
-    lead: "Fabrication Specialists",
-    desc: "Seamless 40ft backdrops tensioned onto structural frames with zero wrinkles. Precision laser-cut 3D acrylic letters and glowing neon flex boards mounted and powered.",
-    checkpoints: ["1440 DPI print inspection", "12V low-voltage fire-safe power checked", "Illumination lux test"],
-    status: "Visual Assets Locked",
+    time: "Month 6-7",
+    title: "AAC Block Masonry & Concealed MEP Infrastructure",
+    lead: "MEP & Infrastructure Desk",
+    desc: "Thermal insulating AAC block walls, multi-circuit concealed electrical conduit runs with Finolex wiring, pressure-tested CPVC plumbing, and VRV/HVAC copper ducting.",
+    checkpoints: ["Concealed conduit pressure test 10 bar", "Pre-plaster wall chase inspection", "VRV copper line nitrogen pressure test"],
+    status: "Infrastructure Locked",
     badgeColor: "bg-amber-50 text-amber-900 border-amber-200"
   },
   {
-    time: "05:30 AM",
-    title: "Audio-Visual Calibration & Sound Check",
-    lead: "Sound & Lighting Engineers",
-    desc: "Testing wireless UHF microphones, equalizing vocal frequencies, and focusing ambient LED stage lights. Testing emergency backup circuits.",
-    checkpoints: ["Zero RF interference on mics", "LED warm/cool wash calibrated", "Speaker throw angles aligned"],
-    status: "Tech Ready",
+    time: "Month 8-9",
+    title: "Multi-Coat Waterproofing & Gyproc Plastering",
+    lead: "Quality Assurance & Waterproofing Specialist",
+    desc: "Polyurethane elastomeric waterproofing applied to all wet areas, balconies, and terraces with 72-hour ponding tests, followed by laser-aligned Gyproc veneer plastering.",
+    checkpoints: ["72-hr terrace ponding test certified", "Laser 90-degree corner plumb verified", "Zero-shrinkage plaster curing check"],
+    status: "Surfaces Prepped",
     badgeColor: "bg-teal-50 text-teal-800 border-teal-200"
   },
   {
-    time: "07:30 AM",
-    title: "Thematic Styling, Balloon Arches & Polish",
-    lead: "Creative Decor Team",
-    desc: "Installation of grand organic entrance balloon garlands, fresh floral centerpieces, polished stanchions, and spotless debris cleanup.",
-    checkpoints: ["Spotless vacuuming around booth", "Roll-up standees aligned", "Waste haulage cleared from mall"],
-    status: "Aesthetic Perfection",
+    time: "Month 10-11",
+    title: "Italian Marble Flooring & Modular European Joinery",
+    lead: "Principal Interior Architect & Master Joiner",
+    desc: "Diamond-cut Italian Statuario/Bottochino marble dry-laid and polished, German Blum-hardware modular kitchens erected, and bespoke fluted wall panelling installed to 1mm tolerances.",
+    checkpoints: ["Italian marble dry-lay pattern approved", "Blum soft-close hinge alignment verified", "Zero-VOC PU finish gloss inspection"],
+    status: "Luxury Interior Realized",
     badgeColor: "bg-emerald-50 text-emerald-800 border-emerald-200"
   },
   {
-    time: "09:30 AM",
-    title: "Crew Briefing & Mall Doors Opening",
-    lead: "Syed Inam & Razak Ahmed Khan",
-    desc: "Day-shift promoters, hostesses, and bouncers assemble for roll-call. Uniforms inspected, brand pitch practiced, and official mall facility sign-off signed before retail doors open at 10 AM.",
-    checkpoints: ["100% promoter attendance verified", "15% standby reserve on call", "Official mall pass signed off"],
-    status: "LIVE & OPERATIONAL",
+    time: "Month 12",
+    title: "120-Point Snag Audit & White-Glove Handover",
+    lead: "Project Director & Handover Desk",
+    desc: "Comprehensive 120-point digital architectural audit, deep industrial cleaning, smart-home automation programming, and formal key handover with structural warranty documents.",
+    checkpoints: ["120-point snag list zeroed out", "10-Year structural warranty bound", "As-built CAD & MEP drawings delivered"],
+    status: "COMPLETED & HANDED OVER",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300"
   }
 ];
@@ -77,18 +77,18 @@ export default function NightShiftTimeline() {
     <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-luxury my-12">
       <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold">
-          <Moon className="w-3.5 h-3.5 text-amber-600" />
-          <span>Nocturnal Field Execution SOP</span>
+          <CalendarCheck className="w-3.5 h-3.5 text-amber-600" />
+          <span>Turnkey Project Governance Blueprint</span>
         </div>
         <h3 className="font-heading font-bold text-2xl sm:text-3xl text-slate-900">
-          The 11:00 PM to 8:00 AM Mall Transformation
+          From Groundbreaking Foundation to White-Glove Handover
         </h3>
         <p className="text-xs sm:text-sm text-slate-500">
-          Slide through the night hours to see how our engineering crew builds your event silently overnight before mall doors open.
+          Explore each milestone phase of our turnkey civil construction and luxury interior delivery lifecycle.
         </p>
       </div>
 
-      {/* Interactive Hour Buttons */}
+      {/* Interactive Phase Buttons */}
       <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-8">
         {TIMELINE_STEPS.map((step, idx) => (
           <button
@@ -103,7 +103,7 @@ export default function NightShiftTimeline() {
           >
             <div className="text-xs sm:text-sm tracking-tight">{step.time}</div>
             <div className={`text-[10px] mt-0.5 truncate ${activeStep === idx ? 'text-amber-100' : 'text-slate-400'}`}>
-              Step {idx + 1}
+              Phase {idx + 1}
             </div>
           </button>
         ))}
@@ -131,7 +131,7 @@ export default function NightShiftTimeline() {
 
           <div className="pt-2">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-              SOP Checklist Verified:
+              Engineering QA Milestones Verified:
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {current.checkpoints.map((cp, i) => (
@@ -147,16 +147,15 @@ export default function NightShiftTimeline() {
         {/* Lead Badge Card */}
         <div className="md:col-span-4 p-5 rounded-2xl bg-white border border-slate-200 text-center space-y-2 shadow-luxury-sm">
           <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mx-auto shadow-sm">
-            <Clock className="w-6 h-6" />
+            <HardHat className="w-6 h-6" />
           </div>
-          <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Field Commander On-Duty</p>
+          <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Supervising Engineering Desk</p>
           <p className="font-bold text-slate-900 text-sm">{current.lead}</p>
           <p className="text-[11px] text-emerald-700 font-semibold bg-emerald-50 py-1 px-2 rounded-full border border-emerald-200">
-            100% On-Time Opening Guaranteed
+            10-Year Warranty Certified
           </p>
         </div>
       </div>
     </div>
   );
 }
-

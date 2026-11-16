@@ -6,7 +6,9 @@ import {
   PackageSearch, 
   Zap, 
   Clock, 
-  ArrowRight
+  ArrowRight,
+  Gem,
+  Compass
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 
@@ -16,7 +18,7 @@ export default function BespokeConcierge() {
   const handleSendWish = (e) => {
     e.preventDefault();
     if (!customWish.trim()) return;
-    const msg = `*CUSTOM EVENT REQUEST - PRISTINE DECORE*\n\nRequest details:\n"${customWish}"\n\nPlease let me know pricing and lead time!`;
+    const msg = `*BESPOKE MATERIAL / JOINERY REQUEST - PRISTINE DECORE*\n\nRequest details:\n"${customWish}"\n\nPlease let me know material availability, sample delivery, and pricing!`;
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
   };
 
@@ -27,14 +29,14 @@ export default function BespokeConcierge() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
-            <PackageSearch className="w-3.5 h-3.5 text-amber-600" />
-            <span>On-Demand Bespoke Concierge</span>
+            <Gem className="w-3.5 h-3.5 text-amber-600" />
+            <span>Rare Materials & Custom Millwork Concierge</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-slate-900">
-            "You Request Anything, <span className="text-gradient-gold">We Deliver It"</span>
+            "You Envision It, <span className="text-gradient-gold">We Engineer It"</span>
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
-            Don't waste days hunting down multiple suppliers for custom props, branded uniforms, or stage special effects. Tell us what you want, and we’ll source, manufacture, and install it.
+            From bookmatched Italian Calacatta marble slabs and solid Burma teak doors to automated switchable privacy glass and acoustic brass panelling.
           </p>
         </div>
 
@@ -58,10 +60,12 @@ export default function BespokeConcierge() {
               </div>
               <div className="pt-4 mt-4 border-t border-slate-100">
                 <a
-                  href="#builder"
+                  href={CONTACT_CONFIG.getWhatsAppUrl(`Hi Pristine Decore! I would like to inquire about ${ex.title} (${ex.tag}).`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1"
                 >
-                  <span>Add to my event</span>
+                  <span>Inquire Specification</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -69,18 +73,18 @@ export default function BespokeConcierge() {
           ))}
         </div>
 
-        {/* Quick Custom Request Box (Soft Pearl Warm Panel) */}
+        {/* Quick Custom Request Box */}
         <div className="max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-white border border-amber-200/90 shadow-soft-lg">
           <div className="text-center max-w-xl mx-auto mb-6 space-y-2">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700">
               <Zap className="w-4 h-4 fill-amber-600 text-amber-600" />
-              <span>Need Something Truly Unique?</span>
+              <span>Need a Rare Architectural Material or Custom Fixture?</span>
             </div>
             <h3 className="font-heading font-bold text-2xl text-slate-900">
-              Send Your Custom Wish Directly to Our Founders
+              Consult Our Architectural Sourcing Atelier
             </h3>
             <p className="text-xs sm:text-sm text-slate-500">
-              Mascot suits, celebrity gift hampers, golden ribbons, custom selfie booths, or 500 branded gift mugs—type it below:
+              Rare quarried marbles, custom CNC fluted brass panelling, double-height chandeliers, or motorized skylights—describe your design brief below:
             </p>
           </div>
 
@@ -88,7 +92,7 @@ export default function BespokeConcierge() {
             <div className="relative">
               <input
                 type="text"
-                placeholder="e.g. 'I need 20 branded black hoodies, a 12ft gold entrance arch, and 2 confetti cannons for Friday morning'..."
+                placeholder="e.g. 'I need 2,200 sq.ft bookmatched Italian Statuario marble and custom Burma teak doors'..."
                 value={customWish}
                 onChange={(e) => setCustomWish(e.target.value)}
                 className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm sm:text-base placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white shadow-inner pr-36"
@@ -98,17 +102,17 @@ export default function BespokeConcierge() {
                 className="absolute right-2 top-2 bottom-2 px-5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all shadow-soft-gold"
               >
                 <Send className="w-3.5 h-3.5 fill-white" />
-                <span>Ask Founders</span>
+                <span>Ask Atelier</span>
               </button>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 font-medium">
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-teal-600" />
-                Under 15-Minute Response Time
+                Direct Sourcing Feasibility Within 2 Hours
               </span>
               <span className="flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-amber-600" />
-                Custom Production Workshop in City
+                <Gem className="w-3.5 h-3.5 text-amber-600" />
+                Certified Origin & Lab-Tested Materials
               </span>
             </div>
           </form>
