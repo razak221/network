@@ -79,8 +79,8 @@ const sampleUrl = CONTACT_CONFIG.getWhatsAppUrl("Test Message", "919876543210");
 assert(sampleUrl.startsWith('https://wa.me/919876543210?text='), 23, 'getWhatsAppUrl correctly prefixes target phone');
 assert(sampleUrl.includes('Test%20Message'), 24, 'getWhatsAppUrl correctly URL-encodes message content');
 
-const fallbackUrl = CONTACT_CONFIG.getWhatsAppUrl("Hello World");
-assert(fallbackUrl.startsWith('https://wa.me/?text=Hello%20World'), 25, 'getWhatsAppUrl falls back to generic link if no number specified');
+const defaultUrl = CONTACT_CONFIG.getWhatsAppUrl("Hello World");
+assert(defaultUrl.includes('919845302888') && defaultUrl.includes('Hello%20World'), 25, 'getWhatsAppUrl correctly routes to studio WhatsApp phone 9845302888');
 
 // --- SUITE 3: Studio Leadership & Architectural Governance (Tests 26-35) ---
 import { studioLeadership, companyValues } from '../src/data/foundersData.js';

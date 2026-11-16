@@ -88,9 +88,11 @@ export default function ContactSection() {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Studio WhatsApp Desk</div>
-                    <div className="text-sm font-bold text-slate-900">Direct Architectural Consultation</div>
-                    <div className="text-xs text-emerald-700 font-bold mt-0.5">Instant WhatsApp Scheduling</div>
+                    <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Studio Phone & WhatsApp Hotline</div>
+                    <a href="tel:+919845302888" className="text-sm font-bold text-slate-900 hover:text-amber-700 transition-colors block">
+                      {CONTACT_CONFIG.phoneDisplay}
+                    </a>
+                    <div className="text-xs text-emerald-700 font-bold mt-0.5">Instant Call & WhatsApp Scheduling</div>
                   </div>
                 </div>
 

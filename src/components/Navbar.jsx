@@ -53,10 +53,14 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
       {/* Top Banner Alert (Soft Light Champagne) */}
-      <div className="bg-amber-50 text-amber-900 border-b border-amber-200/50 px-4 py-1.5 text-xs font-semibold text-center tracking-wide flex items-center justify-center gap-2">
+      <div className="bg-amber-50 text-amber-900 border-b border-amber-200/50 px-4 py-1.5 text-xs font-semibold text-center tracking-wide flex flex-wrap items-center justify-center gap-2">
         <span className="inline-block w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
         <span>TURNKEY CIVIL CONSTRUCTION &amp; LUXURY INTERIOR ATELIER</span>
-        <span className="hidden sm:inline opacity-70">| 10-Year Structural Warranty • Fixed BOQ Milestone Handover</span>
+        <span className="hidden sm:inline opacity-70">• 10-Year Structural Warranty • Studio Desk:</span>
+        <a href="tel:+919845302888" className="font-bold text-amber-950 hover:underline flex items-center gap-1">
+          <PhoneCall className="w-3 h-3 text-amber-700" />
+          <span>+91 98453 02888</span>
+        </a>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,6 +147,13 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
             </NavLink>
           ))}
           <div className="pt-4 flex flex-col gap-2">
+            <a
+              href="tel:+919845302888"
+              className="w-full py-2.5 rounded-xl text-sm font-semibold bg-slate-900 text-white flex items-center justify-center gap-2"
+            >
+              <PhoneCall className="w-4 h-4 text-amber-400" />
+              <span>Call Studio: +91 98453 02888</span>
+            </a>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

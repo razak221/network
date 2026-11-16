@@ -41,6 +41,12 @@ export default function Footer() {
                 <span>Quality & Engineering Certifications:</span>
               </div>
               <div className="text-slate-300 font-medium">10-Year Structural Warranty • ISO Certified Processes • Transparent BOQ</div>
+              <div className="pt-2">
+                <a href="tel:+919845302888" className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-bold transition-colors">
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Direct Studio Desk: +91 98453 02888</span>
+                </a>
+              </div>
             </div>
           </div>
 

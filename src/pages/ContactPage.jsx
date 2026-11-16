@@ -160,6 +160,10 @@ export default function ContactPage() {
               {/* Office & Official Credentials */}
               <div className="border-t border-slate-100 pt-6 space-y-3 text-xs text-slate-600">
                 <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Direct Studio Hotline: <a href="tel:+919845302888" className="text-slate-900 font-bold hover:text-amber-700 transition-colors">{CONTACT_CONFIG.phoneDisplay}</a></span>
+                </div>
+                <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>Official Inquiries: <strong className="text-slate-900">{CONTACT_CONFIG.email}</strong></span>
                 </div>
