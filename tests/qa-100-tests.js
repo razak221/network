@@ -69,7 +69,7 @@ import { CONTACT_CONFIG } from '../src/config/contact.js';
 
 assert(CONTACT_CONFIG.domain === 'pristinedecore.com', 16, 'Domain is strictly pristinedecore.com');
 assert(CONTACT_CONFIG.brandName === 'Pristine Decore', 17, 'Brand name matches Pristine Decore');
-assert(Boolean(CONTACT_CONFIG.email && CONTACT_CONFIG.email.includes('@pristinedecore.com')), 18, 'Official email is configured under pristinedecore.com');
+assert(Boolean(CONTACT_CONFIG.email && CONTACT_CONFIG.email === 'decorepristine@gmail.com'), 18, 'Official email is configured as decorepristine@gmail.com');
 assert(Boolean(CONTACT_CONFIG.desks && CONTACT_CONFIG.desks.civil), 19, 'Civil Engineering Desk exists in config');
 assert(Boolean(CONTACT_CONFIG.desks && CONTACT_CONFIG.desks.interior), 20, 'Interior Architecture Atelier exists in config');
 assert(Boolean(CONTACT_CONFIG.desks && CONTACT_CONFIG.desks.commercial), 21, 'Commercial Fitouts Desk exists in config');

@@ -10,8 +10,8 @@ export const CONTACT_CONFIG = {
   brandTagline: "Luxury Construction & Bespoke Interior Design",
   
   // Official Studio Communications
-  email: "info@pristinedecore.com",
-  supportEmail: "projects@pristinedecore.com",
+  email: "decorepristine@gmail.com",
+  supportEmail: "decorepristine@gmail.com",
   
   // Official Phone & WhatsApp Hotline
   phone: "+91 98453 02888",
@@ -28,7 +28,7 @@ export const CONTACT_CONFIG = {
       phoneDisplay: "+91 98453 02888",
       phone: "+91 98453 02888",
       whatsAppNumber: "919845302888",
-      email: "construction@pristinedecore.com"
+      email: "decorepristine@gmail.com"
     },
     interior: {
       name: "Architectural & Interior Design Desk",
@@ -36,7 +36,7 @@ export const CONTACT_CONFIG = {
       phoneDisplay: "+91 98453 02888",
       phone: "+91 98453 02888",
       whatsAppNumber: "919845302888",
-      email: "design@pristinedecore.com"
+      email: "decorepristine@gmail.com"
     },
     commercial: {
       name: "Commercial Fitouts & BOQ Desk",
@@ -44,7 +44,7 @@ export const CONTACT_CONFIG = {
       phoneDisplay: "+91 98453 02888",
       phone: "+91 98453 02888",
       whatsAppNumber: "919845302888",
-      email: "commercial@pristinedecore.com"
+      email: "decorepristine@gmail.com"
     },
     architecture: {
       name: "Architectural & Interior Design Desk",
@@ -52,7 +52,7 @@ export const CONTACT_CONFIG = {
       phoneDisplay: "+91 98453 02888",
       phone: "+91 98453 02888",
       whatsAppNumber: "919845302888",
-      email: "design@pristinedecore.com"
+      email: "decorepristine@gmail.com"
     },
     construction: {
       name: "Turnkey Civil & Structural Desk",
@@ -60,7 +60,7 @@ export const CONTACT_CONFIG = {
       phoneDisplay: "+91 98453 02888",
       phone: "+91 98453 02888",
       whatsAppNumber: "919845302888",
-      email: "construction@pristinedecore.com"
+      email: "decorepristine@gmail.com"
     }
   },
 
