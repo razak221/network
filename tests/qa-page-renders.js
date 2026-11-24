@@ -42,7 +42,7 @@ galleryItems.forEach((g, idx) => {
   }
   if (!g.image) throw new Error(`galleryItems[${idx}] missing image`);
 });
-console.log("✅ galleryItems contract verified (6/6 have valid tags and images)");
+console.log(`✅ galleryItems contract verified (${galleryItems.length}/${galleryItems.length} have valid tags and images)`);
 
 console.log("🎉 ALL PAGE DATA CONTRACT CHECKS PASSED WITH ZERO RUNTIME TYPE ERRORS!");
 
