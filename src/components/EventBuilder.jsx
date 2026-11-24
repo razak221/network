@@ -20,12 +20,12 @@ import Toast from './Toast';
 import StageVisualizer from './StageVisualizer';
 
 const PROJECT_TYPES = [
-  { id: 'villa', label: 'Luxury Villa Construction', desc: 'Turnkey ground-up civil construction & luxury architecture', rate: 2800 },
-  { id: 'institutional', label: 'School, College & University Campus', desc: 'Turnkey educational civil infrastructure, auditoriums, labs & smart classrooms', rate: 2300 },
-  { id: 'apartment', label: 'Penthouse & Apartment Interiors', desc: 'Complete luxury interior fitout, marble & modular joinery', rate: 2100 },
-  { id: 'commercial', label: 'Corporate Office Fitout', desc: 'Turnkey workplace, acoustic partitions & meeting suites', rate: 1950 },
-  { id: 'retail', label: 'Luxury Retail Showroom', desc: 'High-impact retail store merchandising & bespoke displays', rate: 2400 },
-  { id: 'renovation', label: 'Structural Renovation', desc: 'Civil remodeling, layout reconfiguration & MEP overhaul', rate: 1800 }
+  { id: 'apartment', label: 'Luxury Residence & Penthouse Interiors', desc: 'Bespoke living suites, Italian marble, modular kitchens & master joinery', rate: 2100 },
+  { id: 'institutional', label: 'School, College & University Interiors', desc: 'Smart classrooms, acoustic auditoriums, research labs & campus blocks', rate: 2300 },
+  { id: 'commercial', label: 'Corporate Office Fitout', desc: 'Turnkey workplace, acoustic partitions & executive meeting suites', rate: 1950 },
+  { id: 'retail', label: 'Luxury Retail Showroom', desc: 'High-impact retail merchandising, custom brass displays & vitrines', rate: 2400 },
+  { id: 'villa', label: 'Turnkey Villa (Civil + Interior)', desc: 'Turnkey ground-up civil construction & luxury architecture', rate: 2800 },
+  { id: 'renovation', label: 'Interior Remodeling & Renovation', desc: 'Interior reconfiguration, layout overhaul & luxury modernization', rate: 1800 }
 ];
 
 const FINISH_TIERS = [
@@ -50,8 +50,8 @@ const FINISH_TIERS = [
 ];
 
 export default function EventBuilder({ isOpenModal = false, onClose, hideHeader = false }) {
-  const [projectType, setProjectType] = useState('villa');
-  const [areaSqFt, setAreaSqFt] = useState(3000);
+  const [projectType, setProjectType] = useState('apartment');
+  const [areaSqFt, setAreaSqFt] = useState(2500);
   const [finishTier, setFinishTier] = useState('luxury');
   const [timelineMonths, setTimelineMonths] = useState(10);
   const [projectLocation, setProjectLocation] = useState('');

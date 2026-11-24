@@ -23,14 +23,14 @@ export const mallPartners = materialPartners;
 
 export const galleryCategories = [
   { id: 'all', label: 'All Projects (130+)' },
-  { id: 'institutional', label: 'Schools & Universities' },
-  { id: 'villas', label: 'Luxury Villas & Civil' },
   { id: 'interiors', label: 'Living & Penthouses' },
   { id: 'kitchens', label: 'Modular Kitchens' },
   { id: 'bedrooms', label: 'Master Suites' },
   { id: 'closets', label: 'Walk-In Closets' },
   { id: 'bathrooms', label: 'Spa Bathrooms' },
-  { id: 'commercial', label: 'Commercial & Retail' }
+  { id: 'institutional', label: 'Schools & Universities' },
+  { id: 'commercial', label: 'Commercial & Retail' },
+  { id: 'villas', label: 'Luxury Villas & Civil' }
 ];
 
 export const galleryItems = [

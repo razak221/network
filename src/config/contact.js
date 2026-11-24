@@ -1,13 +1,13 @@
 /**
  * Centralized Contact & Brand Configuration for Pristine Decore
- * Luxury Construction & Bespoke Interior Design Atelier
+ * Luxury Interior Architecture & Turnkey Design Atelier
  */
 
 export const CONTACT_CONFIG = {
   domain: "pristinedecore.com",
   siteUrl: "https://pristinedecore.com",
   brandName: "Pristine Decore",
-  brandTagline: "Luxury Construction & Bespoke Interior Design",
+  brandTagline: "Luxury Interior Architecture & Turnkey Design Atelier",
   
   // Official Studio Communications
   email: "decorepristine@gmail.com",

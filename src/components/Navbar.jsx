@@ -22,27 +22,27 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
 
   const desktopNavLinks = [
     { label: "Portfolio", to: "/gallery" },
-    { label: "Construction", to: "/manpower" },
-    { label: "Interiors", to: "/production" },
-    { label: "Commercial", to: "/mall-operations" },
+    { label: "Luxury Interiors", to: "/production" },
     { label: "Bespoke Joinery", to: "/bespoke" },
+    { label: "Campus & Commercial", to: "/mall-operations" },
+    { label: "Civil Construction", to: "/manpower" },
     { label: "About Studio", to: "/about" },
     { label: "Contact", to: "/contact" },
   ];
 
   const mobileNavLinks = [
     { label: "Home", to: "/" },
-    { label: "Portfolio & Projects", to: "/gallery" },
-    { label: "Turnkey Civil Construction", to: "/manpower" },
     { label: "Luxury Interior Architecture", to: "/production" },
-    { label: "Commercial & Retail Fitouts", to: "/mall-operations" },
+    { label: "Portfolio & Projects", to: "/gallery" },
     { label: "Bespoke Millwork & Joinery", to: "/bespoke" },
+    { label: "Campus & Commercial Fitouts", to: "/mall-operations" },
+    { label: "Turnkey Civil Construction", to: "/manpower" },
     { label: "About Pristine Decore", to: "/about" },
     { label: "Studio Consultation & Contact", to: "/contact" },
   ];
 
   const handleWhatsAppDirect = () => {
-    const text = "Hello Pristine Decore! I would like to schedule an architectural consultation regarding an upcoming construction and interior project.";
+    const text = "Hello Pristine Decore! I would like to schedule an interior design consultation regarding an upcoming residential / commercial project.";
     window.open(CONTACT_CONFIG.getWhatsAppUrl(text), '_blank');
   };
 
@@ -55,7 +55,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
       {/* Top Banner Alert (Soft Light Champagne) */}
       <div className="bg-amber-50 text-amber-900 border-b border-amber-200/50 px-4 py-1.5 text-xs font-semibold text-center tracking-wide flex flex-wrap items-center justify-center gap-2">
         <span className="inline-block w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
-        <span>18+ YEARS REGISTERED • GSTIN: {CONTACT_CONFIG.gstin} • TURNKEY CIVIL &amp; INTERIORS</span>
+        <span>18+ YEARS REGISTERED • LUXURY INTERIORS &amp; BESPOKE ARCHITECTURE • GSTIN: {CONTACT_CONFIG.gstin}</span>
         <span className="hidden sm:inline opacity-70">• 10-Yr Warranty • Studio Desk:</span>
         <a href="tel:+919845302888" className="font-bold text-amber-950 hover:underline flex items-center gap-1">
           <PhoneCall className="w-3 h-3 text-amber-700" />

@@ -36,14 +36,14 @@ export default function AboutPage() {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
             <Compass className="w-3.5 h-3.5 text-amber-600" />
-            <span>Turnkey Architectural Atelier</span>
+            <span>Luxury Interior Architecture Atelier • 18+ Years Registered</span>
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
-            Architecting the New Standard in <br className="hidden sm:inline" />
-            <span className="text-gradient-gold">Construction & Luxury Interiors</span>
+            Bespoke Mastery in <br className="hidden sm:inline" />
+            <span className="text-gradient-gold">Luxury Interior Design &amp; Architecture</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Pristine Decore was established to unite certified civil structural engineering with bespoke European interior design and transparent fixed-price BOQs.
+            Our core craft is luxury interior architecture: uniting rare Italian marble, German modular millwork, and acoustic space curation with turnkey structural execution and fixed-price BOQs.
           </p>
         </div>
       </div>
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 <span>18+ Years Registered Enterprise (Est. 2008)</span>
               </div>
               <h3 className="font-heading font-bold text-xl sm:text-2xl text-slate-900 mt-1">
-                Govt. Registered Civil &amp; Interior Atelier
+                Govt. Registered Luxury Interior &amp; Architecture Atelier
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
                 GSTIN: <span className="font-mono font-bold text-slate-900">{CONTACT_CONFIG.gstin}</span> • Registered Office: {CONTACT_CONFIG.studioAddress}

@@ -33,10 +33,10 @@ export default function QuoteBuilderPage() {
             <span>Real-Time Turnkey Cost Configurator</span>
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Construction & Interior <span className="text-gradient-gold">Cost Estimator Studio</span>
+            Interior Architecture &amp; Turnkey <span className="text-gradient-gold">Cost Estimator Studio</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Configure your exact property built-up area, finish tier, civil scope, modular kitchen, and smart-home features. Watch your architectural space blueprint update in real-time, then dispatch a formatted brief directly to our architectural desk or export an official printable BOQ proposal.
+            Configure your interior space, modular kitchen, Italian marble selection, false ceiling lighting, and turnkey civil scope. Watch your interior space blueprint calculate in real-time, then dispatch a formatted brief directly to our interior desk or export an official printable BOQ proposal.
           </p>
         </div>
       </div>

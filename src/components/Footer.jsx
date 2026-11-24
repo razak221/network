@@ -32,7 +32,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Premier architectural and civil engineering studio delivering turnkey residential villas, educational campus infrastructure (schools, colleges &amp; universities), bespoke luxury interiors, and commercial fitouts backed by transparent fixed-price BOQs and 10-year structural warranties.
+              Premier luxury interior architecture atelier and turnkey design studio with 18+ years of registered mastery. Specializing in bespoke living suites, Italian modular kitchens, master walk-in closets, educational smart classrooms, and commercial fitouts backed by fixed-price BOQs and 10-year structural warranties.
             </p>
 
             <div className="pt-2 text-xs text-slate-300 space-y-1.5">
@@ -53,11 +53,27 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Civil Construction */}
+          {/* Interior Architecture (Main Forte) */}
+          <div className="space-y-3">
+            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider flex items-center gap-1.5">
+              <Palette className="w-3.5 h-3.5 text-amber-500" />
+              <span>Luxury Interiors</span>
+            </h4>
+            <ul className="space-y-2">
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Living &amp; Penthouse Suites</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Modular European Kitchens</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Master Walk-In Closets</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Italian Marble Flooring</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Smart Classrooms &amp; Labs</Link></li>
+              <li><Link to="/bespoke" className="hover:text-amber-400 transition-colors">Bespoke Millwork &amp; Stone</Link></li>
+            </ul>
+          </div>
+
+          {/* Turnkey Civil & Campus Construction */}
           <div className="space-y-3">
             <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider flex items-center gap-1.5">
               <HardHat className="w-3.5 h-3.5 text-amber-500" />
-              <span>Civil Construction</span>
+              <span>Civil &amp; Campus</span>
             </h4>
             <ul className="space-y-2">
               <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Luxury Villa Construction</Link></li>
@@ -66,22 +82,6 @@ export default function Footer() {
               <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Structural Renovation</Link></li>
               <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Foundation &amp; Piling Works</Link></li>
               <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Exterior Hardscaping &amp; Plazas</Link></li>
-            </ul>
-          </div>
-
-          {/* Interior Architecture */}
-          <div className="space-y-3">
-            <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider flex items-center gap-1.5">
-              <Palette className="w-3.5 h-3.5 text-amber-500" />
-              <span>Luxury Interiors</span>
-            </h4>
-            <ul className="space-y-2">
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Smart Classrooms &amp; Labs</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">University Auditoriums</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Modular European Kitchens</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Italian Marble Flooring</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Bespoke Millwork &amp; Closets</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Architectural False Ceilings</Link></li>
             </ul>
           </div>
 

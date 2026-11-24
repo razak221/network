@@ -46,26 +46,12 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
-                <HardHat className="w-6 h-6" />
-              </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Certified Civil Construction</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Foundation-to-handover luxury villas and educational campus civil engineering (schools, colleges &amp; universities) with seismic-compliant RCC framing and a <strong>10-year structural engineering warranty</strong>.
-              </p>
-              <Link to="/manpower" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
-                <span>Explore Civil Architecture</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                 <Palette className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Luxury &amp; Educational Interiors</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Luxury Interior Architecture</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Bookmatched Italian marble, Blum-fitted modular kitchens, smart multimedia classrooms, acoustic university auditoriums, and chemical-resistant STEM laboratories.
+                Our core mastery: Bookmatched Italian Statuario marble, German Blum modular kitchens, bespoke fluted wall paneling, and architectural smart lighting.
               </p>
               <Link to="/production" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
                 <span>View Interior Specs</span>
@@ -77,12 +63,26 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
                 <Building2 className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Commercial &amp; Campus Fitouts</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Commercial &amp; Campus Interiors</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Corporate headquarters, luxury retail boutiques, university digital research libraries, and high-occupancy academic lecture halls built to strict NBC compliance.
+                Smart multimedia school classrooms, acoustic university auditoriums, STEM laboratories, luxury retail boutiques, and corporate office fitouts.
               </p>
               <Link to="/mall-operations" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
                 <span>Review Fitout Standards</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
+                <HardHat className="w-6 h-6" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Turnkey Civil Construction</h3>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                Complete ground-up structural construction for luxury private villas and educational blocks with seismic RCC framing and a <strong>10-year structural warranty</strong>.
+              </p>
+              <Link to="/manpower" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
+                <span>Explore Civil Architecture</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -142,20 +142,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Civil Construction Overview */}
-      <ManpowerSection />
-
-      {/* 5. Interior Architecture Atelier */}
+      {/* 4. Luxury Interior Architecture Atelier (Primary Core Specialization) */}
       <ProductionDecorSection />
 
-      {/* 6. Commercial Fitouts & Engineering Standards */}
-      <MallExcellence />
+      {/* 5. Bespoke Custom Millwork & Stone Concierge */}
+      <BespokeConcierge />
 
-      {/* 7. Visual Showcase Gallery */}
+      {/* 6. Visual Showcase Gallery (130+ Works) */}
       <GallerySection />
 
-      {/* 8. Bespoke Custom Requests Concierge */}
-      <BespokeConcierge />
+      {/* 7. Turnkey Civil Construction & Villa Architecture */}
+      <ManpowerSection />
+
+      {/* 8. Commercial & Educational Campus Fitout Governance */}
+      <MallExcellence />
 
       {/* 9. Interactive Estimator Tool */}
       <EstimatorTool />

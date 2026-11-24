@@ -35,23 +35,23 @@ export default function Hero({ onOpenConfigurator }) {
           <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white border border-amber-300/80 text-amber-900 text-xs sm:text-sm font-semibold tracking-wide shadow-luxury-sm">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span className="uppercase tracking-widest text-[11px] font-bold text-amber-800">
-              18+ Years Registered • GSTIN: {CONTACT_CONFIG.gstin} • Turnkey Civil &amp; Interior Atelier
+              18+ Years Registered • Bespoke Luxury Interior Design &amp; Turnkey Architecture
             </span>
           </div>
 
           {/* Main Headline with Editorial Luxury Typography */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-tight sm:leading-[1.18] flex flex-col items-center">
-            <span className="block">Architecting Flawless</span>
+            <span className="block">Bespoke Architectural</span>
             <span className="block my-1 sm:my-2 font-luxury italic font-normal text-amber-700 text-5xl sm:text-6xl lg:text-7xl leading-snug">
-              Luxury Construction <span className="font-sans font-light not-italic text-amber-500 text-3xl sm:text-5xl align-baseline">&amp;</span>
+              Luxury Interior Design <span className="font-sans font-light not-italic text-amber-500 text-3xl sm:text-5xl align-baseline">&amp;</span>
             </span>
-            <span className="block text-gradient-gold">Bespoke Interiors</span>
+            <span className="block text-gradient-gold">Turnkey Execution</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto font-normal leading-relaxed">
-            From ground-up private villa civil engineering and school, college &amp; university campus infrastructure to ultra-luxury Italian marble living suites, modular chef kitchens, and corporate office fitouts — 
-            <strong className="text-slate-900 font-semibold"> delivered with transparent fixed-price BOQs and a 10-year structural warranty.</strong>
+            Specializing in bespoke luxury interior design — from bookmatched Italian Statuario marble living suites, European Blum modular kitchens, and custom walk-in closets to educational smart classrooms and corporate offices, 
+            <strong className="text-slate-900 font-semibold"> backed by turnkey civil engineering, fixed-price BOQs, and 18+ years of registered mastery.</strong>
           </p>
 
           {/* Call to Actions (Above the fold) */}
@@ -104,31 +104,31 @@ export default function Hero({ onOpenConfigurator }) {
                 <Building2 className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">18+ Years</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Registered Construction Firm (GSTIN Verified)</p>
+              <p className="text-xs text-slate-500 font-semibold">Registered Interior &amp; Architecture Firm</p>
             </div>
 
             <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
-              <div className="flex items-center gap-2 text-teal-600 mb-1">
-                <ShieldCheck className="w-5 h-5" />
-                <span className="font-heading font-bold text-xl text-slate-900">10 Years</span>
+              <div className="flex items-center gap-2 text-rose-600 mb-1">
+                <Palette className="w-5 h-5" />
+                <span className="font-heading font-bold text-xl text-slate-900">500+</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">RCC Structural Warranty Certification</p>
+              <p className="text-xs text-slate-500 font-semibold">Luxury Residential &amp; Campus Interiors Curated</p>
             </div>
 
             <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
               <div className="flex items-center gap-2 text-amber-600 mb-1">
                 <Compass className="w-5 h-5" />
-                <span className="font-heading font-bold text-xl text-slate-900">400+</span>
+                <span className="font-heading font-bold text-xl text-slate-900">Blum &amp; Marble</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Villas, Campuses & Luxury Interiors</p>
+              <p className="text-xs text-slate-500 font-semibold">German Hardware Lifetime &amp; Italian Stone</p>
             </div>
 
             <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
               <div className="flex items-center gap-2 text-teal-600 mb-1">
-                <Clock className="w-5 h-5" />
-                <span className="font-heading font-bold text-xl text-slate-900">100%</span>
+                <ShieldCheck className="w-5 h-5" />
+                <span className="font-heading font-bold text-xl text-slate-900">10-Yr BOQ</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">On-Time Milestone SLA Handover Rate</p>
+              <p className="text-xs text-slate-500 font-semibold">Fixed-Price Covenant &amp; Turnkey Warranty</p>
             </div>
           </div>
         </div>

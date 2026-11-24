@@ -12,9 +12,9 @@ import {
 import { Link } from 'react-router-dom';
 
 export default function EstimatorTool() {
-  const [projectType, setProjectType] = useState('villa');
+  const [projectType, setProjectType] = useState('interior_only');
   const [finishTier, setFinishTier] = useState('luxury');
-  const [sqFt, setSqFt] = useState(3500);
+  const [sqFt, setSqFt] = useState(2500);
 
   // Rate per sq.ft calculation
   const getRatePerSqFt = () => {
@@ -64,10 +64,10 @@ export default function EstimatorTool() {
               </label>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { id: 'villa', label: 'Luxury Villa', sub: 'Civil + Interior' },
-                  { id: 'institutional', label: 'School / University', sub: 'Campus & Civil' },
-                  { id: 'interior_only', label: 'Penthouse Suite', sub: 'Luxury Interiors' },
-                  { id: 'commercial', label: 'Corporate Office', sub: 'Commercial Fitout' },
+                  { id: 'interior_only', label: 'Luxury Interior Fitout', sub: 'Apartment / Villa Interior' },
+                  { id: 'institutional', label: 'Educational & Campus', sub: 'Classrooms / Labs / Univ' },
+                  { id: 'commercial', label: 'Corporate & Retail', sub: 'Office / Boutique Fitout' },
+                  { id: 'villa', label: 'Turnkey Villa Build', sub: 'Civil + Bespoke Interiors' },
                 ].map(opt => (
                   <button
                     key={opt.id}
