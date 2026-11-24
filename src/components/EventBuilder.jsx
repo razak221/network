@@ -476,7 +476,8 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
         <div className="flex items-center justify-between border-b-2 border-slate-900 pb-4 mb-6">
           <div>
             <h1 className="font-heading text-2xl font-bold text-slate-900 tracking-tight">PRISTINE DECORE</h1>
-            <p className="text-xs uppercase tracking-widest text-slate-500">Turnkey Construction &amp; Luxury Interior Atelier</p>
+            <p className="text-xs uppercase tracking-widest text-slate-500">Turnkey Construction &amp; Luxury Interior Atelier • 18+ Years Registered</p>
+            <p className="text-[10px] text-slate-600 mt-0.5">GSTIN: {CONTACT_CONFIG.gstin} • {CONTACT_CONFIG.studioAddress}</p>
           </div>
           <div className="text-right">
             <span className="inline-block px-3 py-1 bg-slate-900 text-white text-xs font-bold uppercase rounded">

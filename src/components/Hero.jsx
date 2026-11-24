@@ -35,7 +35,7 @@ export default function Hero({ onOpenConfigurator }) {
           <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white border border-amber-300/80 text-amber-900 text-xs sm:text-sm font-semibold tracking-wide shadow-luxury-sm">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span className="uppercase tracking-widest text-[11px] font-bold text-amber-800">
-              Turnkey Architectural Construction &amp; Luxury Interior Atelier
+              18+ Years Registered • GSTIN: {CONTACT_CONFIG.gstin} • Turnkey Civil &amp; Interior Atelier
             </span>
           </div>
 
@@ -86,14 +86,14 @@ export default function Hero({ onOpenConfigurator }) {
           <div className="pt-2 flex justify-center">
             <div className="inline-flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm text-slate-700 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/90 shadow-luxury-sm">
               <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
-              <span className="text-slate-500 font-medium">The Pristine Standards:</span>
+              <span className="text-slate-500 font-medium">Statutory &amp; Quality Credentials:</span>
+              <span className="font-bold text-amber-900 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">18+ Years Registered</span>
+              <span className="text-amber-400">•</span>
+              <span className="font-mono font-bold text-slate-900">GSTIN: {CONTACT_CONFIG.gstin}</span>
+              <span className="text-amber-400">•</span>
               <span className="font-bold text-slate-900">10-Year Structural Warranty</span>
               <span className="text-amber-400">•</span>
               <span className="font-bold text-slate-900">Fixed-Price BOQ</span>
-              <span className="text-amber-400">•</span>
-              <span className="font-bold text-slate-900">100% On-Time Handover</span>
-              <span className="text-amber-400">•</span>
-              <span className="font-bold text-slate-900">Resident Site Engineers</span>
             </div>
           </div>
 
@@ -102,9 +102,9 @@ export default function Hero({ onOpenConfigurator }) {
             <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
               <div className="flex items-center gap-2 text-amber-600 mb-1">
                 <Building2 className="w-5 h-5" />
-                <span className="font-heading font-bold text-xl text-slate-900">250+</span>
+                <span className="font-heading font-bold text-xl text-slate-900">18+ Years</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Villas, Campuses & Commercial Built</p>
+              <p className="text-xs text-slate-500 font-semibold">Registered Construction Firm (GSTIN Verified)</p>
             </div>
 
             <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
@@ -120,7 +120,7 @@ export default function Hero({ onOpenConfigurator }) {
                 <Compass className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">400+</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Luxury Residential & Institutional Spaces</p>
+              <p className="text-xs text-slate-500 font-semibold">Villas, Campuses & Luxury Interiors</p>
             </div>
 
             <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">

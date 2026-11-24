@@ -106,6 +106,19 @@ export default function ContactSection() {
                     <div className="text-xs text-slate-500 mt-0.5">On-site structural inspections available 7 days a week</div>
                   </div>
                 </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 shrink-0 shadow-soft-sm">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Registered Studio Address</div>
+                    <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">{CONTACT_CONFIG.studioAddress}</div>
+                    <div className="text-[11px] text-amber-800 font-medium mt-1">
+                      18+ Years Registered • GSTIN: <span className="font-mono font-bold">{CONTACT_CONFIG.gstin}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Studio Divisions */}

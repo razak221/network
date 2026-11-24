@@ -35,13 +35,16 @@ export default function Footer() {
               Premier architectural and civil engineering studio delivering turnkey residential villas, educational campus infrastructure (schools, colleges &amp; universities), bespoke luxury interiors, and commercial fitouts backed by transparent fixed-price BOQs and 10-year structural warranties.
             </p>
 
-            <div className="pt-2 text-xs text-slate-300 space-y-1">
+            <div className="pt-2 text-xs text-slate-300 space-y-1.5">
               <div className="text-amber-400 font-semibold flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-                <span>Quality & Engineering Certifications:</span>
+                <span>Statutory &amp; Engineering Certifications:</span>
               </div>
-              <div className="text-slate-300 font-medium">10-Year Structural Warranty • ISO Certified Processes • Transparent BOQ</div>
-              <div className="pt-2">
+              <div className="text-slate-300 font-medium">18+ Years Registered • GSTIN: <span className="font-mono text-amber-300">{CONTACT_CONFIG.gstin}</span></div>
+              <div className="text-slate-400 text-[11px] leading-relaxed">
+                Registered Office: {CONTACT_CONFIG.studioAddress}
+              </div>
+              <div className="pt-1">
                 <a href="tel:+919845302888" className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-bold transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                   <span>Direct Studio Desk: +91 98453 02888</span>
@@ -113,12 +116,14 @@ export default function Footer() {
         {/* Bottom Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div>
-            © {new Date().getFullYear()} <strong className="text-white">Pristine Decore</strong> ({CONTACT_CONFIG.domain}). All rights reserved.
+            © {new Date().getFullYear()} <strong className="text-white">Pristine Decore</strong> ({CONTACT_CONFIG.domain}). 18+ Years Registered • GSTIN: <span className="font-mono text-slate-300">{CONTACT_CONFIG.gstin}</span>
           </div>
-          <div className="flex items-center gap-4 text-slate-400">
-            <span>Turnkey Civil Construction & Luxury Interior Architecture</span>
+          <div className="flex items-center gap-3 text-slate-400">
+            <span>Bengaluru, Karnataka 560032</span>
             <span>•</span>
-            <span>Fixed-Price BOQ Guarantee</span>
+            <span>10-Yr Structural Warranty</span>
+            <span>•</span>
+            <span>Fixed-Price BOQ</span>
           </div>
         </div>
       </div>

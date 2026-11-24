@@ -55,8 +55,8 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
       {/* Top Banner Alert (Soft Light Champagne) */}
       <div className="bg-amber-50 text-amber-900 border-b border-amber-200/50 px-4 py-1.5 text-xs font-semibold text-center tracking-wide flex flex-wrap items-center justify-center gap-2">
         <span className="inline-block w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
-        <span>TURNKEY CIVIL CONSTRUCTION &amp; LUXURY INTERIOR ATELIER</span>
-        <span className="hidden sm:inline opacity-70">• 10-Year Structural Warranty • Studio Desk:</span>
+        <span>18+ YEARS REGISTERED • GSTIN: {CONTACT_CONFIG.gstin} • TURNKEY CIVIL &amp; INTERIORS</span>
+        <span className="hidden sm:inline opacity-70">• 10-Yr Warranty • Studio Desk:</span>
         <a href="tel:+919845302888" className="font-bold text-amber-950 hover:underline flex items-center gap-1">
           <PhoneCall className="w-3 h-3 text-amber-700" />
           <span>+91 98453 02888</span>

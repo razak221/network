@@ -64,8 +64,18 @@ export const CONTACT_CONFIG = {
     }
   },
 
-  // Studio Address
-  studioAddress: "Atelier Suite 402, Signature Towers, Prime Business District",
+  // Statutory Registrations & Credentials
+  gstin: "29CPQPK9806M2ZU",
+  registrationYears: "18+ Years Registered",
+  experienceYears: "18+ Years",
+  establishedYear: "2008",
+
+  // Official Registered Studio Address
+  studioAddress: "No. 9SP 25, 2nd Stage, HBR Layout, Kadugondanahalli, C.I. Ramaiah Layout, RT Nagar Post, Bengaluru, Karnataka 560032",
+  shortAddress: "No. 9SP 25, 2nd Stage, HBR Layout, Bengaluru 560032",
+  city: "Bengaluru",
+  state: "Karnataka",
+  pincode: "560032",
   operatingHours: "Monday – Saturday: 9:00 AM – 7:30 PM (Site Operations 24/7)",
 
   // Helper function to build pre-filled WhatsApp URLs

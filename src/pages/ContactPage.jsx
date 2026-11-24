@@ -158,20 +158,41 @@ export default function ContactPage() {
               </div>
 
               {/* Office & Official Credentials */}
-              <div className="border-t border-slate-100 pt-6 space-y-3 text-xs text-slate-600">
-                <div className="flex items-center gap-2">
+              <div className="border-t border-slate-100 pt-6 space-y-3.5 text-xs text-slate-600">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-slate-900 block">Registered Studio Address:</span>
+                    <span className="text-slate-600 leading-relaxed block">{CONTACT_CONFIG.studioAddress}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2.5">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>GSTIN: <strong className="font-mono text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">{CONTACT_CONFIG.gstin}</strong> (Govt. Registered)</span>
+                </div>
+
+                <div className="flex items-center gap-2.5">
+                  <Clock className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Enterprise Legacy: <strong className="text-slate-900">{CONTACT_CONFIG.registrationYears}</strong> (Est. 2008)</span>
+                </div>
+
+                <div className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Direct Studio Hotline: <a href="tel:+919845302888" className="text-slate-900 font-bold hover:text-amber-700 transition-colors">{CONTACT_CONFIG.phoneDisplay}</a></span>
                 </div>
-                <div className="flex items-center gap-2">
+
+                <div className="flex items-center gap-2.5">
                   <Mail className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>Official Inquiries: <strong className="text-slate-900">{CONTACT_CONFIG.email}</strong></span>
                 </div>
-                <div className="flex items-center gap-2">
+
+                <div className="flex items-center gap-2.5">
                   <Building2 className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>Official Domain: <strong className="text-slate-900">{CONTACT_CONFIG.domain}</strong></span>
                 </div>
-                <div className="flex items-center gap-2">
+
+                <div className="flex items-center gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Structural Warranty: <strong>10-Year Certified Guarantee</strong></span>
                 </div>
