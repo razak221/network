@@ -21,6 +21,7 @@ import StageVisualizer from './StageVisualizer';
 
 const PROJECT_TYPES = [
   { id: 'villa', label: 'Luxury Villa Construction', desc: 'Turnkey ground-up civil construction & luxury architecture', rate: 2800 },
+  { id: 'institutional', label: 'School, College & University Campus', desc: 'Turnkey educational civil infrastructure, auditoriums, labs & smart classrooms', rate: 2300 },
   { id: 'apartment', label: 'Penthouse & Apartment Interiors', desc: 'Complete luxury interior fitout, marble & modular joinery', rate: 2100 },
   { id: 'commercial', label: 'Corporate Office Fitout', desc: 'Turnkey workplace, acoustic partitions & meeting suites', rate: 1950 },
   { id: 'retail', label: 'Luxury Retail Showroom', desc: 'High-impact retail store merchandising & bespoke displays', rate: 2400 },

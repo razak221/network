@@ -19,7 +19,7 @@ import { CONTACT_CONFIG } from '../config/contact';
 
 export default function MallOperationsPage() {
   const handleCommercialInquiry = () => {
-    const text = `Hi Pristine Decore! I am planning a commercial office / retail fitout and need guidance on architectural blueprints, BOQ estimation, and building code compliance.`;
+    const text = `Hi Pristine Decore! I am planning a commercial / educational campus fitout (school, college, university or office) and need guidance on architectural blueprints, BOQ estimation, and building code compliance.`;
     window.open(CONTACT_CONFIG.getWhatsAppUrl(text), '_blank');
   };
 
@@ -67,13 +67,13 @@ export default function MallOperationsPage() {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
             <Building2 className="w-3.5 h-3.5 text-amber-600" />
-            <span>Commercial Architecture & Corporate Fitouts</span>
+            <span>Commercial, Institutional &amp; Educational Campuses</span>
           </div>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
-            Commercial Fitouts & <span className="text-gradient-gold">Engineering Governance</span>
+            Commercial &amp; Campus <span className="text-gradient-gold">Engineering Governance</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Corporate office complexes, luxury retail boutiques, and commercial institutions demand uncompromising engineering standards, zero structural compromises, and transparent milestone delivery.
+            Corporate office complexes, schools, colleges, university campuses, and commercial institutions demand uncompromising engineering standards, NBC fire code compliance, and transparent milestone delivery.
           </p>
           <div className="pt-2 flex items-center justify-center gap-4">
             <button

@@ -97,7 +97,7 @@ export default function GalleryPage() {
             Our Architectural <span className="text-gradient-gold">Showcase Portfolio</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Over {galleryItems.length}+ real spaces constructed and delivered across private luxury villas, master penthouses, modular kitchens, walk-in closets, and corporate headquarters.
+            Over {galleryItems.length}+ real spaces constructed and delivered across private luxury villas, schools, colleges, university campuses, master penthouses, modular kitchens, and corporate headquarters.
           </p>
 
           {/* Search Input Bar */}
@@ -108,7 +108,7 @@ export default function GalleryPage() {
                 type="text"
                 value={searchQuery}
                 onChange={handleSearchChange}
-                placeholder="Search by material, style, or room (e.g. Marble, Blum, Kitchen, Villa, Slat)..."
+                placeholder="Search by material, institution, room or city (e.g. University, School, Lab, Marble, Villa)..."
                 className="w-full pl-11 pr-10 py-3 rounded-2xl bg-white border border-slate-200 text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-200 transition-all shadow-soft-sm placeholder:text-slate-400"
               />
               {searchQuery && (

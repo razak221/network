@@ -51,7 +51,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-heading text-xl font-bold text-slate-900">Certified Civil Construction</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Foundation-to-handover villa construction with seismic-compliant RCC framing, primary-grade Fe-550D TMT steel, and a comprehensive <strong>10-year structural engineering warranty</strong>.
+                Foundation-to-handover luxury villas and educational campus civil engineering (schools, colleges &amp; universities) with seismic-compliant RCC framing and a <strong>10-year structural engineering warranty</strong>.
               </p>
               <Link to="/manpower" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
                 <span>Explore Civil Architecture</span>
@@ -63,9 +63,9 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
                 <Palette className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Luxury Interior Architecture</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Luxury &amp; Educational Interiors</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Bookmatched Italian marble, precision modular European kitchens with Blum hardware, custom fluted veneer panelling, and integrated smart-home architectural illumination.
+                Bookmatched Italian marble, Blum-fitted modular kitchens, smart multimedia classrooms, acoustic university auditoriums, and chemical-resistant STEM laboratories.
               </p>
               <Link to="/production" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
                 <span>View Interior Specs</span>
@@ -77,9 +77,9 @@ export default function HomePage() {
               <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
                 <Building2 className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Turnkey Commercial Fitouts</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Commercial &amp; Campus Fitouts</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                High-end corporate offices, luxury retail flagship stores, acoustic drywall partitioning, VRV central climate control, and full National Building Code compliance.
+                Corporate headquarters, luxury retail boutiques, university digital research libraries, and high-occupancy academic lecture halls built to strict NBC compliance.
               </p>
               <Link to="/mall-operations" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
                 <span>Review Fitout Standards</span>

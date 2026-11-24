@@ -42,12 +42,12 @@ export default function GallerySection({ onSelectLook }) {
             Crafted with Precision. <span className="text-gradient-gold">Engineered to Endure.</span>
           </h2>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-            Explore recent turnkey residential villas, penthouses, bespoke modular kitchens, and corporate spaces delivered by Pristine Decore with 10-year structural warranties.
+            Explore recent turnkey residential villas, schools, colleges, university auditoriums, modular kitchens, and corporate spaces delivered by Pristine Decore with 10-year structural warranties.
           </p>
 
           {/* Filter Pills */}
           <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
-            {galleryCategories.slice(0, 6).map(cat => (
+            {galleryCategories.map(cat => (
               <button
                 key={cat.id}
                 type="button"

@@ -50,7 +50,7 @@ export default function Hero({ onOpenConfigurator }) {
 
           {/* Subheading */}
           <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto font-normal leading-relaxed">
-            From ground-up private villa civil engineering and seismic RCC framing to ultra-luxury Italian marble living suites, modular chef kitchens, and corporate office fitouts — 
+            From ground-up private villa civil engineering and school, college &amp; university campus infrastructure to ultra-luxury Italian marble living suites, modular chef kitchens, and corporate office fitouts — 
             <strong className="text-slate-900 font-semibold"> delivered with transparent fixed-price BOQs and a 10-year structural warranty.</strong>
           </p>
 
@@ -104,7 +104,7 @@ export default function Hero({ onOpenConfigurator }) {
                 <Building2 className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">250+</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Villas & Commercial Buildings Built</p>
+              <p className="text-xs text-slate-500 font-semibold">Villas, Campuses & Commercial Built</p>
             </div>
 
             <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
@@ -120,7 +120,7 @@ export default function Hero({ onOpenConfigurator }) {
                 <Compass className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">400+</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Luxury Residential & Office Interiors</p>
+              <p className="text-xs text-slate-500 font-semibold">Luxury Residential & Institutional Spaces</p>
             </div>
 
             <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">

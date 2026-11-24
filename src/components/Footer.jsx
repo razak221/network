@@ -32,7 +32,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Premier architectural and civil engineering studio delivering turnkey residential villas, bespoke luxury interiors, Italian modular kitchens, and premium commercial fitouts backed by transparent fixed-price BOQs and 10-year structural warranties.
+              Premier architectural and civil engineering studio delivering turnkey residential villas, educational campus infrastructure (schools, colleges &amp; universities), bespoke luxury interiors, and commercial fitouts backed by transparent fixed-price BOQs and 10-year structural warranties.
             </p>
 
             <div className="pt-2 text-xs text-slate-300 space-y-1">
@@ -58,11 +58,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Luxury Villa Construction</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">School &amp; University Campuses</Link></li>
               <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Commercial Complexes</Link></li>
               <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Structural Renovation</Link></li>
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Foundation & Piling Works</Link></li>
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Exterior Hardscaping & Pools</Link></li>
-              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Turnkey EPC Supervision</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Foundation &amp; Piling Works</Link></li>
+              <li><Link to="/manpower" className="hover:text-amber-400 transition-colors">Exterior Hardscaping &amp; Plazas</Link></li>
             </ul>
           </div>
 
@@ -73,12 +73,12 @@ export default function Footer() {
               <span>Luxury Interiors</span>
             </h4>
             <ul className="space-y-2">
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Smart Classrooms &amp; Labs</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">University Auditoriums</Link></li>
               <li><Link to="/production" className="hover:text-amber-400 transition-colors">Modular European Kitchens</Link></li>
               <li><Link to="/production" className="hover:text-amber-400 transition-colors">Italian Marble Flooring</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Bespoke Millwork & Closets</Link></li>
+              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Bespoke Millwork &amp; Closets</Link></li>
               <li><Link to="/production" className="hover:text-amber-400 transition-colors">Architectural False Ceilings</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Smart Home Automation</Link></li>
-              <li><Link to="/production" className="hover:text-amber-400 transition-colors">Custom Metal & Glass Partitioning</Link></li>
             </ul>
           </div>
 

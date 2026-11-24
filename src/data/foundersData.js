@@ -55,5 +55,11 @@ export const companyValues = [
   }
 ];
 
+// Ensure backward-compatible properties
+studioLeadership.forEach(item => {
+  if (!item.responsibilities) item.responsibilities = item.focus;
+  if (!item.specialization) item.specialization = item.stats;
+});
+
 // Alias for existing imports
 export const founders = studioLeadership;

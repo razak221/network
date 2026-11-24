@@ -23,6 +23,7 @@ export default function EstimatorTool() {
     if (finishTier === 'royal') base = 5200;
 
     if (projectType === 'commercial') base = Math.round(base * 0.9);
+    if (projectType === 'institutional') base = Math.round(base * 0.85);
     if (projectType === 'interior_only') base = Math.round(base * 0.7);
 
     return base;
@@ -30,8 +31,8 @@ export default function EstimatorTool() {
 
   const rate = getRatePerSqFt();
   const totalEstimatedCost = rate * sqFt;
-  const civilShare = Math.round(totalEstimatedCost * (projectType === 'interior_only' ? 0.15 : 0.45));
-  const interiorShare = Math.round(totalEstimatedCost * (projectType === 'interior_only' ? 0.65 : 0.35));
+  const civilShare = Math.round(totalEstimatedCost * (projectType === 'interior_only' ? 0.15 : projectType === 'institutional' ? 0.50 : 0.45));
+  const interiorShare = Math.round(totalEstimatedCost * (projectType === 'interior_only' ? 0.65 : projectType === 'institutional' ? 0.30 : 0.35));
   const mepShare = totalEstimatedCost - civilShare - interiorShare;
   const estimatedMonths = Math.max(3, Math.round(sqFt / 450));
 
@@ -61,11 +62,12 @@ export default function EstimatorTool() {
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">
                 1. Project Typology:
               </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 {[
                   { id: 'villa', label: 'Luxury Villa', sub: 'Civil + Interior' },
-                  { id: 'interior_only', label: 'Penthouse', sub: 'Luxury Interiors' },
-                  { id: 'commercial', label: 'Corporate', sub: 'Office Fitout' },
+                  { id: 'institutional', label: 'School / University', sub: 'Campus & Civil' },
+                  { id: 'interior_only', label: 'Penthouse Suite', sub: 'Luxury Interiors' },
+                  { id: 'commercial', label: 'Corporate Office', sub: 'Commercial Fitout' },
                 ].map(opt => (
                   <button
                     key={opt.id}

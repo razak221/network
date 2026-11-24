@@ -40,7 +40,7 @@ export default function ProductionPage() {
             Luxury Interior Architecture & <span className="text-gradient-gold">Bespoke Millwork</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            From Italian Statuario marble floors and European modular kitchens fitted with Blum hardware to bespoke fluted wood wall panelling and acoustic ceilings — crafted to millimeter perfection.
+            From Italian Statuario marble living suites and European modular kitchens to smart classrooms, university auditoriums, and STEM research labs — crafted to millimeter perfection.
           </p>
           <div className="pt-2 flex items-center justify-center gap-4">
             <Link

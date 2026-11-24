@@ -22,7 +22,8 @@ export const materialPartners = [
 export const mallPartners = materialPartners;
 
 export const galleryCategories = [
-  { id: 'all', label: 'All Projects (100+)' },
+  { id: 'all', label: 'All Projects (130+)' },
+  { id: 'institutional', label: 'Schools & Universities' },
   { id: 'villas', label: 'Luxury Villas & Civil' },
   { id: 'interiors', label: 'Living & Penthouses' },
   { id: 'kitchens', label: 'Modular Kitchens' },
@@ -1726,5 +1727,215 @@ export const galleryItems = [
     ],
     "stats": "Sterile Luxury Clinic Fitout",
     "description": "Clinical yet welcoming interior with anti-microbial Corian surfaces, seamless vinyl cove baseboards, and calming indirect ambient illumination."
+  },
+{
+    "id": 122,
+    "title": "Executive Lecture Theater & Briefing Hall",
+    "category": "institutional",
+    "venue": "Indian School of Business (ISB), Gachibowli, Hyderabad",
+    "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Acoustic Wall Cladding",
+      "Tiered Seating",
+      "AV & Video Conferencing"
+    ],
+    "stats": "3,800 Sq. Ft | Handover: 4 Months",
+    "description": "Turnkey interior fitout of 180-seat stepped executive lecture theater featuring custom acoustic micro-perforated timber panels, integrated microphone desking, and balanced multi-angle presentation lighting."
+  },
+  {
+    "id": 123,
+    "title": "Academic Quadrangle & Colonnade Architecture",
+    "category": "institutional",
+    "venue": "Azim Premji University Campus, Sarjapur Road, Bengaluru",
+    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Campus Civil Architecture",
+      "Exposed Brickwork",
+      "Thermal Massing"
+    ],
+    "stats": "45,000 Sq. Ft | Handover: 14 Months",
+    "description": "Turnkey exterior civil engineering and structural construction of academic quadrangle wings, natural stone colonnade corridors, and central open-air student amphitheater."
+  },
+  {
+    "id": 124,
+    "title": "Central University Research Library & Study Commons",
+    "category": "institutional",
+    "venue": "Ashoka University Campus, Rajiv Gandhi Education City, Sonipat",
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Acoustic Ceilings",
+      "Solid Teak Stacks",
+      "Quiet Study Atrium"
+    ],
+    "stats": "18,500 Sq. Ft | Handover: 6 Months",
+    "description": "Bespoke interior architecture for multi-level central library featuring acoustic floating timber baffles, custom heavy-load hardwood book stacks, and individual silent study carrels."
+  },
+  {
+    "id": 125,
+    "title": "Advanced STEM & Bioscience Research Laboratories",
+    "category": "institutional",
+    "venue": "Indian Institute of Science (IISc), CV Raman Avenue, Bengaluru",
+    "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Acid-Resistant Epoxy",
+      "Fume Extraction",
+      "Class 10,000 Cleanroom"
+    ],
+    "stats": "8,200 Sq. Ft | Handover: 5 Months",
+    "description": "Specialized laboratory turnkey interior execution with acid- and solvent-resistant solid epoxy work surfaces, specialized gas reticulation systems, and localized laminar airflow hoods."
+  },
+  {
+    "id": 126,
+    "title": "Modern Academic Block Exterior & Facade",
+    "category": "institutional",
+    "venue": "BITS Pilani K.K. Birla Campus, Zuarinagar, Goa",
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Seismic RCC Framing",
+      "Louvered Sunshades",
+      "Hardscaped Plazas"
+    ],
+    "stats": "36,000 Sq. Ft | Handover: 12 Months",
+    "description": "Ground-up structural civil engineering of new engineering faculty block, incorporating architectural concrete overhangs, terracotta louvered sunshades, and weather-resistant external coatings."
+  },
+  {
+    "id": 127,
+    "title": "Collaborative Robotics & AI Prototyping Center",
+    "category": "institutional",
+    "venue": "IIT Madras Research Park, Taramani, Chennai",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "ESD Anti-Static Flooring",
+      "High-Bay Trusses",
+      "3-Phase Power Bus"
+    ],
+    "stats": "12,000 Sq. Ft | Handover: 4 Months",
+    "description": "High-spec engineering laboratory interior with electro-static discharge (ESD) flooring, heavy-duty modular steel workbench benches, and overhead multi-voltage umbilical drops."
+  },
+  {
+    "id": 128,
+    "title": "K-12 International School Smart Classrooms",
+    "category": "institutional",
+    "venue": "National Public School (NPS), 12th Main Indiranagar, Bengaluru",
+    "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Ergonomic Desking",
+      "Smart Interactive Boards",
+      "Low-VOC Paints"
+    ],
+    "stats": "14 Classrooms | Handover: 3 Months",
+    "description": "Complete classroom interior transformation featuring rounded ergonomic student furniture, glare-free indirect LED lighting, magnetic whiteboards, and child-safe acoustic finishes."
+  },
+  {
+    "id": 129,
+    "title": "Grand University Auditorium & Performing Arts Complex",
+    "category": "institutional",
+    "venue": "Christ University Central Campus, Hosur Road, Bengaluru",
+    "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "1,200-Seat Capacity",
+      "Acoustic Tuning RT60",
+      "Motorized Stage Rigging"
+    ],
+    "stats": "16,000 Sq. Ft | Handover: 8 Months",
+    "description": "Turnkey interior architecture for 1,200-seat multi-purpose auditorium, integrating calibrated fabric acoustic wall panels, curved sound-reflecting ceiling clouds, and theatrical lighting trusses."
+  },
+  {
+    "id": 130,
+    "title": "Campus Central Walkways & Architectural Peristyle",
+    "category": "institutional",
+    "venue": "Shiv Nadar University Campus, NH 91, Greater Noida, Delhi NCR",
+    "image": "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Weatherproof Colonnades",
+      "Basalt Paving",
+      "Subterranean Drainage"
+    ],
+    "stats": "28,000 Sq. Ft | Handover: 6 Months",
+    "description": "Turnkey civil hardscaping and covered walkway network connecting university academic blocks, featuring cantilevered architectural columns and integrated storm drainage."
+  },
+  {
+    "id": 131,
+    "title": "Medical Simulation & Clinical Skills Center",
+    "category": "institutional",
+    "venue": "Manipal Academy of Higher Education (MAHE), Manipal, Karnataka",
+    "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Seamless Medical Vinyl",
+      "Medical Gas Lines",
+      "Antimicrobial Surfaces"
+    ],
+    "stats": "9,500 Sq. Ft | Handover: 5 Months",
+    "description": "Hospital-grade clinical training suites with anti-bacterial seamless cove vinyl flooring, overhead surgical lighting mounts, and concealed medical gas supply points."
+  },
+  {
+    "id": 132,
+    "title": "Student Innovation Incubator & Collaborative Hub",
+    "category": "institutional",
+    "venue": "Plaksha University Tech Complex, Sector 101A, Mohali, Punjab",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Agile Pods",
+      "Acoustic Felt Baffles",
+      "High-Density WiFi Grid"
+    ],
+    "stats": "11,000 Sq. Ft | Handover: 3.5 Months",
+    "description": "Vibrant startup incubator and student hackathon space with movable writeable glass partitions, tiered bleacher presentation seating, and acoustic suspended ceiling baffles."
+  },
+  {
+    "id": 133,
+    "title": "Senior Learning Wing & Multimedia Studios",
+    "category": "institutional",
+    "venue": "The International School Bangalore (TISB), Dommasandra, Bengaluru",
+    "image": "https://images.unsplash.com/photo-1588072432836-e10032774350?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Modular Layouts",
+      "Acoustic Tackboards",
+      "Natural Daylight Harvesting"
+    ],
+    "stats": "15,000 Sq. Ft | Handover: 4 Months",
+    "description": "Modern secondary school classroom fitout prioritizing flexible collaborative seating, sound-absorbing pinboard wall cladding, and daylight-responsive automated blinds."
+  },
+  {
+    "id": 134,
+    "title": "Digital Research Library & Individual Carrel Study",
+    "category": "institutional",
+    "venue": "Symbiosis International University, Lavale Hills, Pune",
+    "image": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "High-Density Stacks",
+      "Powered Study Desks",
+      "Sound-Isolated Pods"
+    ],
+    "stats": "14,200 Sq. Ft | Handover: 5 Months",
+    "description": "Two-story graduate research library interior fitout with bespoke solid oak study carrels, in-desk power and USB-C connectivity, and sound-insulated telephone discussion booths."
+  },
+  {
+    "id": 135,
+    "title": "Campus Courtyard & Student Recreation Plaza",
+    "category": "institutional",
+    "venue": "Amity University Campus, Sector 125, Noida, Delhi NCR",
+    "image": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Granite Stepped Amphitheater",
+      "Tensile Canopies",
+      "Architectural LED Glow"
+    ],
+    "stats": "22,000 Sq. Ft | Handover: 6 Months",
+    "description": "Civil exterior landscape and stepped courtyard construction featuring flamed grey granite steps, weather-resistant tensile fabric shading, and perimeter bollard lighting."
+  },
+  {
+    "id": 136,
+    "title": "Institutional Campus Corridors & Locker Wings",
+    "category": "institutional",
+    "venue": "Delhi Public School (DPS), Bangalore North, Yelahanka, Bengaluru",
+    "image": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1000&auto=format&fit=crop&q=80",
+    "tags": [
+      "Heavy-Duty Epoxy Terrazzo",
+      "Powder-Coated Lockers",
+      "NBC Fire Egress"
+    ],
+    "stats": "18,000 Sq. Ft | Handover: 4 Months",
+    "description": "High-traffic institutional corridor fitout with heavy-duty cast terrazzo flooring, custom recessed steel locker bays, and impact-resistant wall bumper rails complying with NBC egress guidelines."
   }
 ];

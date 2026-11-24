@@ -93,6 +93,21 @@ export const constructionServices = [
     ],
     idealFor: "HNI homeowners, corporate real estate executives, overseas investors requiring trusted local execution",
     badge: "Fixed-Price BOQ Guarantee"
+  },
+  {
+    id: "educational-campuses",
+    title: "School, College & University Campus Construction",
+    category: "Institutional Civil Engineering",
+    description: "Turnkey exterior and structural civil construction for schools, colleges, and university campuses. Engineered with seismic-compliant RCC framing, acoustic lecture hall envelopes, academic quads, sports complexes, and NBC fire-safe corridors.",
+    features: [
+      "Heavy-load RCC structural framing & precast concrete academic blocks",
+      "Tiered lecture theater & 1,200+ capacity auditorium structural shell",
+      "Campus master planning, perimeter security & stone-paved walkways",
+      "All-weather synthetic sports arenas, running tracks & athletic pavilions",
+      "National Building Code (NBC 2016) high-capacity fire egress engineering"
+    ],
+    idealFor: "International K-12 schools, degree colleges, technical universities, private educational institutions",
+    badge: "NBC 2016 Institutional Grade"
   }
 ];
 
@@ -186,6 +201,28 @@ export const interiorServices = [
     ],
     idealFor: "Grand double-height living atriums, home cinemas, corporate boardrooms, formal dining halls",
     badge: "Architectural Illumination"
+  },
+  {
+    id: "institutional-interiors",
+    title: "Smart Classrooms, Laboratories & University Auditoriums",
+    category: "Institutional & Educational Interiors",
+    description: "Ergonomic, high-durability interior architecture for educational institutions. Featuring acoustic wood-slat lecture halls, chemical-resistant STEM laboratories, smart multimedia classrooms, and quiet-zone university libraries.",
+    specs: [
+      "Acoustic perforated timber wall & ceiling paneling (STC 50+ sound dampening)",
+      "Chemical-resistant solid epoxy & ceramic laboratory workbenches with fume extraction",
+      "Ergonomic anti-sag modular student desking with integrated cable management",
+      "Smart interactive digital board framing & glare-free 5000K circadian LED lighting",
+      "Heavy-duty commercial vinyl / polished vitrified flooring rated for high footfall"
+    ],
+    features: [
+      "Acoustic perforated timber wall & ceiling paneling (STC 50+ sound dampening)",
+      "Chemical-resistant solid epoxy & ceramic laboratory workbenches with fume extraction",
+      "Ergonomic anti-sag modular student desking with integrated cable management",
+      "Smart interactive digital board framing & glare-free 5000K circadian LED lighting",
+      "Heavy-duty commercial vinyl / polished vitrified flooring rated for high footfall"
+    ],
+    idealFor: "University lecture theaters, STEM research labs, school smart classrooms, academic libraries",
+    badge: "High-Traffic Institutional"
   }
 ];
 
@@ -218,10 +255,22 @@ export const bespokeExamples = [
   {
     title: "Double-Height Cantilevered Architectural Staircase",
     description: "Structural floating steel spine with solid American walnut treads and frameless structural glass balustrades."
+  },
+  {
+    title: "Acoustic Timber Auditorium Paneling & Tiered Seating",
+    description: "Precision micro-perforated acoustic oak wall cladding engineered to achieve RT60 reverberation standards in high-capacity university lecture halls."
+  },
+  {
+    title: "Acid-Resistant Modular Chemistry & STEM Lab Stations",
+    description: "Seamless epoxy work surfaces with integrated gas, vacuum, water lines, and certified chemical fume hood ventilation."
   }
 ];
 
 export const constructionFaqs = [
+  {
+    q: "Do you undertake civil construction and interior fitouts for schools, colleges, and universities?",
+    a: "Yes. Pristine Decore executes turnkey civil and interior projects for educational campuses across India. Our institutional scope covers campus master planning, academic block civil construction, smart classrooms, stepped lecture halls, 1,000+ seat auditoriums, certified STEM laboratories, and university libraries with complete NBC fire compliance."
+  },
   {
     q: "How does Pristine Decore calculate construction and interior costs?",
     a: "We operate on a transparent, itemized Bill of Quantities (BOQ) model. For civil construction, costs are calculated per square foot based on structural engineering specs (e.g. RCC grade, steel brand, foundation depth). For interiors, we provide transparent line-item pricing for joinery, stone, electrical, and plumbing with zero hidden contractor markups."

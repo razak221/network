@@ -40,7 +40,7 @@ export default function ManpowerPage() {
             Turnkey Civil Construction & <span className="text-gradient-gold">Structural Architecture</span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            From deep piling foundations and seismic RCC framing to luxury private villas and commercial corporate complexes — delivered with certified engineering and a 10-year structural warranty.
+            From deep piling foundations and seismic RCC framing to luxury private villas, schools, colleges, and university campus infrastructure — delivered with certified engineering and a 10-year structural warranty.
           </p>
           <div className="pt-2 flex items-center justify-center gap-4">
             <Link
