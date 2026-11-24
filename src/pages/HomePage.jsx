@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import StageVisualizer from '../components/StageVisualizer';
 import TiltCard3D from '../components/TiltCard3D';
+import BeforeAfterSlider from '../components/BeforeAfterSlider';
+import MaterialStudio from '../components/MaterialStudio';
+import BookingDesk from '../components/BookingDesk';
 import ManpowerSection from '../components/ManpowerSection';
 import ProductionDecorSection from '../components/ProductionDecorSection';
 import MallExcellence from '../components/MallExcellence';
@@ -201,31 +204,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Luxury Interior Architecture Atelier (Primary Core Specialization) */}
+      {/* 4. Interactive Before & After Bare-Shell Transformation Slider */}
+      <BeforeAfterSlider />
+
+      {/* 5. Luxury Interior Architecture Atelier (Primary Core Specialization) */}
       <ProductionDecorSection />
 
-      {/* 5. Bespoke Custom Millwork & Stone Concierge */}
+      {/* 6. Digital Atelier Material Palette & Swatch Studio */}
+      <MaterialStudio />
+
+      {/* 7. Bespoke Custom Millwork & Stone Concierge */}
       <BespokeConcierge />
 
-      {/* 6. Visual Showcase Gallery (130+ Works) */}
+      {/* 8. Visual Showcase Gallery (130+ Works) */}
       <GallerySection />
 
-      {/* 7. Turnkey Civil Construction & Villa Architecture */}
+      {/* 9. Turnkey Civil Construction & Villa Architecture */}
       <ManpowerSection />
 
-      {/* 8. Commercial & Educational Campus Fitout Governance */}
+      {/* 10. Commercial & Educational Campus Fitout Governance */}
       <MallExcellence />
 
-      {/* 9. Interactive Estimator Tool */}
+      {/* 11. VIP Senior Architect Site Inspection & Audit Booking Desk */}
+      <BookingDesk />
+
+      {/* 12. Interactive Estimator Tool */}
       <EstimatorTool />
 
-      {/* 10. Architectural Mastery & Turnkey Governance */}
+      {/* 13. Architectural Mastery & Turnkey Governance */}
       <FoundersSection />
 
-      {/* 11. Testimonials & Construction FAQs */}
+      {/* 14. Testimonials & Construction FAQs */}
       <TestimonialsSection />
 
-      {/* 12. Direct Contact Booking Desk */}
+      {/* 15. Direct Contact Booking Desk */}
       <ContactSection />
     </div>
   );

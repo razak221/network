@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import BookingDesk from '../components/BookingDesk';
 import { 
   Send, 
   Phone, 
@@ -317,6 +318,9 @@ export default function ContactPage() {
 
         </div>
       </div>
+
+      {/* Embedded VIP Senior Architect Site Inspection & Audit Booking Desk */}
+      <BookingDesk />
     </div>
   );
 }

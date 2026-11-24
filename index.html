@@ -37,63 +37,117 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
 
-  <!-- Structured JSON-LD Schema (GeneralContractor / InteriorDesignStudio) -->
+  <!-- Structured JSON-LD Schema (GeneralContractor / InteriorDesignStudio / FAQPage) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "GeneralContractor",
-      "name": "Pristine Decore",
-      "legalName": "Pristine Decore",
-      "url": "https://pristinedecore.com",
-      "logo": "https://pristinedecore.com/logo.png",
-      "description": "18+ Years Registered turnkey civil construction, bespoke residential architectural design, educational campus infrastructure, luxury interior fitouts, modular kitchens, and premium commercial construction.",
-      "telephone": "+91-9845302888",
-      "email": "decorepristine@gmail.com",
-      "taxID": "29CPQPK9806M2ZU",
-      "foundingDate": "2008",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "No. 9SP 25, 2nd Stage, HBR Layout, Kadugondanahalli, C.I. Ramaiah Layout, RT Nagar Post",
-        "addressLocality": "Bengaluru",
-        "addressRegion": "Karnataka",
-        "postalCode": "560032",
-        "addressCountry": "IN"
-      },
-      "areaServed": "National",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Luxury Interior Architecture & Turnkey Construction Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Bespoke Luxury Residential & Commercial Interior Architecture"
-            }
+      "@graph": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://pristinedecore.com/#generalcontractor",
+          "name": "Pristine Decore",
+          "legalName": "Pristine Decore",
+          "url": "https://pristinedecore.com",
+          "logo": "https://pristinedecore.com/logo.png",
+          "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80",
+          "description": "18+ Years Registered turnkey civil construction, bespoke residential architectural design, educational campus infrastructure, luxury interior fitouts, modular kitchens, and premium commercial construction.",
+          "telephone": "+91-9845302888",
+          "email": "decorepristine@gmail.com",
+          "taxID": "29CPQPK9806M2ZU",
+          "foundingDate": "2008",
+          "priceRange": "₹₹₹₹",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "No. 9SP 25, 2nd Stage, HBR Layout, Kadugondanahalli, C.I. Ramaiah Layout, RT Nagar Post",
+            "addressLocality": "Bengaluru",
+            "addressRegion": "Karnataka",
+            "postalCode": "560032",
+            "addressCountry": "IN"
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Bespoke Millwork, Joinery & Modular Italian Kitchens"
-            }
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 13.0285,
+            "longitude": 77.6288
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Educational & Institutional Campus Infrastructure (Schools, Colleges & Universities)"
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "09:00",
+              "closes": "20:00"
             }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Turnkey Civil Construction & Villa Architecture"
-            }
+          ],
+          "areaServed": [
+            { "@type": "City", "name": "Bengaluru" },
+            { "@type": "State", "name": "Karnataka" },
+            { "@type": "Country", "name": "India" }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Luxury Interior Architecture & Turnkey Construction Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Bespoke Luxury Residential & Commercial Interior Architecture"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Bespoke Millwork, Joinery & Modular Italian Kitchens"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Educational & Institutional Campus Infrastructure (Schools, Colleges & Universities)"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Turnkey Civil Construction & Villa Architecture"
+                }
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://pristinedecore.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the cost of turnkey luxury interior and civil construction in Bangalore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pristine Decore provides transparent, itemized fixed-price BOQs. Civil and structural architecture ranges from ₹2,200 to ₹3,400+ per sq.ft, while bespoke Italian interior architecture ranges from ₹2,400 to ₹5,200+ per sq.ft including bookmatched Italian marble and German Blum fittings."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Pristine Decore provide structural warranties and official GST invoicing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Pristine Decore is an 18+ years registered enterprise (Est. 2008) with active GSTIN 29CPQPK9806M2ZU. All ground-up civil constructions carry a certified 10-year RCC structural warranty and 5-year interior joinery warranty."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Pristine Decore execute school, college, and university campus projects?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Pristine Decore delivers turnkey institutional civil construction and interior fitouts for schools, colleges, and university campuses including acoustic 500+ seat auditoriums, smart digital classrooms, administrative blocks, and laboratories compliant with NBC fire safety standards."
+              }
+            }
+          ]
+        }
+      ]
     }
   </script>
 </head>

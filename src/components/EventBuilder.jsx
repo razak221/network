@@ -472,87 +472,121 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
       </div>
 
       {/* PRINT-ONLY FORMAL B2B PROPOSAL SHEET */}
-      <div className="hidden print:block printable-quote-sheet font-sans p-8 text-slate-900 bg-white">
-        <div className="flex items-center justify-between border-b-2 border-slate-900 pb-4 mb-6">
+      <div className="hidden print:block printable-quote-sheet font-sans p-10 text-slate-900 bg-white border-2 border-slate-900 m-4 rounded-xl">
+        <div className="flex items-center justify-between border-b-2 border-slate-900 pb-5 mb-6">
           <div>
-            <h1 className="font-heading text-2xl font-bold text-slate-900 tracking-tight">PRISTINE DECORE</h1>
-            <p className="text-xs uppercase tracking-widest text-slate-500">Turnkey Construction &amp; Luxury Interior Atelier • 18+ Years Registered</p>
-            <p className="text-[10px] text-slate-600 mt-0.5">GSTIN: {CONTACT_CONFIG.gstin} • {CONTACT_CONFIG.studioAddress}</p>
+            <div className="flex items-center gap-2">
+              <span className="text-xl font-black tracking-wider text-amber-700 font-heading">✦ PRISTINE DECORE</span>
+              <span className="text-[10px] uppercase font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded border border-amber-300">
+                18+ Years Registered (Est. 2008)
+              </span>
+            </div>
+            <p className="text-xs uppercase tracking-widest text-slate-700 font-semibold mt-1">
+              Luxury Interior Architecture &amp; Turnkey Civil Construction Atelier
+            </p>
+            <p className="text-[10px] text-slate-600 mt-0.5">
+              GSTIN: <strong>{CONTACT_CONFIG.gstin}</strong> • Registered Office: {CONTACT_CONFIG.studioAddress}
+            </p>
+            <p className="text-[10px] text-slate-600">
+              Hotline: +91 98453 02888 • Email: decorepristine@gmail.com • Web: pristinedecore.com
+            </p>
           </div>
           <div className="text-right">
-            <span className="inline-block px-3 py-1 bg-slate-900 text-white text-xs font-bold uppercase rounded">
-              Architectural BOQ Proposal
+            <span className="inline-block px-3.5 py-1.5 bg-slate-900 text-white text-xs font-bold uppercase rounded-md tracking-wider">
+              Executive BOQ Proposal
             </span>
-            <p className="text-xs text-slate-500 mt-1">Date: {new Date().toLocaleDateString()}</p>
-            <p className="text-xs text-slate-500 font-mono">Ref: PD-{Math.floor(100000 + Math.random() * 900000)}</p>
+            <p className="text-xs text-slate-700 font-semibold mt-1">Date: {new Date().toLocaleDateString('en-IN')}</p>
+            <p className="text-xs text-slate-500 font-mono">Proposal Ref: PD-BOQ-2026-{Math.floor(100000 + Math.random() * 900000)}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200 mb-6 text-xs">
           <div>
-            <p className="font-bold text-slate-700 uppercase tracking-wider text-[10px]">Client Details:</p>
-            <p className="font-bold text-slate-900 mt-1">{clientInfo.name || "Valued Client"}</p>
-            <p className="text-slate-600">{clientInfo.phone || "Direct Phone Registered"}</p>
-            <p className="text-slate-600">{projectLocation || "Prime Site Location"}</p>
+            <p className="font-bold text-slate-700 uppercase tracking-wider text-[10px]">Client &amp; Site Coordinates:</p>
+            <p className="font-bold text-slate-900 mt-1 text-sm">{clientInfo.name || "Valued Private Client"}</p>
+            <p className="text-slate-600 font-mono">Mobile / WhatsApp: {clientInfo.phone || "+91 98453 02888"}</p>
+            <p className="text-slate-600">Location: {projectLocation || "Bengaluru Prime Sector"}</p>
           </div>
           <div>
-            <p className="font-bold text-slate-700 uppercase tracking-wider text-[10px]">Project Specification:</p>
+            <p className="font-bold text-slate-700 uppercase tracking-wider text-[10px]">Architectural Parameters:</p>
             <p className="text-slate-900 mt-1"><strong>Typology:</strong> {PROJECT_TYPES.find(p => p.id === projectType)?.label}</p>
-            <p className="text-slate-900"><strong>Built-Up Area:</strong> {areaSqFt.toLocaleString()} Sq. Ft</p>
-            <p className="text-slate-900"><strong>Finish Grade:</strong> {FINISH_TIERS.find(t => t.id === finishTier)?.name}</p>
+            <p className="text-slate-900"><strong>Built-Up Space:</strong> {areaSqFt.toLocaleString()} Sq. Ft</p>
+            <p className="text-slate-900"><strong>Craftsmanship Tier:</strong> {FINISH_TIERS.find(t => t.id === finishTier)?.name}</p>
           </div>
         </div>
 
         <table className="w-full text-xs text-left mb-6 border-collapse">
           <thead>
             <tr className="border-b-2 border-slate-900 text-slate-900 uppercase font-bold text-[10px]">
-              <th className="py-2">Discipline / Architectural Scope</th>
-              <th className="py-2">Specifications &amp; Material Quality</th>
-              <th className="py-2 text-right">Allocated Value</th>
+              <th className="py-2.5">Discipline / Architectural Scope</th>
+              <th className="py-2.5">Materials &amp; Engineering Standards</th>
+              <th className="py-2.5 text-right">Allocated Value</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-200">
             <tr>
-              <td className="py-2.5 font-bold">1. Civil &amp; Structural Architecture</td>
-              <td className="py-2.5 text-slate-600">Seismic RCC framing, certified concrete, masonry &amp; subterranean waterproofing</td>
+              <td className="py-2.5 font-bold">1. Civil &amp; Structural Architecture (42%)</td>
+              <td className="py-2.5 text-slate-600">Seismic IS 1893 RCC framing, Fe-550D primary steel, concrete cube test reports</td>
               <td className="py-2.5 text-right font-mono font-bold">{formatCost(civilCost)}</td>
             </tr>
             <tr>
-              <td className="py-2.5 font-bold">2. Luxury Interior Joinery</td>
-              <td className="py-2.5 text-slate-600">German Blum modular kitchens, lacquered glass wardrobes, smoked veneer millwork</td>
+              <td className="py-2.5 font-bold">2. Luxury Interior Joinery (33%)</td>
+              <td className="py-2.5 text-slate-600">German Blum Legrabox modular systems, lacquered glass wardrobes, Statuario countertops</td>
               <td className="py-2.5 text-right font-mono font-bold">{formatCost(interiorCost)}</td>
             </tr>
             <tr>
-              <td className="py-2.5 font-bold">3. MEP, HVAC &amp; Electrical</td>
-              <td className="py-2.5 text-slate-600">Concealed conduit wiring, VRV copper piping, luxury Kohler/Grohe sanitary fittings</td>
+              <td className="py-2.5 font-bold">3. MEP, HVAC &amp; Electrical (15%)</td>
+              <td className="py-2.5 text-slate-600">Concealed FRLS copper wiring, Daikin VRV copper runs, luxury Kohler/Artize sanitary</td>
               <td className="py-2.5 text-right font-mono font-bold">{formatCost(mepCost)}</td>
             </tr>
             <tr>
-              <td className="py-2.5 font-bold">4. Premium Stonework &amp; Ceilings</td>
-              <td className="py-2.5 text-slate-600">Italian marble bookmatched laying, Saint-Gobain Gyproc false ceilings with DALI tracks</td>
+              <td className="py-2.5 font-bold">4. Premium Stonework &amp; Ceilings (10%)</td>
+              <td className="py-2.5 text-slate-600">Italian marble bookmatched laying, Saint-Gobain Gyproc false ceilings, magnetic tracks</td>
               <td className="py-2.5 text-right font-mono font-bold">{formatCost(finishesCost)}</td>
             </tr>
           </tbody>
           <tfoot>
-            <tr className="border-t-2 border-slate-900 font-bold">
-              <td colSpan="2" className="pt-3 text-right uppercase text-[11px]">Total Estimated Project Investment:</td>
-              <td className="pt-3 text-right font-mono text-base font-extrabold text-slate-900">{formatCost(totalEstimate)}</td>
+            <tr className="border-t-2 border-slate-900 font-bold bg-amber-50/60">
+              <td colSpan="2" className="py-3 text-right uppercase text-[11px] font-extrabold">Total Project Investment (All-Inclusive Fixed BOQ):</td>
+              <td className="py-3 text-right font-mono text-base font-black text-amber-900">{formatCost(totalEstimate)}</td>
             </tr>
           </tfoot>
         </table>
 
-        <div className="grid grid-cols-3 gap-4 border-t border-slate-200 pt-6 text-[10px] text-slate-500">
-          <div>
-            <p className="font-bold text-slate-900 uppercase">Civil Engineering Desk</p>
-            <p className="text-slate-500 mt-2">10-Year RCC Structural Warranty Certified</p>
+        {/* 4-Stage Payment Milestone Schedule */}
+        <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 mb-6 text-xs space-y-2">
+          <div className="text-[10px] uppercase font-bold text-slate-700 tracking-wider">
+            Standard Turnkey Milestone Disbursement Schedule:
           </div>
-          <div>
-            <p className="font-bold text-slate-900 uppercase">Interior Architecture Desk</p>
-            <p className="text-slate-500 mt-2">5-Year Joinery Craftsmanship Guarantee</p>
+          <div className="grid grid-cols-4 gap-2 text-[11px]">
+            <div className="p-2 bg-white rounded border border-slate-200">
+              <strong>Milestone 1 (20%):</strong> Site mobilization &amp; structural RCC plinth
+            </div>
+            <div className="p-2 bg-white rounded border border-slate-200">
+              <strong>Milestone 2 (30%):</strong> Superstructure, brickwork &amp; MEP rough-ins
+            </div>
+            <div className="p-2 bg-white rounded border border-slate-200">
+              <strong>Milestone 3 (30%):</strong> Italian marble, false ceilings &amp; modular joinery
+            </div>
+            <div className="p-2 bg-white rounded border border-slate-200">
+              <strong>Milestone 4 (20%):</strong> Painting, lighting fixtures &amp; final handover
+            </div>
           </div>
+        </div>
+
+        {/* Guarantees & Acceptance Signatures */}
+        <div className="grid grid-cols-3 gap-6 border-t-2 border-slate-900 pt-6 text-[11px]">
           <div>
-            <p className="font-bold text-slate-900 uppercase">Turnkey Project Supervision</p>
-            <p className="text-slate-500 mt-2">Fixed-Price BOQ Covenant Guarantee</p>
+            <p className="font-bold text-slate-900 uppercase">10-Year Civil Warranty</p>
+            <p className="text-slate-500 text-[10px] mt-1">Full structural integrity warranty on foundations and RCC suspended slabs.</p>
+          </div>
+          <div className="text-center pt-8 border-t border-dashed border-slate-300">
+            <p className="font-bold text-slate-900 text-xs">Client Acceptance</p>
+            <p className="text-slate-400 text-[10px]">Authorized Signature &amp; Date</p>
+          </div>
+          <div className="text-center pt-8 border-t border-dashed border-slate-300">
+            <p className="font-bold text-slate-900 text-xs">For Pristine Decore</p>
+            <p className="text-slate-400 text-[10px]">Principal Architect &amp; Seal</p>
           </div>
         </div>
       </div>

@@ -19,6 +19,16 @@ import { materialPartners } from '../data/galleryData';
 import TiltCard3D from './TiltCard3D';
 
 export default function Hero({ onOpenConfigurator }) {
+  const handleScheduleInspection = () => {
+    const el = document.getElementById('site-inspection');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      const msg = "Hi Pristine Decore! I would like to schedule an architectural consultation and site visit for an upcoming construction and interior project.";
+      window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
+    }
+  };
+
   const handleWhatsApp = () => {
     const msg = "Hi Pristine Decore! I would like to schedule an architectural consultation and site visit for an upcoming construction and interior project.";
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
@@ -75,7 +85,7 @@ export default function Hero({ onOpenConfigurator }) {
             </Link>
 
             <button
-              onClick={handleWhatsApp}
+              onClick={handleScheduleInspection}
               className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-2xl text-sm sm:text-base font-semibold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-all flex items-center justify-center gap-2 shadow-luxury-sm"
             >
               <Send className="w-4 h-4 text-emerald-600" />
