@@ -4,7 +4,9 @@ import Hero from '../components/Hero';
 import StageVisualizer from '../components/StageVisualizer';
 import TiltCard3D from '../components/TiltCard3D';
 import BeforeAfterSlider from '../components/BeforeAfterSlider';
+import TurnkeyProcessRoadmap from '../components/TurnkeyProcessRoadmap';
 import MaterialStudio from '../components/MaterialStudio';
+import TurnkeyComparisonMatrix from '../components/TurnkeyComparisonMatrix';
 import BookingDesk from '../components/BookingDesk';
 import ManpowerSection from '../components/ManpowerSection';
 import ProductionDecorSection from '../components/ProductionDecorSection';
@@ -207,37 +209,43 @@ export default function HomePage() {
       {/* 4. Interactive Before & After Bare-Shell Transformation Slider */}
       <BeforeAfterSlider />
 
-      {/* 5. Luxury Interior Architecture Atelier (Primary Core Specialization) */}
+      {/* 5. Disciplined 3-Phase Execution Roadmap */}
+      <TurnkeyProcessRoadmap />
+
+      {/* 6. Luxury Interior Architecture Atelier (Primary Core Specialization) */}
       <ProductionDecorSection />
 
-      {/* 6. Digital Atelier Material Palette & Swatch Studio */}
+      {/* 7. Digital Atelier Material Palette & Swatch Studio */}
       <MaterialStudio />
 
-      {/* 7. Bespoke Custom Millwork & Stone Concierge */}
+      {/* 8. Why Discerning Clients Choose Us (Comparison Matrix) */}
+      <TurnkeyComparisonMatrix />
+
+      {/* 9. Bespoke Custom Millwork & Stone Concierge */}
       <BespokeConcierge />
 
-      {/* 8. Visual Showcase Gallery (130+ Works) */}
+      {/* 10. Visual Showcase Gallery (130+ Works) */}
       <GallerySection />
 
-      {/* 9. Turnkey Civil Construction & Villa Architecture */}
+      {/* 11. Turnkey Civil Construction & Villa Architecture */}
       <ManpowerSection />
 
-      {/* 10. Commercial & Educational Campus Fitout Governance */}
+      {/* 12. Commercial & Educational Campus Fitout Governance */}
       <MallExcellence />
 
-      {/* 11. VIP Senior Architect Site Inspection & Audit Booking Desk */}
+      {/* 13. VIP Senior Architect Site Inspection & Audit Booking Desk */}
       <BookingDesk />
 
-      {/* 12. Interactive Estimator Tool */}
+      {/* 14. Interactive Estimator Tool */}
       <EstimatorTool />
 
-      {/* 13. Architectural Mastery & Turnkey Governance */}
+      {/* 15. Architectural Mastery & Turnkey Governance */}
       <FoundersSection />
 
-      {/* 14. Testimonials & Construction FAQs */}
+      {/* 16. Testimonials & Construction FAQs */}
       <TestimonialsSection />
 
-      {/* 15. Direct Contact Booking Desk */}
+      {/* 17. Direct Contact Booking Desk */}
       <ContactSection />
     </div>
   );

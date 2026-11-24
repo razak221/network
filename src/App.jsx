@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 // Dedicated Separate Pages
 import HomePage from './pages/HomePage';
+import LandingPage from './pages/LandingPage';
 import QuoteBuilderPage from './pages/QuoteBuilderPage';
 import ManpowerPage from './pages/ManpowerPage';
 import ProductionPage from './pages/ProductionPage';
@@ -23,6 +24,14 @@ const ROUTE_SEO = {
   '/': {
     title: 'Pristine Decore | Turnkey Civil Construction & Luxury Interior Architecture',
     description: 'Pristine Decore (pristinedecore.com) - Premier atelier for turnkey civil construction, bespoke residential villas, luxury interior architecture, Italian modular kitchens, and corporate commercial fitouts with 10-year structural warranty.'
+  },
+  '/landing': {
+    title: 'Pristine Decore | Flagship Luxury Architecture & Turnkey Design Atelier',
+    description: 'Bespoke luxury interior architecture, Italian modular kitchens, master dressing suites, educational campuses, and turnkey civil construction with 10-year structural warranty.'
+  },
+  '/vip': {
+    title: 'VIP Architectural Consultation & Site Audit | Pristine Decore',
+    description: 'Book private architectural consultation and on-site laser inspection with senior civil and interior architects from Pristine Decore.'
   },
   '/quote': {
     title: 'Cost Estimator & BOQ Studio | Pristine Decore',
@@ -100,6 +109,8 @@ function AppContent() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/vip" element={<LandingPage />} />
           <Route path="/quote" element={<QuoteBuilderPage />} />
           <Route path="/builder" element={<QuoteBuilderPage />} />
           <Route path="/manpower" element={<ManpowerPage />} />
