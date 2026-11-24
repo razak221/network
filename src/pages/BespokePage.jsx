@@ -106,11 +106,11 @@ export default function BespokePage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 perspective-1000">
           {bespokeExamples.map((item, idx) => (
             <div 
               key={idx}
-              className="p-6 rounded-3xl bg-white border border-slate-200 shadow-soft-sm hover:shadow-luxury transition-all space-y-3"
+              className="p-6 rounded-3xl bg-white border border-slate-200 shadow-soft-sm hover:shadow-3d-luxury card-3d-hover transition-all space-y-3"
             >
               <div className="flex items-center justify-between">
                 <span className="w-8 h-8 rounded-xl bg-amber-50 text-amber-700 font-bold text-xs flex items-center justify-center">

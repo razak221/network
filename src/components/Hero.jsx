@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 import { materialPartners } from '../data/galleryData';
+import TiltCard3D from './TiltCard3D';
 
 export default function Hero({ onOpenConfigurator }) {
   const handleWhatsApp = () => {
@@ -82,9 +83,9 @@ export default function Hero({ onOpenConfigurator }) {
             </button>
           </div>
 
-          {/* Pristine Architectural Standards Banner (NO Founders) */}
+          {/* Pristine Architectural Standards Banner */}
           <div className="pt-2 flex justify-center">
-            <div className="inline-flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm text-slate-700 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/90 shadow-luxury-sm">
+            <div className="inline-flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm text-slate-700 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/90 shadow-3d-sm">
               <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
               <span className="text-slate-500 font-medium">Statutory &amp; Quality Credentials:</span>
               <span className="font-bold text-amber-900 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">18+ Years Registered</span>
@@ -97,39 +98,101 @@ export default function Hero({ onOpenConfigurator }) {
             </div>
           </div>
 
-          {/* 4 Trust Metric Cards */}
-          <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-            <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
-              <div className="flex items-center gap-2 text-amber-600 mb-1">
+          {/* Interactive 3D Spatial Feature Banner */}
+          <div className="pt-4 max-w-4xl mx-auto perspective-1200">
+            <TiltCard3D 
+              maxTilt={6} 
+              scale={1.01}
+              className="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-white via-[#FFFDF9] to-amber-50/60 border border-amber-200/80 shadow-3d-luxury text-left relative overflow-hidden"
+            >
+              {/* Subtle 3D background depth illumination */}
+              <div className="absolute top-0 right-0 w-80 h-40 bg-gradient-to-bl from-amber-200/30 to-transparent blur-3xl pointer-events-none"></div>
+
+              <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="space-y-1.5 max-w-xl">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 text-amber-900 text-[11px] font-bold tracking-wider uppercase border border-amber-300/50">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                    <span>3D Spatial Design Architecture</span>
+                  </div>
+                  <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900">
+                    Photorealistic 3D Walkthroughs Before We Cut a Single Panel
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Explore exact marble vein matching, Blum hardware kinematics, and 4500K recessed lighting angles in millimeter-precise 3D space prior to on-site execution.
+                  </p>
+                </div>
+
+                <div className="flex sm:flex-col gap-2 shrink-0">
+                  <span className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-soft-sm flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    3D Isometric BIM
+                  </span>
+                  <span className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-soft-sm flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    Millimeter Tolerances
+                  </span>
+                </div>
+              </div>
+            </TiltCard3D>
+          </div>
+
+          {/* 4 Interactive 3D Trust Metric Cards */}
+          <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left perspective-1000">
+            <TiltCard3D 
+              maxTilt={10} 
+              scale={1.03}
+              className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-3d-luxury hover:border-amber-300 transition-all card-3d-hover"
+            >
+              <div className="flex items-center gap-2 text-amber-600 mb-1" style={{ transform: 'translateZ(20px)' }}>
                 <Building2 className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">18+ Years</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Registered Interior &amp; Architecture Firm</p>
-            </div>
+              <p className="text-xs text-slate-500 font-semibold" style={{ transform: 'translateZ(10px)' }}>
+                Registered Interior &amp; Architecture Firm
+              </p>
+            </TiltCard3D>
 
-            <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
-              <div className="flex items-center gap-2 text-rose-600 mb-1">
+            <TiltCard3D 
+              maxTilt={10} 
+              scale={1.03}
+              className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-3d-luxury hover:border-rose-300 transition-all card-3d-hover"
+            >
+              <div className="flex items-center gap-2 text-rose-600 mb-1" style={{ transform: 'translateZ(20px)' }}>
                 <Palette className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">500+</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Luxury Residential &amp; Campus Interiors Curated</p>
-            </div>
+              <p className="text-xs text-slate-500 font-semibold" style={{ transform: 'translateZ(10px)' }}>
+                Luxury Residential &amp; Campus Interiors Curated
+              </p>
+            </TiltCard3D>
 
-            <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
-              <div className="flex items-center gap-2 text-amber-600 mb-1">
+            <TiltCard3D 
+              maxTilt={10} 
+              scale={1.03}
+              className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-3d-luxury hover:border-amber-300 transition-all card-3d-hover"
+            >
+              <div className="flex items-center gap-2 text-amber-600 mb-1" style={{ transform: 'translateZ(20px)' }}>
                 <Compass className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">Blum &amp; Marble</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">German Hardware Lifetime &amp; Italian Stone</p>
-            </div>
+              <p className="text-xs text-slate-500 font-semibold" style={{ transform: 'translateZ(10px)' }}>
+                German Hardware Lifetime &amp; Italian Stone
+              </p>
+            </TiltCard3D>
 
-            <div className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury">
-              <div className="flex items-center gap-2 text-teal-600 mb-1">
+            <TiltCard3D 
+              maxTilt={10} 
+              scale={1.03}
+              className="p-5 rounded-3xl bg-white border border-slate-200/90 shadow-3d-luxury hover:border-teal-300 transition-all card-3d-hover"
+            >
+              <div className="flex items-center gap-2 text-teal-600 mb-1" style={{ transform: 'translateZ(20px)' }}>
                 <ShieldCheck className="w-5 h-5" />
                 <span className="font-heading font-bold text-xl text-slate-900">10-Yr BOQ</span>
               </div>
-              <p className="text-xs text-slate-500 font-semibold">Fixed-Price Covenant &amp; Turnkey Warranty</p>
-            </div>
+              <p className="text-xs text-slate-500 font-semibold" style={{ transform: 'translateZ(10px)' }}>
+                Fixed-Price Covenant &amp; Turnkey Warranty
+              </p>
+            </TiltCard3D>
           </div>
         </div>
       </div>

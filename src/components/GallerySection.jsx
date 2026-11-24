@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { galleryCategories, galleryItems, materialPartners } from '../data/galleryData';
+import TiltCard3D from './TiltCard3D';
 import { 
   Sparkles, 
   Layers, 
@@ -65,11 +66,13 @@ export default function GallerySection({ onSelectLook }) {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1200">
           {displayItems.map(item => (
-            <div
+            <TiltCard3D
               key={item.id}
-              className="group rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg flex flex-col justify-between transition-all duration-300"
+              maxTilt={6}
+              scale={1.015}
+              className="group rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-luxury hover:shadow-3d-luxury card-3d-hover flex flex-col justify-between transition-all duration-300"
             >
               <div>
                 {/* Image Container with Hover Zoom */}
@@ -137,7 +140,7 @@ export default function GallerySection({ onSelectLook }) {
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-            </div>
+            </TiltCard3D>
           ))}
         </div>
 

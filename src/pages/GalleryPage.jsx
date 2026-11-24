@@ -175,11 +175,11 @@ export default function GalleryPage() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1200">
             {visibleItems.map((item) => (
               <div
                 key={item.id}
-                className="group rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-luxury hover:shadow-luxury-lg transition-all duration-300 flex flex-col justify-between"
+                className="group rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-luxury hover:shadow-3d-luxury card-3d-hover transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Image Container with Luxury Overlay & Lightbox Click */}

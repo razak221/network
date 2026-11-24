@@ -90,6 +90,142 @@
   background: #94A3B8;
 }
 
+/* ==========================================================================
+   PRISTINE DECORE — 3D PERSPECTIVE & SPATIAL DEPTH SYSTEM
+   ========================================================================== */
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.perspective-1600 {
+  perspective: 1600px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 3D Depth Shadows */
+.shadow-3d-sm {
+  box-shadow: 
+    0 4px 6px -1px rgba(15, 23, 42, 0.07),
+    0 2px 4px -2px rgba(15, 23, 42, 0.05),
+    0 10px 20px -3px rgba(197, 131, 43, 0.06);
+}
+
+.shadow-3d-luxury {
+  box-shadow: 
+    0 20px 40px -15px rgba(15, 23, 42, 0.12),
+    0 8px 16px -6px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(226, 232, 240, 0.8),
+    0 30px 60px -12px rgba(197, 131, 43, 0.12);
+}
+
+.shadow-3d-floating {
+  box-shadow: 
+    0 30px 60px -12px rgba(15, 23, 42, 0.18),
+    0 18px 36px -18px rgba(197, 131, 43, 0.25),
+    0 0 0 1px rgba(197, 131, 43, 0.3);
+}
+
+/* 3D Extruded Architectural Walls */
+.wall-3d-extruded {
+  position: relative;
+  box-shadow: 
+    -4px 4px 0px rgba(180, 140, 75, 0.35),
+    -8px 8px 0px rgba(140, 100, 50, 0.2),
+    -12px 14px 24px rgba(15, 23, 42, 0.18);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wall-3d-extruded:hover {
+  transform: translate(3px, -3px);
+  box-shadow: 
+    -6px 6px 0px rgba(180, 140, 75, 0.45),
+    -12px 12px 0px rgba(140, 100, 50, 0.25),
+    -18px 22px 32px rgba(15, 23, 42, 0.25);
+}
+
+/* 3D Floating Animation */
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+  }
+}
+
+.animate-float-3d {
+  animation: float3d 6s ease-in-out infinite;
+}
+
+@keyframes float3d-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(-2deg) rotateY(3deg);
+  }
+}
+
+.animate-float-3d-delayed {
+  animation: float3d-delayed 7s ease-in-out infinite 1.5s;
+}
+
+/* 3D Card Hover Depth */
+.card-3d-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.card-3d-hover:hover {
+  transform: translateY(-8px) rotateX(3deg) rotateY(-2deg);
+  box-shadow: 
+    0 30px 60px -15px rgba(15, 23, 42, 0.15),
+    0 15px 30px -10px rgba(197, 131, 43, 0.2),
+    0 0 0 1px rgba(197, 131, 43, 0.35);
+}
+
+/* 3D Sheen Reflection */
+.sheen-3d {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen-3d::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 60%
+  );
+  transform: rotate(35deg) translateY(-100%);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.sheen-3d:hover::after {
+  transform: rotate(35deg) translateY(100%);
+}
+
 /* Print Optimization for B2B Proposals */
 @media print {
   body {

@@ -81,11 +81,11 @@ export default function AboutPage() {
 
       {/* 3 Studio Divisions */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-1200">
           {studioLeadership.map((division, idx) => (
             <div 
               key={division.title || idx}
-              className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury flex flex-col justify-between"
+              className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-3d-luxury transition-all card-luxury card-3d-hover flex flex-col justify-between"
             >
               <div className="space-y-5">
                 <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 shadow-soft-sm">

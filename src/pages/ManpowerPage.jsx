@@ -61,11 +61,11 @@ export default function ManpowerPage() {
 
       {/* 6 Civil Construction Disciplines */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1200">
           {constructionServices.map((service) => (
             <div 
               key={service.id}
-              className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury flex flex-col justify-between"
+              className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-luxury hover:shadow-3d-luxury transition-all card-luxury card-3d-hover flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-800 flex items-center justify-center font-bold">

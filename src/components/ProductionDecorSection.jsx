@@ -1,5 +1,6 @@
 import React from 'react';
 import { interiorServices } from '../data/servicesData';
+import TiltCard3D from './TiltCard3D';
 import { 
   Sparkles, 
   Layers, 
@@ -32,11 +33,13 @@ export default function ProductionDecorSection() {
         </div>
 
         {/* Interior Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-1200">
           {interiorServices.map((item) => (
-            <div
+            <TiltCard3D
               key={item.id}
-              className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:border-amber-300 transition-all duration-300 flex flex-col justify-between group"
+              maxTilt={6}
+              scale={1.015}
+              className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-3d-luxury card-3d-hover hover:border-amber-300 transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -57,7 +60,7 @@ export default function ProductionDecorSection() {
                 </p>
 
                 <div className="space-y-2 pt-4 border-t border-slate-100">
-                  <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">Specifications & Finishes:</div>
+                  <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">Specifications &amp; Finishes:</div>
                   <ul className="space-y-2">
                     {item.features.map((spec, i) => (
                       <li key={i} className="text-xs sm:text-sm text-slate-600 flex items-start gap-2.5">
@@ -83,7 +86,7 @@ export default function ProductionDecorSection() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
-            </div>
+            </TiltCard3D>
           ))}
         </div>
 

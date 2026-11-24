@@ -51,7 +51,7 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-3d-sm transition-all duration-300">
       {/* Top Banner Alert (Soft Light Champagne) */}
       <div className="bg-amber-50 text-amber-900 border-b border-amber-200/50 px-4 py-1.5 text-xs font-semibold text-center tracking-wide flex flex-wrap items-center justify-center gap-2">
         <span className="inline-block w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>

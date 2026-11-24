@@ -35,11 +35,11 @@ export default function FoundersSection() {
         </div>
 
         {/* 3 Studio Divisions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 perspective-1200">
           {studioLeadership.map((division, idx) => (
             <div
               key={idx}
-              className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:border-amber-300 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-3d-luxury card-3d-hover hover:border-amber-300 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Top Accent Line */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 via-amber-500 to-teal-500 opacity-80 group-hover:opacity-100 transition-opacity"></div>

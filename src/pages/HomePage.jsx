@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import StageVisualizer from '../components/StageVisualizer';
+import TiltCard3D from '../components/TiltCard3D';
 import ManpowerSection from '../components/ManpowerSection';
 import ProductionDecorSection from '../components/ProductionDecorSection';
 import MallExcellence from '../components/MallExcellence';
@@ -20,7 +21,8 @@ import {
   CheckCircle2,
   Building2,
   HardHat,
-  Palette
+  Palette,
+  Box
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -44,80 +46,137 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 perspective-1200">
+            <TiltCard3D 
+              maxTilt={7} 
+              scale={1.02}
+              className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury card-3d-hover space-y-4"
+            >
+              <div 
+                style={{ transform: 'translateZ(18px)' }}
+                className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold shadow-soft-sm"
+              >
                 <Palette className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Luxury Interior Architecture</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              <h3 
+                style={{ transform: 'translateZ(14px)' }}
+                className="font-heading text-xl font-bold text-slate-900"
+              >
+                Luxury Interior Architecture
+              </h3>
+              <p 
+                style={{ transform: 'translateZ(8px)' }}
+                className="text-slate-600 text-xs sm:text-sm leading-relaxed"
+              >
                 Our core mastery: Bookmatched Italian Statuario marble, German Blum modular kitchens, bespoke fluted wall paneling, and architectural smart lighting.
               </p>
-              <Link to="/production" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
+              <Link 
+                to="/production" 
+                style={{ transform: 'translateZ(12px)' }}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2"
+              >
                 <span>View Interior Specs</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-            </div>
+            </TiltCard3D>
 
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
+            <TiltCard3D 
+              maxTilt={7} 
+              scale={1.02}
+              className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury card-3d-hover space-y-4"
+            >
+              <div 
+                style={{ transform: 'translateZ(18px)' }}
+                className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold shadow-soft-sm"
+              >
                 <Building2 className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Commercial &amp; Campus Interiors</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              <h3 
+                style={{ transform: 'translateZ(14px)' }}
+                className="font-heading text-xl font-bold text-slate-900"
+              >
+                Commercial &amp; Campus Interiors
+              </h3>
+              <p 
+                style={{ transform: 'translateZ(8px)' }}
+                className="text-slate-600 text-xs sm:text-sm leading-relaxed"
+              >
                 Smart multimedia school classrooms, acoustic university auditoriums, STEM laboratories, luxury retail boutiques, and corporate office fitouts.
               </p>
-              <Link to="/mall-operations" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
+              <Link 
+                to="/mall-operations" 
+                style={{ transform: 'translateZ(12px)' }}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2"
+              >
                 <span>Review Fitout Standards</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-            </div>
+            </TiltCard3D>
 
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
+            <TiltCard3D 
+              maxTilt={7} 
+              scale={1.02}
+              className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-luxury hover:shadow-luxury-lg transition-all card-luxury card-3d-hover space-y-4"
+            >
+              <div 
+                style={{ transform: 'translateZ(18px)' }}
+                className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold shadow-soft-sm"
+              >
                 <HardHat className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Turnkey Civil Construction</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              <h3 
+                style={{ transform: 'translateZ(14px)' }}
+                className="font-heading text-xl font-bold text-slate-900"
+              >
+                Turnkey Civil Construction
+              </h3>
+              <p 
+                style={{ transform: 'translateZ(8px)' }}
+                className="text-slate-600 text-xs sm:text-sm leading-relaxed"
+              >
                 Complete ground-up structural construction for luxury private villas and educational blocks with seismic RCC framing and a <strong>10-year structural warranty</strong>.
               </p>
-              <Link to="/manpower" className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2">
+              <Link 
+                to="/manpower" 
+                style={{ transform: 'translateZ(12px)' }}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors pt-2"
+              >
                 <span>Explore Civil Architecture</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-            </div>
+            </TiltCard3D>
           </div>
         </div>
       </section>
 
-      {/* 3. Interactive 2D Space Blueprint Teaser */}
+      {/* 3. Interactive 3D Isometric Space Visualizer & 2D Blueprint Teaser */}
       <section className="py-20 bg-[#F4F4F1] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5 space-y-5">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-amber-300 text-amber-900 text-xs font-semibold shadow-soft-sm">
-                <Compass className="w-3.5 h-3.5 text-amber-600" />
-                <span>Proprietary 2D Space Blueprint</span>
+                <Box className="w-3.5 h-3.5 text-amber-600" />
+                <span>Proprietary 3D Isometric &amp; CAD Space Engine</span>
               </div>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
-                Visualize Your Architectural Space <span className="text-gradient-gold">Before Groundbreaking</span>
+                Inspect Your Space in <span className="text-gradient-gold">True 3D Isometric Perspective</span>
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Audit salon proportions, kitchen flow, master suite orientations, and ambient lighting in real-time. Switch between daylight and nocturnal glow modes to preview atmosphere.
+                Experience real-time 3D spatial depth before breaking ground. Switch seamlessly between 3D Isometric Perspective with extruded walls and 2D Architectural CAD Blueprint. Elevate rooms, audit ambient daylight, and inspect luxury finish specs interactively.
               </p>
 
               <div className="space-y-2.5 pt-2 text-xs sm:text-sm text-slate-700">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Real-time spatial clearance & CAD dimension verification</span>
+                  <span>3D Isometric cutaway with extruded architectural slabs &amp; spatial heights</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Interactive day / night ambient glow toggle for lighting audits</span>
+                  <span>Interactive day / night ambient glow toggle for nocturnal lighting audits</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Export instant formal B2B / residential BOQ proposals with one click</span>
+                  <span>Instant switch between 3D volume perspective and 2D CAD dimension blueprint</span>
                 </div>
               </div>
 
