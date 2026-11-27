@@ -16,6 +16,7 @@ import {
   Compass
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import { apiService } from '../services/api';
 import Toast from '../components/Toast';
 
 export default function ContactPage() {
@@ -32,8 +33,22 @@ export default function ContactPage() {
   const [toastMsg, setToastMsg] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const numericArea = Number(String(form.areaSqFt).replace(/[^0-9]/g, '')) || 0;
+    await apiService.submitClientInquiry({
+      name: form.name,
+      company: 'Consultation Desk Inquiry',
+      phone: form.phone,
+      email: form.email,
+      eventType: form.projectType,
+      venue: form.location || 'Site TBD',
+      areaSqFt: numericArea,
+      customRequest: form.message,
+      quotedAmount: 'Consultation Requested',
+      source: 'contact_page_form'
+    });
+
     const msg = 
       `*ARCHITECTURAL CONSULTATION - PRISTINE DECORE (pristinedecore.com)*\n\n` +
       `👤 *Client Name:* ${form.name}\n` +
@@ -43,7 +58,7 @@ export default function ContactPage() {
       `📍 *Location:* ${form.location || 'TBD'}\n` +
       `📐 *Approx Area:* ${form.areaSqFt ? form.areaSqFt + ' sq.ft' : 'Not specified'}\n` +
       `📝 *Scope & Brief:* ${form.message}\n`;
-    setToastMsg("Inquiry dispatched directly to the architectural studio desk!");
+    setToastMsg("Inquiry logged & dispatched directly to the architectural studio desk!");
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
     setSubmitted(true);
   };

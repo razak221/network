@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 import TiltCard3D from './TiltCard3D';
+import SafeImage from './SafeImage';
 
 const MATERIAL_CATEGORIES = [
   { id: 'stone', label: '1. Italian Marble & Quartz' },
@@ -80,7 +81,7 @@ const SWATCH_LIBRARY = {
       name: 'Solid Burma Teak & Crown Veneer',
       origin: 'Myanmar Natural Teak Forest',
       type: 'High Natural Silica Hardwood',
-      image: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef7?w=600&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&auto=format&fit=crop&q=80',
       specs: 'Natural Oil Finish • Termite-Proof • Deep Golden Grain',
       cert: 'Kiln Dried & Seasoned (<10% Moisture)',
       ideal: 'Monumental 10ft Pivot Entrance Doors & Pooja Mandir Ceilings'
@@ -277,7 +278,7 @@ export default function MaterialStudio() {
                 <div className="space-y-4">
                   {/* Swatch Image */}
                   <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200/80">
-                    <img 
+                    <SafeImage 
                       src={material.image} 
                       alt={material.name}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"

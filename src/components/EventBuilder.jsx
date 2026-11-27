@@ -16,6 +16,7 @@ import {
   Check
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import { apiService } from '../services/api';
 import Toast from './Toast';
 import StageVisualizer from './StageVisualizer';
 
@@ -77,13 +78,14 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
 
   const [submitted, setSubmitted] = useState(false);
   const [toastMsg, setToastMsg] = useState('');
+  const [proposalRef] = useState(() => `PD-BOQ-2026-${Math.floor(100000 + Math.random() * 900000)}`);
 
   const toggleScope = (key) => {
     setScope(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
   const updateArea = (delta) => {
-    setAreaSqFt(prev => Math.max(500, prev + delta));
+    setAreaSqFt(prev => Math.min(50000, Math.max(500, prev + delta)));
   };
 
   // Cost Calculation Engine
@@ -113,10 +115,26 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
     return `₹${(val / 100000).toFixed(2)} Lakh`;
   };
 
-  // Generate formatted WhatsApp message
-  const handleWhatsAppBooking = () => {
+  // Generate formatted WhatsApp message & persist inquiry
+  const handleWhatsAppBooking = async () => {
     const selectedProject = PROJECT_TYPES.find(p => p.id === projectType)?.label || projectType;
     const selectedTier = FINISH_TIERS.find(t => t.id === finishTier)?.name || finishTier;
+
+    if (clientInfo.name.trim() && clientInfo.phone.trim()) {
+      await apiService.submitClientInquiry({
+        id: proposalRef,
+        name: clientInfo.name,
+        company: `${selectedTier} Tier`,
+        phone: clientInfo.phone,
+        email: clientInfo.email,
+        eventType: selectedProject,
+        venue: projectLocation || 'Bengaluru / Site TBD',
+        areaSqFt,
+        customRequest: clientInfo.notes,
+        quotedAmount: formatCost(totalEstimate),
+        source: 'quote_builder'
+      });
+    }
 
     let msg = `*NEW ARCHITECTURAL INQUIRY - PRISTINE DECORE*\n\n`;
     msg += `🏛 *Project Type:* ${selectedProject}\n`;
@@ -153,7 +171,7 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
 
   return (
     <section id="builder" className={hideHeader ? "py-4 md:py-6 bg-transparent relative" : "py-20 md:py-28 bg-[#F4F4F1] border-y border-slate-200/80 relative"}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 no-print">
         
         {/* Section Header */}
         {!hideHeader && (
@@ -262,22 +280,34 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
                 </div>
               </div>
 
-              {/* Area Quick Selector Pills */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                {[1200, 2500, 4500, 7500, 12000].map((sqft) => (
-                  <button
-                    key={sqft}
-                    type="button"
-                    onClick={() => setAreaSqFt(sqft)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                      areaSqFt === sqft
-                        ? 'bg-slate-900 text-white border-slate-900'
-                        : 'bg-white border-slate-200 text-slate-600 hover:border-amber-300'
-                    }`}
-                  >
-                    {sqft.toLocaleString()} Sq. Ft
-                  </button>
-                ))}
+              {/* Area Range Slider & Quick Selector Pills */}
+              <div className="space-y-3 pt-1">
+                <input
+                  type="range"
+                  min="500"
+                  max="25000"
+                  step="250"
+                  value={Math.min(25000, areaSqFt)}
+                  onChange={(e) => setAreaSqFt(Number(e.target.value))}
+                  className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
+                  aria-label="Square footage area slider"
+                />
+                <div className="flex flex-wrap gap-2">
+                  {[1200, 2500, 4500, 7500, 12000, 25000].map((sqft) => (
+                    <button
+                      key={sqft}
+                      type="button"
+                      onClick={() => setAreaSqFt(sqft)}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+                        areaSqFt === sqft
+                          ? 'bg-slate-900 text-white border-slate-900'
+                          : 'bg-white border-slate-200 text-slate-600 hover:border-amber-300'
+                      }`}
+                    >
+                      {sqft.toLocaleString()} Sq. Ft
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -496,7 +526,7 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
               Executive BOQ Proposal
             </span>
             <p className="text-xs text-slate-700 font-semibold mt-1">Date: {new Date().toLocaleDateString('en-IN')}</p>
-            <p className="text-xs text-slate-500 font-mono">Proposal Ref: PD-BOQ-2026-{Math.floor(100000 + Math.random() * 900000)}</p>
+            <p className="text-xs text-slate-500 font-mono">Proposal Ref: {proposalRef}</p>
           </div>
         </div>
 

@@ -1047,7 +1047,7 @@ export const galleryItems = [
     "title": "Contemporary Warm Greige Master Retreat",
     "category": "bedrooms",
     "venue": "DLF The Camellias, Gurugram",
-    "image": "https://images.unsplash.com/photo-1540518614846-7ede433c4570?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Textured Linen Wallpaper",
       "Ribbed Headboard",
@@ -1257,7 +1257,7 @@ export const galleryItems = [
     "title": "Minimalist White Lacquer Fitted Wardrobe",
     "category": "closets",
     "venue": "Worli Sea Face, Mumbai",
-    "image": "https://images.unsplash.com/photo-1615870216515-4f6a87c87fec?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "High-Gloss Polyurethane",
       "Touch-Latch Doors",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 export default function Logo({ 
   size = 'md', 
@@ -6,6 +6,10 @@ export default function Logo({
   variant = 'dark',
   className = '' 
 }) {
+  const uid = useId().replace(/:/g, '');
+  const gradId = `logoGoldGrad-${uid}`;
+  const shadowId = `logoShadow-${uid}`;
+
   // Size presets for the icon mark
   const sizeMap = {
     sm: { icon: 'w-8 h-8', text: 'text-lg', sub: 'text-[9px]' },
@@ -22,12 +26,12 @@ export default function Logo({
       <div className={`${currentSize.icon} shrink-0 transition-transform duration-300 group-hover:scale-105 drop-shadow-sm`}>
         <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
           <defs>
-            <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FDE68A" />
               <stop offset="45%" stopColor="#D97706" />
               <stop offset="100%" stopColor="#92400E" />
             </linearGradient>
-            <filter id="logoShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <filter id={shadowId} x="-10%" y="-10%" width="120%" height="120%">
               <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#D97706" floodOpacity="0.25" />
             </filter>
           </defs>
@@ -35,10 +39,10 @@ export default function Logo({
           {/* Hexagonal Diamond Architectural Crest */}
           <path 
             d="M50 8 L88 28 L88 72 L50 92 L12 72 L12 28 Z" 
-            stroke="url(#logoGoldGrad)" 
+            stroke={`url(#${gradId})`} 
             strokeWidth="3" 
             fill={isDark ? "#FFFFFF" : "#0F172A"}
-            filter="url(#logoShadow)" 
+            filter={`url(#${shadowId})`} 
           />
 
           {/* Inner Accent Inset */}
@@ -52,7 +56,7 @@ export default function Logo({
           {/* Stylized 'P' Loop */}
           <path 
             d="M36 68 L36 32 L48 32 C55 32 58 36 58 42 C58 48 55 52 48 52 L36 52" 
-            stroke="url(#logoGoldGrad)" 
+            stroke={`url(#${gradId})`} 
             strokeWidth="4.5" 
             strokeLinecap="round" 
             strokeLinejoin="round" 
@@ -61,7 +65,7 @@ export default function Logo({
           {/* Interlocking 'D' Arc */}
           <path 
             d="M48 32 L54 32 C63 32 69 38 69 50 C69 62 63 68 54 68 L42 68" 
-            stroke="url(#logoGoldGrad)" 
+            stroke={`url(#${gradId})`} 
             strokeWidth="4.5" 
             strokeLinecap="round" 
             strokeLinejoin="round" 
@@ -70,7 +74,7 @@ export default function Logo({
           {/* Apex 4-Point Star Sparkle */}
           <path 
             d="M50 4 Q50 13 54 13 Q50 13 50 22 Q50 13 46 13 Q50 13 50 4 Z" 
-            fill="url(#logoGoldGrad)" 
+            fill={`url(#${gradId})`} 
           />
         </svg>
       </div>
@@ -90,7 +94,7 @@ export default function Logo({
             <span className={`text-[9px] sm:text-[10px] tracking-[0.18em] uppercase font-bold whitespace-nowrap ${
               isDark ? 'text-slate-500' : 'text-slate-400'
             }`}>
-              Construction &amp; Interior Design
+              Interiors &amp; Architecture
             </span>
           </div>
         )}
@@ -98,4 +102,3 @@ export default function Logo({
     </div>
   );
 }
-

@@ -1,18 +1,14 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { 
   Sparkles, 
   ArrowLeftRight, 
   CheckCircle2, 
   Building2, 
-  Palette, 
-  Layers, 
-  ShieldCheck, 
   MapPin, 
-  ArrowRight,
-  Maximize2
+  ArrowRight
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
-import TiltCard3D from './TiltCard3D';
+import SafeImage from './SafeImage';
 
 const TRANSFORMATION_PROJECTS = [
   {
@@ -22,7 +18,7 @@ const TRANSFORMATION_PROJECTS = [
     location: 'Sadashivanagar, Bengaluru',
     category: 'Turnkey Civil to Luxury Interior',
     duration: '6 Months Turnkey Execution',
-    beforeImg: 'https://images.unsplash.com/photo-1541888946425-d0fbb18615f8?w=1200&auto=format&fit=crop&q=80',
+    beforeImg: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&auto=format&fit=crop&q=80',
     afterImg: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80',
     beforeLabel: 'Raw Bare-Shell Concrete & Steel Superstructure',
     afterLabel: 'Handover: Italian Statuario & 3D Fluted Oak Salon',
@@ -103,51 +99,45 @@ const TRANSFORMATION_PROJECTS = [
 
 export default function BeforeAfterSlider() {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [sliderPos, setSliderPos] = useState(50); // percentage 0 to 100
+  const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef(null);
 
   const activeProject = TRANSFORMATION_PROJECTS[activeIdx];
 
-  const handleMove = useCallback((clientX) => {
+  const updateFromClientX = useCallback((clientX) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const clampedX = Math.max(0, Math.min(x, rect.width));
-    const percent = (clampedX / rect.width) * 100;
-    setSliderPos(percent);
+    if (rect.width <= 0) return;
+    const clampedX = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setSliderPos((clampedX / rect.width) * 100);
   }, []);
 
-  const handleTouchMove = useCallback((e) => {
-    if (e.touches && e.touches[0]) {
-      handleMove(e.touches[0].clientX);
-    }
-  }, [handleMove]);
+  const handlePointerDown = (e) => {
+    setIsDragging(true);
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+    updateFromClientX(e.clientX);
+  };
 
-  const handleMouseMove = useCallback((e) => {
-    if (isDragging) {
-      handleMove(e.clientX);
-    }
-  }, [isDragging, handleMove]);
+  const handlePointerMove = (e) => {
+    if (!isDragging) return;
+    updateFromClientX(e.clientX);
+  };
 
-  const handleMouseUp = useCallback(() => {
+  const handlePointerUp = (e) => {
     setIsDragging(false);
-  }, []);
+    e.currentTarget.releasePointerCapture?.(e.pointerId);
+  };
 
-  useEffect(() => {
-    if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleMouseUp);
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      setSliderPos(prev => Math.max(5, prev - 5));
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      setSliderPos(prev => Math.min(95, prev + 5));
     }
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleMouseUp);
-    };
-  }, [isDragging, handleMouseMove, handleMouseUp, handleTouchMove]);
+  };
 
   const handleInquireTransformation = () => {
     const text = `Hello Pristine Decore! I saw your Bare-Shell to Luxury Transformation for "${activeProject.title}" on pristinedecore.com and would like to consult on my upcoming project.`;
@@ -206,7 +196,7 @@ export default function BeforeAfterSlider() {
                     {activeProject.title}
                   </h3>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-slate-500 mt-1">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 mt-1">
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3.5 h-3.5 text-amber-600" />
                     {activeProject.location}
@@ -225,22 +215,24 @@ export default function BeforeAfterSlider() {
               </div>
             </div>
 
-            {/* Drag Container */}
+            {/* Drag Container using pixel-exact CSS clipPath (never squishes on resize or mobile) */}
             <div
               ref={containerRef}
-              onMouseDown={(e) => {
-                setIsDragging(true);
-                handleMove(e.clientX);
-              }}
-              onTouchStart={(e) => {
-                if (e.touches && e.touches[0]) {
-                  handleMove(e.touches[0].clientX);
-                }
-              }}
-              className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl overflow-hidden select-none cursor-ew-resize shadow-inner border border-slate-200"
+              role="slider"
+              tabIndex={0}
+              aria-label="Before and after construction transformation comparison"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(sliderPos)}
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={handlePointerUp}
+              onKeyDown={handleKeyDown}
+              className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl overflow-hidden select-none touch-none cursor-ew-resize shadow-inner border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
             >
-              {/* After Image (Background, Full Width) */}
-              <img
+              {/* After Image (Full Canvas) */}
+              <SafeImage
                 src={activeProject.afterImg}
                 alt={activeProject.afterLabel}
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
@@ -248,54 +240,51 @@ export default function BeforeAfterSlider() {
               />
 
               {/* After Badge (Top Right) */}
-              <div className="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-full bg-slate-950/80 backdrop-blur-md text-amber-300 text-xs font-bold border border-amber-400/40 shadow-luxury pointer-events-none flex items-center gap-1.5">
+              <div className="hidden sm:flex absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-full bg-slate-950/85 backdrop-blur-md text-amber-300 text-xs font-bold border border-amber-400/40 shadow-luxury pointer-events-none items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>AFTER: {activeProject.afterStage}</span>
               </div>
 
-              {/* Before Image (Clipped by slider position) */}
+              {/* Before Layer (GPU-clipped with inset so dimensions match 1:1 without distortion) */}
               <div
-                className="absolute inset-0 overflow-hidden pointer-events-none"
-                style={{ width: `${sliderPos}%` }}
+                className="absolute inset-0 pointer-events-none will-change-[clip-path]"
+                style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
               >
-                <img
+                <SafeImage
                   src={activeProject.beforeImg}
                   alt={activeProject.beforeLabel}
-                  className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                  style={{
-                    width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100%',
-                    maxWidth: 'none'
-                  }}
+                  className="w-full h-full object-cover pointer-events-none"
                   loading="eager"
                 />
-
-                {/* Dark overlay on before image for industrial contrast */}
                 <div className="absolute inset-0 bg-slate-950/20"></div>
-
-                {/* Before Badge (Top Left) */}
-                <div className="absolute top-4 left-4 z-10 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md text-slate-200 text-xs font-bold border border-slate-700 shadow-luxury pointer-events-none flex items-center gap-1.5">
+                <div className="hidden sm:flex absolute top-4 left-4 z-10 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md text-slate-200 text-xs font-bold border border-slate-700 shadow-luxury pointer-events-none items-center gap-1.5">
                   <Building2 className="w-3.5 h-3.5 text-amber-500" />
                   <span>BEFORE: {activeProject.beforeStage}</span>
                 </div>
               </div>
 
-              {/* Vertical Divider Line with Physical Brass Grip Knob */}
+              {/* Compact Mobile Stage Badges */}
+              <div className="sm:hidden absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-slate-900/85 text-white text-[10px] font-bold pointer-events-none">
+                BEFORE
+              </div>
+              <div className="sm:hidden absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-amber-600/90 text-white text-[10px] font-bold pointer-events-none">
+                AFTER
+              </div>
+
+              {/* Vertical Divider Line & Physical Brass Handle */}
               <div
                 className="absolute top-0 bottom-0 z-20 pointer-events-none flex items-center justify-center"
                 style={{ left: `${sliderPos}%`, transform: 'translateX(-50%)' }}
               >
-                {/* Vertical Line */}
-                <div className="w-1 h-full bg-white shadow-[0_0_12px_rgba(0,0,0,0.6)]"></div>
-
-                {/* Center Grip Pill Knob */}
-                <div className="absolute w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 via-amber-500 to-amber-400 text-slate-950 shadow-3d-floating border-2 border-white flex items-center justify-center transform hover:scale-110 transition-transform">
-                  <ArrowLeftRight className="w-5 h-5 font-extrabold drop-shadow" />
+                <div className="w-0.5 sm:w-1 h-full bg-white shadow-[0_0_12px_rgba(0,0,0,0.65)]"></div>
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-amber-600 via-amber-500 to-amber-400 text-slate-950 shadow-3d-floating border-2 border-white flex items-center justify-center">
+                  <ArrowLeftRight className="w-5 h-5" />
                 </div>
               </div>
 
-              {/* Bottom Instructions Helper Pill */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none px-4 py-1 rounded-full bg-slate-950/70 backdrop-blur-md text-[11px] text-slate-300 font-medium border border-white/20">
-                ↔ Drag handle to reveal civil transformation
+              {/* Bottom Helper Pill */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 pointer-events-none px-3.5 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-[10px] sm:text-[11px] text-slate-200 font-medium border border-white/20 whitespace-nowrap">
+                ↔ Drag or use ← / → keys to compare
               </div>
             </div>
 

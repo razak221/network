@@ -121,7 +121,7 @@ export default function BespokePage() {
                 </span>
               </div>
               <h4 className="font-heading font-bold text-base text-slate-900">{item.title}</h4>
-              <p className="text-slate-600 text-xs leading-relaxed">{item.desc || item.detail}</p>
+              <p className="text-slate-600 text-xs leading-relaxed">{item.description || item.desc || item.detail}</p>
             </div>
           ))}
         </div>

@@ -40,33 +40,40 @@ export default function BespokeConcierge() {
           </p>
         </div>
 
-        {/* 4 Example Categories */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {/* Signature Bespoke Capabilities */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14 perspective-1200">
           {bespokeExamples.map((ex, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:border-amber-300 transition-all duration-300 flex flex-col justify-between"
+              className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-3d-luxury card-3d-hover hover:border-amber-300 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-                  {ex.tag}
-                </span>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+                    {ex.tag || 'Bespoke Craft'}
+                  </span>
+                  {ex.leadTime && (
+                    <span className="text-[10px] font-mono font-semibold text-amber-800">
+                      {ex.leadTime}
+                    </span>
+                  )}
+                </div>
                 <h4 className="font-heading font-bold text-lg text-slate-900">
                   {ex.title}
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  {ex.detail}
+                  {ex.description || ex.detail}
                 </p>
               </div>
               <div className="pt-4 mt-4 border-t border-slate-100">
                 <a
-                  href={CONTACT_CONFIG.getWhatsAppUrl(`Hi Pristine Decore! I would like to inquire about ${ex.title} (${ex.tag}).`)}
+                  href={CONTACT_CONFIG.getWhatsAppUrl(`Hi Pristine Decore! I would like to inquire about ${ex.title}${ex.tag ? ` (${ex.tag})` : ''}.`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1"
+                  className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1 group"
                 >
                   <span>Inquire Specification</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>

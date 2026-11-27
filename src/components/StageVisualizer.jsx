@@ -3,18 +3,45 @@ import {
   Compass, 
   Sun, 
   Moon, 
-  Maximize2, 
-  CheckCircle2, 
   Home, 
-  Grid,
-  Layers,
-  Sparkles,
-  ShieldCheck,
+  Grid, 
+  Layers, 
+  Sparkles, 
+  ShieldCheck, 
   Box,
-  Eye,
-  Sliders,
-  ChevronRight
+  RotateCcw,
+  Palette
 } from 'lucide-react';
+
+const STONE_FINISHES = {
+  statuario: {
+    label: 'Italian Statuario',
+    swatchClass: 'bg-gradient-to-br from-slate-50 via-white to-slate-200 border-slate-300',
+    salonDay: 'from-amber-50/95 via-white to-amber-100/40 border-amber-300 text-slate-900',
+    salonNight: 'from-amber-950/50 via-slate-900/90 to-slate-950 border-amber-400/50 text-amber-100',
+    tagName: 'Statuario White Marble'
+  },
+  calacatta: {
+    label: 'Calacatta Gold',
+    swatchClass: 'bg-gradient-to-br from-amber-100 via-amber-50 to-yellow-200 border-amber-400',
+    salonDay: 'from-yellow-50/95 via-amber-50/60 to-amber-100/70 border-amber-400 text-slate-900',
+    salonNight: 'from-amber-900/55 via-stone-900/90 to-slate-950 border-amber-300/60 text-amber-50',
+    tagName: 'Calacatta Borghini Gold'
+  },
+  marquina: {
+    label: 'Nero Marquina',
+    swatchClass: 'bg-gradient-to-br from-slate-800 via-slate-900 to-black border-amber-500/60',
+    salonDay: 'from-slate-800 via-slate-900 to-slate-950 border-amber-400/70 text-white',
+    salonNight: 'from-black via-slate-900 to-amber-950/40 border-amber-400/70 text-amber-100',
+    tagName: 'Spanish Nero Marquina'
+  }
+};
+
+const CAMERA_PRESETS = [
+  { id: 'iso', label: 'Isometric', x: 46, z: -28 },
+  { id: 'low', label: 'Perspective', x: 56, z: -14 },
+  { id: 'elevated', label: 'Birdseye', x: 34, z: -38 }
+];
 
 export default function StageVisualizer({ 
   projectType = 'villa', 
@@ -23,88 +50,191 @@ export default function StageVisualizer({
   scope = {} 
 }) {
   const [nightMode, setNightMode] = useState(false);
-  const [viewMode, setViewMode] = useState('3d'); // '3d' or '2d'
+  const [viewMode, setViewMode] = useState('3d');
   const [selectedRoom, setSelectedRoom] = useState('salon');
+  const [stoneFinish, setStoneFinish] = useState('statuario');
   const [tiltAngle, setTiltAngle] = useState({ x: 46, z: -28 });
+  const [activePreset, setActivePreset] = useState('iso');
 
-  // Pricing multiplier indicator
-  const tierLabel = finishTier === 'ultra' ? 'Royal Bespoke' : finishTier === 'luxury' ? 'Luxury Signature' : 'Premium Standard';
+  const tierLabel = finishTier === 'ultra' || finishTier === 'royal'
+    ? 'Royal Bespoke'
+    : finishTier === 'luxury'
+      ? 'Luxury Signature'
+      : 'Premium Standard';
 
-  const rooms = {
-    salon: {
-      name: "Grand Living & Dining Salon",
-      areaShare: 0.45,
-      spec: "Bookmatched Italian Statuario marble, 3D fluted acoustic oak wall paneling, recessed magnetic track spotlights.",
-      height: "3.4m Ceiling",
-      highlights: ["Italian Statuario Slabs", "DALI Scene Lighting", "Acoustic Slats"]
-    },
-    kitchen: {
-      name: "Modular Chef's Kitchen",
-      areaShare: 0.22,
-      spec: "Anti-scratch matte acrylic joinery, German Blum Aventos hardware, 12mm sintered stone island with mitred 45° waterfall.",
-      height: "2.8m Ceiling",
-      highlights: ["German Blum Hardware", "Sintered Quartz Island", "Zero-VOC Finish"]
-    },
-    suite: {
-      name: "Master Suite & Walk-In Wardrobe",
-      areaShare: 0.33,
-      spec: "Smoked glass profile wardrobes with infrared sensor LED vertical strips, herringbone smoked oak flooring, acoustic false ceiling.",
-      height: "3.0m Ceiling",
-      highlights: ["Sensor Glass Wardrobes", "Herringbone Oak Planks", "Private Ensuite"]
-    },
-    terrace: {
-      name: "Balcony & Hardscape Deck",
-      areaShare: 0.12,
-      spec: "Flamed non-slip travertine stone tiles, frameless structural glass balustrade with stainless-steel base channel.",
-      height: "Open Sky Deck",
-      highlights: ["Flamed Travertine", "Frameless Glass Balustrade", "Perimeter Drains"]
-    }
+  const stone = STONE_FINISHES[stoneFinish];
+  const isDarkSalonSurface = nightMode || stoneFinish === 'marquina';
+  const isCampus = projectType === 'institutional';
+  const isCommercial = projectType === 'commercial' || projectType === 'retail';
+
+  const rooms = isCampus
+    ? {
+        salon: {
+          title: 'Acoustic University Auditorium',
+          tag: '3.8m Acoustic Baffles',
+          share: 0.45,
+          height: '6.2m Tiered Span',
+          shortDesc: 'Micro-perforated timber acoustic paneling, DMX stage lighting, and fire-rated ergonomic tiered seating.',
+          chips: [stone.tagName, 'NRC 0.85 Baffles', 'DMX Stage Control'],
+          spec: `Equipped with ${stone.tagName} lobby paving, micro-perforated acoustic timber baffling, and high-capacity central HVAC.`
+        },
+        kitchen: {
+          title: 'STEM & Research Laboratories',
+          tag: 'Epoxy & Fume Hoods',
+          share: 0.22,
+          height: '3.6m Ceiling',
+          shortDesc: 'Acid-resistant solid epoxy benches, integrated vacuum/gas trunks, and safety shower systems.',
+          chips: ['Epoxy Tops', 'Fume Extraction'],
+          spec: 'Laboratory-grade stainless steel conduits, anti-static vinyl flooring, and NBC 2016 emergency suppression clearance.'
+        },
+        suite: {
+          title: 'Smart Multimedia Classroom Wing',
+          tag: 'Circadian 5000K LED',
+          share: 0.33,
+          height: '3.4m Ceiling',
+          shortDesc: 'Glare-free circadian lighting, integrated interactive digital wall framing, and anti-sag student desks.',
+          chips: ['Acoustic Drywall', 'Smart AV Integration'],
+          spec: 'Engineered for optimal speech clarity (STC 50+ partitions) with heavy-traffic vitrified flooring rated for campuses.'
+        },
+        terrace: {
+          title: 'Academic Quad & Plaza',
+          tag: 'Outdoor Stone',
+          share: 0.12,
+          height: 'Open Campus Courtyard',
+          shortDesc: 'Flamed non-slip granite amphitheater seating and rain-harvesting drainage.'
+        }
+      }
+    : isCommercial
+      ? {
+          salon: {
+            title: 'Executive Atrium & Reception',
+            tag: 'Double-Height Lobby',
+            share: 0.45,
+            height: '4.2m Lobby Span',
+            shortDesc: `${stone.tagName} monolith desk, smoked glass partitions, and architectural magnetic track lights.`,
+            chips: [stone.tagName, 'STC 45 Acoustic Glass', 'DALI Scene Control'],
+            spec: `Showcases bookmatched ${stone.tagName} reception cladding with seamless PDLC switchable glass privacy walls.`
+          },
+          kitchen: {
+            title: 'Breakout Cafe & Barista Lounge',
+            tag: 'Blum Commercial',
+            share: 0.22,
+            height: '3.0m Ceiling',
+            shortDesc: 'Sintered quartz islands, concealed espresso equipment runs, and acoustic PET felt baffles.',
+            chips: ['Blum Hardware', 'Sintered Quartz'],
+            spec: 'High-footfall acoustic dining suite featuring antibacterial sintered surfaces and DALI warm task lighting.'
+          },
+          suite: {
+            title: 'Boardrooms & Agile Pods',
+            tag: 'VRV & Acoustic AV',
+            share: 0.33,
+            height: '3.2m Ceiling',
+            shortDesc: 'Double-glazed demountable glass pods, recessed power trunks, and concealed VRV conditioning.',
+            chips: ['Biometric Access', 'Demountable Glass'],
+            spec: 'Confidential acoustic boardroom envelopes rated at STC 48 with zero-glare teleconferencing illumination.'
+          },
+          terrace: {
+            title: 'Sky Deck Lounge',
+            tag: 'Hardscape',
+            share: 0.12,
+            height: 'Open Sky Deck',
+            shortDesc: 'Flamed non-slip travertine stone tiles with frameless laminated glass railings.'
+          }
+        }
+      : {
+          salon: {
+            title: 'Grand Living & Dining Salon',
+            tag: '3.4m High Ceiling',
+            share: 0.45,
+            height: '3.4m Ceiling',
+            shortDesc: `${stone.tagName} slabs, 3D fluted acoustic oak wall paneling, and recessed magnetic track lights.`,
+            chips: [stone.tagName, '3D Acoustic Fluting', 'DALI Magnetic Tracks'],
+            spec: `Curated with ${stone.tagName}, bookmatched grain alignment, 3D fluted acoustic oak wall paneling, and DALI recessed scene spots.`
+          },
+          kitchen: {
+            title: "Modular Chef's Kitchen",
+            tag: 'Blum Hardware',
+            share: 0.22,
+            height: '2.8m Ceiling',
+            shortDesc: 'Anti-scratch acrylic joinery, German Blum Aventos hardware, 12mm sintered quartz waterfall island.',
+            chips: ['Blum Legrabox', 'Quartz Waterfall'],
+            spec: '100% boiling-water-proof (BWP) marine ply carcass with German Blum Aventos hardware and 45° mitred sintered quartz island.'
+          },
+          suite: {
+            title: 'Master Suite & Walk-In Wardrobe Wing',
+            tag: 'Sensor Closets',
+            share: 0.33,
+            height: '3.0m Ceiling',
+            shortDesc: 'Herringbone smoked oak flooring, tinted bronze glass walk-in wardrobe with sensor LED profiles.',
+            chips: ['Smoked Glass Closets', 'Herringbone Oak'],
+            spec: 'Tinted bronze aluminum-profile wardrobes with 3000K infrared sensor LED rails and custom leather organizer trays.'
+          },
+          terrace: {
+            title: 'Balcony & Deck',
+            tag: 'Outdoor Stone',
+            share: 0.12,
+            height: 'Open Sky Deck',
+            shortDesc: 'Flamed non-slip travertine stone, frameless structural glass balustrade.'
+          }
+        };
+
+  const applyPreset = (preset) => {
+    setActivePreset(preset.id);
+    setTiltAngle({ x: preset.x, z: preset.z });
+    setViewMode('3d');
   };
 
   return (
-    <div className={`rounded-3xl border transition-all duration-500 overflow-hidden shadow-3d-luxury ${
-      nightMode 
-        ? 'bg-[#0B1120] border-amber-500/30 text-white' 
-        : 'bg-white border-slate-200/90 text-slate-900'
-    }`}>
+    <div
+      className={`rounded-3xl border transition-all duration-500 overflow-hidden shadow-3d-luxury ${
+        nightMode 
+          ? 'bg-[#0B1120] border-amber-500/30 text-white' 
+          : 'bg-white border-slate-200/90 text-slate-900'
+      }`}
+    >
       {/* Top Controls Bar */}
-      <div className={`p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 border-b transition-colors ${
-        nightMode ? 'border-white/10 bg-white/[0.02]' : 'border-slate-100 bg-slate-50/70'
-      }`}>
+      <div
+        className={`p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 border-b transition-colors ${
+          nightMode ? 'border-white/10 bg-white/[0.03]' : 'border-slate-100 bg-slate-50/80'
+        }`}
+      >
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 shadow-sm">
-            {viewMode === '3d' ? (
-              <Box className="w-4 h-4 animate-pulse text-amber-600" />
-            ) : (
-              <Compass className="w-4 h-4 text-amber-600" />
-            )}
+          <div className={`w-9 h-9 rounded-xl border flex items-center justify-center shadow-sm ${
+            nightMode ? 'bg-amber-500/20 border-amber-400/40 text-amber-400' : 'bg-amber-500/10 border-amber-500/30 text-amber-600'
+          }`}>
+            {viewMode === '3d' ? <Box className="w-4 h-4" /> : <Compass className="w-4 h-4" />}
           </div>
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <h4 className="font-heading font-bold text-xs sm:text-sm tracking-tight">
                 {viewMode === '3d' ? '3D Isometric Space Perspective' : '2D Architectural Space Blueprint'}
               </h4>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                nightMode
+                  ? 'bg-amber-500/20 text-amber-300 border-amber-400/40'
+                  : 'bg-amber-100 text-amber-900 border-amber-300'
+              }`}>
                 {viewMode === '3d' ? 'Interactive 3D Cutaway' : 'CAD Plan'}
               </span>
             </div>
             <p className={`text-[10px] sm:text-[11px] ${nightMode ? 'text-slate-400' : 'text-slate-500'}`}>
-              Spatial interior modeling for {areaSqFt?.toLocaleString() || '2,500'} Sq. Ft • {tierLabel}
+              Spatial modeling for {areaSqFt?.toLocaleString() || '2,500'} Sq. Ft • {tierLabel}
             </p>
           </div>
         </div>
 
-        {/* View Mode & Lighting Mode Toggles */}
+        {/* View Mode & Lighting Toggles */}
         <div className="flex items-center gap-2">
-          {/* 3D vs 2D Switcher */}
-          <div className="flex items-center p-0.5 rounded-xl bg-slate-200/70 dark:bg-slate-800 text-xs font-semibold">
+          <div className={`flex items-center p-0.5 rounded-xl text-xs font-semibold ${
+            nightMode ? 'bg-slate-800 border border-slate-700' : 'bg-slate-200/70'
+          }`}>
             <button
               type="button"
               onClick={() => setViewMode('3d')}
               className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1 ${
                 viewMode === '3d'
                   ? 'bg-amber-600 text-white font-bold shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
+                  : nightMode ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Box className="w-3.5 h-3.5" />
@@ -116,7 +246,7 @@ export default function StageVisualizer({
               className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1 ${
                 viewMode === '2d'
                   ? 'bg-white text-slate-900 font-bold shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
+                  : nightMode ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Grid className="w-3.5 h-3.5" />
@@ -124,48 +254,104 @@ export default function StageVisualizer({
             </button>
           </div>
 
-          {/* Lighting Mode Toggle */}
           <button
             type="button"
             onClick={() => setNightMode(!nightMode)}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm ${
               nightMode
-                ? 'bg-amber-400 text-slate-950 font-bold'
+                ? 'bg-amber-400 text-slate-950 font-bold hover:bg-amber-300'
                 : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
             }`}
             title="Toggle Daylight Plan / Nocturnal Ambient Glow"
           >
             {nightMode ? <Moon className="w-3.5 h-3.5 fill-slate-950" /> : <Sun className="w-3.5 h-3.5 text-amber-500" />}
-            <span className="hidden sm:inline">{nightMode ? 'Nocturnal Glow' : 'Daylight'}</span>
+            <span className="hidden sm:inline">{nightMode ? 'Nocturnal' : 'Daylight'}</span>
           </button>
         </div>
       </div>
 
+      {/* Interactive Finish & 3D Camera Angle Sub-Toolbar */}
+      <div
+        className={`px-4 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-3 border-b text-[11px] ${
+          nightMode ? 'border-white/10 bg-slate-900/60 text-slate-300' : 'border-slate-100 bg-white text-slate-600'
+        }`}
+      >
+        {/* Live Stone Swatch Selector */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-bold flex items-center gap-1 text-[10px] uppercase tracking-wider opacity-75">
+            <Palette className="w-3 h-3 text-amber-500" />
+            Stone:
+          </span>
+          {Object.entries(STONE_FINISHES).map(([key, item]) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => setStoneFinish(key)}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-[10px] font-bold transition-all ${
+                stoneFinish === key
+                  ? 'border-amber-500 ring-1 ring-amber-500/40 bg-amber-500/10'
+                  : nightMode ? 'border-white/10 hover:border-white/30' : 'border-slate-200 hover:border-amber-300'
+              }`}
+            >
+              <span className={`w-3 h-3 rounded-full border ${item.swatchClass}`}></span>
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* 3D Angle Presets */}
+        {viewMode === '3d' && (
+          <div className="flex items-center gap-1.5">
+            <RotateCcw className="w-3 h-3 text-amber-500" />
+            {CAMERA_PRESETS.map((preset) => (
+              <button
+                key={preset.id}
+                type="button"
+                onClick={() => applyPreset(preset)}
+                className={`px-2 py-0.5 rounded-md text-[10px] font-bold transition-all ${
+                  activePreset === preset.id
+                    ? 'bg-amber-600 text-white'
+                    : nightMode ? 'bg-white/5 text-slate-300 hover:bg-white/15' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                }`}
+              >
+                {preset.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
       {/* Blueprint Visual Canvas (With 3D Isometric Viewport) */}
-      <div className="p-6 relative min-h-[380px] flex flex-col justify-between select-none overflow-hidden">
+      <div className="p-5 sm:p-6 relative min-h-[380px] flex flex-col justify-between select-none overflow-hidden">
         {/* Subtle Architectural Grid Lines */}
-        <div className={`absolute inset-0 pointer-events-none opacity-20 ${
-          nightMode 
-            ? 'bg-[radial-gradient(#F59E0B_1px,transparent_1px)] [background-size:20px_20px]' 
-            : 'bg-[radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:20px_20px]'
-        }`}></div>
+        <div
+          className={`absolute inset-0 pointer-events-none opacity-25 ${
+            nightMode 
+              ? 'bg-[radial-gradient(#F59E0B_1px,transparent_1px)] [background-size:20px_20px]' 
+              : 'bg-[radial-gradient(#94A3B8_1px,transparent_1px)] [background-size:20px_20px]'
+          }`}
+        ></div>
 
         {/* Structural Envelope Outer Dimensions */}
-        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono text-slate-400 pb-2 border-b border-dashed border-slate-300/40">
+        <div className={`relative z-10 flex items-center justify-between text-[10px] font-mono pb-2 border-b border-dashed ${
+          nightMode ? 'text-slate-400 border-slate-700' : 'text-slate-500 border-slate-300/60'
+        }`}>
           <span className="flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
             AXIS A-1 [X: 0.00m]
           </span>
-          <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-800 dark:text-amber-300 font-bold border border-amber-300/30">
-            TOTAL BUILT-UP: {areaSqFt?.toLocaleString() || '2,500'} SQ. FT • HEIGHT: 3.4m
+          <span className={`px-2.5 py-0.5 rounded-full font-bold border ${
+            nightMode
+              ? 'bg-amber-500/15 text-amber-300 border-amber-400/30'
+              : 'bg-amber-500/10 text-amber-900 border-amber-300/50'
+          }`}>
+            AREA: {areaSqFt?.toLocaleString() || '2,500'} SQ. FT • {rooms[selectedRoom]?.height}
           </span>
           <span>AXIS B-4 [Y: 18.50m]</span>
         </div>
 
         {/* 3D VIEWPORT CONTAINER */}
-        <div 
-          className="relative z-10 my-6 py-4 perspective-1200 transition-all duration-700 flex items-center justify-center"
-        >
+        <div className="relative z-10 my-6 py-4 perspective-1200 transition-all duration-700 flex items-center justify-center">
           <div 
             style={{
               transform: viewMode === '3d' 
@@ -176,233 +362,267 @@ export default function StageVisualizer({
             }}
             className="w-full grid grid-cols-12 gap-3.5 preserve-3d"
           >
-            {/* 1. Grand Living & Dining Salon (Span 7) */}
+            {/* 1. Primary Salon / Hall Block (Span 7) */}
             <div 
               onClick={() => setSelectedRoom('salon')}
               style={{
                 transform: selectedRoom === 'salon' && viewMode === '3d' ? 'translateZ(20px)' : 'translateZ(0px)',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              className={`col-span-12 sm:col-span-7 p-4 sm:p-5 rounded-2xl cursor-pointer relative preserve-3d transition-all ${
-                viewMode === '3d' ? 'wall-3d-extruded' : 'border-2'
+              className={`col-span-12 sm:col-span-7 p-4 sm:p-5 rounded-2xl cursor-pointer relative preserve-3d transition-all bg-gradient-to-br ${
+                viewMode === '3d' ? 'wall-3d-extruded border' : 'border-2'
               } ${
-                selectedRoom === 'salon'
-                  ? 'ring-2 ring-amber-500 shadow-gold-glow'
-                  : ''
+                selectedRoom === 'salon' ? 'ring-2 ring-amber-500 shadow-gold-glow' : ''
               } ${
-                nightMode 
-                  ? 'bg-gradient-to-br from-amber-950/40 via-amber-900/20 to-slate-900/80 border-amber-400/50 text-amber-100' 
-                  : 'bg-gradient-to-br from-amber-50/90 via-white to-amber-100/40 border-amber-300 text-slate-900 shadow-soft-sm'
+                nightMode ? stone.salonNight : stone.salonDay
               }`}
             >
-              {/* 3D Floating Spatial Indicator Badge */}
               {viewMode === '3d' && (
                 <div 
                   style={{
-                    transform: 'translateZ(30px) rotateX(-46deg) rotateZ(28deg)',
+                    transform: `translateZ(30px) rotateX(${-tiltAngle.x}deg) rotateZ(${-tiltAngle.z}deg)`,
                     transformOrigin: 'bottom left'
                   }}
-                  className="absolute -top-3 -right-2 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-amber-500 text-slate-950 shadow-3d-sm z-20 pointer-events-none"
+                  className="hidden sm:block absolute -top-3 -right-2 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-amber-500 text-slate-950 shadow-3d-sm z-20 pointer-events-none"
                 >
-                  3.4m High Ceiling
+                  {rooms.salon.tag}
                 </div>
               )}
 
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="text-xs sm:text-sm font-bold font-heading flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                  Grand Living &amp; Dining Salon
+                  <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                  {rooms.salon.title}
                 </span>
-                <span className="text-[10px] font-mono font-bold text-amber-700 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded border border-amber-300/40">
+                <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border shrink-0 ${
+                  isDarkSalonSurface
+                    ? 'bg-amber-950/70 text-amber-300 border-amber-400/40'
+                    : 'bg-amber-50 text-amber-800 border-amber-300/60'
+                }`}>
                   ~{(areaSqFt * 0.45).toFixed(0)} Sq.Ft
                 </span>
               </div>
-              <p className="text-[11px] opacity-80 leading-relaxed">
-                Bookmatched Italian Statuario marble slabs, double-height acoustic fluting, recessed magnetic track lights.
+              <p className="text-[11px] opacity-85 leading-relaxed">
+                {rooms.salon.shortDesc}
               </p>
               <div className="mt-3 flex flex-wrap gap-1.5">
-                <span className="text-[9px] px-2 py-0.5 rounded bg-white/80 dark:bg-white/10 font-medium border border-amber-200/50">✦ Bookmatched Marble</span>
-                <span className="text-[9px] px-2 py-0.5 rounded bg-white/80 dark:bg-white/10 font-medium border border-amber-200/50">✦ 3D Acoustic Fluting</span>
-                <span className="text-[9px] px-2 py-0.5 rounded bg-white/80 dark:bg-white/10 font-medium border border-amber-200/50">✦ DALI Magnetic Tracks</span>
+                {rooms.salon.chips.map((chip, cIdx) => (
+                  <span
+                    key={cIdx}
+                    className={`text-[9px] px-2 py-0.5 rounded font-medium border ${
+                      isDarkSalonSurface
+                        ? 'bg-white/10 text-amber-100 border-white/15'
+                        : 'bg-white/85 text-slate-800 border-amber-200/70'
+                    }`}
+                  >
+                    ✦ {chip}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* 2. Modular Chef's Kitchen (Span 5) */}
+            {/* 2. Kitchen / Lab Block (Span 5) */}
             <div 
               onClick={() => setSelectedRoom('kitchen')}
               style={{
                 transform: selectedRoom === 'kitchen' && viewMode === '3d' ? 'translateZ(20px)' : 'translateZ(0px)',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              className={`col-span-12 sm:col-span-5 p-4 sm:p-5 rounded-2xl cursor-pointer relative preserve-3d transition-all ${
-                viewMode === '3d' ? 'wall-3d-extruded' : 'border-2'
+              className={`col-span-12 sm:col-span-5 p-4 sm:p-5 rounded-2xl cursor-pointer relative preserve-3d transition-all bg-gradient-to-br ${
+                viewMode === '3d' ? 'wall-3d-extruded border' : 'border-2'
               } ${
-                selectedRoom === 'kitchen'
-                  ? 'ring-2 ring-teal-500 shadow-soft-lg'
-                  : ''
+                selectedRoom === 'kitchen' ? 'ring-2 ring-teal-500 shadow-soft-lg' : ''
               } ${
                 nightMode 
-                  ? 'bg-gradient-to-br from-teal-950/40 via-teal-900/20 to-slate-900/80 border-teal-400/50 text-teal-100' 
-                  : 'bg-gradient-to-br from-teal-50/90 via-white to-teal-100/40 border-teal-200 text-slate-900 shadow-soft-sm'
+                  ? 'from-teal-950/60 via-slate-900/90 to-slate-950 border-teal-400/50 text-teal-100' 
+                  : 'from-teal-50/95 via-white to-teal-100/40 border-teal-200 text-slate-900 shadow-soft-sm'
               }`}
             >
               {viewMode === '3d' && (
                 <div 
                   style={{
-                    transform: 'translateZ(30px) rotateX(-46deg) rotateZ(28deg)',
+                    transform: `translateZ(30px) rotateX(${-tiltAngle.x}deg) rotateZ(${-tiltAngle.z}deg)`,
                     transformOrigin: 'bottom left'
                   }}
-                  className="absolute -top-3 -right-2 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-teal-600 text-white shadow-3d-sm z-20 pointer-events-none"
+                  className="hidden sm:block absolute -top-3 -right-2 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-teal-600 text-white shadow-3d-sm z-20 pointer-events-none"
                 >
-                  Blum Hardware
+                  {rooms.kitchen.tag}
                 </div>
               )}
 
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="text-xs sm:text-sm font-bold font-heading flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-teal-600" />
-                  Modular Chef's Kitchen
+                  <Layers className="w-3.5 h-3.5 text-teal-500 shrink-0" />
+                  {rooms.kitchen.title}
                 </span>
-                <span className="text-[10px] font-mono font-bold text-teal-800 bg-teal-50 dark:bg-teal-950/60 px-2 py-0.5 rounded border border-teal-300/40">
+                <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border shrink-0 ${
+                  nightMode
+                    ? 'bg-teal-950/70 text-teal-300 border-teal-400/40'
+                    : 'bg-teal-50 text-teal-800 border-teal-300/60'
+                }`}>
                   ~{(areaSqFt * 0.22).toFixed(0)} Sq.Ft
                 </span>
               </div>
-              <p className="text-[11px] opacity-80 leading-relaxed">
-                Anti-scratch acrylic joinery, German Blum Aventos hardware, 12mm sintered quartz waterfall island.
+              <p className="text-[11px] opacity-85 leading-relaxed">
+                {rooms.kitchen.shortDesc}
               </p>
               <div className="mt-3 flex flex-wrap gap-1.5">
-                <span className="text-[9px] px-2 py-0.5 rounded bg-white/80 dark:bg-white/10 font-medium border border-teal-200/50">✦ Blum Legrabox</span>
-                <span className="text-[9px] px-2 py-0.5 rounded bg-white/80 dark:bg-white/10 font-medium border border-teal-200/50">✦ Quartz Waterfall</span>
+                {rooms.kitchen.chips.map((chip, cIdx) => (
+                  <span
+                    key={cIdx}
+                    className={`text-[9px] px-2 py-0.5 rounded font-medium border ${
+                      nightMode
+                        ? 'bg-white/10 text-teal-100 border-white/15'
+                        : 'bg-white/85 text-slate-800 border-teal-200/70'
+                    }`}
+                  >
+                    ✦ {chip}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* 3. Master Suite & Walk-In Wardrobe (Span 8) */}
+            {/* 3. Master Suite / Classroom Wing (Span 8) */}
             <div 
               onClick={() => setSelectedRoom('suite')}
               style={{
                 transform: selectedRoom === 'suite' && viewMode === '3d' ? 'translateZ(20px)' : 'translateZ(0px)',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              className={`col-span-12 sm:col-span-8 p-4 sm:p-5 rounded-2xl cursor-pointer relative preserve-3d transition-all ${
-                viewMode === '3d' ? 'wall-3d-extruded' : 'border-2'
+              className={`col-span-12 sm:col-span-8 p-4 sm:p-5 rounded-2xl cursor-pointer relative preserve-3d transition-all bg-gradient-to-br ${
+                viewMode === '3d' ? 'wall-3d-extruded border' : 'border-2'
               } ${
-                selectedRoom === 'suite'
-                  ? 'ring-2 ring-indigo-500 shadow-soft-lg'
-                  : ''
+                selectedRoom === 'suite' ? 'ring-2 ring-indigo-500 shadow-soft-lg' : ''
               } ${
                 nightMode 
-                  ? 'bg-gradient-to-br from-indigo-950/40 via-indigo-900/20 to-slate-900/80 border-indigo-400/50 text-indigo-100' 
-                  : 'bg-gradient-to-br from-indigo-50/90 via-white to-indigo-100/40 border-indigo-200 text-slate-900 shadow-soft-sm'
+                  ? 'from-indigo-950/60 via-slate-900/90 to-slate-950 border-indigo-400/50 text-indigo-100' 
+                  : 'from-indigo-50/95 via-white to-indigo-100/40 border-indigo-200 text-slate-900 shadow-soft-sm'
               }`}
             >
               {viewMode === '3d' && (
                 <div 
                   style={{
-                    transform: 'translateZ(30px) rotateX(-46deg) rotateZ(28deg)',
+                    transform: `translateZ(30px) rotateX(${-tiltAngle.x}deg) rotateZ(${-tiltAngle.z}deg)`,
                     transformOrigin: 'bottom left'
                   }}
-                  className="absolute -top-3 -right-2 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-indigo-600 text-white shadow-3d-sm z-20 pointer-events-none"
+                  className="hidden sm:block absolute -top-3 -right-2 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-indigo-600 text-white shadow-3d-sm z-20 pointer-events-none"
                 >
-                  Sensor Closets
+                  {rooms.suite.tag}
                 </div>
               )}
 
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="text-xs sm:text-sm font-bold font-heading flex items-center gap-1.5">
-                  <Home className="w-3.5 h-3.5 text-indigo-600" />
-                  Master Suite &amp; Walk-In Wardrobe Wing
+                  <Home className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                  {rooms.suite.title}
                 </span>
-                <span className="text-[10px] font-mono font-bold text-indigo-800 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded border border-indigo-300/40">
+                <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border shrink-0 ${
+                  nightMode
+                    ? 'bg-indigo-950/70 text-indigo-300 border-indigo-400/40'
+                    : 'bg-indigo-50 text-indigo-800 border-indigo-300/60'
+                }`}>
                   ~{(areaSqFt * 0.33).toFixed(0)} Sq.Ft
                 </span>
               </div>
-              <p className="text-[11px] opacity-80 leading-relaxed">
-                Herringbone smoked oak flooring, tinted bronze glass walk-in wardrobe with sensor LED profiles and ensuite bath.
+              <p className="text-[11px] opacity-85 leading-relaxed">
+                {rooms.suite.shortDesc}
               </p>
               <div className="mt-3 flex flex-wrap gap-1.5">
-                <span className="text-[9px] px-2 py-0.5 rounded bg-white/80 dark:bg-white/10 font-medium border border-indigo-200/50">✦ Smoked Glass Closets</span>
-                <span className="text-[9px] px-2 py-0.5 rounded bg-white/80 dark:bg-white/10 font-medium border border-indigo-200/50">✦ Herringbone Oak</span>
+                {rooms.suite.chips.map((chip, cIdx) => (
+                  <span
+                    key={cIdx}
+                    className={`text-[9px] px-2 py-0.5 rounded font-medium border ${
+                      nightMode
+                        ? 'bg-white/10 text-indigo-100 border-white/15'
+                        : 'bg-white/85 text-slate-800 border-indigo-200/70'
+                    }`}
+                  >
+                    ✦ {chip}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* 4. Terrace Balcony & Hardscape Deck (Span 4) */}
+            {/* 4. Terrace / Quad Block (Span 4) */}
             <div 
               onClick={() => setSelectedRoom('terrace')}
               style={{
                 transform: selectedRoom === 'terrace' && viewMode === '3d' ? 'translateZ(20px)' : 'translateZ(0px)',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              className={`col-span-12 sm:col-span-4 p-4 sm:p-5 rounded-2xl cursor-pointer relative preserve-3d transition-all ${
-                viewMode === '3d' ? 'wall-3d-extruded' : 'border-2'
+              className={`col-span-12 sm:col-span-4 p-4 sm:p-5 rounded-2xl cursor-pointer relative preserve-3d transition-all bg-gradient-to-br ${
+                viewMode === '3d' ? 'wall-3d-extruded border' : 'border-2'
               } ${
-                selectedRoom === 'terrace'
-                  ? 'ring-2 ring-rose-500 shadow-soft-lg'
-                  : ''
+                selectedRoom === 'terrace' ? 'ring-2 ring-rose-500 shadow-soft-lg' : ''
               } ${
                 nightMode 
-                  ? 'bg-gradient-to-br from-rose-950/40 via-rose-900/20 to-slate-900/80 border-rose-400/50 text-rose-100' 
-                  : 'bg-gradient-to-br from-rose-50/90 via-white to-rose-100/40 border-rose-200 text-slate-900 shadow-soft-sm'
+                  ? 'from-rose-950/60 via-slate-900/90 to-slate-950 border-rose-400/50 text-rose-100' 
+                  : 'from-rose-50/95 via-white to-rose-100/40 border-rose-200 text-slate-900 shadow-soft-sm'
               }`}
             >
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="text-xs sm:text-sm font-bold font-heading">
-                  Balcony &amp; Deck
+                  {rooms.terrace.title}
                 </span>
-                <span className="text-[10px] font-mono font-bold text-rose-800 bg-rose-50 dark:bg-rose-950/60 px-2 py-0.5 rounded border border-rose-300/40">
+                <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border shrink-0 ${
+                  nightMode
+                    ? 'bg-rose-950/70 text-rose-300 border-rose-400/40'
+                    : 'bg-rose-50 text-rose-800 border-rose-300/60'
+                }`}>
                   ~{(areaSqFt * 0.12).toFixed(0)} Sq.Ft
                 </span>
               </div>
-              <p className="text-[11px] opacity-80 leading-relaxed">
-                Flamed non-slip travertine stone, frameless glass balustrade.
+              <p className="text-[11px] opacity-85 leading-relaxed">
+                {rooms.terrace.shortDesc}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Selected Room Interactive 3D Drawer */}
+        {/* Selected Room Interactive 3D Inspection Drawer */}
         {selectedRoom && rooms[selectedRoom] && (
           <div className={`relative z-10 p-3.5 sm:p-4 rounded-2xl border transition-all mt-2 ${
             nightMode 
-              ? 'bg-white/5 border-white/10 text-slate-200' 
+              ? 'bg-white/[0.06] border-white/15 text-slate-200' 
               : 'bg-slate-50/90 border-slate-200 text-slate-800'
           }`}>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
-                <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                  Inspecting: {rooms[selectedRoom].name}
+                <span className={`text-xs font-bold uppercase tracking-wider ${nightMode ? 'text-white' : 'text-slate-900'}`}>
+                  Inspecting: {rooms[selectedRoom].title}
                 </span>
-                <span className="text-[10px] font-mono bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-2 py-0.5 rounded">
+                <span className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                  nightMode ? 'bg-amber-900/50 text-amber-300' : 'bg-amber-100 text-amber-900'
+                }`}>
                   {rooms[selectedRoom].height}
                 </span>
               </div>
-              <div className="flex flex-wrap items-center gap-2 text-[11px]">
-                {rooms[selectedRoom].highlights.map((h, i) => (
-                  <span key={i} className="font-semibold text-amber-700 dark:text-amber-400">
-                    {h} {i < rooms[selectedRoom].highlights.length - 1 ? '•' : ''}
-                  </span>
-                ))}
-              </div>
+              <span className={`text-[11px] font-semibold ${nightMode ? 'text-amber-400' : 'text-amber-700'}`}>
+                Click any room slab to inspect
+              </span>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
-              {rooms[selectedRoom].spec}
+            <p className={`text-xs mt-1.5 leading-relaxed ${nightMode ? 'text-slate-300' : 'text-slate-600'}`}>
+              {rooms[selectedRoom].spec || rooms[selectedRoom].shortDesc}
             </p>
           </div>
         )}
 
         {/* Blueprint Footer Specs */}
-        <div className="relative z-10 pt-3 mt-3 border-t border-slate-200/50 flex flex-wrap items-center justify-between text-[11px] text-slate-500">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1 font-semibold text-emerald-700">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+        <div className={`relative z-10 pt-3 mt-3 border-t flex flex-wrap items-center justify-between gap-2 text-[11px] ${
+          nightMode ? 'border-white/10 text-slate-400' : 'border-slate-200/70 text-slate-500'
+        }`}>
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className={`flex items-center gap-1 font-semibold ${nightMode ? 'text-emerald-400' : 'text-emerald-700'}`}>
+              <ShieldCheck className={`w-3.5 h-3.5 ${nightMode ? 'text-emerald-400' : 'text-emerald-600'}`} />
               18+ Years Registered Craft
             </span>
-            <span className="text-slate-300">•</span>
+            <span className="opacity-40">•</span>
             <span>10-Yr Structural Warranty</span>
-            <span className="text-slate-300">•</span>
-            <span>Fixed-Price BOQ</span>
+            <span className="opacity-40 hidden sm:inline">•</span>
+            <span className="hidden sm:inline">Fixed-Price BOQ</span>
           </div>
-          <span className="font-mono font-bold text-amber-700">
+          <span className={`font-mono font-bold ${nightMode ? 'text-amber-400' : 'text-amber-700'}`}>
             3D MODEL: PD-ISO-2026-V3
           </span>
         </div>

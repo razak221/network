@@ -11,7 +11,7 @@ export const studioLeadership = [
     bio: "Spearheads ground-up villa construction, structural load analysis, seismic compliance, and foundation engineering. Ensures rigorous concrete quality testing and zero-defect civil execution.",
     stats: "250+ Turnkey Structures Delivered",
     focus: ["Structural RCC Blueprinting", "Seismic & Municipal Clearances", "Laboratory Material Testing"],
-    avatar: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?w=600&auto=format&fit=crop&q=80",
+    avatar: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&auto=format&fit=crop&q=80",
     badge: "Structural Engineering"
   },
   {

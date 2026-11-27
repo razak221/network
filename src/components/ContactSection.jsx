@@ -13,6 +13,7 @@ import {
   Building2
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import { apiService } from '../services/api';
 import Toast from './Toast';
 
 export default function ContactSection() {
@@ -28,8 +29,22 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [toastMsg, setToastMsg] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const numericArea = Number(String(form.areaSqFt).replace(/[^0-9]/g, '')) || 0;
+    await apiService.submitClientInquiry({
+      name: form.name,
+      company: 'Studio Consultation Inquiry',
+      phone: form.phone,
+      email: form.email,
+      eventType: form.projectType,
+      venue: 'Bengaluru / Site TBD',
+      areaSqFt: numericArea,
+      customRequest: form.message,
+      quotedAmount: 'Consultation Requested',
+      source: 'home_contact_form'
+    });
+
     const msg = 
       `*STUDIO CONSULTATION INQUIRY - PRISTINE DECORE (pristinedecore.com)*\n\n` +
       `Name: ${form.name}\n` +
@@ -38,7 +53,7 @@ export default function ContactSection() {
       `Project Typology: ${form.projectType}\n` +
       `Approx Area: ${form.areaSqFt ? form.areaSqFt + ' sq.ft' : 'Not specified'}\n` +
       `Project Details: ${form.message}\n`;
-    setToastMsg("Inquiry dispatched to architectural studio desk!");
+    setToastMsg("Inquiry logged & dispatched to architectural studio desk!");
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
     setSubmitted(true);
   };

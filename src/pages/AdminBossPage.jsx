@@ -64,12 +64,24 @@ export default function AdminBossPage() {
     company: '',
     phone: '',
     email: '',
-    eventType: 'Mall Activation',
+    eventType: 'Luxury Interior Architecture',
     venue: '',
-    durationDays: 1,
+    areaSqFt: 2500,
     notes: '',
-    quotedAmount: '₹50,000'
+    quotedAmount: '₹65.00 Lakh'
   });
+
+  // Close modals on Escape key
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedInquiry(null);
+        setShowCreateModal(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   // Verify Backend Health on Mount
   useEffect(() => {
@@ -161,8 +173,9 @@ export default function AdminBossPage() {
     const res = await apiService.submitClientInquiry({
       ...newLead,
       source: 'manual_admin_entry',
-      totalCrew: 4,
-      totalMaterials: 2
+      customRequest: newLead.notes,
+      totalCrew: 0,
+      totalMaterials: 0
     });
     if (res.success) {
       setInquiries(prev => [res.inquiry, ...prev]);
@@ -172,11 +185,11 @@ export default function AdminBossPage() {
         company: '',
         phone: '',
         email: '',
-        eventType: 'Mall Activation',
+        eventType: 'Luxury Interior Architecture',
         venue: '',
-        durationDays: 1,
+        areaSqFt: 2500,
         notes: '',
-        quotedAmount: '₹50,000'
+        quotedAmount: '₹65.00 Lakh'
       });
       showNotification(`New client record ${res.id} created!`);
     }
@@ -199,22 +212,21 @@ export default function AdminBossPage() {
   const totalCount = inquiries.length;
   const newCount = inquiries.filter(i => i.status === 'new').length;
   const activePipeline = inquiries.filter(i => i.status === 'quoted' || i.status === 'in_review').length;
-  const totalHeadcount = inquiries.reduce((acc, i) => acc + (i.totalCrew || 0), 0);
+  const totalSqFt = inquiries.reduce((acc, i) => acc + (Number(i.areaSqFt) || 0), 0);
   const confirmedCount = inquiries.filter(i => i.status === 'confirmed').length;
 
   // Export CSV
   const handleExportCSV = () => {
-    const headers = ["Ref ID", "Date", "Client Name", "Company", "Phone", "Email", "Event Type", "Venue", "Crew Total", "Status", "Quoted Value"];
+    const headers = ["Ref ID", "Date", "Client Name", "Typology", "Phone", "Email", "Site Location", "Area (Sq.Ft)", "Status", "Quoted Value"];
     const rows = filteredInquiries.map(i => [
       i.id,
       new Date(i.createdAt).toLocaleDateString(),
       `"${i.name || ''}"`,
-      `"${i.company || ''}"`,
+      `"${i.eventType || ''}"`,
       `"${i.phone || ''}"`,
       `"${i.email || ''}"`,
-      `"${i.eventType || ''}"`,
       `"${i.venue || ''}"`,
-      i.totalCrew || 0,
+      i.areaSqFt || 0,
       i.status || 'new',
       `"${i.quotedAmount || 'Pending'}"`
     ]);
@@ -468,14 +480,16 @@ export default function AdminBossPage() {
 
           <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-luxury card-luxury space-y-2">
             <div className="flex items-center justify-between text-slate-500">
-              <span className="text-xs font-bold uppercase tracking-wider">Crew Headcount</span>
+              <span className="text-xs font-bold uppercase tracking-wider">Portfolio Pipeline</span>
               <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold">
-                <Users className="w-4 h-4" />
+                <Layers className="w-4 h-4" />
               </div>
             </div>
-            <div className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">{totalHeadcount}</div>
+            <div className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">
+              {totalSqFt > 0 ? `${(totalSqFt / 1000).toFixed(1)}k` : '0'}
+            </div>
             <div className="text-[11px] text-slate-500 font-medium">
-              Requested Staff Across Events
+              Total Sq. Ft Across Active Inquiries
             </div>
           </div>
 
@@ -502,7 +516,7 @@ export default function AdminBossPage() {
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search by client name, company, mall venue, or phone..."
+                placeholder="Search by client name, typology, Bengaluru site location, or phone..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition-all"
@@ -550,11 +564,11 @@ export default function AdminBossPage() {
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-slate-50/80 border-b border-slate-200 text-slate-500 uppercase tracking-wider text-[11px] font-bold">
-                  <th className="py-4 px-4 sm:px-6">Ref & Date</th>
-                  <th className="py-4 px-4">Client & Company</th>
+                  <th className="py-4 px-4 sm:px-6">Ref &amp; Date</th>
+                  <th className="py-4 px-4">Client &amp; Typology</th>
                   <th className="py-4 px-4">Direct Contact</th>
-                  <th className="py-4 px-4">Target Venue</th>
-                  <th className="py-4 px-4 text-center">Crew Count</th>
+                  <th className="py-4 px-4">Site Location</th>
+                  <th className="py-4 px-4 text-center">Area / Estimate</th>
                   <th className="py-4 px-4 text-center">Status</th>
                   <th className="py-4 px-4 text-right">Actions</th>
                 </tr>
@@ -576,7 +590,7 @@ export default function AdminBossPage() {
                       completed: 'bg-slate-100 text-slate-800 border-slate-200'
                     };
 
-                    const waMessage = `Hi ${inq.name}! This is Pristine Decore regarding your event inquiry (${inq.id}) for ${inq.venue || 'your upcoming event'}. We have prepared your quotation brief.`;
+                    const waMessage = `Hi ${inq.name}! This is Pristine Decore regarding your architectural inquiry (${inq.id}) for ${inq.venue || 'your upcoming project'}. We have prepared your BOQ brief.`;
 
                     return (
                       <tr key={inq.id} className="hover:bg-slate-50/70 transition-colors group">
@@ -592,7 +606,7 @@ export default function AdminBossPage() {
                         {/* Client & Brand */}
                         <td className="py-4 px-4">
                           <div className="font-bold text-slate-900">{inq.name}</div>
-                          <div className="text-[11px] text-slate-500">{inq.company || 'Direct Brand'}</div>
+                          <div className="text-[11px] text-slate-500">{inq.company || 'Direct Client'}</div>
                         </td>
 
                         {/* Phone & WhatsApp */}
@@ -612,18 +626,18 @@ export default function AdminBossPage() {
                           {inq.email && <span className="text-[10px] text-slate-400 block">{inq.email}</span>}
                         </td>
 
-                        {/* Venue */}
+                        {/* Site Location */}
                         <td className="py-4 px-4">
                           <span className="text-slate-800 font-medium block truncate max-w-[180px]">
                             {inq.venue || 'TBD'}
                           </span>
-                          <span className="text-[10px] text-slate-400">{inq.eventType}</span>
+                          <span className="text-[10px] text-slate-400 block truncate max-w-[180px]">{inq.eventType}</span>
                         </td>
 
-                        {/* Headcount */}
+                        {/* Area & Estimate */}
                         <td className="py-4 px-4 text-center">
-                          <span className="inline-block px-2.5 py-1 rounded-xl bg-slate-100 font-bold text-slate-800">
-                            {inq.totalCrew || 0} Staff
+                          <span className="inline-block px-2.5 py-1 rounded-xl bg-amber-50 font-bold text-amber-900 border border-amber-200/70">
+                            {inq.areaSqFt ? `${Number(inq.areaSqFt).toLocaleString()} Sq.Ft` : inq.quotedAmount || 'BOQ'}
                           </span>
                         </td>
 
@@ -708,15 +722,17 @@ export default function AdminBossPage() {
                 <span className="font-bold text-slate-900">{selectedInquiry.phone}</span>
               </div>
               <div>
-                <span className="text-slate-400 font-semibold uppercase block text-[10px]">Target Venue</span>
+                <span className="text-slate-400 font-semibold uppercase block text-[10px]">Site Location</span>
                 <span className="font-bold text-slate-900">{selectedInquiry.venue || 'TBD'}</span>
               </div>
               <div>
-                <span className="text-slate-400 font-semibold uppercase block text-[10px]">Duration</span>
-                <span className="font-bold text-slate-900">{selectedInquiry.durationDays} Day(s)</span>
+                <span className="text-slate-400 font-semibold uppercase block text-[10px]">Built-Up Area</span>
+                <span className="font-bold text-slate-900">
+                  {selectedInquiry.areaSqFt ? `${Number(selectedInquiry.areaSqFt).toLocaleString()} Sq. Ft` : `${selectedInquiry.durationDays || 30} Days`}
+                </span>
               </div>
               <div>
-                <span className="text-slate-400 font-semibold uppercase block text-[10px]">Event Type</span>
+                <span className="text-slate-400 font-semibold uppercase block text-[10px]">Architectural Typology</span>
                 <span className="font-bold text-slate-900">{selectedInquiry.eventType}</span>
               </div>
               <div>
@@ -724,16 +740,16 @@ export default function AdminBossPage() {
                 <span className="font-bold text-amber-800 uppercase">{selectedInquiry.status}</span>
               </div>
               <div>
-                <span className="text-slate-400 font-semibold uppercase block text-[10px]">Quoted Value</span>
+                <span className="text-slate-400 font-semibold uppercase block text-[10px]">Estimated Value</span>
                 <span className="font-bold text-emerald-700">{selectedInquiry.quotedAmount || 'Pending'}</span>
               </div>
             </div>
 
-            {/* Manpower Breakdown */}
-            {selectedInquiry.crew && Object.keys(selectedInquiry.crew).length > 0 && (
+            {/* Site Supervision Resources (only if values > 0) */}
+            {selectedInquiry.crew && Object.values(selectedInquiry.crew).some(v => Number(v) > 0) && (
               <div className="space-y-2">
                 <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-slate-500">
-                  Requested Event Manpower ({selectedInquiry.totalCrew} Total)
+                  Allocated Field Engineering Staff ({selectedInquiry.totalCrew} Total)
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
                   {Object.entries(selectedInquiry.crew).map(([role, count]) => (
@@ -748,11 +764,11 @@ export default function AdminBossPage() {
               </div>
             )}
 
-            {/* Production Breakdown */}
-            {selectedInquiry.materials && Object.keys(selectedInquiry.materials).length > 0 && (
+            {/* Production Breakdown (only if values > 0) */}
+            {selectedInquiry.materials && Object.values(selectedInquiry.materials).some(v => Number(v) > 0) && (
               <div className="space-y-2">
                 <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-slate-500">
-                  Custom Production Deliverables
+                  Custom Architectural Deliverables
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
                   {Object.entries(selectedInquiry.materials).map(([item, count]) => (
@@ -770,7 +786,7 @@ export default function AdminBossPage() {
             {/* Custom Notes / Wishlist */}
             {selectedInquiry.customRequest && (
               <div className="space-y-1 p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-xs">
-                <span className="font-bold text-amber-900 uppercase text-[10px]">Client Wishlist / Special Note:</span>
+                <span className="font-bold text-amber-900 uppercase text-[10px]">Architectural Brief / Scope Notes:</span>
                 <p className="text-slate-800 italic mt-0.5">"{selectedInquiry.customRequest}"</p>
               </div>
             )}
@@ -779,7 +795,7 @@ export default function AdminBossPage() {
             <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
               <a
                 href={CONTACT_CONFIG.getWhatsAppUrl(
-                  `Hi ${selectedInquiry.name}! This is Pristine Decore regarding your event inquiry (${selectedInquiry.id}).`,
+                  `Hi ${selectedInquiry.name}! This is Pristine Decore regarding your architectural inquiry (${selectedInquiry.id}).`,
                   selectedInquiry.phone.replace(/[^0-9]/g, '')
                 )}
                 target="_blank"
@@ -826,8 +842,8 @@ export default function AdminBossPage() {
             </button>
 
             <div>
-              <h3 className="font-heading text-xl font-bold text-slate-900">Log Offline / Walk-in Lead</h3>
-              <p className="text-slate-500 text-xs">Record telephone or in-person event inquiries.</p>
+              <h3 className="font-heading text-xl font-bold text-slate-900">Log Offline / Studio Lead</h3>
+              <p className="text-slate-500 text-xs">Record telephone calls or in-person studio consultations.</p>
             </div>
 
             <form onSubmit={handleCreateLead} className="space-y-3.5 text-xs">
@@ -839,17 +855,17 @@ export default function AdminBossPage() {
                     required
                     value={newLead.name}
                     onChange={(e) => setNewLead(p => ({ ...p, name: e.target.value }))}
-                    placeholder="e.g. Vikram Seth"
+                    placeholder="e.g. Rajesh Verma"
                     className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Company / Brand</label>
+                  <label className="block font-bold text-slate-700 mb-1">Project Typology</label>
                   <input
                     type="text"
-                    value={newLead.company}
-                    onChange={(e) => setNewLead(p => ({ ...p, company: e.target.value }))}
-                    placeholder="e.g. Puma India"
+                    value={newLead.eventType}
+                    onChange={(e) => setNewLead(p => ({ ...p, eventType: e.target.value }))}
+                    placeholder="Luxury Interior / Villa / Campus"
                     className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900"
                   />
                 </div>
@@ -863,17 +879,17 @@ export default function AdminBossPage() {
                     required
                     value={newLead.phone}
                     onChange={(e) => setNewLead(p => ({ ...p, phone: e.target.value }))}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 98453 02888"
                     className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Email</label>
+                  <label className="block font-bold text-slate-700 mb-1">Built-Up Area (Sq. Ft)</label>
                   <input
-                    type="email"
-                    value={newLead.email}
-                    onChange={(e) => setNewLead(p => ({ ...p, email: e.target.value }))}
-                    placeholder="client@puma.com"
+                    type="number"
+                    value={newLead.areaSqFt}
+                    onChange={(e) => setNewLead(p => ({ ...p, areaSqFt: Number(e.target.value) }))}
+                    placeholder="3500"
                     className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900"
                   />
                 </div>
@@ -881,12 +897,12 @@ export default function AdminBossPage() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Target Mall / Venue</label>
+                  <label className="block font-bold text-slate-700 mb-1">Site Location</label>
                   <input
                     type="text"
                     value={newLead.venue}
                     onChange={(e) => setNewLead(p => ({ ...p, venue: e.target.value }))}
-                    placeholder="Phoenix Marketcity"
+                    placeholder="Sadashivanagar, Bengaluru"
                     className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900"
                   />
                 </div>
@@ -896,19 +912,19 @@ export default function AdminBossPage() {
                     type="text"
                     value={newLead.quotedAmount}
                     onChange={(e) => setNewLead(p => ({ ...p, quotedAmount: e.target.value }))}
-                    placeholder="₹75,000"
+                    placeholder="₹75.00 Lakh"
                     className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Brief / Notes</label>
+                <label className="block font-bold text-slate-700 mb-1">Architectural Brief / Notes</label>
                 <textarea
                   rows={3}
                   value={newLead.notes}
                   onChange={(e) => setNewLead(p => ({ ...p, notes: e.target.value }))}
-                  placeholder="Need 4 promoters for weekend roadshow, 2 standees and 1 backdrop..."
+                  placeholder="Bookmatched Italian Statuario marble salon, Blum modular kitchen, or campus fitout..."
                   className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 resize-none"
                 ></textarea>
               </div>

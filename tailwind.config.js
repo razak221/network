@@ -31,6 +31,20 @@ export default {
         'luxury': '0 12px 36px -8px rgba(15, 23, 42, 0.06), 0 4px 12px -2px rgba(15, 23, 42, 0.02)',
         'luxury-lg': '0 24px 60px -12px rgba(15, 23, 42, 0.1), 0 8px 24px -4px rgba(15, 23, 42, 0.04)',
         'gold-glow': '0 12px 30px -6px rgba(197, 131, 43, 0.25)',
+        'soft-sm': '0 2px 10px -2px rgba(15, 23, 42, 0.05), 0 1px 4px -1px rgba(15, 23, 42, 0.03)',
+        'soft': '0 10px 30px -8px rgba(15, 23, 42, 0.07), 0 4px 12px -2px rgba(15, 23, 42, 0.03)',
+        'soft-md': '0 16px 40px -10px rgba(15, 23, 42, 0.08), 0 6px 16px -4px rgba(15, 23, 42, 0.04)',
+        'soft-lg': '0 24px 55px -12px rgba(15, 23, 42, 0.11), 0 8px 24px -6px rgba(15, 23, 42, 0.05)',
+        'soft-gold': '0 12px 28px -6px rgba(197, 131, 43, 0.32), 0 4px 10px -2px rgba(197, 131, 43, 0.16)',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(8px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        }
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       }
     },
   },

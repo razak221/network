@@ -234,35 +234,59 @@ interiorServices.forEach(item => {
 export const bespokeExamples = [
   {
     title: "Bookmatched Italian Statuario Marble Wall",
-    description: "Full-slab seamless feature wall with CNC precision waterjet cuts and concealed LED rim illumination."
+    tag: "Quarried Stone",
+    leadTime: "3 Weeks Delivery",
+    description: "Full-slab seamless feature wall with CNC precision waterjet cuts and concealed LED rim illumination.",
+    detail: "Full-slab seamless feature wall with CNC precision waterjet cuts and concealed LED rim illumination."
   },
   {
     title: "Fluted Smoked Oak Veneer Wall Paneling",
-    description: "Floor-to-ceiling custom acoustic wood fluting concealing secret flush doors into private dressing suites."
+    tag: "Acoustic Timber",
+    leadTime: "2 Weeks Fabrication",
+    description: "Floor-to-ceiling custom acoustic wood fluting concealing secret flush doors into private dressing suites.",
+    detail: "Floor-to-ceiling custom acoustic wood fluting concealing secret flush doors into private dressing suites."
   },
   {
-    title: "Sintered Stone Island with Cantilevered Breakfast Bar",
-    description: "Monolithic 12mm sintered stone kitchen island featuring seamless mitred 45-degree waterfall edges."
+    title: "Sintered Stone Island with Cantilevered Bar",
+    tag: "Kitchen Monolith",
+    leadTime: "3 Weeks Install",
+    description: "Monolithic 12mm sintered stone kitchen island featuring seamless mitred 45-degree waterfall edges.",
+    detail: "Monolithic 12mm sintered stone kitchen island featuring seamless mitred 45-degree waterfall edges."
   },
   {
     title: "Brushed Champagne Brass & Glass Partitioning",
-    description: "Custom geometric room dividers framing formal dining spaces without sacrificing ambient natural light."
+    tag: "PVD Metalwork",
+    leadTime: "2 Weeks Craft",
+    description: "Custom geometric room dividers framing formal dining spaces without sacrificing ambient natural light.",
+    detail: "Custom geometric room dividers framing formal dining spaces without sacrificing ambient natural light."
   },
   {
-    title: "Acoustic Home Cinema with Starry Fiber-Optic Ceiling",
-    description: "Full Dolby Atmos sound-insulated theater room with tiered motorized recliner seating and velvet acoustic panels."
+    title: "Acoustic Home Cinema with Starry Ceiling",
+    tag: "Dolby Atmos Room",
+    leadTime: "4 Weeks Turnkey",
+    description: "Full Dolby Atmos sound-insulated theater room with tiered motorized recliner seating and velvet acoustic panels.",
+    detail: "Full Dolby Atmos sound-insulated theater room with tiered motorized recliner seating and velvet acoustic panels."
   },
   {
-    title: "Double-Height Cantilevered Architectural Staircase",
-    description: "Structural floating steel spine with solid American walnut treads and frameless structural glass balustrades."
+    title: "Cantilevered Walnut & Glass Staircase",
+    tag: "Structural Feature",
+    leadTime: "5 Weeks Engineered",
+    description: "Structural floating steel spine with solid American walnut treads and frameless structural glass balustrades.",
+    detail: "Structural floating steel spine with solid American walnut treads and frameless structural glass balustrades."
   },
   {
-    title: "Acoustic Timber Auditorium Paneling & Tiered Seating",
-    description: "Precision micro-perforated acoustic oak wall cladding engineered to achieve RT60 reverberation standards in high-capacity university lecture halls."
+    title: "Auditorium Acoustic Timber & Tiered Seating",
+    tag: "University Campuses",
+    leadTime: "4–6 Weeks Turnkey",
+    description: "Precision micro-perforated acoustic oak wall cladding engineered to achieve RT60 reverberation standards in lecture halls.",
+    detail: "Precision micro-perforated acoustic oak wall cladding engineered to achieve RT60 reverberation standards in lecture halls."
   },
   {
-    title: "Acid-Resistant Modular Chemistry & STEM Lab Stations",
-    description: "Seamless epoxy work surfaces with integrated gas, vacuum, water lines, and certified chemical fume hood ventilation."
+    title: "Acid-Resistant STEM & Chemistry Lab Stations",
+    tag: "Educational Labs",
+    leadTime: "3–4 Weeks Turnkey",
+    description: "Seamless solid epoxy work surfaces with integrated gas, vacuum, water lines, and certified fume hood ventilation.",
+    detail: "Seamless solid epoxy work surfaces with integrated gas, vacuum, water lines, and certified fume hood ventilation."
   }
 ];
 

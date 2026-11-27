@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { galleryCategories, galleryItems } from '../data/galleryData';
+import SafeImage from '../components/SafeImage';
 import { 
   Camera, 
   Sparkles, 
@@ -24,6 +25,16 @@ export default function GalleryPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [lightboxItem, setLightboxItem] = useState(null);
+
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setLightboxItem(null);
+    };
+    if (lightboxItem) {
+      window.addEventListener('keydown', onKeyDown);
+      return () => window.removeEventListener('keydown', onKeyDown);
+    }
+  }, [lightboxItem]);
 
   // Compute category item counts
   const categoryCounts = useMemo(() => {
@@ -188,7 +199,7 @@ export default function GalleryPage() {
                     className="relative aspect-[4/3] overflow-hidden bg-slate-100 cursor-zoom-in"
                     title="Click to view full resolution"
                   >
-                    <img
+                    <SafeImage
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -312,10 +323,11 @@ export default function GalleryPage() {
 
             {/* Lightbox Image */}
             <div className="relative aspect-[16/10] bg-black">
-              <img
+              <SafeImage
                 src={lightboxItem.image}
                 alt={lightboxItem.title}
                 className="w-full h-full object-contain"
+                loading="eager"
               />
             </div>
 

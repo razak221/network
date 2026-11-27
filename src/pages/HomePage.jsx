@@ -207,16 +207,22 @@ export default function HomePage() {
       </section>
 
       {/* 4. Interactive Before & After Bare-Shell Transformation Slider */}
-      <BeforeAfterSlider />
+      <div id="transformation">
+        <BeforeAfterSlider />
+      </div>
 
       {/* 5. Disciplined 3-Phase Execution Roadmap */}
-      <TurnkeyProcessRoadmap />
+      <div id="roadmap">
+        <TurnkeyProcessRoadmap />
+      </div>
 
       {/* 6. Luxury Interior Architecture Atelier (Primary Core Specialization) */}
       <ProductionDecorSection />
 
       {/* 7. Digital Atelier Material Palette & Swatch Studio */}
-      <MaterialStudio />
+      <div id="materials">
+        <MaterialStudio />
+      </div>
 
       {/* 8. Why Discerning Clients Choose Us (Comparison Matrix) */}
       <TurnkeyComparisonMatrix />

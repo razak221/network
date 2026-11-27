@@ -16,7 +16,8 @@ import {
   Compass
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
-import TiltCard3D from './TiltCard3D';
+import { apiService } from '../services/api';
+import Toast from './Toast';
 
 const TYPOLOGIES = [
   { id: 'villa', label: 'Luxury Private Villa', icon: HardHat, desc: 'Turnkey Ground-Up Civil & Italian Interiors' },
@@ -37,9 +38,9 @@ const LOCALITIES = [
 ];
 
 const TIME_SLOTS = [
-  { id: 'morning', label: 'Morning Slot', time: '10:30 AM – 12:30 PM' },
-  { id: 'afternoon', label: 'Afternoon Slot', time: '02:30 PM – 04:30 PM' },
-  { id: 'evening', label: 'Twilight Slot', time: '05:30 PM – 07:30 PM' }
+  { id: 'morning', label: 'Morning Slot', time: '10:30 AM – 12:30 PM', utcRange: ['050000Z', '070000Z'] },
+  { id: 'afternoon', label: 'Afternoon Slot', time: '02:30 PM – 04:30 PM', utcRange: ['090000Z', '110000Z'] },
+  { id: 'evening', label: 'Twilight Slot', time: '05:30 PM – 07:30 PM', utcRange: ['120000Z', '140000Z'] }
 ];
 
 export default function BookingDesk() {
@@ -63,11 +64,12 @@ export default function BookingDesk() {
   const [clientNotes, setClientNotes] = useState('');
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
   const [bookingRef, setBookingRef] = useState('');
+  const [toastMsg, setToastMsg] = useState('');
 
-  const handleConfirmBooking = (e) => {
+  const handleConfirmBooking = async (e) => {
     e.preventDefault();
     if (!clientName.trim() || !clientPhone.trim()) {
-      alert("Please enter your name and contact phone number.");
+      setToastMsg("Please enter your full name and phone number.");
       return;
     }
 
@@ -79,6 +81,21 @@ export default function BookingDesk() {
     const typologyLabel = TYPOLOGIES.find(t => t.id === selectedTypology)?.label || selectedTypology;
     const slotLabel = TIME_SLOTS.find(s => s.id === selectedSlot)?.time || selectedSlot;
     const finalLocation = selectedLocality.includes('Other') && customLocality.trim() ? customLocality : selectedLocality;
+
+    // Persist lead to portal / Render backend
+    await apiService.submitClientInquiry({
+      id: refCode,
+      name: clientName,
+      company: `Site Audit (${siteStage})`,
+      phone: clientPhone,
+      eventType: typologyLabel,
+      venue: finalLocation,
+      areaSqFt,
+      eventDate: inspectionDate,
+      customRequest: `${slotLabel} | Stage: ${siteStage}${clientNotes ? ` | ${clientNotes}` : ''}`,
+      quotedAmount: 'VIP Site Audit',
+      source: 'vip_booking_desk'
+    });
 
     const msg = `*VIP SITE AUDIT & CONSULTATION REQUEST*\n*Ref: ${refCode}*\n\n` +
       `• *Client:* ${clientName}\n` +
@@ -92,15 +109,19 @@ export default function BookingDesk() {
       (clientNotes ? `• *Architectural Notes:* "${clientNotes}"\n\n` : '\n') +
       `Please confirm the senior civil/interior architect assignment from Pristine Decore studio hotline (+91 98453 02888).`;
 
+    setToastMsg(`VIP Site Audit ${refCode} confirmed and logged!`);
     window.open(CONTACT_CONFIG.getWhatsAppUrl(msg), '_blank');
   };
 
   const handleCalendarLink = () => {
+    const slotObj = TIME_SLOTS.find(s => s.id === selectedSlot) || TIME_SLOTS[0];
+    const finalLocation = selectedLocality.includes('Other') && customLocality.trim() ? customLocality : selectedLocality;
     const title = encodeURIComponent(`Pristine Decore Site Inspection — ${bookingRef}`);
-    const details = encodeURIComponent(`VIP Architectural Consultation & Site Audit by Senior Project Architect from Pristine Decore (pristinedecore.com). Reference: ${bookingRef}`);
-    const location = encodeURIComponent(selectedLocality);
+    const details = encodeURIComponent(`VIP Architectural Consultation & Site Audit (${slotObj.time}) by Senior Project Architect from Pristine Decore (pristinedecore.com). Reference: ${bookingRef}`);
+    const location = encodeURIComponent(finalLocation);
     const dateFormatted = inspectionDate.replace(/-/g, '');
-    const calUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dateFormatted}T050000Z/${dateFormatted}T070000Z`;
+    const [utcStart, utcEnd] = slotObj.utcRange;
+    const calUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dateFormatted}T${utcStart}/${dateFormatted}T${utcEnd}`;
     window.open(calUrl, '_blank');
   };
 
@@ -184,14 +205,21 @@ export default function BookingDesk() {
             /* Interactive Multi-Step Form */
             <div className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-3d-luxury space-y-8">
               
-              {/* Step Progress Pills */}
+              {/* Step Progress Pills (clickable backward / current navigation) */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-5">
                 {[
                   { num: 1, label: 'Typology & Stage' },
                   { num: 2, label: 'Site Location & Area' },
                   { num: 3, label: 'Date & Contact' }
                 ].map((s) => (
-                  <div key={s.num} className="flex items-center gap-2">
+                  <button
+                    key={s.num}
+                    type="button"
+                    onClick={() => { if (s.num <= step) setStep(s.num); }}
+                    className={`flex items-center gap-2 text-left transition-opacity ${
+                      s.num <= step ? 'cursor-pointer hover:opacity-80' : 'cursor-default'
+                    }`}
+                  >
                     <span className={`w-7 h-7 rounded-xl flex items-center justify-center text-xs font-bold transition-all ${
                       step >= s.num ? 'bg-amber-600 text-white shadow-soft-gold' : 'bg-slate-100 text-slate-400'
                     }`}>
@@ -202,7 +230,7 @@ export default function BookingDesk() {
                     }`}>
                       {s.label}
                     </span>
-                  </div>
+                  </button>
                 ))}
               </div>
 
@@ -519,6 +547,10 @@ export default function BookingDesk() {
         </div>
 
       </div>
+
+      {toastMsg && (
+        <Toast message={toastMsg} onClose={() => setToastMsg('')} />
+      )}
     </section>
   );
 }

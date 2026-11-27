@@ -35,7 +35,15 @@ founders.forEach((f, idx) => {
 });
 console.log("✅ founders contract verified (3/3 have valid focus and avatars)");
 
-// 4. Gallery Contract
+// 4. Bespoke Examples Contract
+bespokeExamples.forEach((b, idx) => {
+  if (!b.title || !(b.description || b.detail) || !b.tag) {
+    throw new Error(`bespokeExamples[${idx}] missing required fields (title, description/detail, tag)`);
+  }
+});
+console.log(`✅ bespokeExamples contract verified (${bespokeExamples.length}/${bespokeExamples.length} have valid tag, title, and description)`);
+
+// 5. Gallery Contract
 galleryItems.forEach((g, idx) => {
   if (!g.tags || !Array.isArray(g.tags)) {
     throw new Error(`galleryItems[${idx}] missing 'tags' array`);

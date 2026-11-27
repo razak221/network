@@ -315,17 +315,21 @@ app.post('/api/admin/login', (req, res) => {
 app.post('/api/inquiries', (req, res) => {
   try {
     const {
+      id: clientId,
       name,
       company,
       phone,
       email,
       eventType,
       venue,
+      areaSqFt,
       durationDays,
       eventDate,
       crew,
       materials,
       customRequest,
+      quotedAmount,
+      notes,
       source
     } = req.body;
 
@@ -334,7 +338,7 @@ app.post('/api/inquiries', (req, res) => {
     }
 
     const inquiries = loadInquiries();
-    const id = `PD-${Math.floor(100000 + Math.random() * 900000)}`;
+    const id = clientId || `PD-${Math.floor(100000 + Math.random() * 900000)}`;
 
     const totalCrew = crew ? Object.values(crew).reduce((a, b) => a + Number(b || 0), 0) : 0;
     const totalMaterials = materials ? Object.values(materials).reduce((a, b) => a + Number(b || 0), 0) : 0;
@@ -346,8 +350,9 @@ app.post('/api/inquiries', (req, res) => {
       company: company || 'Direct Client',
       phone,
       email: email || '',
-      eventType: eventType || 'Mall Activation',
-      venue: venue || 'Venue TBD',
+      eventType: eventType || 'Luxury Interior Architecture',
+      venue: venue || 'Bengaluru / Site TBD',
+      areaSqFt: Number(areaSqFt || 0),
       durationDays: Number(durationDays || 1),
       eventDate: eventDate || '',
       totalCrew,
@@ -357,8 +362,8 @@ app.post('/api/inquiries', (req, res) => {
       customRequest: customRequest || '',
       status: 'new',
       source: source || 'web_portal',
-      quotedAmount: 'Pending Quote',
-      notes: 'New submission via pristinedecore.com'
+      quotedAmount: quotedAmount || 'Pending Quote',
+      notes: notes || 'New architectural inquiry via pristinedecore.com'
     };
 
     inquiries.unshift(newInquiry);

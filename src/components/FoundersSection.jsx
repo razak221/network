@@ -9,6 +9,7 @@ import {
   Layers
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import SafeImage from './SafeImage';
 
 export default function FoundersSection() {
   const handleDeskConsultation = (deskName) => {
@@ -54,7 +55,7 @@ export default function FoundersSection() {
 
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-amber-400 to-amber-600 p-0.5 shadow-soft-gold shrink-0 overflow-hidden">
-                    <img
+                    <SafeImage
                       src={division.avatar}
                       alt={division.name}
                       className="w-full h-full object-cover rounded-[14px]"
