@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import { 
-  Palette, 
   Sparkles, 
   ShieldCheck, 
   Check, 
-  Layers, 
   ArrowRight, 
   Send, 
   Info, 
   Gem,
-  Award
+  Copy,
+  Package
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
+import { apiService } from '../services/api';
 import TiltCard3D from './TiltCard3D';
 import SafeImage from './SafeImage';
+import Toast from './Toast';
+
+const MOODBOARD_PRESETS = [
+  { id: 'penthouse', label: 'Ivory Statuario Penthouse', ids: { stone: 'statuario', wood: 'fluted-oak', metals: 'champagne-gold', glazing: 'smoked-bronze-glass' } },
+  { id: 'villa', label: 'Warm Teak Villa', ids: { stone: 'calacatta-gold', wood: 'burma-teak', metals: 'rose-gold', glazing: 'acoustic-boucle' } },
+  { id: 'boardroom', label: 'Noir Executive Suite', ids: { stone: 'nero-marquina', wood: 'charcoal-acrylic', metals: 'matte-black-pvd', glazing: 'smart-privacy-glass' } },
+  { id: 'campus', label: 'Campus & Auditorium', ids: { stone: 'travertine-classic', wood: 'american-walnut', metals: 'blum-onyx', glazing: 'sintered-stone' } },
+];
 
 const MATERIAL_CATEGORIES = [
   { id: 'stone', label: '1. Italian Marble & Quartz' },
@@ -201,9 +209,22 @@ export default function MaterialStudio() {
     metals: SWATCH_LIBRARY.metals[0],
     glazing: SWATCH_LIBRARY.glazing[0]
   });
+  const [showCourierForm, setShowCourierForm] = useState(false);
+  const [courierInfo, setCourierInfo] = useState({ name: '', phone: '', city: 'Bengaluru' });
+  const [toastMsg, setToastMsg] = useState('');
 
   const selectMaterial = (category, material) => {
     setActiveMoodboard(prev => ({ ...prev, [category]: material }));
+  };
+
+  const applyMoodboardPreset = (preset) => {
+    setActiveMoodboard({
+      stone: SWATCH_LIBRARY.stone.find(m => m.id === preset.ids.stone) || SWATCH_LIBRARY.stone[0],
+      wood: SWATCH_LIBRARY.wood.find(m => m.id === preset.ids.wood) || SWATCH_LIBRARY.wood[0],
+      metals: SWATCH_LIBRARY.metals.find(m => m.id === preset.ids.metals) || SWATCH_LIBRARY.metals[0],
+      glazing: SWATCH_LIBRARY.glazing.find(m => m.id === preset.ids.glazing) || SWATCH_LIBRARY.glazing[0],
+    });
+    setToastMsg(`Loaded "${preset.label}" 4-layer palette!`);
   };
 
   const handleRequestSampleBox = (material) => {
@@ -214,6 +235,46 @@ export default function MaterialStudio() {
   const handleExportMoodboard = () => {
     const text = `Hello Pristine Decore! I assembled my custom luxury material moodboard on pristinedecore.com:\n\n• Stone: ${activeMoodboard.stone.name}\n• Millwork: ${activeMoodboard.wood.name}\n• Hardware: ${activeMoodboard.metals.name}\n• Glass/Fabric: ${activeMoodboard.glazing.name}\n\nPlease share availability, square-foot procurement rates, and physical swatch delivery timeline.`;
     window.open(CONTACT_CONFIG.getWhatsAppUrl(text), '_blank');
+  };
+
+  const handleCopySpec = async () => {
+    const sheet = [
+      'PRISTINE DECORE — ARCHITECTURAL MOODBOARD SPEC',
+      `1. Natural Stone: ${activeMoodboard.stone.name} (${activeMoodboard.stone.origin})`,
+      `2. Millwork: ${activeMoodboard.wood.name} (${activeMoodboard.wood.origin})`,
+      `3. Hardware: ${activeMoodboard.metals.name} (${activeMoodboard.metals.origin})`,
+      `4. Glazing/Surface: ${activeMoodboard.glazing.name} (${activeMoodboard.glazing.origin})`,
+      'Studio Hotline: +91 98453 02888 | pristinedecore.com',
+    ].join('\n');
+    try {
+      await navigator.clipboard.writeText(sheet);
+      setToastMsg('4-Layer Material Specification copied!');
+    } catch {
+      handleExportMoodboard();
+    }
+  };
+
+  const handleCourierSubmit = async (e) => {
+    e.preventDefault();
+    if (!courierInfo.name.trim() || !courierInfo.phone.trim()) {
+      setToastMsg('Please enter your name and WhatsApp number.');
+      return;
+    }
+    const refId = `PD-SWATCH-${Math.floor(1000 + Math.random() * 9000)}`;
+    await apiService.submitClientInquiry({
+      id: refId,
+      name: courierInfo.name,
+      company: `Sample Box (${courierInfo.city || 'Bengaluru'})`,
+      phone: courierInfo.phone,
+      eventType: 'Physical Material Sample Box',
+      venue: courierInfo.city || 'Bengaluru',
+      customRequest: `Stone: ${activeMoodboard.stone.name} | Wood: ${activeMoodboard.wood.name} | Metal: ${activeMoodboard.metals.name} | Surface: ${activeMoodboard.glazing.name}`,
+      quotedAmount: 'Swatch Courier Request',
+      source: 'material_studio',
+    });
+    setToastMsg(`Swatch Box ${refId} dispatched to studio desk!`);
+    setShowCourierForm(false);
+    handleExportMoodboard();
   };
 
   return (
@@ -344,6 +405,25 @@ export default function MaterialStudio() {
 
         {/* Live Active Moodboard Tray */}
         <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-3d-luxury">
+          {/* Quick Atelier Style Presets */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-5 border-b border-slate-800/80">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+              1-Click Architectural Presets:
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {MOODBOARD_PRESETS.map((preset) => (
+                <button
+                  key={preset.id}
+                  type="button"
+                  onClick={() => applyMoodboardPreset(preset)}
+                  className="px-3 py-1 rounded-full text-[11px] font-semibold bg-white/5 hover:bg-amber-500/20 text-amber-200 border border-white/10 hover:border-amber-400/50 transition-all"
+                >
+                  {preset.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-800">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold border border-amber-500/30 mb-2">
@@ -358,16 +438,75 @@ export default function MaterialStudio() {
               </p>
             </div>
 
-            <button
-              type="button"
-              onClick={handleExportMoodboard}
-              className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs sm:text-sm shadow-soft-gold flex items-center justify-center gap-2 shrink-0 transition-all hover:scale-105"
-            >
-              <Send className="w-4 h-4" />
-              <span>Export Palette to Studio WhatsApp</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+              <button
+                type="button"
+                onClick={handleCopySpec}
+                className="px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-xs flex items-center gap-1.5 transition-all"
+              >
+                <Copy className="w-3.5 h-3.5 text-amber-300" />
+                <span>Copy Spec</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowCourierForm((s) => !s)}
+                className="px-4 py-3 rounded-2xl bg-white text-slate-950 hover:bg-amber-50 font-bold text-xs flex items-center gap-1.5 transition-all"
+              >
+                <Package className="w-3.5 h-3.5 text-amber-600" />
+                <span>Book Swatch Box</span>
+              </button>
+              <button
+                type="button"
+                onClick={handleExportMoodboard}
+                className="px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs shadow-soft-gold flex items-center justify-center gap-2 transition-all hover:scale-105"
+              >
+                <Send className="w-3.5 h-3.5" />
+                <span>WhatsApp Palette</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
+
+          {showCourierForm && (
+            <form onSubmit={handleCourierSubmit} className="my-5 p-4 rounded-2xl bg-white/5 border border-amber-400/30 grid grid-cols-1 sm:grid-cols-4 gap-3 items-end">
+              <div>
+                <label className="block text-[10px] uppercase font-bold text-amber-300 mb-1">Your Name *</label>
+                <input
+                  type="text"
+                  value={courierInfo.name}
+                  onChange={(e) => setCourierInfo((p) => ({ ...p, name: e.target.value }))}
+                  placeholder="Client / Architect Name"
+                  className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs focus:outline-none focus:border-amber-400"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] uppercase font-bold text-amber-300 mb-1">Phone / WhatsApp *</label>
+                <input
+                  type="tel"
+                  value={courierInfo.phone}
+                  onChange={(e) => setCourierInfo((p) => ({ ...p, phone: e.target.value }))}
+                  placeholder="+91 98..."
+                  className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs focus:outline-none focus:border-amber-400"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] uppercase font-bold text-amber-300 mb-1">Site City</label>
+                <input
+                  type="text"
+                  value={courierInfo.city}
+                  onChange={(e) => setCourierInfo((p) => ({ ...p, city: e.target.value }))}
+                  placeholder="Bengaluru"
+                  className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs focus:outline-none focus:border-amber-400"
+                />
+              </div>
+              <button
+                type="submit"
+                className="py-2 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition-all"
+              >
+                Dispatch Physical Samples →
+              </button>
+            </form>
+          )}
 
           {/* 4 Selected Materials Preview Pills */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6">
@@ -398,6 +537,8 @@ export default function MaterialStudio() {
         </div>
 
       </div>
+
+      {toastMsg && <Toast message={toastMsg} onClose={() => setToastMsg('')} />}
     </section>
   );
 }

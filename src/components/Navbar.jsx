@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 import { 
@@ -16,9 +16,24 @@ import { CONTACT_CONFIG } from '../config/contact';
 
 export default function Navbar({ onOpenConfigurator, onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
   const isQuotePage = location.pathname.startsWith('/quote') || location.pathname.startsWith('/builder');
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100)));
+      } else {
+        setScrollProgress(0);
+      }
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    return () => window.removeEventListener('scroll', updateProgress);
+  }, [location.pathname]);
 
   const desktopNavLinks = [
     { label: "Portfolio", to: "/gallery" },
@@ -175,6 +190,13 @@ export default function Navbar({ onOpenConfigurator, onOpenContact }) {
           </div>
         </div>
       )}
+      {/* Razor-thin Gold Scroll Progress Hairline */}
+      <div className="h-[2px] w-full bg-slate-100/70 overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-amber-400 via-amber-600 to-amber-500 transition-[width] duration-150 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
     </header>
   );
 }

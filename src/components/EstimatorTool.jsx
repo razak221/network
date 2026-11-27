@@ -185,7 +185,11 @@ export default function EstimatorTool() {
 
             <div className="pt-6 mt-6 border-t border-slate-200">
               <Link
-                to="/quote"
+                to={`/quote?${new URLSearchParams({
+                  type: projectType === 'interior_only' ? 'apartment' : projectType,
+                  tier: finishTier === 'royal' ? 'ultra' : finishTier,
+                  area: String(sqFt),
+                }).toString()}`}
                 className="w-full py-4 rounded-2xl text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white flex items-center justify-center gap-2 transition-all shadow-soft-gold"
               >
                 <span>Open Full BOQ Builder Studio</span>

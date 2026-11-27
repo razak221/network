@@ -11,15 +11,25 @@ const testimonials = [
   {
     quote: "Pristine Decore delivered our 6,500 sq.ft luxury villa from groundbreaking foundation to final white-glove interior handover within the promised 11-month timeline. The fixed-price BOQ had zero hidden escalations.",
     client: "Rajesh & Ananya Verma",
-    company: "Private Villa Owners",
-    event: "Turnkey Architecture & Interior Fitout",
+    company: "Private Villa Owners • Bengaluru",
+    event: "Turnkey Villa Architecture & Interior Fitout",
+    metric: "11 Months • Zero Cost Escalation",
     stars: 5
   },
   {
     quote: "The modular Italian kitchen, bookmatched Statuario marble flooring, and concealed architectural lighting transformed our penthouse completely. Their civil engineers and master carpenters are true perfectionists.",
     client: "Sameer Kulkarni",
-    company: "Penthouse Resident",
+    company: "Penthouse Resident • Sadashivanagar",
     event: "Full Penthouse Interior Architecture",
+    metric: "Blum Hardware • Bookmatched Statuario",
+    stars: 5
+  },
+  {
+    quote: "We entrusted Pristine Decore with our 24,000 sq.ft academic wing, acoustic university auditorium, and smart STEM classrooms. Their exterior facade work and acoustic baffle ceilings passed NBC 2016 inspection in a single audit.",
+    client: "Trust Director & Academic Board",
+    company: "Higher Education Institution • Bengaluru",
+    event: "Campus Interior & Exterior Turnkey Works",
+    metric: "24,000 Sq. Ft • Delivered Ahead of Term",
     stars: 5
   },
   {
@@ -27,6 +37,7 @@ const testimonials = [
     client: "Chief Operating Officer",
     company: "Financial Technology Group",
     event: "Turnkey Commercial Office Fitout",
+    metric: "STC 48 Acoustic Rating • DALI Lighting",
     stars: 5
   }
 ];
@@ -45,28 +56,33 @@ export default function TestimonialsSection() {
             <span>Proven Track Record</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-slate-900">
-            Trusted by Homeowners & <span className="text-gradient-gold">Commercial Leaders</span>
+            Trusted by Homeowners, Campuses &amp; <span className="text-gradient-gold">Commercial Leaders</span>
           </h2>
           <p className="text-slate-600 text-base">
-            Real feedback from villa clients and corporate executives who entrusted Pristine Decore with their most ambitious architectural spaces.
+            Real feedback from villa clients, university academic boards, and corporate executives who entrusted Pristine Decore with their most ambitious architectural spaces.
           </p>
         </div>
 
         {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mb-20">
           {testimonials.map((t, idx) => (
             <div
               key={idx}
               className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:border-amber-300 transition-all duration-300 flex flex-col justify-between relative group"
             >
               <div className="space-y-4">
-                <div className="flex items-center gap-1 text-amber-500">
-                  {[...Array(t.stars)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-500" />
-                  ))}
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1 text-amber-500">
+                    {[...Array(t.stars)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-500" />
+                    ))}
+                  </div>
+                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                    {t.metric}
+                  </span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
-                  "{t.quote}"
+                  &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
 

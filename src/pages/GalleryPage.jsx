@@ -1,15 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { galleryCategories, galleryItems } from '../data/galleryData';
 import SafeImage from '../components/SafeImage';
+import ProjectLightbox, { buildQuoteLinkFromItem } from '../components/ProjectLightbox';
 import { 
-  Camera, 
-  Sparkles, 
   MapPin, 
   ArrowRight, 
-  Check, 
-  ExternalLink,
-  Layers,
   Compass,
   Search,
   X,
@@ -19,22 +15,26 @@ import {
 import { CONTACT_CONFIG } from '../config/contact';
 
 const ITEMS_PER_PAGE = 18;
+const CITY_FILTERS = ['All Cities', 'Bengaluru', 'Hyderabad', 'Mumbai', 'Delhi NCR', 'Goa', 'Pune'];
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCat = searchParams.get('category');
+  const validCat = galleryCategories.some((c) => c.id === initialCat) ? initialCat : 'all';
+
+  const [activeCategory, setActiveCategory] = useState(validCat);
+  const [activeCity, setActiveCity] = useState('All Cities');
   const [searchQuery, setSearchQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [lightboxItem, setLightboxItem] = useState(null);
 
   useEffect(() => {
-    const onKeyDown = (e) => {
-      if (e.key === 'Escape') setLightboxItem(null);
-    };
-    if (lightboxItem) {
-      window.addEventListener('keydown', onKeyDown);
-      return () => window.removeEventListener('keydown', onKeyDown);
+    const paramCat = searchParams.get('category');
+    if (paramCat && galleryCategories.some((c) => c.id === paramCat)) {
+      setActiveCategory(paramCat);
+      setVisibleCount(ITEMS_PER_PAGE);
     }
-  }, [lightboxItem]);
+  }, [searchParams]);
 
   // Compute category item counts
   const categoryCounts = useMemo(() => {
@@ -45,11 +45,16 @@ export default function GalleryPage() {
     return counts;
   }, []);
 
-  // Filter items by category and search query
+  // Filter items by category, city, and search query
   const filteredItems = useMemo(() => {
     return galleryItems.filter(item => {
       const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
       if (!matchesCategory) return false;
+
+      if (activeCity !== 'All Cities') {
+        const venueLower = (item.venue || '').toLowerCase();
+        if (!venueLower.includes(activeCity.toLowerCase())) return false;
+      }
 
       if (!searchQuery.trim()) return true;
       const q = searchQuery.toLowerCase();
@@ -60,12 +65,18 @@ export default function GalleryPage() {
 
       return inTitle || inVenue || inDesc || inTags;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, activeCity, searchQuery]);
 
   // Reset pagination when category or search changes
   const handleCategoryChange = (catId) => {
     setActiveCategory(catId);
     setVisibleCount(ITEMS_PER_PAGE);
+    if (catId === 'all') {
+      searchParams.delete('category');
+      setSearchParams(searchParams, { replace: true });
+    } else {
+      setSearchParams({ category: catId }, { replace: true });
+    }
   };
 
   const handleSearchChange = (e) => {
@@ -140,6 +151,7 @@ export default function GalleryPage() {
               return (
                 <button
                   key={cat.id}
+                  type="button"
                   onClick={() => handleCategoryChange(cat.id)}
                   className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5 ${
                     activeCategory === cat.id
@@ -147,7 +159,7 @@ export default function GalleryPage() {
                       : 'bg-white text-slate-700 border border-slate-200 hover:border-amber-300 hover:bg-amber-50/50'
                   }`}
                 >
-                  <span>{cat.label.replace(' (100+)', '')}</span>
+                  <span>{cat.label.replace(/\s*\(\d+\+?\)/, '')}</span>
                   <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                     activeCategory === cat.id ? 'bg-amber-700/60 text-white' : 'bg-slate-100 text-slate-600'
                   }`}>
@@ -156,6 +168,27 @@ export default function GalleryPage() {
                 </button>
               );
             })}
+          </div>
+
+          {/* City Quick-Filter Strip */}
+          <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+            {CITY_FILTERS.map((city) => (
+              <button
+                key={city}
+                type="button"
+                onClick={() => {
+                  setActiveCity(city);
+                  setVisibleCount(ITEMS_PER_PAGE);
+                }}
+                className={`px-3 py-1 rounded-full text-[11px] font-semibold border transition-all ${
+                  activeCity === city
+                    ? 'bg-slate-900 text-amber-300 border-slate-900 shadow-soft-sm'
+                    : 'bg-white/80 text-slate-600 border-slate-200 hover:border-amber-300'
+                }`}
+              >
+                {city}
+              </button>
+            ))}
           </div>
 
           {/* Results Status Counter */}
@@ -258,9 +291,9 @@ export default function GalleryPage() {
                 </div>
 
                 {/* Action Footer */}
-                <div className="p-6 pt-0 border-t border-slate-100 mt-4 flex items-center justify-between">
+                <div className="p-6 pt-3 border-t border-slate-100 mt-4 flex items-center justify-between">
                   <Link
-                    to="/quote"
+                    to={buildQuoteLinkFromItem(item)}
                     className="text-xs font-bold text-slate-700 hover:text-amber-700 transition-colors"
                   >
                     Estimate BOQ
@@ -303,60 +336,13 @@ export default function GalleryPage() {
         )}
       </div>
 
-      {/* Lightbox Modal for Full Resolution Preview */}
-      {lightboxItem && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-          onClick={() => setLightboxItem(null)}
-        >
-          <div
-            className="relative max-w-5xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setLightboxItem(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white hover:bg-black flex items-center justify-center transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Lightbox Image */}
-            <div className="relative aspect-[16/10] bg-black">
-              <SafeImage
-                src={lightboxItem.image}
-                alt={lightboxItem.title}
-                className="w-full h-full object-contain"
-                loading="eager"
-              />
-            </div>
-
-            {/* Lightbox Caption */}
-            <div className="p-6 bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-800">
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-400/40">
-                  {lightboxItem.category.toUpperCase()}
-                </span>
-                <h3 className="text-lg sm:text-xl font-heading font-bold text-white mt-1">
-                  {lightboxItem.title}
-                </h3>
-                <p className="text-xs text-slate-400 flex items-center gap-1.5 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5 text-amber-500" />
-                  <span>{lightboxItem.venue} • {lightboxItem.stats}</span>
-                </p>
-              </div>
-
-              <button
-                onClick={() => handleInquireProject(lightboxItem.title)}
-                className="px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold transition-all shadow-soft-gold whitespace-nowrap inline-flex items-center gap-2"
-              >
-                <span>Consult on WhatsApp</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Shared Architectural Case-Study Lightbox */}
+      <ProjectLightbox
+        items={filteredItems}
+        activeItem={lightboxItem}
+        onSelect={setLightboxItem}
+        onClose={() => setLightboxItem(null)}
+      />
     </div>
   );
 }

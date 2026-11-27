@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { galleryCategories, galleryItems, materialPartners } from '../data/galleryData';
 import TiltCard3D from './TiltCard3D';
 import SafeImage from './SafeImage';
+import ProjectLightbox, { buildQuoteLinkFromItem } from './ProjectLightbox';
 import { 
   Sparkles, 
   MapPin, 
   ArrowRight, 
   Compass,
   ShieldCheck,
-  Maximize2,
-  X
+  Maximize2
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 
@@ -18,19 +18,20 @@ export default function GallerySection({ onSelectLook }) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [lightboxItem, setLightboxItem] = useState(null);
 
-  useEffect(() => {
-    const onKeyDown = (e) => {
-      if (e.key === 'Escape') setLightboxItem(null);
-    };
-    if (lightboxItem) {
-      window.addEventListener('keydown', onKeyDown);
-      return () => window.removeEventListener('keydown', onKeyDown);
-    }
-  }, [lightboxItem]);
+  const categoryCounts = useMemo(() => {
+    const counts = { all: galleryItems.length };
+    galleryItems.forEach((item) => {
+      counts[item.category] = (counts[item.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
 
-  const filteredItems = activeCategory === 'all'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === activeCategory);
+  const filteredItems = useMemo(
+    () => (activeCategory === 'all'
+      ? galleryItems
+      : galleryItems.filter(item => item.category === activeCategory)),
+    [activeCategory]
+  );
 
   const displayItems = filteredItems.slice(0, 6);
 
@@ -56,20 +57,25 @@ export default function GallerySection({ onSelectLook }) {
             Explore recent turnkey residential villas, schools, colleges, university auditoriums, modular kitchens, and corporate spaces delivered by Pristine Decore with 10-year structural warranties.
           </p>
 
-          {/* Filter Pills */}
+          {/* Filter Pills with Item Counts */}
           <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
             {galleryCategories.map(cat => (
               <button
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 ${
+                className={`px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 ${
                   activeCategory === cat.id
                     ? 'bg-amber-600 text-white shadow-soft-gold scale-105'
                     : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:bg-amber-50/50'
                 }`}
               >
-                {cat.label}
+                <span>{cat.label.replace(' (130+)', '')}</span>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                  activeCategory === cat.id ? 'bg-amber-700/70 text-white' : 'bg-slate-100 text-slate-600'
+                }`}>
+                  {categoryCounts[cat.id] || 0}
+                </span>
               </button>
             ))}
           </div>
@@ -147,7 +153,7 @@ export default function GallerySection({ onSelectLook }) {
               {/* Action Footer */}
               <div className="p-6 pt-3 border-t border-slate-100 mt-2 flex items-center justify-between">
                 <Link
-                  to="/quote"
+                  to={buildQuoteLinkFromItem(item)}
                   className="text-xs font-bold text-slate-600 hover:text-amber-700 transition-colors"
                 >
                   Estimate BOQ
@@ -180,7 +186,7 @@ export default function GallerySection({ onSelectLook }) {
             </p>
           </div>
           <Link
-            to="/gallery"
+            to={activeCategory === 'all' ? '/gallery' : `/gallery?category=${activeCategory}`}
             className="shrink-0 px-6 py-3 rounded-2xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm shadow-soft-gold hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2"
           >
             <span>Explore All {galleryItems.length}+ Projects</span>
@@ -208,66 +214,13 @@ export default function GallerySection({ onSelectLook }) {
 
       </div>
 
-      {/* Lightbox Modal for Homepage Portfolio */}
-      {lightboxItem && (
-        <div
-          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn no-print"
-          onClick={() => setLightboxItem(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={lightboxItem.title}
-        >
-          <div
-            className="relative max-w-5xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setLightboxItem(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/65 text-white hover:bg-black flex items-center justify-center transition-colors"
-              aria-label="Close preview"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="relative aspect-[16/10] bg-black">
-              <SafeImage
-                src={lightboxItem.image}
-                alt={lightboxItem.title}
-                className="w-full h-full object-contain"
-                loading="eager"
-              />
-            </div>
-
-            <div className="p-6 bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-800">
-              <div className="space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-400/40">
-                  {lightboxItem.category.toUpperCase()}
-                </span>
-                <h3 className="text-lg sm:text-xl font-heading font-bold text-white">
-                  {lightboxItem.title}
-                </h3>
-                <p className="text-xs text-slate-400 flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-amber-500" />
-                  <span>{lightboxItem.venue} • {lightboxItem.stats}</span>
-                </p>
-                <p className="text-xs text-slate-300 max-w-2xl pt-1">
-                  {lightboxItem.description}
-                </p>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => handleInquireProject(lightboxItem.title)}
-                className="px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold transition-all shadow-soft-gold whitespace-nowrap inline-flex items-center gap-2 shrink-0"
-              >
-                <span>Consult on WhatsApp</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Shared Case-Study Lightbox Modal with Prev/Next & BOQ Deep-Link */}
+      <ProjectLightbox
+        items={filteredItems}
+        activeItem={lightboxItem}
+        onSelect={setLightboxItem}
+        onClose={() => setLightboxItem(null)}
+      />
     </section>
   );
 }

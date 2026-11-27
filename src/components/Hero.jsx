@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Building2, 
@@ -6,7 +6,6 @@ import {
   Layers, 
   ShieldCheck, 
   ArrowRight,
-  Send,
   Palette,
   Compass,
   MapPin,
@@ -20,7 +19,8 @@ import SafeImage from './SafeImage';
 const HERO_SHOWCASE_SLIDES = [
   {
     id: 'living',
-    tab: 'Luxury Living Salon',
+    category: 'interiors',
+    tab: 'Living Salons',
     badge: 'Interiors First',
     title: 'Bookmatched Italian Marble & Fluted Salon',
     location: 'Sadashivanagar, Bengaluru',
@@ -29,7 +29,8 @@ const HERO_SHOWCASE_SLIDES = [
   },
   {
     id: 'kitchen',
-    tab: 'Modular Kitchens',
+    category: 'kitchens',
+    tab: 'Kitchens',
     badge: 'Lifetime Hardware',
     title: 'Sintered Waterfall Island & Blum Legrabox Suite',
     location: 'Whitefield Sky Penthouse, Bengaluru',
@@ -37,8 +38,19 @@ const HERO_SHOWCASE_SLIDES = [
     image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1200&auto=format&fit=crop&q=80'
   },
   {
+    id: 'closets',
+    category: 'closets',
+    tab: 'Wardrobes',
+    badge: 'Custom Joinery',
+    title: 'Fluted Bronze Glass Walk-In Dressing Suite',
+    location: 'Jubilee Hills Enclave, Hyderabad',
+    metric: 'Sensor LED Profiles • Bespoke Leather Trays',
+    image: 'https://images.pexels.com/photos/30465909/pexels-photo-30465909/free-photo-of-luxury-modern-walk-in-wardrobe-design.jpeg?auto=compress&cs=tinysrgb&w=1000'
+  },
+  {
     id: 'campus',
-    tab: 'University Campuses',
+    category: 'institutional',
+    tab: 'Campuses',
     badge: 'NBC 2016 Grade',
     title: 'Acoustic Lecture Halls & Campus Architecture',
     location: 'Sarjapur Road Campus, Bengaluru',
@@ -49,7 +61,16 @@ const HERO_SHOWCASE_SLIDES = [
 
 export default function Hero({ onOpenConfigurator }) {
   const [activeSlideIdx, setActiveSlideIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const currentSlide = HERO_SHOWCASE_SLIDES[activeSlideIdx];
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveSlideIdx((prev) => (prev + 1) % HERO_SHOWCASE_SLIDES.length);
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const handleScheduleInspection = () => {
     const el = document.getElementById('site-inspection');
@@ -142,7 +163,11 @@ export default function Hero({ onOpenConfigurator }) {
           </div>
 
           {/* Right Column: Interactive 3D Floating Architectural Showcase Card */}
-          <div className="lg:col-span-6 perspective-1200">
+          <div
+            className="lg:col-span-6 perspective-1200"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <TiltCard3D
               maxTilt={6}
               scale={1.015}
@@ -169,28 +194,41 @@ export default function Hero({ onOpenConfigurator }) {
                   </span>
                 </div>
 
-                {/* Bottom Overlay Editorial Caption */}
-                <div className="absolute bottom-4 left-4 right-4 text-white space-y-1.5">
-                  <div className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-300">
-                    <MapPin className="w-3.5 h-3.5 shrink-0" />
-                    <span>{currentSlide.location}</span>
+                {/* Bottom Overlay Editorial Caption + Direct Category Deep Link */}
+                <div className="absolute bottom-4 left-4 right-4 text-white flex items-end justify-between gap-3">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-300">
+                      <MapPin className="w-3.5 h-3.5 shrink-0" />
+                      <span>{currentSlide.location}</span>
+                    </div>
+                    <h2 className="font-heading text-lg sm:text-xl font-extrabold leading-snug text-white">
+                      {currentSlide.title}
+                    </h2>
+                    <p className="text-[11px] text-slate-300 font-medium">
+                      {currentSlide.metric}
+                    </p>
                   </div>
-                  <h2 className="font-heading text-lg sm:text-xl font-extrabold leading-snug text-white">
-                    {currentSlide.title}
-                  </h2>
-                  <p className="text-[11px] text-slate-300 font-medium">
-                    {currentSlide.metric}
-                  </p>
+
+                  <Link
+                    to={`/gallery?category=${currentSlide.category}`}
+                    className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white/95 hover:bg-amber-400 text-slate-950 text-[11px] font-bold shrink-0 shadow-soft-sm transition-colors"
+                  >
+                    <span>Explore</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
                 </div>
               </div>
 
               {/* Interactive Slide Switcher Pills */}
-              <div className="grid grid-cols-3 gap-2 pt-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3">
                 {HERO_SHOWCASE_SLIDES.map((slide, idx) => (
                   <button
                     key={slide.id}
                     type="button"
-                    onClick={() => setActiveSlideIdx(idx)}
+                    onClick={() => {
+                      setActiveSlideIdx(idx);
+                      setIsPaused(true);
+                    }}
                     className={`px-2.5 py-2 rounded-xl text-[11px] font-bold text-center transition-all truncate ${
                       activeSlideIdx === idx
                         ? 'bg-slate-900 text-amber-300 shadow-soft-sm'

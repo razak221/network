@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { 
-  Building2, 
-  Sparkles, 
   Send, 
-  CheckCircle2, 
   Calculator, 
-  Home, 
   ShieldCheck, 
   Printer, 
-  Layers, 
-  Info,
-  Clock,
-  Compass,
-  FileCheck,
+  Copy,
   Check
 } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
@@ -51,9 +44,21 @@ const FINISH_TIERS = [
 ];
 
 export default function EventBuilder({ isOpenModal = false, onClose, hideHeader = false }) {
-  const [projectType, setProjectType] = useState('apartment');
-  const [areaSqFt, setAreaSqFt] = useState(2500);
-  const [finishTier, setFinishTier] = useState('luxury');
+  const [searchParams] = useSearchParams();
+  const paramType = searchParams.get('type');
+  const paramTier = searchParams.get('tier');
+  const paramArea = Number(searchParams.get('area'));
+  const paramRef = searchParams.get('ref') || '';
+
+  const [projectType, setProjectType] = useState(
+    PROJECT_TYPES.some((p) => p.id === paramType) ? paramType : 'apartment'
+  );
+  const [areaSqFt, setAreaSqFt] = useState(
+    Number.isFinite(paramArea) && paramArea >= 500 && paramArea <= 50000 ? paramArea : 2500
+  );
+  const [finishTier, setFinishTier] = useState(
+    FINISH_TIERS.some((t) => t.id === paramTier) ? paramTier : 'luxury'
+  );
   const [timelineMonths, setTimelineMonths] = useState(10);
   const [projectLocation, setProjectLocation] = useState('');
 
@@ -73,8 +78,19 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
     phone: '',
     email: '',
     siteAddress: '',
-    notes: ''
+    notes: paramRef ? `Reference showcase style: ${paramRef}` : ''
   });
+
+  useEffect(() => {
+    if (paramType && PROJECT_TYPES.some((p) => p.id === paramType)) setProjectType(paramType);
+    if (paramTier && FINISH_TIERS.some((t) => t.id === paramTier)) setFinishTier(paramTier);
+    if (Number.isFinite(paramArea) && paramArea >= 500 && paramArea <= 50000) setAreaSqFt(paramArea);
+    if (paramRef) {
+      setClientInfo((prev) =>
+        prev.notes ? prev : { ...prev, notes: `Reference showcase style: ${paramRef}` }
+      );
+    }
+  }, [paramType, paramTier, paramArea, paramRef]);
 
   const [submitted, setSubmitted] = useState(false);
   const [toastMsg, setToastMsg] = useState('');
@@ -169,6 +185,26 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
     window.print();
   };
 
+  const handleCopySummary = async () => {
+    const selectedProject = PROJECT_TYPES.find((p) => p.id === projectType)?.label || projectType;
+    const selectedTier = FINISH_TIERS.find((t) => t.id === finishTier)?.name || finishTier;
+    const summary = [
+      `PRISTINE DECORE — ARCHITECTURAL BOQ ESTIMATE (${proposalRef})`,
+      `Typology: ${selectedProject}`,
+      `Finish Tier: ${selectedTier}`,
+      `Area: ${areaSqFt.toLocaleString()} Sq. Ft`,
+      `Location: ${projectLocation || 'Bengaluru / Site TBD'}`,
+      `Estimated Investment: ${formatCost(totalEstimate)} (Civil: ${formatCost(civilCost)} | Joinery: ${formatCost(interiorCost)} | MEP: ${formatCost(mepCost)} | Stone/Finishes: ${formatCost(finishesCost)})`,
+      `Hotline: +91 98453 02888 | https://pristinedecore.com`
+    ].join('\n');
+    try {
+      await navigator.clipboard.writeText(summary);
+      setToastMsg('Itemized BOQ summary copied to clipboard!');
+    } catch {
+      setToastMsg('Use Print Proposal or WhatsApp dispatch below.');
+    }
+  };
+
   return (
     <section id="builder" className={hideHeader ? "py-4 md:py-6 bg-transparent relative" : "py-20 md:py-28 bg-[#F4F4F1] border-y border-slate-200/80 relative"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 no-print">
@@ -194,13 +230,20 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
           {/* Left Column: Configurator Steps */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Live Interactive 2D Space Blueprint */}
+            {/* Live Interactive 3D Space Visualizer & CAD Plan */}
             <StageVisualizer 
               projectType={projectType} 
               areaSqFt={areaSqFt} 
               finishTier={finishTier}
               scope={scope} 
             />
+
+            {paramRef && (
+              <div className="px-5 py-3 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-xs font-semibold flex items-center justify-between gap-2 shadow-soft-sm">
+                <span>Estimating parameters pre-loaded from portfolio work: <strong className="font-bold">{paramRef}</strong></span>
+                <span className="text-[10px] font-mono bg-white px-2 py-0.5 rounded border border-amber-200 shrink-0">{areaSqFt.toLocaleString()} Sq. Ft</span>
+              </div>
+            )}
 
             {/* Step 1: Project Type & Location */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-soft space-y-5">
@@ -474,14 +517,24 @@ export default function EventBuilder({ isOpenModal = false, onClose, hideHeader 
                   <span>Send Estimate to Studio Architects (WhatsApp)</span>
                 </button>
 
-                <button
-                  type="button"
-                  onClick={handlePrintProposal}
-                  className="w-full py-3 rounded-2xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 flex items-center justify-center gap-2 transition-all shadow-soft-sm"
-                >
-                  <Printer className="w-4 h-4 text-amber-600" />
-                  <span>Print Official BOQ Proposal (PDF)</span>
-                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={handlePrintProposal}
+                    className="w-full py-3 rounded-2xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 flex items-center justify-center gap-2 transition-all shadow-soft-sm"
+                  >
+                    <Printer className="w-4 h-4 text-amber-600" />
+                    <span>Print Official BOQ (PDF)</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleCopySummary}
+                    className="w-full py-3 rounded-2xl text-xs font-semibold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 flex items-center justify-center gap-2 transition-all shadow-soft-sm"
+                  >
+                    <Copy className="w-4 h-4 text-amber-600" />
+                    <span>Copy BOQ Summary</span>
+                  </button>
+                </div>
 
                 <p className="text-[11px] text-center text-slate-500">
                   Fixed-price BOQ guarantee. No hidden escalations after contract signing.

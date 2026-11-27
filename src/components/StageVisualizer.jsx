@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { 
   Compass, 
   Sun, 
@@ -10,7 +10,8 @@ import {
   ShieldCheck, 
   Box,
   RotateCcw,
-  Palette
+  Palette,
+  Move
 } from 'lucide-react';
 
 const STONE_FINISHES = {
@@ -55,6 +56,8 @@ export default function StageVisualizer({
   const [stoneFinish, setStoneFinish] = useState('statuario');
   const [tiltAngle, setTiltAngle] = useState({ x: 46, z: -28 });
   const [activePreset, setActivePreset] = useState('iso');
+  const [isOrbiting, setIsOrbiting] = useState(false);
+  const orbitRef = useRef({ active: false, moved: false, startX: 0, startY: 0, baseX: 46, baseZ: -28 });
 
   const tierLabel = finishTier === 'ultra' || finishTier === 'royal'
     ? 'Royal Bespoke'
@@ -184,6 +187,46 @@ export default function StageVisualizer({
     setViewMode('3d');
   };
 
+  const handleOrbitDown = (e) => {
+    if (viewMode !== '3d') return;
+    orbitRef.current = {
+      active: true,
+      moved: false,
+      startX: e.clientX,
+      startY: e.clientY,
+      baseX: tiltAngle.x,
+      baseZ: tiltAngle.z,
+    };
+  };
+
+  const handleOrbitMove = (e) => {
+    if (!orbitRef.current.active || viewMode !== '3d') return;
+    const dx = e.clientX - orbitRef.current.startX;
+    const dy = e.clientY - orbitRef.current.startY;
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
+      orbitRef.current.moved = true;
+      setIsOrbiting(true);
+      setActivePreset('custom');
+      const nextZ = Math.max(-62, Math.min(24, orbitRef.current.baseZ + dx * 0.22));
+      const nextX = Math.max(20, Math.min(64, orbitRef.current.baseX - dy * 0.18));
+      setTiltAngle({ x: Math.round(nextX), z: Math.round(nextZ) });
+    }
+  };
+
+  const handleOrbitUp = () => {
+    orbitRef.current.active = false;
+    setTimeout(() => setIsOrbiting(false), 40);
+  };
+
+  const safeSelectRoom = (key) => {
+    if (!orbitRef.current.moved) setSelectedRoom(key);
+  };
+
+  const safeArea = areaSqFt || 2500;
+  const marbleSqFtEst = Math.round(safeArea * 0.62);
+  const joineryRunFt = Math.round(safeArea * 0.14);
+  const lightingNodes = Math.max(12, Math.round(safeArea / 65));
+
   return (
     <div
       className={`rounded-3xl border transition-all duration-500 overflow-hidden shadow-3d-luxury ${
@@ -299,10 +342,13 @@ export default function StageVisualizer({
           ))}
         </div>
 
-        {/* 3D Angle Presets */}
+        {/* 3D Angle Presets + Orbit Indicator */}
         {viewMode === '3d' && (
-          <div className="flex items-center gap-1.5">
-            <RotateCcw className="w-3 h-3 text-amber-500" />
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-semibold opacity-75 mr-1">
+              <Move className="w-3 h-3 text-amber-500" />
+              Drag to orbit:
+            </span>
             {CAMERA_PRESETS.map((preset) => (
               <button
                 key={preset.id}
@@ -317,6 +363,17 @@ export default function StageVisualizer({
                 {preset.label}
               </button>
             ))}
+            {activePreset === 'custom' && (
+              <button
+                type="button"
+                onClick={() => applyPreset(CAMERA_PRESETS[0])}
+                className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-500/20 text-amber-500 hover:bg-amber-500/30 inline-flex items-center gap-1"
+                title="Reset Orbit"
+              >
+                <RotateCcw className="w-2.5 h-2.5" />
+                <span>{tiltAngle.x}°/{tiltAngle.z}°</span>
+              </button>
+            )}
           </div>
         )}
       </div>
@@ -350,21 +407,30 @@ export default function StageVisualizer({
           <span>AXIS B-4 [Y: 18.50m]</span>
         </div>
 
-        {/* 3D VIEWPORT CONTAINER */}
-        <div className="relative z-10 my-6 py-4 perspective-1200 transition-all duration-700 flex items-center justify-center">
+        {/* 3D VIEWPORT CONTAINER (Drag-to-Orbit Enabled) */}
+        <div
+          onPointerDown={handleOrbitDown}
+          onPointerMove={handleOrbitMove}
+          onPointerUp={handleOrbitUp}
+          onPointerCancel={handleOrbitUp}
+          onPointerLeave={handleOrbitUp}
+          className={`relative z-10 my-6 py-4 perspective-1200 transition-all duration-700 flex items-center justify-center touch-pan-y ${
+            viewMode === '3d' ? (isOrbiting ? 'cursor-grabbing' : 'cursor-grab') : ''
+          }`}
+        >
           <div 
             style={{
               transform: viewMode === '3d' 
                 ? `perspective(1200px) rotateX(${tiltAngle.x}deg) rotateZ(${tiltAngle.z}deg)` 
                 : 'perspective(1200px) rotateX(0deg) rotateZ(0deg)',
               transformStyle: 'preserve-3d',
-              transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+              transition: isOrbiting ? 'none' : 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
             className="w-full grid grid-cols-12 gap-3.5 preserve-3d"
           >
             {/* 1. Primary Salon / Hall Block (Span 7) */}
             <div 
-              onClick={() => setSelectedRoom('salon')}
+              onClick={() => safeSelectRoom('salon')}
               style={{
                 transform: selectedRoom === 'salon' && viewMode === '3d' ? 'translateZ(20px)' : 'translateZ(0px)',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -423,7 +489,7 @@ export default function StageVisualizer({
 
             {/* 2. Kitchen / Lab Block (Span 5) */}
             <div 
-              onClick={() => setSelectedRoom('kitchen')}
+              onClick={() => safeSelectRoom('kitchen')}
               style={{
                 transform: selectedRoom === 'kitchen' && viewMode === '3d' ? 'translateZ(20px)' : 'translateZ(0px)',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -484,7 +550,7 @@ export default function StageVisualizer({
 
             {/* 3. Master Suite / Classroom Wing (Span 8) */}
             <div 
-              onClick={() => setSelectedRoom('suite')}
+              onClick={() => safeSelectRoom('suite')}
               style={{
                 transform: selectedRoom === 'suite' && viewMode === '3d' ? 'translateZ(20px)' : 'translateZ(0px)',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -545,7 +611,7 @@ export default function StageVisualizer({
 
             {/* 4. Terrace / Quad Block (Span 4) */}
             <div 
-              onClick={() => setSelectedRoom('terrace')}
+              onClick={() => safeSelectRoom('terrace')}
               style={{
                 transform: selectedRoom === 'terrace' && viewMode === '3d' ? 'translateZ(20px)' : 'translateZ(0px)',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -605,6 +671,23 @@ export default function StageVisualizer({
             <p className={`text-xs mt-1.5 leading-relaxed ${nightMode ? 'text-slate-300' : 'text-slate-600'}`}>
               {rooms[selectedRoom].spec || rooms[selectedRoom].shortDesc}
             </p>
+            {/* Dynamic Computed Quantity Takeoff HUD */}
+            <div className={`mt-3 pt-2.5 border-t grid grid-cols-3 gap-2 text-[10px] font-mono ${
+              nightMode ? 'border-white/10 text-slate-300' : 'border-slate-200/80 text-slate-700'
+            }`}>
+              <div>
+                <span className="opacity-65 block uppercase text-[9px]">Stone Takeoff</span>
+                <strong className="font-bold text-amber-500">{marbleSqFtEst.toLocaleString()} Sq.Ft</strong>
+              </div>
+              <div>
+                <span className="opacity-65 block uppercase text-[9px]">Joinery Run</span>
+                <strong className="font-bold text-teal-500">{joineryRunFt} R.Ft</strong>
+              </div>
+              <div>
+                <span className="opacity-65 block uppercase text-[9px]">DALI Nodes</span>
+                <strong className="font-bold">{lightingNodes} Fixtures</strong>
+              </div>
+            </div>
           </div>
         )}
 
