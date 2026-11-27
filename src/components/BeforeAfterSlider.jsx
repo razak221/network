@@ -13,87 +13,87 @@ import SafeImage from './SafeImage';
 const TRANSFORMATION_PROJECTS = [
   {
     id: 'villa-salon',
-    tabLabel: 'Luxury Villa Salon',
+    tabLabel: 'Luxury Living Salon',
     title: 'Sadashivanagar Private Villa — Living Salon',
     location: 'Sadashivanagar, Bengaluru',
-    category: 'Turnkey Civil to Luxury Interior',
-    duration: '6 Months Turnkey Execution',
-    beforeImg: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&auto=format&fit=crop&q=80',
-    afterImg: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80',
-    beforeLabel: 'Raw Bare-Shell Concrete & Steel Superstructure',
-    afterLabel: 'Handover: Italian Statuario & 3D Fluted Oak Salon',
+    category: 'Bare Interior Frame to Luxury Salon',
+    duration: '5 Months Turnkey Execution',
+    beforeImg: 'https://images.unsplash.com/photo-1768321914688-86ff62032d47?w=1200&auto=format&fit=crop&q=80',
+    afterImg: 'https://images.unsplash.com/photo-1648881806148-e5c51179c826?w=1200&auto=format&fit=crop&q=80',
+    beforeLabel: 'Exposed Timber Framing, Piping & Unfinished Walls',
+    afterLabel: 'Handover: Marble Flooring, Fluted Molding & Brass Ring Lights',
     stats: '3,800 Sq. Ft Living Pavilion',
     specs: [
-      'Bookmatched Italian Statuario Marble Slabs',
-      'Double-Height 3D Fluted Acoustic Oak Walls',
-      'Magnetic DALI Smart Architectural Track Lights',
-      'Seismic IS 1893 RCC Structural Framework'
+      'Bookmatched Imported Marble Living Flooring',
+      'Bespoke Moulded Acoustic Wall Paneling',
+      'Architectural Ring Chandelier & DALI Controls',
+      'Concealed Copper MEP & Gyproc Ceiling Frame'
     ],
-    beforeStage: 'Civil Superstructure (Month 2)',
-    afterStage: 'Ready for Occupancy (Month 7)'
+    beforeStage: 'Interior Framing & MEP (Month 2)',
+    afterStage: 'Turnkey Handover (Month 5)'
   },
   {
     id: 'modular-kitchen',
     tabLabel: 'Master Chef Kitchen',
     title: 'Whitefield Sky Penthouse — German Modular Kitchen',
     location: 'Whitefield, Bengaluru',
-    category: 'Civil Rough-In to Modular Mastery',
+    category: 'Raw Masonry Shell to Modular Mastery',
     duration: '45 Days Fitout',
-    beforeImg: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&auto=format&fit=crop&q=80',
-    afterImg: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200&auto=format&fit=crop&q=80',
-    beforeLabel: 'Exposed Brickwork & Conduit MEP Rough-Ins',
-    afterLabel: 'Handover: German Blum Joinery & Sintered Quartz',
+    beforeImg: 'https://images.unsplash.com/photo-1768321902380-c65dbd4df3f2?w=1200&auto=format&fit=crop&q=80',
+    afterImg: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1200&auto=format&fit=crop&q=80',
+    beforeLabel: 'Exposed Brickwork, Metal Ceiling Grid & Drywall Sheets',
+    afterLabel: 'Handover: German Blum Joinery & Waterfall Quartz Island',
     stats: '650 Sq. Ft Chef’s Island Suite',
     specs: [
-      'German Blum Legrabox Electronic Push-to-Open',
-      '12mm Sintered Stone Waterfall Island Counter',
-      'Anti-Scratch Matte Acrylic BWP Marine Joinery',
-      'Concealed Ducted Hood & Zero-VOC PU Finish'
+      'German Blum Legrabox Soft-Close Hardware',
+      '12mm Waterfall Sintered Stone Island Counter',
+      'Natural Oak & Anti-Scratch Matte White Joinery',
+      'Recessed Under-Cabinet LED & Zero-VOC Finish'
     ],
-    beforeStage: 'Rough Masonry & MEP (Day 15)',
+    beforeStage: 'Brickwork & Ceiling Grid (Day 15)',
     afterStage: 'Flawless Installation (Day 45)'
   },
   {
+    id: 'villa-civil',
+    tabLabel: 'Turnkey Villa EPC',
+    title: 'Prestige Golfshire — Ground-Up Villa Architecture',
+    location: 'Nandi Hills Road, Bengaluru',
+    category: 'RCC Structural Shell to Completed Estate',
+    duration: '12 Months Civil + Interior EPC',
+    beforeImg: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?w=1200&auto=format&fit=crop&q=80',
+    afterImg: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80',
+    beforeLabel: 'Multi-Story Reinforced Concrete & Shuttering Superstructure',
+    afterLabel: 'Handover: Contemporary Villa Exterior & Warm Lighting',
+    stats: '6,800 Sq. Ft Turnkey Villa Build',
+    specs: [
+      'Seismic IS 1893 RCC Structural Framework',
+      'Exterior Weather-Shield Timber & Stone Facade',
+      'Cantilevered Floor-to-Ceiling Toughened Glazing',
+      '10-Year Certified Structural Civil Warranty'
+    ],
+    beforeStage: 'Civil RCC Superstructure (Month 4)',
+    afterStage: 'Completed Estate (Month 12)'
+  },
+  {
     id: 'campus-auditorium',
-    tabLabel: 'University Auditorium',
-    title: 'Bengaluru Tech University — 500-Seat Auditorium',
+    tabLabel: 'University Campus',
+    title: 'Bengaluru Tech University — Library & Academic Wing',
     location: 'Sarjapur Road Campus, Bengaluru',
     category: 'Institutional Campus Fitout',
     duration: '90 Days Turnkey',
-    beforeImg: 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=1200&auto=format&fit=crop&q=80',
-    afterImg: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&auto=format&fit=crop&q=80',
-    beforeLabel: 'Bare Industrial Concrete Shell & Trusses',
-    afterLabel: 'Handover: Acoustic Baffled 500-Seat Hall',
-    stats: '14,000 Sq. Ft Campus Auditorium',
+    beforeImg: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1200&auto=format&fit=crop&q=80',
+    afterImg: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1200&auto=format&fit=crop&q=80',
+    beforeLabel: 'Structural Steel Roof Trusses & Precision Joinery Work',
+    afterLabel: 'Handover: Acoustic Research Library & Academic Wing',
+    stats: '18,500 Sq. Ft Institutional Fitout',
     specs: [
-      'NRC 0.85 Fabric-Wrapped Acoustic Wall Paneling',
-      'Class-1 Fire Retardant Auditorium Seating',
-      'DMX Architectural Stage Lighting Control',
-      'Central VRV HVAC with Acoustic Attenuators'
+      'STC 50+ Acoustic Ceiling & Partition Baffles',
+      'Heavy-Duty Solid Wood & Steel Millwork Stacks',
+      'Glare-Free 5000K Circadian Study Lighting',
+      'National Building Code (NBC 2016) Fire Compliant'
     ],
-    beforeStage: 'Bare Shell Civil Hall (Month 1)',
-    afterStage: 'Commissioned Auditorium (Month 3)'
-  },
-  {
-    id: 'master-suite',
-    tabLabel: 'Master Bedroom Wing',
-    title: 'Indiranagar Prime Residence — Master Bedroom Suite',
-    location: 'Indiranagar 100ft Road, Bengaluru',
-    category: 'Luxury Suite Architecture',
-    duration: '4 Months Turnkey',
-    beforeImg: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&auto=format&fit=crop&q=80',
-    afterImg: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&auto=format&fit=crop&q=80',
-    beforeLabel: 'Bare Concrete Screed & Wall Openings',
-    afterLabel: 'Handover: Herringbone Oak & Sensor Glass Closets',
-    stats: '1,200 Sq. Ft Master Suite Wing',
-    specs: [
-      'European Smoked Herringbone Hardwood Flooring',
-      'Tinted Bronze Profile Sensor Walk-In Closets',
-      'Acoustic Velvet Headboard Cladding',
-      'Private Spa Ensuite with Statuario Slab Walls'
-    ],
-    beforeStage: 'Civil Demolition & Plaster (Week 3)',
-    afterStage: 'Final Turnkey Handover (Week 16)'
+    beforeStage: 'Structural Framing & Millwork (Month 1)',
+    afterStage: 'Commissioned Wing (Month 3)'
   }
 ];
 
@@ -158,7 +158,7 @@ export default function BeforeAfterSlider() {
             From Bare-Shell Concrete to <span className="text-gradient-gold">Bespoke Architectural Luxury</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Drag the interactive slider below to inspect how Pristine Decore transitions empty concrete slabs, structural steel, and masonry rough-ins into world-class living suites and institutional campuses.
+            Drag the interactive slider below to inspect how Pristine Decore transitions raw framing, concrete shells, and masonry rough-ins into world-class living suites, villas, and institutional campuses.
           </p>
 
           {/* Project Switcher Tabs */}
@@ -215,7 +215,7 @@ export default function BeforeAfterSlider() {
               </div>
             </div>
 
-            {/* Drag Container using pixel-exact CSS clipPath (never squishes on resize or mobile) */}
+            {/* Drag Container using pixel-exact CSS clipPath */}
             <div
               ref={containerRef}
               role="slider"
@@ -245,7 +245,7 @@ export default function BeforeAfterSlider() {
                 <span>AFTER: {activeProject.afterStage}</span>
               </div>
 
-              {/* Before Layer (GPU-clipped with inset so dimensions match 1:1 without distortion) */}
+              {/* Before Layer */}
               <div
                 className="absolute inset-0 pointer-events-none will-change-[clip-path]"
                 style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
@@ -256,7 +256,7 @@ export default function BeforeAfterSlider() {
                   className="w-full h-full object-cover pointer-events-none"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-slate-950/20"></div>
+                <div className="absolute inset-0 bg-slate-950/15"></div>
                 <div className="hidden sm:flex absolute top-4 left-4 z-10 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md text-slate-200 text-xs font-bold border border-slate-700 shadow-luxury pointer-events-none items-center gap-1.5">
                   <Building2 className="w-3.5 h-3.5 text-amber-500" />
                   <span>BEFORE: {activeProject.beforeStage}</span>
@@ -271,7 +271,7 @@ export default function BeforeAfterSlider() {
                 AFTER
               </div>
 
-              {/* Vertical Divider Line & Physical Brass Handle */}
+              {/* Vertical Divider Line & Handle */}
               <div
                 className="absolute top-0 bottom-0 z-20 pointer-events-none flex items-center justify-center"
                 style={{ left: `${sliderPos}%`, transform: 'translateX(-50%)' }}

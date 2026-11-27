@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Send, Calculator, ArrowUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Send, ArrowUp } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/contact';
 
 export default function FloatingWidget() {
@@ -20,7 +19,7 @@ export default function FloatingWidget() {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5 no-print">
+    <div className="fixed bottom-5 right-4 sm:right-6 z-40 flex flex-col items-end gap-2.5 no-print">
       {showScrollTop && (
         <button
           type="button"
@@ -33,31 +32,22 @@ export default function FloatingWidget() {
         </button>
       )}
 
-      <div className="flex items-center gap-2 p-1.5 rounded-full bg-white/90 backdrop-blur-xl border border-slate-200/90 shadow-3d-floating">
-        <Link
-          to="/quote"
-          className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200/80 text-xs font-bold transition-all"
-          title="Open Cost Estimator Studio"
-        >
-          <Calculator className="w-3.5 h-3.5 text-amber-600" />
-          <span>BOQ Estimator</span>
-        </Link>
-
-        <button
-          type="button"
-          onClick={handleWhatsApp}
-          className="h-12 px-4 sm:px-5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 shadow-soft-md hover:scale-105 active:scale-95 transition-all group relative"
-          title="Consult Architectural Desk on WhatsApp (+91 98453 02888)"
-          aria-label="Consult Architectural Desk on WhatsApp"
-        >
-          <span className="relative flex h-2.5 w-2.5 shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-300"></span>
-          </span>
-          <Send className="w-4 h-4 fill-white shrink-0" />
-          <span className="text-xs font-bold whitespace-nowrap">WhatsApp Atelier</span>
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={handleWhatsApp}
+        className="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center shadow-3d-floating border-2 border-white/90 hover:scale-105 active:scale-95 transition-all group relative"
+        title="Consult Architectural Desk on WhatsApp (+91 98453 02888)"
+        aria-label="Consult Architectural Desk on WhatsApp"
+      >
+        <span className="absolute top-0 right-0 flex h-3.5 w-3.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-400 border-2 border-white"></span>
+        </span>
+        <Send className="w-5 h-5 fill-white transition-transform group-hover:scale-110" />
+        <span className="hidden md:block pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap shadow-soft-lg border border-amber-400/30">
+          WhatsApp Atelier
+        </span>
+      </button>
     </div>
   );
 }

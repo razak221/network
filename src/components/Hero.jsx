@@ -22,10 +22,10 @@ const HERO_SHOWCASE_SLIDES = [
     id: 'living',
     tab: 'Luxury Living Salon',
     badge: 'Interiors First',
-    title: 'Bookmatched Italian Statuario Living Pavilion',
+    title: 'Bookmatched Italian Marble & Fluted Salon',
     location: 'Sadashivanagar, Bengaluru',
     metric: '5,400 Sq. Ft • German Blum & Fluted Oak',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1648881806148-e5c51179c826?w=1200&auto=format&fit=crop&q=80'
   },
   {
     id: 'kitchen',
@@ -34,15 +34,15 @@ const HERO_SHOWCASE_SLIDES = [
     title: 'Sintered Waterfall Island & Blum Legrabox Suite',
     location: 'Whitefield Sky Penthouse, Bengaluru',
     metric: '12mm Porcelain Island • Zero-VOC Matte PU',
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200&auto=format&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1200&auto=format&fit=crop&q=80'
   },
   {
     id: 'campus',
     tab: 'University Campuses',
     badge: 'NBC 2016 Grade',
-    title: '500-Seat Acoustic Auditorium & Campus Interiors',
+    title: 'Acoustic Lecture Halls & Campus Architecture',
     location: 'Sarjapur Road Campus, Bengaluru',
-    metric: 'NRC 0.85 Acoustic Timber • Turnkey Delivery',
+    metric: 'Turnkey Institutional Civil & Smart Classrooms',
     image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1200&auto=format&fit=crop&q=80'
   }
 ];

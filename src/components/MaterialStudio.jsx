@@ -29,7 +29,7 @@ const SWATCH_LIBRARY = {
       name: 'Bookmatched Italian Statuario',
       origin: 'Carrara Quarries, Tuscany, Italy',
       type: 'First-Choice Extra White Marble',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1648881806148-e5c51179c826?w=600&auto=format&fit=crop&q=80',
       specs: '20mm Polished Slab • Distinct Grey Feathery Veins • Mirror-Matched',
       cert: '100% Genuine Italian Origin Certificate',
       ideal: 'Double-Height Living Salon, Foyer Flooring & Master Vanity'
@@ -91,7 +91,7 @@ const SWATCH_LIBRARY = {
       name: 'Senosan Super-Matte Acrylic',
       origin: 'Austria (Senosan GmbH)',
       type: 'Anti-Fingerprint Nanotech Acrylic',
-      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&auto=format&fit=crop&q=80',
       specs: 'Laser Edge-Banded • Thermal Self-Healing • Zero Micro-Scratches',
       cert: 'DIN 68861 Chemical Resistance Standard',
       ideal: 'German Modular Kitchen Shutter Profiles & Master Wardrobes'
@@ -123,7 +123,7 @@ const SWATCH_LIBRARY = {
       name: 'German Blum Onyx Black Legrabox',
       origin: 'Vorarlberg, Austria',
       type: 'Concealed Dynamic Drawer Runner System',
-      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&auto=format&fit=crop&q=80',
       specs: '70kg Dynamic Load Rating • 100,000 Opening Cycles Warranty',
       cert: 'Blum Official Manufacturer Guarantee',
       ideal: 'Heavy Pots & Pans Drawers, Pantry Larders & Blum Aventos'
@@ -185,7 +185,7 @@ const SWATCH_LIBRARY = {
       name: '12mm Large-Format Sintered Porcelain',
       origin: 'Castellón, Spain',
       type: 'Heat & Stain Proof Ultracompact Slab',
-      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&auto=format&fit=crop&q=80',
       specs: 'Zero Porosity • Withstands 1000°C Direct Heat • Food Safe',
       cert: 'NSF Food Preparation Area Certified',
       ideal: 'Chef Kitchen Prep Counters & Seamless Bathroom Vanity Tops'

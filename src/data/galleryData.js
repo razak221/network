@@ -781,7 +781,7 @@ export const galleryItems = [
     "title": "Monolithic Sintered Stone Chef's Kitchen",
     "category": "kitchens",
     "venue": "Prestige Golfshire Estate, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "German Blum Legrabox",
       "12mm Quartz Island",
