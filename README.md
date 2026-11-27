@@ -23,9 +23,9 @@ Pristine Decore is a premier architectural and civil engineering studio deliveri
    - Acoustic drywall partitioning, centralized VRV/HVAC ducting, and NBC 2016 fire compliance.
    - Dedicated senior site engineer stationed full-time on-site with daily digital logs.
 
-4. **Real-Time Cost Estimator & BOQ Studio:**
+4. **Real-Time Cost Estimator & Interactive 3D BOQ Studio:**
    - Interactive square-footage calculator by typology and finish tier (Premium, Luxury, Royal).
-   - Dynamic 2D spatial architectural blueprint visualizer with CAD markings and day/night ambient glow.
+   - Interactive 3D perspective architectural visualizer with CAD markings, camera presets, marble/oak finish swatches, and day/night lighting.
    - Instant printable B2B proposal and itemized Bill of Quantities (BOQ) with WhatsApp dispatch.
 
 5. **Bespoke Materials & Rare Fixtures Concierge:**
@@ -39,11 +39,11 @@ Pristine Decore is a premier architectural and civil engineering studio deliveri
 # 1. Install frontend dependencies
 npm install
 
-# 2. Start local frontend server (runs on port 3000)
+# 2. Start local Vite frontend server (runs on http://localhost:5173)
 npm run dev
 
-# 3. Start local backend server (optional, port 5000)
-npm run server
+# 3. Start local backend API server (optional, port 5001)
+node server/index.js
 
 # 4. Run automated QA test suite (100 tests)
 npm test

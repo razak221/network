@@ -95,7 +95,7 @@ export const galleryItems = [
     "title": "Waterfront Palm Villa",
     "category": "villas",
     "venue": "Palm Meadows, Whitefield, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Structural Glazing",
       "Daikin VRV Systems",
@@ -123,7 +123,7 @@ export const galleryItems = [
     "title": "Modernist Tropical Pavilion Villa",
     "category": "villas",
     "venue": "Gandipet Lake View Enclave, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Deep Cantilever Eaves",
       "Perforated Jali Screen",
@@ -235,7 +235,7 @@ export const galleryItems = [
     "title": "Beachfront Coastal Sanctuary",
     "category": "villas",
     "venue": "Anjuna Coastal Belt, North Goa",
-    "image": "https://images.unsplash.com/photo-1555636222-cae831e670b3?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1783125126994-1096cf16bb85?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Marine-Grade 316 Steel",
       "Anti-Fungicidal Lime Finish",
@@ -249,7 +249,7 @@ export const galleryItems = [
     "title": "Monolithic Basalt Stone Manor",
     "category": "villas",
     "venue": "Banjara Hills Road No. 10, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1560185009-dddeb820c7b7?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Honed Basalt Masonry",
       "Zinc Standing Seam Roof",
@@ -260,24 +260,24 @@ export const galleryItems = [
   },
   {
     "id": 17,
-    "title": "Scandinavian Minimalist Villa",
+    "title": "Contemporary Limestone & Glass Courtyard Villa",
     "category": "villas",
     "venue": "Sarjapur Road Villa Enclave, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1561033318-86d027e3e814?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/16573669/pexels-photo-16573669/free-photo-of-luxury-villa-house.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Glulam Engineered Beams",
       "Spruce Wall Finishes",
       "Low-Carbon Concrete"
     ],
     "stats": "5,600 Sq. Ft | Sustainable Architecture",
-    "description": "Eco-friendly hybrid residential build utilizing certified engineered wood beams, low-carbon flyash blended concrete, and high thermal insulation roof sandwiches."
+    "description": "Turnkey luxury stone facade residence with covered dual-car portico, double-height glazing, and landscaped front lawns."
   },
   {
     "id": 18,
     "title": "The White Ribbon Waterfront Villa",
     "category": "villas",
     "venue": "Mandwa Coastal Enclave, Alibaug",
-    "image": "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1778205063665-23257f2dc408?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Curvilinear Formwork",
       "Epoxy Marine Rebars",
@@ -330,24 +330,24 @@ export const galleryItems = [
   },
   {
     "id": 22,
-    "title": "Heritage Rowhouse Modernization",
+    "title": "Cantilevered Concrete & Pool Pavilion Villa",
     "category": "villas",
     "venue": "Richmond Town, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/13041124/pexels-photo-13041124/free-photo-of-a-stunning-modern-house-cu-spacious-pool-and-green-garden-ideal-for-relaxation.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Structural Underpinning",
       "Teakwood Louvers",
       "Lime Plaster Rendering"
     ],
     "stats": "4,900 Sq. Ft | Turnkey Renovation",
-    "description": "Elegant civil restructuring of a heritage colonial property with modern open-plan spaces, central skylights, and reinforced lintels."
+    "description": "Exposed architectural concrete cantilevered slab residence framing a turquoise lap pool and manicured private lawn."
   },
   {
     "id": 23,
     "title": "Minimalist White Box Villa",
     "category": "villas",
     "venue": "Jubilee Hills Road No. 12, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Curtain Glass Wall",
       "Monolithic Plinths",
@@ -361,7 +361,7 @@ export const galleryItems = [
     "title": "Coastal Modernist Beach Villa",
     "category": "villas",
     "venue": "Candolim Coastal Sanctuary, North Goa",
-    "image": "https://images.unsplash.com/photo-1635108201747-976f7d4ba453?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1783936535299-6ff0f8bbd1d0?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Salt-Resistant Finishes",
       "Burma Teak Decking",
@@ -417,7 +417,7 @@ export const galleryItems = [
     "title": "Modern Contemporary 4BHK Salon",
     "category": "interiors",
     "venue": "Indiranagar 100ft Road, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Bespoke Veneer Wall",
       "Magnetic Track Lighting",
@@ -431,7 +431,7 @@ export const galleryItems = [
     "title": "Luxury Penthouse Living Suite",
     "category": "interiors",
     "venue": "My Home Bhooja, Hitec City, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Michaelangelo Marble",
       "Champagne Gold PVD Profiles",
@@ -473,7 +473,7 @@ export const galleryItems = [
     "title": "Panoramic Oceanfront Sky Lounge",
     "category": "interiors",
     "venue": "Lodha World One, Lower Parel, Mumbai",
-    "image": "https://images.unsplash.com/photo-1515263487990-61b07816b324?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "75th Floor Sea Views",
       "Acoustic Stretch Ceiling",
@@ -529,7 +529,7 @@ export const galleryItems = [
     "title": "Modern Biophilic Living Atrium",
     "category": "interiors",
     "venue": "Total Environment Windmills, Whitefield, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Live Green Wall",
       "Double Glazed Balcony",
@@ -571,7 +571,7 @@ export const galleryItems = [
     "title": "Sky Villa Double-Height Living Room",
     "category": "interiors",
     "venue": "Jayabheri Silicon County, Gachibowli, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "20ft Chandelier Drop",
       "Fluted Oak Wall",
@@ -599,7 +599,7 @@ export const galleryItems = [
     "title": "Modern Penthouse Reception Lounge",
     "category": "interiors",
     "venue": "One Avighna Park, Lower Parel, Mumbai",
-    "image": "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Bookmatched Arabescato",
       "Frameless Linear Fireplace",
@@ -613,7 +613,7 @@ export const galleryItems = [
     "title": "Scandinavian Light Wood 3BHK Living",
     "category": "interiors",
     "venue": "Cunningham Road, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "White Ash Wood Flooring",
       "Warm Grey Emulsion",
@@ -655,7 +655,7 @@ export const galleryItems = [
     "title": "Terrace Garden Integrated Drawing Room",
     "category": "interiors",
     "venue": "Juhu Tara Road, Mumbai",
-    "image": "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Zero-Threshold Glass Doors",
       "Teak Pergola Ceiling",
@@ -669,7 +669,7 @@ export const galleryItems = [
     "title": "Contemporary Warm Neutral Drawing Room",
     "category": "interiors",
     "venue": "Golf Links Enclave, New Delhi",
-    "image": "https://images.unsplash.com/photo-1600647993560-11a92e039466?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Travertine Plinths",
       "Linen Wall Panels",
@@ -683,7 +683,7 @@ export const galleryItems = [
     "title": "Dual-Aspect Corner Penthouse Living",
     "category": "interiors",
     "venue": "DSR The First, Kokapet, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "270\u00b0 Skyline Vistas",
       "Smart DALI Lighting",
@@ -767,7 +767,7 @@ export const galleryItems = [
     "title": "Modern Classic 3BHK Drawing Room",
     "category": "interiors",
     "venue": "Indiranagar 100ft Road, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1560185008-b033106af5c3?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Fluted Wall Wainscot",
       "Warm White Emulsion",
@@ -820,17 +820,17 @@ export const galleryItems = [
   },
   {
     "id": 57,
-    "title": "Walnut & Fluted Glass Designer Kitchen",
+    "title": "Waterfall Quartz & Brass Pendant Show Kitchen",
     "category": "kitchens",
     "venue": "Sadashivanagar, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Natural Walnut Veneer",
       "Anodized Champagne Trims",
       "Wine Chiller Columns"
     ],
     "stats": "450 Sq. Ft Gourmet Kitchen",
-    "description": "Warm architectural kitchen blending fluted glass wall units with internal sensor LEDs, Gaggenau 400 series appliances, and solid walnut cabinetry."
+    "description": "Bright white bespoke shaker show kitchen featuring brass drum pendants, full-height cabinetry, and quartz island seating."
   },
   {
     "id": 58,
@@ -865,7 +865,7 @@ export const galleryItems = [
     "title": "Pure Monochromatic Alabaster Kitchen",
     "category": "kitchens",
     "venue": "Worli Sea Face, Mumbai",
-    "image": "https://images.unsplash.com/photo-1523380262778-076eb862d38f?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Corian Seamless Counter",
       "Handleless Gola Profile",
@@ -876,24 +876,24 @@ export const galleryItems = [
   },
   {
     "id": 61,
-    "title": "Dark Bronze & Nero Marquina Gourmet Kitchen",
+    "title": "Warm Alabaster Matte Linear-LED Modular Kitchen",
     "category": "kitchens",
     "venue": "Banjara Hills, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1792541706809-e1e3046e7784?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Liquid Metal Bronze Finish",
       "Nero Marquina Island",
       "Quooker Boiling Tap"
     ],
     "stats": "Hand-Applied Liquid Metal",
-    "description": "Exclusive liquid bronze artisanal cabinet fronts paired with polished Spanish Nero Marquina marble island and Quooker instant boiling taps."
+    "description": "Minimalist handleless matte sand modular kitchen with recessed architectural ceiling strip lighting and marble waterfall island."
   },
   {
     "id": 62,
     "title": "Cantilevered Breakfast Bar Island Kitchen",
     "category": "kitchens",
     "venue": "Koramangala 3rd Block, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Steel Sub-Structure Island",
       "Smoked Glass Base",
@@ -907,7 +907,7 @@ export const galleryItems = [
     "title": "Contemporary Japandi Teak Modular Kitchen",
     "category": "kitchens",
     "venue": "Assagao, North Goa",
-    "image": "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1792541657795-1755366f8e86?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Solid Teak Slats",
       "Black Quartzite Slab",
@@ -921,7 +921,7 @@ export const galleryItems = [
     "title": "Modern Classic Cream & Marble Kitchen",
     "category": "kitchens",
     "venue": "Vasant Vihar, New Delhi",
-    "image": "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1772567733061-f7b44c0587b0?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Micro-Shaker Cabinets",
       "Statuarietto Marble",
@@ -935,7 +935,7 @@ export const galleryItems = [
     "title": "Mid-Century Smoked Walnut Kitchen",
     "category": "kitchens",
     "venue": "Bandra Pali Hill, Mumbai",
-    "image": "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://plus.unsplash.com/premium_photo-1680382578857-c331ead9ed51?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Grain-Matched Walnut",
       "Terrazzo Countertops",
@@ -949,7 +949,7 @@ export const galleryItems = [
     "title": "Sleek Handleless Gola Profile Kitchen",
     "category": "kitchens",
     "venue": "HSR Layout Sector 2, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/7671236/pexels-photo-7671236.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Aluminum Gola Profiles",
       "Anti-Scratch Ceramic",
@@ -963,7 +963,7 @@ export const galleryItems = [
     "title": "Open-Concept Dining & Show Island",
     "category": "kitchens",
     "venue": "Whitefield Palm Meadows, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/7031879/pexels-photo-7031879.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "10-Seater Solid Dining",
       "Waterfall Counter",
@@ -977,7 +977,7 @@ export const galleryItems = [
     "title": "Smart Connected Tech Kitchen",
     "category": "kitchens",
     "venue": "Gachibowli Financial District, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/7214158/pexels-photo-7214158.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "App-Controlled Ovens",
       "Motorized Shelf Lifts",
@@ -988,17 +988,17 @@ export const galleryItems = [
   },
   {
     "id": 69,
-    "title": "Minimalist Linear Galley Kitchen",
+    "title": "Neoclassical Crystal Chandelier Showroom Kitchen",
     "category": "kitchens",
     "venue": "Malleshwaram, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1533619239233-6280475a633a?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/7535015/pexels-photo-7535015.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Anti-Fingerprint Matte Laminate",
       "Integrated Chimney",
       "Corner Magic Units"
     ],
     "stats": "Space-Engineered Efficiency",
-    "description": "Precision space engineering with Blum Space Tower pantry, concealed high-suction Indian cooking chimney, and anti-glare profile illumination."
+    "description": "Bespoke luxury neoclassical paneled kitchen finished in satin pearl lacquer, vaulted moldings, and statement crystal lighting."
   },
   {
     "id": 70,
@@ -1047,7 +1047,7 @@ export const galleryItems = [
     "title": "Contemporary Warm Greige Master Retreat",
     "category": "bedrooms",
     "venue": "DLF The Camellias, Gurugram",
-    "image": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Textured Linen Wallpaper",
       "Ribbed Headboard",
@@ -1061,7 +1061,7 @@ export const galleryItems = [
     "title": "French Neoclassical Master Bedroom",
     "category": "bedrooms",
     "venue": "Sadashivanagar, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Molded Wall Wainscoting",
       "Tufted Velvet Headboard",
@@ -1075,7 +1075,7 @@ export const galleryItems = [
     "title": "Contemporary Loft Master Bedroom",
     "category": "bedrooms",
     "venue": "Indiranagar, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Blackened Steel Glass Partition",
       "Engineered Oak",
@@ -1089,7 +1089,7 @@ export const galleryItems = [
     "title": "Dark Obsidian Luxury Master Suite",
     "category": "bedrooms",
     "venue": "Jubilee Hills, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1560185008-b033106af5c3?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Charcoal Fluted Panels",
       "Bronze Mirror Accents",
@@ -1103,7 +1103,7 @@ export const galleryItems = [
     "title": "Scandinavian Light Pine Master Bedroom",
     "category": "bedrooms",
     "venue": "Koramangala 4th Block, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/7587809/pexels-photo-7587809.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Solid Pine Elements",
       "Neutral Wool Carpet",
@@ -1117,7 +1117,7 @@ export const galleryItems = [
     "title": "Double-Height Master Loft Bedroom",
     "category": "bedrooms",
     "venue": "Assagao, North Goa",
-    "image": "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/39829559/pexels-photo-39829559/free-photo-of-modern-bedroom-with-elegant-chandelier-and-wardrobe.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Double Height Ceiling",
       "Mezzanine Study",
@@ -1201,7 +1201,7 @@ export const galleryItems = [
     "title": "Boutique Walk-In Wardrobe & Dressing Suite",
     "category": "closets",
     "venue": "Sadashivanagar, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1781473377372-8690a514c152?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Smoked Glass Profiles",
       "Velvet Lined Drawers",
@@ -1215,7 +1215,7 @@ export const galleryItems = [
     "title": "Italian Smoked Glass Master Wardrobe",
     "category": "closets",
     "venue": "Kingfisher Towers, Lavelle Road, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1558882224-dda166733046?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/30465909/pexels-photo-30465909/free-photo-of-luxury-modern-walk-in-wardrobe-design.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Ultra-Clear Fluted Glass",
       "Champagne Gold Profiles",
@@ -1243,7 +1243,7 @@ export const galleryItems = [
     "title": "Illuminated Center Island Dressing Room",
     "category": "closets",
     "venue": "DLF The Camellias, Gurugram",
-    "image": "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1774301211236-dab64d553241?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Calacatta Marble Island",
       "Glass-Top Accessory Tray",
@@ -1271,7 +1271,7 @@ export const galleryItems = [
     "title": "Open-Concept Boutique Display Wardrobe",
     "category": "closets",
     "venue": "Indiranagar, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/3315286/pexels-photo-3315286.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Suspended Aluminum Stanchions",
       "Smoked Oak Shelves",
@@ -1285,7 +1285,7 @@ export const galleryItems = [
     "title": "Classic Mirrored Dressing Salon",
     "category": "closets",
     "venue": "Vasant Vihar, New Delhi",
-    "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/7587738/pexels-photo-7587738.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Antiqued Mirrored Doors",
       "Brass Cremone Bolts",
@@ -1299,7 +1299,7 @@ export const galleryItems = [
     "title": "Scandinavian Natural Birch Walk-In",
     "category": "closets",
     "venue": "Koramangala 3rd Block, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/32331030/pexels-photo-32331030/free-photo-of-modern-minimalist-bedroom-wardrobe-design.png?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Birch Plywood Joinery",
       "Canvas Storage Bins",
@@ -1313,7 +1313,7 @@ export const galleryItems = [
     "title": "His & Hers Dual Walk-In Wardrobe Wing",
     "category": "closets",
     "venue": "Banjara Hills, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/8135001/pexels-photo-8135001.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Dual Symmetrical Wings",
       "Separate Vanity Stations",
@@ -1327,7 +1327,7 @@ export const galleryItems = [
     "title": "Modern Crittall Glass Partition Wardrobe",
     "category": "closets",
     "venue": "Bandra Pali Hill, Mumbai",
-    "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/19878531/pexels-photo-19878531/free-photo-of-oak-wood-wardrobe-with-clothes-and-shoes.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Steel Frame Enclosure",
       "Laminated Acoustic Glass",
@@ -1341,7 +1341,7 @@ export const galleryItems = [
     "title": "Dark Bronze Luxury Dressing Gallery",
     "category": "closets",
     "venue": "Prestige Golfshire, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/29066691/pexels-photo-29066691.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Bronze Mesh Doors",
       "Saddle Stitch Leather",
@@ -1355,7 +1355,7 @@ export const galleryItems = [
     "title": "Compact Luxury Master Wardrobe Solution",
     "category": "closets",
     "venue": "HSR Layout Sector 1, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1585543805890-6051f7829f98?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://plus.unsplash.com/premium_photo-1664202526793-fca03a9cab29?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Bi-Folding Pocket Doors",
       "Pull-Out Full Length Mirror",
@@ -1411,7 +1411,7 @@ export const galleryItems = [
     "title": "Panoramic Ocean View Soaking Bathroom",
     "category": "bathrooms",
     "venue": "Worli Sea Face Level 42, Mumbai",
-    "image": "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1000&auto=format&fit=crop&q=80",
     "tags": [
       "Curved Free-Standing Tub",
       "Full Height Glazing",
@@ -1425,7 +1425,7 @@ export const galleryItems = [
     "title": "Black Marquina & Brass Luxury En-Suite",
     "category": "bathrooms",
     "venue": "Jubilee Hills, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1773177930136-afe2bac0090a?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Spanish Nero Marquina",
       "Brushed Gold Tapware",
@@ -1439,7 +1439,7 @@ export const galleryItems = [
     "title": "Double Vanity Travertine Master En-Suite",
     "category": "bathrooms",
     "venue": "DLF The Camellias, Gurugram",
-    "image": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1771929662486-f793e08f0f16?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Honed Roman Travertine",
       "Integrated Sinks",
@@ -1453,7 +1453,7 @@ export const galleryItems = [
     "title": "Walk-In Tropical Rain Sanctuary",
     "category": "bathrooms",
     "venue": "Assagao, North Goa",
-    "image": "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1792541967082-73a7320d9b45?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Dual Ceiling Rainheads",
       "Living Green Wall",
@@ -1467,7 +1467,7 @@ export const galleryItems = [
     "title": "French Classical Marble Bathroom",
     "category": "bathrooms",
     "venue": "Sadashivanagar, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/31525748/pexels-photo-31525748/free-photo-of-luxurious-marble-bathroom-with-modern-fixtures.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Carrara Marble Subway",
       "Cast Iron Clawfoot Tub",
@@ -1481,7 +1481,7 @@ export const galleryItems = [
     "title": "Scandinavian Minimalist En-Suite",
     "category": "bathrooms",
     "venue": "Koramangala, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/6238612/pexels-photo-6238612.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Oak Vanity Cabinet",
       "Terrazzo Floor Tiles",
@@ -1495,7 +1495,7 @@ export const galleryItems = [
     "title": "Industrial Raw Concrete Powder Room",
     "category": "bathrooms",
     "venue": "Bandra West, Mumbai",
-    "image": "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/7045908/pexels-photo-7045908.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Cast Concrete Washbasin",
       "Exposed Copper Piping",
@@ -1509,7 +1509,7 @@ export const galleryItems = [
     "title": "Dual Walk-Through Steam Shower En-Suite",
     "category": "bathrooms",
     "venue": "Banjara Hills, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1602088113235-229c19758e9f?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1753605788101-04d1e653e74a?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Integrated Steam Generator",
       "Aromatherapy Mist",
@@ -1523,7 +1523,7 @@ export const galleryItems = [
     "title": "Art Deco Geometric Tile Bathroom",
     "category": "bathrooms",
     "venue": "Poes Garden, Chennai",
-    "image": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1763485956354-f8c29a91b31f?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Monochrome Mosaic Tiles",
       "Brass Inlay Trim",
@@ -1537,7 +1537,7 @@ export const galleryItems = [
     "title": "Warm Terracotta Sunken Bath Spa",
     "category": "bathrooms",
     "venue": "Anjuna, Goa",
-    "image": "https://images.unsplash.com/photo-1602391833977-358a52198938?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1701251786408-d0320ecaad8d?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Sunken Soaking Bath",
       "Zellige Moroccan Tiles",
@@ -1551,7 +1551,7 @@ export const galleryItems = [
     "title": "High-Tech Smart Toilet & Vanity En-Suite",
     "category": "bathrooms",
     "venue": "HSR Layout Sector 1, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/27773042/pexels-photo-27773042/free-photo-of-minimalist-private-modern-bathroom.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Toto Neorest Washlet",
       "Touchless Sensor Faucets",
@@ -1621,7 +1621,7 @@ export const galleryItems = [
     "title": "Private Wealth Client Reception Lounge",
     "category": "commercial",
     "venue": "Bandra Kurla Complex (BKC), Mumbai",
-    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/20390772/pexels-photo-20390772/free-photo-of-furniture-in-a-minimalist-conference-room.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Calacatta Reception Desk",
       "Smoked Eucalyptus Millwork",
@@ -1635,7 +1635,7 @@ export const galleryItems = [
     "title": "Fine Dining Restaurant & Bar Fitout",
     "category": "commercial",
     "venue": "Lavelle Road Dining District, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/31071253/pexels-photo-31071253/free-photo-of-modern-restaurant-interior-with-wooden-ceiling-design.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Acoustic Felt Ceilings",
       "Bespoke Leather Booths",
@@ -1660,24 +1660,24 @@ export const galleryItems = [
   },
   {
     "id": 117,
-    "title": "Luxury Watch & Fine Jewellery Boutique",
+    "title": "Flagship Menswear & Luxury Lifestyle Boutique",
     "category": "commercial",
     "venue": "Galleria, The Leela Palace, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Bullet-Resistant Glass Cases",
       "Fiber-Optic Spotlights",
       "Integrated Vault"
     ],
     "stats": "Bank-Grade Security Architecture",
-    "description": "Bespoke retail showroom with fiber-optic pinpoint jewelry illumination, custom velvet showcase trays, and high-security biometric vault."
+    "description": "High-street flagship retail fitout engineered with bespoke blackened steel display tables, perimeter wardrobe niches, and accent track lighting."
   },
   {
     "id": 118,
     "title": "Biophilic Commercial Reception Atrium",
     "category": "commercial",
     "venue": "Mindspace IT Park, Madhapur, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "40-Foot Living Wall",
       "Granite Water Cascade",
@@ -1691,7 +1691,7 @@ export const galleryItems = [
     "title": "Creative Design Agency Studio Office",
     "category": "commercial",
     "venue": "Indiranagar Defense Colony, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/6446313/pexels-photo-6446313.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Polished Concrete Screed",
       "Custom Pinboards",
@@ -1705,7 +1705,7 @@ export const galleryItems = [
     "title": "Artisanal Specialty Coffee Roastery",
     "category": "commercial",
     "venue": "Koramangala 5th Block, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/30948318/pexels-photo-30948318/free-photo-of-cozy-indoor-coffee-shop-interior-with-display.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Terrazzo Service Counter",
       "Fluted Oak Bar",
@@ -1719,7 +1719,7 @@ export const galleryItems = [
     "title": "Luxury Wellness & Aesthetic Clinic",
     "category": "commercial",
     "venue": "Jubilee Hills Road No. 10, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Corinthia_Hotel_Budapest._Foyer_at_H%C3%A1rsfa_Conference_Room.JPG/960px-Corinthia_Hotel_Budapest._Foyer_at_H%C3%A1rsfa_Conference_Room.JPG",
     "tags": [
       "Medical Grade Anti-Bacterial",
       "Curved Corian Reception",
@@ -1728,12 +1728,12 @@ export const galleryItems = [
     "stats": "Sterile Luxury Clinic Fitout",
     "description": "Clinical yet welcoming interior with anti-microbial Corian surfaces, seamless vinyl cove baseboards, and calming indirect ambient illumination."
   },
-{
+  {
     "id": 122,
     "title": "Executive Lecture Theater & Briefing Hall",
     "category": "institutional",
     "venue": "Indian School of Business (ISB), Gachibowli, Hyderabad",
-    "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/36834057/pexels-photo-36834057/free-photo-of-modern-empty-lecture-hall-with-blue-seats.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Acoustic Wall Cladding",
       "Tiered Seating",
@@ -1744,17 +1744,17 @@ export const galleryItems = [
   },
   {
     "id": 123,
-    "title": "Academic Quadrangle & Colonnade Architecture",
+    "title": "Modernist Colonnade Arts & Sciences Academic Block",
     "category": "institutional",
     "venue": "Azim Premji University Campus, Sarjapur Road, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/31056504/pexels-photo-31056504/free-photo-of-university-of-miami-college-of-arts-sciences.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Campus Civil Architecture",
       "Exposed Brickwork",
       "Thermal Massing"
     ],
     "stats": "45,000 Sq. Ft | Handover: 14 Months",
-    "description": "Turnkey exterior civil engineering and structural construction of academic quadrangle wings, natural stone colonnade corridors, and central open-air student amphitheater."
+    "description": "Turnkey university institutional building facade featuring precast concrete brise-soleil grilles, covered colonnade, and expansive daylight glazing."
   },
   {
     "id": 124,
@@ -1856,45 +1856,45 @@ export const galleryItems = [
   },
   {
     "id": 131,
-    "title": "Medical Simulation & Clinical Skills Center",
+    "title": "Engineering Simulation & Technical Laboratory Wing",
     "category": "institutional",
     "venue": "Manipal Academy of Higher Education (MAHE), Manipal, Karnataka",
-    "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/18471523/pexels-photo-18471523/free-photo-of-a-laboratory-with-many-tables-and-chairs.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Seamless Medical Vinyl",
       "Medical Gas Lines",
       "Antimicrobial Surfaces"
     ],
     "stats": "9,500 Sq. Ft | Handover: 5 Months",
-    "description": "Hospital-grade clinical training suites with anti-bacterial seamless cove vinyl flooring, overhead surgical lighting mounts, and concealed medical gas supply points."
+    "description": "Turnkey institutional STEM simulation lab with modular anti-static workbenches, overhead power busbars, LED architectural bay lighting, and ESD epoxy flooring."
   },
   {
     "id": 132,
-    "title": "Student Innovation Incubator & Collaborative Hub",
+    "title": "Acoustic Tiered Auditorium & Seminar Complex",
     "category": "institutional",
     "venue": "Plaksha University Tech Complex, Sector 101A, Mohali, Punjab",
-    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://plus.unsplash.com/premium_photo-1680807988328-7ba28ad24d9f?auto=format&fit=crop&w=1000&q=80",
     "tags": [
       "Agile Pods",
       "Acoustic Felt Baffles",
       "High-Density WiFi Grid"
     ],
     "stats": "11,000 Sq. Ft | Handover: 3.5 Months",
-    "description": "Vibrant startup incubator and student hackathon space with movable writeable glass partitions, tiered bleacher presentation seating, and acoustic suspended ceiling baffles."
+    "description": "High-capacity university seminar and convention auditorium featuring curved oak acoustic baffles, ergonomic tiered seating, and concealed AV booth."
   },
   {
     "id": 133,
-    "title": "Senior Learning Wing & Multimedia Studios",
+    "title": "Atrium Research Library & Mezzanine Study Wing",
     "category": "institutional",
     "venue": "The International School Bangalore (TISB), Dommasandra, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1588072432836-e10032774350?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/3747511/pexels-photo-3747511.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Modular Layouts",
       "Acoustic Tackboards",
       "Natural Daylight Harvesting"
     ],
     "stats": "15,000 Sq. Ft | Handover: 4 Months",
-    "description": "Modern secondary school classroom fitout prioritizing flexible collaborative seating, sound-absorbing pinboard wall cladding, and daylight-responsive automated blinds."
+    "description": "Sunlit double-height academic library fitout with structural steel mezzanine stacks, acoustic reading zones, and custom heritage millwork."
   },
   {
     "id": 134,
@@ -1926,16 +1926,16 @@ export const galleryItems = [
   },
   {
     "id": 136,
-    "title": "Institutional Campus Corridors & Locker Wings",
+    "title": "Multi-Block University Campus Masterplan & Quads",
     "category": "institutional",
     "venue": "Delhi Public School (DPS), Bangalore North, Yelahanka, Bengaluru",
-    "image": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1000&auto=format&fit=crop&q=80",
+    "image": "https://images.pexels.com/photos/33977829/pexels-photo-33977829/free-photo-of-aerial-view-of-kushtia-medical-college-campus.jpeg?auto=compress&cs=tinysrgb&w=1000",
     "tags": [
       "Heavy-Duty Epoxy Terrazzo",
       "Powder-Coated Lockers",
       "NBC Fire Egress"
     ],
     "stats": "18,000 Sq. Ft | Handover: 4 Months",
-    "description": "High-traffic institutional corridor fitout with heavy-duty cast terrazzo flooring, custom recessed steel locker bays, and impact-resistant wall bumper rails complying with NBC egress guidelines."
+    "description": "Large-scale civil construction and exterior architecture for multi-building academic campuses, interconnected landscaped courtyards, and perimeter infrastructure."
   }
 ];

@@ -35,7 +35,7 @@ export default function LandingPage() {
       <Hero />
 
       {/* 2. Quick-Jump Section Navigation Bar */}
-      <div className="sticky top-[81px] z-30 bg-white/90 backdrop-blur-md border-b border-amber-200/70 shadow-soft-sm py-2.5 px-4 no-print">
+      <div className="sticky top-[108px] sm:top-[110px] z-30 bg-white/90 backdrop-blur-md border-b border-amber-200/70 shadow-soft-sm py-2.5 px-4 no-print">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 overflow-x-auto">
           <div className="flex items-center gap-1.5 sm:gap-2 whitespace-nowrap">
             {[
